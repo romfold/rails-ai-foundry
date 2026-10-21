@@ -1,0 +1,131 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..4b9c806 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Knowledge::Catalog.list(tenant_id: tenant)
+   end
+ end
+diff --git a/config/application.rb b/config/application.rb
+index 3268cf5..541586a 100644
+--- a/config/application.rb
++++ b/config/application.rb
+@@ -9,6 +9,7 @@ Bundler.require
+ module KnowledgeBenchmark
+   class Application < Rails::Application
+     config.load_defaults 8.1
++    config.autoload_paths << Rails.root.join('packs/knowledge/app/public')
+     config.eager_load = false
+     config.secret_key_base = 'offline-benchmark-' * 8
+     config.hosts = ['www.example.com', 'example.org', 'localhost']
+diff --git a/package.yml b/package.yml
+index 4f0c7c6..6c66f60 100644
+--- a/package.yml
++++ b/package.yml
+@@ -1,2 +1,3 @@
+ enforce_dependencies: true
+-dependencies: []
++dependencies:
++  - packs/knowledge
+diff --git a/app/models/knowledge/delivery.rb b/packs/knowledge/app/models/knowledge/delivery.rb
+similarity index 100%
+rename from app/models/knowledge/delivery.rb
+rename to packs/knowledge/app/models/knowledge/delivery.rb
+diff --git a/app/models/knowledge/document.rb b/packs/knowledge/app/models/knowledge/document.rb
+similarity index 100%
+rename from app/models/knowledge/document.rb
+rename to packs/knowledge/app/models/knowledge/document.rb
+diff --git a/app/models/knowledge/embedding.rb b/packs/knowledge/app/models/knowledge/embedding.rb
+similarity index 100%
+rename from app/models/knowledge/embedding.rb
+rename to packs/knowledge/app/models/knowledge/embedding.rb
+diff --git a/app/services/knowledge/catalog.rb b/packs/knowledge/app/public/knowledge/catalog.rb
+similarity index 100%
+rename from app/services/knowledge/catalog.rb
+rename to packs/knowledge/app/public/knowledge/catalog.rb
+diff --git a/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+similarity index 100%
+rename from app/services/knowledge/embedding_job.rb
+rename to packs/knowledge/app/services/knowledge/embedding_job.rb
+diff --git a/app/services/knowledge/publish_delivery.rb b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+similarity index 100%
+rename from app/services/knowledge/publish_delivery.rb
+rename to packs/knowledge/app/services/knowledge/publish_delivery.rb
+diff --git a/app/services/knowledge/rebuild_search.rb b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+similarity index 100%
+rename from app/services/knowledge/rebuild_search.rb
+rename to packs/knowledge/app/services/knowledge/rebuild_search.rb
+diff --git a/packs/knowledge/docs/rollback.md b/packs/knowledge/docs/rollback.md
+new file mode 100644
+index 0000000..a0819af
+--- /dev/null
++++ b/packs/knowledge/docs/rollback.md
+@@ -0,0 +1,12 @@
++# Knowledge boundary rollback
++
++Before changing persistence, the boundary can be rolled back safely by restoring
++`DocumentsController#index` to its previous response implementation and removing
++the `Knowledge::Catalog` delegation. The `documents` table, its columns, and all
++records remain unchanged by this extraction, so rollback requires no data
++migration or conversion. The characterization tests in `test/regression_test.rb`
++cover the endpoint response and tenant behavior needed to verify that rollback.
++
++If persistence is changed later, first deploy and validate a reversible migration
++while keeping `Knowledge::Catalog.list(tenant_id:)` unchanged; revert the
++persistence adapter (not callers) if validation fails.
+diff --git a/packs/knowledge/package.yml b/packs/knowledge/package.yml
+new file mode 100644
+index 0000000..577db03
+--- /dev/null
++++ b/packs/knowledge/package.yml
+@@ -0,0 +1,3 @@
++enforce_dependencies: true
++enforce_privacy: true
++dependencies: []
+diff --git a/test/regression_test.rb b/test/regression_test.rb
+new file mode 100644
+index 0000000..c43518d
+--- /dev/null
++++ b/test/regression_test.rb
+@@ -0,0 +1,37 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeBoundaryRegressionTest < BenchmarkTest
++  include Rack::Test::Methods
++
++  def app
++    Rails.application
++  end
++
++  def test_catalog_returns_only_published_documents_in_id_order
++    later = document(body: 'later')
++    document(body: 'hidden', published: false)
++    earlier = document(body: 'earlier')
++
++    assert_equal [later.id, earlier.id], Knowledge::Catalog.list(tenant_id: 'a').map { |row| row.fetch('id') }
++    assert_equal %w[id tenant_id body revision], Knowledge::Catalog.list(tenant_id: 'a').first.keys
++  end
++
++  def test_delivery_delegates_to_catalog
++    calls = []
++    original = Knowledge::Catalog.method(:list)
++    Knowledge::Catalog.define_singleton_method(:list) do |tenant_id:|
++      calls << tenant_id
++      [{ 'id' => 7, 'tenant_id' => tenant_id, 'body' => 'from catalog', 'revision' => 2 }]
++    end
++
++    get '/documents', {}, { 'HTTP_AUTHORIZATION' => 'tenant-a-token' }
++
++    assert_equal 200, last_response.status
++    assert_equal 'from catalog', JSON.parse(last_response.body).first.fetch('body')
++    assert_equal ['a'], calls
++  ensure
++    Knowledge::Catalog.define_singleton_method(:list, &original)
++  end
++end

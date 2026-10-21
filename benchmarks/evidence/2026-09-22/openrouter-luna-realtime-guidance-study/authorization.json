@@ -1,0 +1,8 @@
+{
+  "scope": "Ten serial attempts, one per frozen task/group",
+  "model": "openrouter/openai/gpt-5.6-luna#medium",
+  "stopping_budget_usd": 7,
+  "no_automatic_retries": true,
+  "authorized_by": "User selected repeat all ten trials with a $7 stopping budget",
+  "revision": "545e12f2cbfe6da095808c74ffbd29c5ec26229f"
+}

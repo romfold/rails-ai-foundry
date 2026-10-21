@@ -1,0 +1,13 @@
+diff --git a/app/services/answering/retrieval_tool.rb b/app/services/answering/retrieval_tool.rb
+index 07dac2b..bb5f6d0 100644
+--- a/app/services/answering/retrieval_tool.rb
++++ b/app/services/answering/retrieval_tool.rb
+@@ -8,6 +8,8 @@ module Answering
+     end
+ 
+     def call(query:, tenant_id: nil)
++      raise SecurityError, 'unauthorized retrieval' unless @authorize.call(@tenant_id)
++
+       Knowledge::Catalog.list(tenant_id: tenant_id || @tenant_id).select { |row| row.fetch('body').include?(query) }
+     end
+   end

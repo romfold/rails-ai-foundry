@@ -1,0 +1,137 @@
+{
+  "conditions": {
+    "author": "same controlled reference implementation",
+    "model": "none during measurement",
+    "workflow": "none",
+    "measurement": "Rails persistence/operation microbenchmark",
+    "onboarding": "not measured"
+  },
+  "ruby": "3.4.10",
+  "rails": "8.1.3.1",
+  "lock_sha256": "4cb4d2c8158f5696e2b587763b4f4acf04011a9a91267640e51df91b2ef72f7f",
+  "held_out_passed": true,
+  "trials": 9,
+  "iterations": 200,
+  "samples": [
+    {
+      "subject": "vanilla_rails",
+      "trial": 0,
+      "elapsed_seconds": 0.023090999995474704,
+      "allocations": 29207
+    },
+    {
+      "subject": "foundry_native",
+      "trial": 0,
+      "elapsed_seconds": 0.02194999999483116,
+      "allocations": 29600
+    },
+    {
+      "subject": "foundry_native",
+      "trial": 1,
+      "elapsed_seconds": 0.020711999997729436,
+      "allocations": 29600
+    },
+    {
+      "subject": "vanilla_rails",
+      "trial": 1,
+      "elapsed_seconds": 0.0218719999975292,
+      "allocations": 29200
+    },
+    {
+      "subject": "vanilla_rails",
+      "trial": 2,
+      "elapsed_seconds": 0.021883000001253095,
+      "allocations": 29200
+    },
+    {
+      "subject": "foundry_native",
+      "trial": 2,
+      "elapsed_seconds": 0.024048999999649823,
+      "allocations": 29600
+    },
+    {
+      "subject": "foundry_native",
+      "trial": 3,
+      "elapsed_seconds": 0.02407400000083726,
+      "allocations": 29600
+    },
+    {
+      "subject": "vanilla_rails",
+      "trial": 3,
+      "elapsed_seconds": 0.02250800000183517,
+      "allocations": 29200
+    },
+    {
+      "subject": "vanilla_rails",
+      "trial": 4,
+      "elapsed_seconds": 0.022477999998955056,
+      "allocations": 29200
+    },
+    {
+      "subject": "foundry_native",
+      "trial": 4,
+      "elapsed_seconds": 0.022229000001971144,
+      "allocations": 29600
+    },
+    {
+      "subject": "foundry_native",
+      "trial": 5,
+      "elapsed_seconds": 0.02198800000041956,
+      "allocations": 29600
+    },
+    {
+      "subject": "vanilla_rails",
+      "trial": 5,
+      "elapsed_seconds": 0.021220000002358574,
+      "allocations": 29200
+    },
+    {
+      "subject": "vanilla_rails",
+      "trial": 6,
+      "elapsed_seconds": 0.02264100000320468,
+      "allocations": 29200
+    },
+    {
+      "subject": "foundry_native",
+      "trial": 6,
+      "elapsed_seconds": 0.021683999999368098,
+      "allocations": 29600
+    },
+    {
+      "subject": "foundry_native",
+      "trial": 7,
+      "elapsed_seconds": 0.02120200000354089,
+      "allocations": 29600
+    },
+    {
+      "subject": "vanilla_rails",
+      "trial": 7,
+      "elapsed_seconds": 0.020733000004838686,
+      "allocations": 29200
+    },
+    {
+      "subject": "vanilla_rails",
+      "trial": 8,
+      "elapsed_seconds": 0.021357000005082227,
+      "allocations": 29200
+    },
+    {
+      "subject": "foundry_native",
+      "trial": 8,
+      "elapsed_seconds": 0.02156200000172248,
+      "allocations": 29600
+    }
+  ],
+  "summary": {
+    "vanilla_rails": {
+      "median_seconds": 0.021883000001253095,
+      "min_seconds": 0.020733000004838686,
+      "max_seconds": 0.023090999995474704
+    },
+    "foundry_native": {
+      "median_seconds": 0.02194999999483116,
+      "min_seconds": 0.020711999997729436,
+      "max_seconds": 0.02407400000083726
+    }
+  }
+}

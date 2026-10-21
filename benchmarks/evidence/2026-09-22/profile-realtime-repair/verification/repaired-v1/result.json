@@ -1,0 +1,11 @@
+{
+  "task": "ft-comment-reaction-live-echo",
+  "status": "failed",
+  "reward": 0.0,
+  "patch_sha256": "5cda4f6720ad8d1b1348bc9f36a3f2b685be9fcf5b341ab425899a676f46ebf3",
+  "foundry": null,
+  "verification_phase": "task",
+  "baseline_exit_code": 0,
+  "verification_status": "failed",
+  "protocol_violations": []
+}

@@ -1,0 +1,19 @@
+{
+  "upstream_task_files_identical": true,
+  "agent_entrypoint_identical": true,
+  "dependencies_identical": true,
+  "changed_installed_files": [
+    ".agents/skills/foundry-add-package/references/behavioral-recovery.md",
+    ".agents/skills/foundry-add-feature/SKILL.md",
+    ".agents/skills/foundry-add-feature/references/behavioral-recovery.md",
+    ".agents/skills/foundry-architecture-review/references/behavioral-recovery.md",
+    ".agents/skills/foundry-verify/SKILL.md",
+    ".agents/skills/foundry-verify/references/behavioral-recovery.md",
+    ".agents/skills/foundry-profile-promotion/references/behavioral-recovery.md",
+    ".agents/skills/foundry-event-workflow/references/behavioral-recovery.md",
+    ".agents/skills/foundry-adopt-existing-app/references/behavioral-recovery.md",
+    ".agents/skills/foundry-plan/references/behavioral-recovery.md"
+  ],
+  "old_revision": "81889926643dc7a67757205da480769af3a9696b",
+  "new_revision": "b545b6d0c483bb63442f5bea40e14e53489e6e2f"
+}

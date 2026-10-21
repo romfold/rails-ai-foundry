@@ -1,0 +1,58 @@
+{
+  "smoke": {
+    "hello-world": {
+      "task_changed": false,
+      "profile_changed": false,
+      "requirements_unchanged": true
+    }
+  },
+  "foundry": {
+    "boundary-extraction-foundry": {
+      "task_changed": true,
+      "profile_changed": false,
+      "requirements_unchanged": true
+    },
+    "boundary-extraction-packs": {
+      "task_changed": false,
+      "profile_changed": false,
+      "requirements_unchanged": true
+    },
+    "boundary-extraction-rails": {
+      "task_changed": false,
+      "profile_changed": false,
+      "requirements_unchanged": true
+    },
+    "stale-embedding-foundry": {
+      "task_changed": true,
+      "profile_changed": false,
+      "requirements_unchanged": true
+    },
+    "stale-embedding-packs": {
+      "task_changed": false,
+      "profile_changed": false,
+      "requirements_unchanged": true
+    },
+    "stale-embedding-rails": {
+      "task_changed": false,
+      "profile_changed": false,
+      "requirements_unchanged": true
+    }
+  },
+  "upstream": {
+    "aj-enqueue-after-commit": {
+      "task_changed": false,
+      "profile_changed": false,
+      "requirements_unchanged": true
+    },
+    "ar-tenant-isolation": {
+      "task_changed": false,
+      "profile_changed": false,
+      "requirements_unchanged": true
+    },
+    "ft-comment-reaction-live-echo": {
+      "task_changed": false,
+      "profile_changed": false,
+      "requirements_unchanged": true
+    }
+  }
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><title>Persistent chat</title><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body><main><h1>Persistent chat</h1><p>Offline demo. Replies and history are stored in PostgreSQL.</p>
+<label>Demo identity <select id="identity"><option>demo-a</option><option>demo-b</option></select></label>
+<button id="new">New conversation</button><p id="status" role="status"></p>
+<form id="chat"><label>Message <input id="question" required maxlength="4000"></label><button>Send</button></form>
+<div id="answer" aria-live="polite"></div><button id="history">Load saved history</button><pre id="saved"></pre></main>
+<script type="module">
+import * as Turbo from '/vendor/turbo.js';
+let chatId;
+const status = document.getElementById('status');
+const headers = () => ({Authorization: `Bearer ${document.getElementById('identity').value}`, 'Content-Type':'application/json'});
+document.getElementById('identity').onchange = () => { chatId = null; status.textContent = 'Create a conversation for this identity.'; };
+document.getElementById('new').onclick = async () => {
+  const result = await fetch('/chats', {method:'POST', headers:headers()});
+  if (!result.ok) return status.textContent = 'Unable to create conversation.';
+  chatId = (await result.json()).id; status.textContent = `Conversation ${chatId}`;
+};
+document.getElementById('chat').onsubmit = async event => {
+  event.preventDefault(); if (!chatId) return status.textContent = 'Create a conversation first.';
+  const result = await fetch(`/chats/${chatId}/reply`, {method:'POST', headers:headers(), body:JSON.stringify({question:document.getElementById('question').value})});
+  if (!result.ok) return status.textContent = 'Reply unavailable.';
+  const reader = result.body.getReader(), decoder = new TextDecoder(); let buffer = '';
+  while (true) {
+    const {value, done} = await reader.read(); if (done) break;
+    buffer += decoder.decode(value, {stream:true});
+    let end; while ((end = buffer.indexOf('</turbo-stream>')) >= 0) {
+      end += '</turbo-stream>'.length; Turbo.renderStreamMessage(buffer.slice(0,end)); buffer = buffer.slice(end);
+    }
+  }
+};
+document.getElementById('history').onclick = async () => {
+  if (!chatId) return;
+  const result = await fetch(`/chats/${chatId}`, {headers:headers()});
+  document.getElementById('saved').textContent = result.ok ? JSON.stringify(await result.json(),null,2) : 'History unavailable.';
+};
+</script></body></html>

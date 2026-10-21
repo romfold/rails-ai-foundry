@@ -1,0 +1,5 @@
+# frozen_string_literal: true
+
+eval_gemfile 'rails_7_1.gemfile'
+gem 'ruby_llm', '1.16.0'
+gem 'webmock', '~> 3.0'

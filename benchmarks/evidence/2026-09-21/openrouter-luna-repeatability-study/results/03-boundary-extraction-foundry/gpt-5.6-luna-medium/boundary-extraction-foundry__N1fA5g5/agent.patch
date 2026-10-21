@@ -1,0 +1,131 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..4b9c806 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Knowledge::Catalog.list(tenant_id: tenant)
+   end
+ end
+diff --git a/docs/knowledge-boundary.md b/docs/knowledge-boundary.md
+new file mode 100644
+index 0000000..5fcaf25
+--- /dev/null
++++ b/docs/knowledge-boundary.md
+@@ -0,0 +1,14 @@
++# Knowledge boundary rollback
++
++The delivery path now depends on `Knowledge::Catalog.list(tenant_id:)`, while
++`Knowledge::Document` and the other persistence-backed services remain private
++to the Knowledge pack. No tables, records, or persistence representation were
++changed as part of this extraction.
++
++If this boundary must be rolled back, restore the delivery implementation to
++render the same four fields from the existing published-document query, remove
++the root dependency on `packs/knowledge`, and move the Knowledge-owned files
++back to their original `app/models/knowledge` and `app/services/knowledge`
++locations. Re-run the characterization and endpoint tests before considering a
++later persistence change. Do not roll back by changing the `documents` table
++or rewriting existing records.
+diff --git a/package.yml b/package.yml
+index 4f0c7c6..6c66f60 100644
+--- a/package.yml
++++ b/package.yml
+@@ -1,2 +1,3 @@
+ enforce_dependencies: true
+-dependencies: []
++dependencies:
++  - packs/knowledge
+diff --git a/app/models/knowledge/delivery.rb b/packs/knowledge/app/models/knowledge/delivery.rb
+similarity index 100%
+rename from app/models/knowledge/delivery.rb
+rename to packs/knowledge/app/models/knowledge/delivery.rb
+diff --git a/app/models/knowledge/document.rb b/packs/knowledge/app/models/knowledge/document.rb
+similarity index 100%
+rename from app/models/knowledge/document.rb
+rename to packs/knowledge/app/models/knowledge/document.rb
+diff --git a/app/models/knowledge/embedding.rb b/packs/knowledge/app/models/knowledge/embedding.rb
+similarity index 100%
+rename from app/models/knowledge/embedding.rb
+rename to packs/knowledge/app/models/knowledge/embedding.rb
+diff --git a/app/services/knowledge/catalog.rb b/packs/knowledge/app/public/knowledge/catalog.rb
+similarity index 100%
+rename from app/services/knowledge/catalog.rb
+rename to packs/knowledge/app/public/knowledge/catalog.rb
+diff --git a/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+similarity index 100%
+rename from app/services/knowledge/embedding_job.rb
+rename to packs/knowledge/app/services/knowledge/embedding_job.rb
+diff --git a/app/services/knowledge/publish_delivery.rb b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+similarity index 100%
+rename from app/services/knowledge/publish_delivery.rb
+rename to packs/knowledge/app/services/knowledge/publish_delivery.rb
+diff --git a/app/services/knowledge/rebuild_search.rb b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+similarity index 100%
+rename from app/services/knowledge/rebuild_search.rb
+rename to packs/knowledge/app/services/knowledge/rebuild_search.rb
+diff --git a/packs/knowledge/foundry.yml b/packs/knowledge/foundry.yml
+new file mode 100644
+index 0000000..62f0d33
+--- /dev/null
++++ b/packs/knowledge/foundry.yml
+@@ -0,0 +1,2 @@
++profile: modular
++namespace: Knowledge
+diff --git a/packs/knowledge/package.yml b/packs/knowledge/package.yml
+new file mode 100644
+index 0000000..47a648b
+--- /dev/null
++++ b/packs/knowledge/package.yml
+@@ -0,0 +1,3 @@
++enforce_dependencies: true
++dependencies: []
++public_path: app/public
+diff --git a/test/knowledge_boundary_test.rb b/test/knowledge_boundary_test.rb
+new file mode 100644
+index 0000000..89af46d
+--- /dev/null
++++ b/test/knowledge_boundary_test.rb
+@@ -0,0 +1,39 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeBoundaryTest < BenchmarkTest
++  include Rack::Test::Methods
++
++  def app
++    Rails.application
++  end
++
++  def test_catalog_returns_only_published_documents_in_id_order
++    first = document(body: 'first')
++    document(body: 'draft', published: false)
++    last = document(body: 'last', revision: 2)
++    document(tenant: 'b', body: 'other tenant')
++
++    assert_equal(
++      [
++        { 'id' => first.id, 'tenant_id' => 'a', 'body' => 'first', 'revision' => 1 },
++        { 'id' => last.id, 'tenant_id' => 'a', 'body' => 'last', 'revision' => 2 }
++      ],
++      Knowledge::Catalog.list(tenant_id: 'a')
++    )
++  end
++
++  def test_document_delivery_uses_catalog_boundary
++    expected = [{ 'id' => 7, 'tenant_id' => 'a', 'body' => 'body', 'revision' => 3 }]
++    Knowledge::Catalog.stub(:list, ->(tenant_id:) {
++      assert_equal 'a', tenant_id
++      expected
++    }) do
++      get '/documents', {}, { 'HTTP_AUTHORIZATION' => 'tenant-a-token' }
++    end
++
++    assert_equal 200, last_response.status
++    assert_equal expected, JSON.parse(last_response.body)
++  end
++end

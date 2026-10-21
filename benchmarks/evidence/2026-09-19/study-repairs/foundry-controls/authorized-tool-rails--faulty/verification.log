@@ -1,0 +1,26 @@
+bundle exec ruby test/visible_test.rb
+Run options: --seed 43322
+
+# Running:
+
+..
+
+Finished in 0.084530s, 23.6604 runs/s, 47.3207 assertions/s.
+2 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -I/tests -report-lemans /tests/acceptance_test.rb
+Run options: --seed 4512
+
+# Running:
+
+..F
+
+Failure:
+AcceptanceTest#test_selected_task [/tests/acceptance_test.rb:91]:
+SecurityError expected but nothing was raised.
+
+bin/rails test /tests/acceptance_test.rb:37
+
+
+
+Finished in 0.077444s, 38.7376 runs/s, 154.9504 assertions/s.
+3 runs, 12 assertions, 1 failures, 0 errors, 0 skips

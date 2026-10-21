@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  host: <%= ENV.fetch('PGHOST', '127.0.0.1') %>
+  port: <%= ENV.fetch('PGPORT', 55543) %>
+  username: postgres
+  password: foundry
+  pool: 8
+  database: <%= ENV.fetch('ADOPTION_DATABASE', 'foundry_adoption_test') %>
+test:
+  <<: *default
+development:
+  <<: *default
+production:
+  <<: *default

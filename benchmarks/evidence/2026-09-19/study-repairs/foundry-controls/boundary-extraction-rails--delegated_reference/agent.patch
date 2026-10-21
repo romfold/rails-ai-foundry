@@ -1,0 +1,25 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..aa698ed 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Delivery::PublishedDocuments.list(tenant_id: tenant)
+   end
+ end
+diff --git a/app/services/delivery/published_documents.rb b/app/services/delivery/published_documents.rb
+new file mode 100644
+index 0000000..49c5049
+--- /dev/null
++++ b/app/services/delivery/published_documents.rb
+@@ -0,0 +1,7 @@
++module Delivery
++  class PublishedDocuments
++    def self.list(tenant_id:)
++      Knowledge::Catalog.list(tenant_id: tenant_id)
++    end
++  end
++end

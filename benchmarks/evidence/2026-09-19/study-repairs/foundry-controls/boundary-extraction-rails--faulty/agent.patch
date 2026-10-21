@@ -1,0 +1,12 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..1f35308 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Knowledge::Catalog.list(tenant_id: params.fetch(:tenant_id, tenant))
+   end
+ end

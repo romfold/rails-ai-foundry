@@ -1,0 +1,5 @@
+{
+  "eligible": false,
+  "error_class": "BenchmarkSuite::Failure",
+  "reason": "Previous attempt not independently verified"
+}

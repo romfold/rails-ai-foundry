@@ -1,0 +1,10 @@
+schema: 1
+kind: domain
+profile: modular
+namespace: Directory
+patterns:
+  events: none
+  cqrs: none
+capabilities:
+  persistence:
+    adapter: postgresql

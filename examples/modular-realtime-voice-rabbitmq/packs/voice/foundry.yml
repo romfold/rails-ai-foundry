@@ -1,0 +1,12 @@
+schema: 1
+kind: domain
+profile: modular
+namespace: Voice
+patterns:
+  events: integration
+  cqrs: queries
+capabilities:
+  persistence:
+    adapter: postgresql
+  messaging:
+    adapter: rabbitmq

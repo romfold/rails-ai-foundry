@@ -1,0 +1,255 @@
+bundle exec ruby bin/rails test
+Run options: --seed 49840
+
+# Running:
+
+E
+
+Error:
+ReviewedRecoveryAcceptanceTest#test_lost_scheduling_is_rediscovered_and_executed_through_persisted_queue_work:
+NotImplementedError: NotImplementedError
+    test/recovery_test.rb:14:in 'block in <class:ReviewedRecoveryAcceptanceTest>'
+
+bin/rails test test/recovery_test.rb:71
+
+E
+
+Error:
+ReviewedRecoveryAcceptanceTest#test_process_death_during_local_transaction_preserves_approved_work_for_replay:
+NotImplementedError: NotImplementedError
+    test/recovery_test.rb:14:in 'block in <class:ReviewedRecoveryAcceptanceTest>'
+
+bin/rails test test/recovery_test.rb:48
+
+E
+
+Error:
+ReviewedRecoveryAcceptanceTest#test_committed_execution_survives_process_death_and_duplicate_queue_acknowledgment:
+NotImplementedError: NotImplementedError
+    test/recovery_test.rb:14:in 'block in <class:ReviewedRecoveryAcceptanceTest>'
+
+bin/rails test test/recovery_test.rb:60
+
+E
+
+Error:
+ReviewedAcceptanceTest#test_foreign_resources_and_injected_identity_cannot_authorize_decisions:
+NotImplementedError: NotImplementedError
+    test/acceptance_test.rb:14:in 'ReviewedAcceptanceTest#submit'
+    test/acceptance_test.rb:51:in 'block in <class:ReviewedAcceptanceTest>'
+
+bin/rails test test/acceptance_test.rb:50
+
+E
+
+Error:
+ReviewedAcceptanceTest#test_HTTP_identity_and_approval_bind_one_durable_local_result:
+NotImplementedError: NotImplementedError
+    test/acceptance_test.rb:14:in 'ReviewedAcceptanceTest#submit'
+    test/acceptance_test.rb:33:in 'block in <class:ReviewedAcceptanceTest>'
+
+bin/rails test test/acceptance_test.rb:32
+
+E
+
+Error:
+ReviewedAcceptanceTest#test_request_identity_conflicts_and_cancellation_preserve_decisions:
+NotImplementedError: NotImplementedError
+    test/acceptance_test.rb:14:in 'ReviewedAcceptanceTest#submit'
+    test/acceptance_test.rb:76:in 'block in <class:ReviewedAcceptanceTest>'
+
+bin/rails test test/acceptance_test.rb:75
+
+E
+
+Error:
+ReviewedAcceptanceTest#test_self_approval_works_only_for_a_currently_authorized_editor_and_source_revision:
+NotImplementedError: NotImplementedError
+    test/acceptance_test.rb:14:in 'ReviewedAcceptanceTest#submit'
+    test/acceptance_test.rb:65:in 'block in <class:ReviewedAcceptanceTest>'
+
+bin/rails test test/acceptance_test.rb:64
+
+E
+
+Error:
+ReviewedAcceptanceTest#test_expired_ownership_cannot_persist_old_provider_output:
+NotImplementedError: NotImplementedError
+    test/acceptance_test.rb:14:in 'ReviewedAcceptanceTest#submit'
+    test/acceptance_test.rb:100:in 'block in <class:ReviewedAcceptanceTest>'
+
+bin/rails test test/acceptance_test.rb:99
+
+E
+
+Error:
+ReviewedAcceptanceTest#test_revoked_approver_and_modified_digest_cannot_execute:
+NotImplementedError: NotImplementedError
+    test/acceptance_test.rb:14:in 'ReviewedAcceptanceTest#submit'
+    test/acceptance_test.rb:111:in 'block in <class:ReviewedAcceptanceTest>'
+
+bin/rails test test/acceptance_test.rb:110
+
+E
+
+Error:
+ReviewBrowserAcceptanceTest#test_reader_sees_plain_proposal_and_status_refresh_preserves_a_draft:
+NotImplementedError: NotImplementedError
+    test/review_browser_test.rb:19:in 'block in <class:ReviewBrowserAcceptanceTest>'
+
+bin/rails test test/review_browser_test.rb:16
+
+.
+
+Finished in 0.270881s, 40.6083 runs/s, 7.3833 assertions/s.
+11 runs, 2 assertions, 0 failures, 10 errors, 0 skips
+bundle exec ruby bin/rails test test/acceptance_test.rb
+Run options: --seed 26197
+
+# Running:
+
+E
+
+Error:
+ReviewedAcceptanceTest#test_revoked_approver_and_modified_digest_cannot_execute:
+NotImplementedError: NotImplementedError
+    test/acceptance_test.rb:14:in 'ReviewedAcceptanceTest#submit'
+    test/acceptance_test.rb:111:in 'block in <class:ReviewedAcceptanceTest>'
+
+bin/rails test test/acceptance_test.rb:110
+
+E
+
+Error:
+ReviewedAcceptanceTest#test_expired_ownership_cannot_persist_old_provider_output:
+NotImplementedError: NotImplementedError
+    test/acceptance_test.rb:14:in 'ReviewedAcceptanceTest#submit'
+    test/acceptance_test.rb:100:in 'block in <class:ReviewedAcceptanceTest>'
+
+bin/rails test test/acceptance_test.rb:99
+
+E
+
+Error:
+ReviewedAcceptanceTest#test_request_identity_conflicts_and_cancellation_preserve_decisions:
+NotImplementedError: NotImplementedError
+    test/acceptance_test.rb:14:in 'ReviewedAcceptanceTest#submit'
+    test/acceptance_test.rb:76:in 'block in <class:ReviewedAcceptanceTest>'
+
+bin/rails test test/acceptance_test.rb:75
+
+E
+
+Error:
+ReviewedAcceptanceTest#test_HTTP_identity_and_approval_bind_one_durable_local_result:
+NotImplementedError: NotImplementedError
+    test/acceptance_test.rb:14:in 'ReviewedAcceptanceTest#submit'
+    test/acceptance_test.rb:33:in 'block in <class:ReviewedAcceptanceTest>'
+
+bin/rails test test/acceptance_test.rb:32
+
+E
+
+Error:
+ReviewedAcceptanceTest#test_foreign_resources_and_injected_identity_cannot_authorize_decisions:
+NotImplementedError: NotImplementedError
+    test/acceptance_test.rb:14:in 'ReviewedAcceptanceTest#submit'
+    test/acceptance_test.rb:51:in 'block in <class:ReviewedAcceptanceTest>'
+
+bin/rails test test/acceptance_test.rb:50
+
+E
+
+Error:
+ReviewedAcceptanceTest#test_self_approval_works_only_for_a_currently_authorized_editor_and_source_revision:
+NotImplementedError: NotImplementedError
+    test/acceptance_test.rb:14:in 'ReviewedAcceptanceTest#submit'
+    test/acceptance_test.rb:65:in 'block in <class:ReviewedAcceptanceTest>'
+
+bin/rails test test/acceptance_test.rb:64
+
+
+
+Finished in 0.192362s, 31.1911 runs/s, 0.0000 assertions/s.
+6 runs, 0 assertions, 0 failures, 6 errors, 0 skips
+bundle exec ruby bin/rails test test/recovery_test.rb
+Run options: --seed 8218
+
+# Running:
+
+E
+
+Error:
+ReviewedRecoveryAcceptanceTest#test_committed_execution_survives_process_death_and_duplicate_queue_acknowledgment:
+NotImplementedError: NotImplementedError
+    test/recovery_test.rb:14:in 'block in <class:ReviewedRecoveryAcceptanceTest>'
+
+bin/rails test test/recovery_test.rb:60
+
+E
+
+Error:
+ReviewedRecoveryAcceptanceTest#test_process_death_during_local_transaction_preserves_approved_work_for_replay:
+NotImplementedError: NotImplementedError
+    test/recovery_test.rb:14:in 'block in <class:ReviewedRecoveryAcceptanceTest>'
+
+bin/rails test test/recovery_test.rb:48
+
+E
+
+Error:
+ReviewedRecoveryAcceptanceTest#test_lost_scheduling_is_rediscovered_and_executed_through_persisted_queue_work:
+NotImplementedError: NotImplementedError
+    test/recovery_test.rb:14:in 'block in <class:ReviewedRecoveryAcceptanceTest>'
+
+bin/rails test test/recovery_test.rb:71
+
+
+
+Finished in 0.071389s, 42.0232 runs/s, 0.0000 assertions/s.
+3 runs, 0 assertions, 0 failures, 3 errors, 0 skips
+bundle exec ruby bin/rails test test/review_browser_test.rb
+Run options: --seed 43831
+
+# Running:
+
+E
+
+Error:
+ReviewBrowserAcceptanceTest#test_reader_sees_plain_proposal_and_status_refresh_preserves_a_draft:
+NotImplementedError: NotImplementedError
+    test/review_browser_test.rb:19:in 'block in <class:ReviewBrowserAcceptanceTest>'
+
+bin/rails test test/review_browser_test.rb:16
+
+
+
+Finished in 0.071199s, 14.0452 runs/s, 0.0000 assertions/s.
+1 runs, 0 assertions, 0 failures, 1 errors, 0 skips
+📦 Packwerk is running validation...
+
+📦 Finished in 1.24 seconds
+
+Validation successful 🎉
+📦 Packwerk is inspecting 38 files
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+......................................
+📦 Finished in 1.42 seconds
+
+No offenses detected
+No stale violations detected
+Foundry structural assessment: /candidate
+Workflow: none; workload: balanced
+Context configurations validated: 1
+Configuration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.
+Source check: 21 Ruby files; passed.
+Application app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.
+Prompt check: 1 contracts; passed.
+Explicit contract declarations and file existence only; constants, model aliases, template semantics, authorization and evaluation outcomes are not resolved or executed. Only application and configured context app/prompts roots are inspected.
+No files were changed.
+Run owning-context behavioral tests.
+Run foundry check --boundaries in an isolated test environment for upstream Packwerk verification.
+Preserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.

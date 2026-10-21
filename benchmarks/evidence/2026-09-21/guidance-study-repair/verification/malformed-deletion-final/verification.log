@@ -1,0 +1,289 @@
+Running 20 tests in a single process (parallelization threshold is 50)
+Run options: --seed 53567
+
+# Running:
+
+E
+
+Error:
+ReactionRepairTransactionTest#test_committed_creation_and_deletion_publish_on_the_subscribed_card_stream:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+
+bin/rails test /tests/transaction_test.rb:4
+
+E
+
+Error:
+ReactionRepairTransactionTest#test_rolled_back_creation_and_deletion_do_not_broadcast:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+
+bin/rails test /tests/transaction_test.rb:22
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:44853
+2026-09-21 21:06:08 INFO Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging
+
+2026-09-21 21:06:08 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+2026-09-21 21:06:08 WARN Selenium [:selenium_manager] Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event) 
+2026-09-21 21:06:16 +0000 Rack app ("POST /897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions" - (127.0.0.1)): #<ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}>
+[Screenshot Image]: /app/tmp/screenshots/failures_test_a_rejected_submission_preserves_its_draft_and_can_be_corrected.png 
+E
+
+Error:
+VerifierTest#test_a_rejected_submission_preserves_its_draft_and_can_be_corrected:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+    app/controllers/cards/comments/reactions_controller.rb:9:in 'Cards::Comments::ReactionsController#create'
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+
+bin/rails test /tests/realtime_test.rb:42
+
+.2026-09-21 21:06:29 +0000 Rack app ("POST /897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions" - (127.0.0.1)): #<ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}>
+[Screenshot Image]: /app/tmp/screenshots/failures_test_confirming_puts_the_reaction_in_the_strip_and_brings_the_button_back-_empty.png 
+E
+
+Error:
+VerifierTest#test_confirming_puts_the_reaction_in_the_strip_and_brings_the_button_back,_empty:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+    app/controllers/cards/comments/reactions_controller.rb:9:in 'Cards::Comments::ReactionsController#create'
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+
+bin/rails test /tests/verification_test.rb:17
+
+2026-09-21 21:06:45 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+2026-09-21 21:07:02 +0000 Rack app ("POST /897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions" - (127.0.0.1)): #<ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}>
+[Screenshot Image]: /app/tmp/screenshots/failures_test_the_person_reacting_does_not_get_their_reaction_twice.png 
+E
+
+Error:
+VerifierTest#test_the_person_reacting_does_not_get_their_reaction_twice:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+    app/controllers/cards/comments/reactions_controller.rb:9:in 'Cards::Comments::ReactionsController#create'
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+
+bin/rails test /tests/verification_test.rb:55
+
+2026-09-21 21:07:21 +0000 Rack app ("POST /897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions" - (127.0.0.1)): #<ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}>
+[Screenshot Image]: /app/tmp/screenshots/failures_test_a_reaction_reaches_everyone_watching_the_card.png 
+F
+
+Failure:
+VerifierTest#test_a_reaction_reaches_everyone_watching_the_card:
+expected to find text "✨" in "Back to Writebook\nCard number\n1\nWRITEBOOK\nWEB\nThe logo isn't big enough\nChoose a column for this card\nNOT NOW\nMAYBE?\nTRIAGE\nIN PROGRESS\nON HOLD\nREVIEW\nDONE\nADDED 7 DAYS AGO\nBY DAVID\nUPDATED 7 DAYS AGO\nASSIGNED TO JZ AND KEVIN\nEdit\nMark as Done\nMoves to “Not Now” in 83 days if there’s no activity.\nJZ\nSaturday, September 19, 9:06 PM\nI agree.\nConfirm reaction\nCancel\nKevin\nToday, 7:06 PM\nSame, let's do it.\nToday, 8:06 PM\nFull history\n\nPost\nSUBSCRIBERS\n2 people will be notified when someone comments on this.\nDelete this card\nSEARCH\nPINNED\nNOTIFICATIONS"
+
+Error:
+VerifierTest#test_a_reaction_reaches_everyone_watching_the_card:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+    app/controllers/cards/comments/reactions_controller.rb:9:in 'Cards::Comments::ReactionsController#create'
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+
+bin/rails test /tests/verification_test.rb:42
+
+.2026-09-21 21:07:40 +0000 Rack app ("POST /897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions" - (127.0.0.1)): #<ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}>
+[Screenshot Image]: /app/tmp/screenshots/failures_test_a_reaction_shows_in_the_strip_with_who_left_it.png 
+E
+
+Error:
+VerifierTest#test_a_reaction_shows_in_the_strip_with_who_left_it:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+    app/controllers/cards/comments/reactions_controller.rb:9:in 'Cards::Comments::ReactionsController#create'
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+
+bin/rails test /tests/verification_test.rb:11
+
+2026-09-21 21:07:54 +0000 Rack app ("POST /897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions" - (127.0.0.1)): #<ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}>
+[Screenshot Image]: /app/tmp/screenshots/failures_test_broadcast_controls_belong_to_the_viewer_rather_than_the_sender.png 
+E
+
+Error:
+VerifierTest#test_broadcast_controls_belong_to_the_viewer_rather_than_the_sender:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+    app/controllers/cards/comments/reactions_controller.rb:9:in 'Cards::Comments::ReactionsController#create'
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+
+bin/rails test /tests/realtime_test.rb:24
+
+2026-09-21 21:08:01 +0000 Rack app ("POST /897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions" - (127.0.0.1)): #<ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}>
+[Screenshot Image]: /app/tmp/screenshots/failures_test_people_can_take_back_their_own_reaction-_and_only_their_own.png 
+E
+
+Error:
+VerifierTest#test_people_can_take_back_their_own_reaction,_and_only_their_own:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+    app/controllers/cards/comments/reactions_controller.rb:9:in 'Cards::Comments::ReactionsController#create'
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+
+bin/rails test /tests/verification_test.rb:27
+
+2026-09-21 21:08:09 +0000 Rack app ("POST /897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions" - (127.0.0.1)): #<ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}>
+[Screenshot Image]: /app/tmp/screenshots/failures_test_the_rendered_deletion_control_submits_DELETE_to_the_requested_record.png 
+E
+
+Error:
+VerifierTest#test_the_rendered_deletion_control_submits_DELETE_to_the_requested_record:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+    app/controllers/cards/comments/reactions_controller.rb:9:in 'Cards::Comments::ReactionsController#create'
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+
+bin/rails test /tests/realtime_test.rb:8
+
+2026-09-21 21:08:22 +0000 Rack app ("POST /897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions" - (127.0.0.1)): #<ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}>
+[Screenshot Image]: /app/tmp/screenshots/failures_test_someone_else-s_reaction_landing_does_not_wipe_what_this_viewer_is_typing.png 
+F
+
+Failure:
+VerifierTest#test_someone_else's_reaction_landing_does_not_wipe_what_this_viewer_is_typing:
+expected to find text "🔥" in "Back to Writebook\nCard number\n1\nWRITEBOOK\nWEB\nThe logo isn't big enough\nChoose a column for this card\nNOT NOW\nMAYBE?\nTRIAGE\nIN PROGRESS\nON HOLD\nREVIEW\nDONE\nADDED 7 DAYS AGO\nBY DAVID\nUPDATED 7 DAYS AGO\nASSIGNED TO JZ AND KEVIN\nEdit\nMark as Done\nMoves to “Not Now” in 83 days if there’s no activity.\nJZ\nSaturday, September 19, 9:06 PM\nI agree.\nConfirm reaction\nCancel\nKevin\nToday, 7:06 PM\nSame, let's do it.\nToday, 8:06 PM\nFull history\n\nPost\nSUBSCRIBERS\n2 people will be notified when someone comments on this.\nDelete this card\nSEARCH\nPINNED\nNOTIFICATIONS"
+
+Error:
+VerifierTest#test_someone_else's_reaction_landing_does_not_wipe_what_this_viewer_is_typing:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+    app/controllers/cards/comments/reactions_controller.rb:9:in 'Cards::Comments::ReactionsController#create'
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+
+bin/rails test /tests/verification_test.rb:70
+
+2026-09-21 21:08:32 +0000 Rack app ("POST /897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions" - (127.0.0.1)): #<ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}>
+[Screenshot Image]: /app/tmp/screenshots/failures_test_deletion_reaches_another_viewer_without_replacing_their_draft.png 
+E
+
+Error:
+VerifierTest#test_deletion_reaches_another_viewer_without_replacing_their_draft:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+    app/controllers/cards/comments/reactions_controller.rb:9:in 'Cards::Comments::ReactionsController#create'
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+
+bin/rails test /tests/realtime_test.rb:60
+
+E
+
+Error:
+ReactionRepairAuthorizationTest#test_an_inaccessible_card_cannot_receive_or_lose_reactions:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+
+bin/rails test /tests/authorization_test.rb:49
+
+E
+
+Error:
+ReactionRepairAuthorizationTest#test_a_missing_reaction_ID_never_falls_back_to_an_owned_record:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+
+bin/rails test /tests/authorization_test.rb:32
+
+E
+
+Error:
+ReactionRepairAuthorizationTest#test_a_reaction_from_another_comment_is_not_found_and_neither_record_changes:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+
+bin/rails test /tests/authorization_test.rb:20
+
+.E
+
+Error:
+ReactionRepairAuthorizationTest#test_a_forged_ID_never_deletes_the_callers_own_reaction:
+RuntimeError: Neutered Exception ActionView::Template::Error: No route matches {class: "reaction__delete btn btn--circle borderless", method: :delete, title: "Remove reaction"}
+    app/views/cards/comments/_reaction.html.erb:7
+    config/initializers/tenanting/turbo.rb:7:in 'TurboStreamsJobExtensions::ClassMethods#render_format'
+    app/models/reaction.rb:14:in 'block in Reaction#broadcast_creation'
+    app/models/reaction.rb:13:in 'Reaction#broadcast_creation'
+
+bin/rails test /tests/authorization_test.rb:9
+
+.
+
+Finished in 152.223792s, 0.1314 runs/s, 0.4993 assertions/s.
+20 runs, 76 assertions, 2 failures, 14 errors, 0 skips

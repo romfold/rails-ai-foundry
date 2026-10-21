@@ -1,0 +1,16 @@
+schema: 1
+owner: packs/answering
+agent: Answering::ProviderAnswer
+templates:
+  - instructions.txt
+inputs:
+  question: untrusted
+  evidence: untrusted
+output_schema: Answering::AnswerSchema
+tools:
+  - Answering::RetrieveEvidence
+evaluations:
+  - evaluation.yml
+acceptance:
+  - Retrieval enforces current tenant authorization in application code.
+  - Changed evidence or invalid citations fail before returning an answer.

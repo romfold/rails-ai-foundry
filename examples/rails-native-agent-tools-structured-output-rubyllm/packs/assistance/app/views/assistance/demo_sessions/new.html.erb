@@ -1,0 +1,6 @@
+<h2>Choose a demo identity</h2>
+<%= form_with url: demo_login_path do |form| %>
+  <%= form.label :identity, 'Identity' %>
+  <%= form.select :identity, [['Reader', 'reader'], ['Editor', 'editor']] %>
+  <%= form.submit 'Sign in' %>
+<% end %>

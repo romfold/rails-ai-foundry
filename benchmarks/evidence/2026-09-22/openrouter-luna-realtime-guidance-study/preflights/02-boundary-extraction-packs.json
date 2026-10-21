@@ -1,0 +1,62 @@
+{
+  "eligible": true,
+  "attempt": {
+    "id": "02-boundary-extraction-packs",
+    "suite": "foundry",
+    "task": "boundary-extraction-packs",
+    "cost_limit": 0.75
+  },
+  "snapshot": {
+    "account": {
+      "limit": 20,
+      "limit_remaining": 19.57261921,
+      "limit_reset": null,
+      "usage": 0.42738079
+    },
+    "endpoint": {
+      "name": "OpenAI | openai/gpt-5.6-luna-20260709",
+      "model_id": "openai/gpt-5.6-luna",
+      "tag": "openai",
+      "provider_name": "OpenAI",
+      "status": 0,
+      "supported_parameters": [
+        "reasoning",
+        "include_reasoning",
+        "seed",
+        "max_tokens",
+        "response_format",
+        "structured_outputs",
+        "tools",
+        "tool_choice",
+        "reasoning_effort"
+      ],
+      "pricing": {
+        "prompt": "0.0000002",
+        "completion": "0.0000012",
+        "web_search": "0.01",
+        "input_cache_read": "0.00000002",
+        "input_cache_write": "0.00000025",
+        "discount": 0,
+        "overrides": [
+          {
+            "min_prompt_tokens": 272000,
+            "prompt": "0.0000004",
+            "completion": "0.0000018",
+            "input_cache_read": "0.00000004",
+            "input_cache_write": "0.0000005"
+          }
+        ]
+      }
+    },
+    "key_fingerprint": "93912b400a84b63496cdb8f63334e93d3daa332b450042d8715ba4d5e6bdcafd",
+    "model": "openai/gpt-5.6-luna",
+    "captured_at": "2026-09-21T21:53:53Z"
+  },
+  "accounting": {
+    "provider_usage_delta": 0.004687920000000012,
+    "reported_cost": 0.009630689999999999,
+    "conservative_spend": 0.009630689999999999
+  },
+  "manifest_sha256": "b2531150d04fe69d5e3f7bdad18f1765b36f6908977597c614eb9275c0364759",
+  "recorded_at": "2026-09-21T21:53:53Z"
+}

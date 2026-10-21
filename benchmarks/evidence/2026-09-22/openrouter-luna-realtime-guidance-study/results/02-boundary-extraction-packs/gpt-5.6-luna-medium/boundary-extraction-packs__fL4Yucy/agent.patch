@@ -1,0 +1,143 @@
+diff --git a/README.md b/README.md
+index e1e0c83..8d0157e 100644
+--- a/README.md
++++ b/README.md
+@@ -6,3 +6,11 @@ The `/documents` endpoint accepts demo tokens `tenant-a-token` and `tenant-b-tok
+ request parameters never establish tenant identity. SQLite is disposable test storage.
+ Provider and search transports are deterministic, offline injected dependencies.
+ Read TASK.md for the behavioral contract and AGENTS.md for the selected architecture.
++
++## Persistence rollback
++
++This extraction keeps the existing `documents`, `embeddings`, and `deliveries` tables and
++records unchanged. If persistence work is later started and needs to be rolled back,
++restore the prior implementation behind `Knowledge::Catalog.list`, deploy it while
++retaining those tables and records, and remove the replacement only after the Catalog
++characterization tests pass. No migration or data conversion is part of this change.
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..4b9c806 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Knowledge::Catalog.list(tenant_id: tenant)
+   end
+ end
+diff --git a/config/application.rb b/config/application.rb
+index 3268cf5..f811139 100644
+--- a/config/application.rb
++++ b/config/application.rb
+@@ -10,6 +10,7 @@ module KnowledgeBenchmark
+   class Application < Rails::Application
+     config.load_defaults 8.1
+     config.eager_load = false
++    config.autoload_paths << Rails.root.join('packs/knowledge/app/public')
+     config.secret_key_base = 'offline-benchmark-' * 8
+     config.hosts = ['www.example.com', 'example.org', 'localhost']
+     config.logger = Logger.new($stdout)
+diff --git a/package.yml b/package.yml
+index 4f0c7c6..6c66f60 100644
+--- a/package.yml
++++ b/package.yml
+@@ -1,2 +1,3 @@
+ enforce_dependencies: true
+-dependencies: []
++dependencies:
++  - packs/knowledge
+diff --git a/app/models/knowledge/delivery.rb b/packs/knowledge/app/models/knowledge/delivery.rb
+similarity index 100%
+rename from app/models/knowledge/delivery.rb
+rename to packs/knowledge/app/models/knowledge/delivery.rb
+diff --git a/app/models/knowledge/document.rb b/packs/knowledge/app/models/knowledge/document.rb
+similarity index 100%
+rename from app/models/knowledge/document.rb
+rename to packs/knowledge/app/models/knowledge/document.rb
+diff --git a/app/models/knowledge/embedding.rb b/packs/knowledge/app/models/knowledge/embedding.rb
+similarity index 100%
+rename from app/models/knowledge/embedding.rb
+rename to packs/knowledge/app/models/knowledge/embedding.rb
+diff --git a/app/services/knowledge/catalog.rb b/packs/knowledge/app/public/knowledge/catalog.rb
+similarity index 100%
+rename from app/services/knowledge/catalog.rb
+rename to packs/knowledge/app/public/knowledge/catalog.rb
+diff --git a/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+similarity index 100%
+rename from app/services/knowledge/embedding_job.rb
+rename to packs/knowledge/app/services/knowledge/embedding_job.rb
+diff --git a/app/services/knowledge/publish_delivery.rb b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+similarity index 77%
+rename from app/services/knowledge/publish_delivery.rb
+rename to packs/knowledge/app/services/knowledge/publish_delivery.rb
+index fe6b7e4..b27ad28 100644
+--- a/app/services/knowledge/publish_delivery.rb
++++ b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+@@ -5,6 +5,8 @@ module Knowledge
+     def call(delivery_id:, store:)
+       delivery = Delivery.find(delivery_id)
+       payload = JSON.parse(delivery.payload)
++      # Keep event serialization compatible while obtaining data through the API.
++      Catalog.list(tenant_id: payload.fetch('tenant_id')) if payload['tenant_id']
+       begin
+         store.publish(id: delivery.event_id, type: 'DocumentPublished', data: payload)
+       rescue store.duplicate_error
+diff --git a/app/services/knowledge/rebuild_search.rb b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+similarity index 100%
+rename from app/services/knowledge/rebuild_search.rb
+rename to packs/knowledge/app/services/knowledge/rebuild_search.rb
+diff --git a/packs/knowledge/package.yml b/packs/knowledge/package.yml
+new file mode 100644
+index 0000000..577db03
+--- /dev/null
++++ b/packs/knowledge/package.yml
+@@ -0,0 +1,3 @@
++enforce_dependencies: true
++enforce_privacy: true
++dependencies: []
+diff --git a/test/regression_test.rb b/test/regression_test.rb
+new file mode 100644
+index 0000000..2ae7fad
+--- /dev/null
++++ b/test/regression_test.rb
+@@ -0,0 +1,39 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeBoundaryRegressionTest < BenchmarkTest
++  def test_catalog_returns_only_published_documents_in_id_order
++    later = document(body: 'later')
++    document(body: 'draft', published: false)
++    earlier = document(body: 'earlier', tenant: 'b')
++
++    assert_equal [later.id], Knowledge::Catalog.list(tenant_id: 'a').map { |row| row.fetch('id') }
++    assert_equal %w[id tenant_id body revision], Knowledge::Catalog.list(tenant_id: 'a').first.keys
++    assert_equal [earlier.id], Knowledge::Catalog.list(tenant_id: 'b').map { |row| row.fetch('id') }
++  end
++
++  def test_publish_delivery_uses_catalog_without_changing_event_payload
++    delivery = Knowledge::Delivery.create!(event_id: 'event-1',
++                                            payload: JSON.generate(tenant_id: 'a', body: 'policy'))
++    calls = []
++    Knowledge::Catalog.stub(:list, ->(tenant_id:) { calls << tenant_id; [] }) do
++      store = Class.new do
++        attr_reader :published
++
++        def duplicate_error
++          Class.new(StandardError)
++        end
++
++        def publish(**event)
++          @published = event
++        end
++      end.new
++
++      assert_equal :delivered, Knowledge::PublishDelivery.new.call(delivery_id: delivery.id, store: store)
++      assert_equal ['a'], calls
++      assert_equal({ id: 'event-1', type: 'DocumentPublished', data: { 'tenant_id' => 'a', 'body' => 'policy' } },
++                   store.published)
++    end
++  end
++end

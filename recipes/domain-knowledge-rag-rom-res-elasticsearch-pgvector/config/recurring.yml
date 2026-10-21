@@ -1,0 +1,7 @@
+development: &recurring
+  deliver_knowledge:
+    class: DeliveryPollJob
+    schedule: every 5 seconds
+production:
+  <<: *recurring
+test: {}

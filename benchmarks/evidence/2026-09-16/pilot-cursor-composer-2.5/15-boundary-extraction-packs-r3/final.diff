@@ -1,0 +1,163 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+deleted file mode 100644
+index 7ea7d35..0000000
+--- a/app/controllers/documents_controller.rb
++++ /dev/null
+@@ -1,10 +0,0 @@
+-# frozen_string_literal: true
+-
+-class DocumentsController < ActionController::Base
+-  def index
+-    tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+-    return head :unauthorized unless tenant
+-
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
+-  end
+-end
+diff --git a/app/models/knowledge/delivery.rb b/app/models/knowledge/delivery.rb
+deleted file mode 100644
+index ff1f11b..0000000
+--- a/app/models/knowledge/delivery.rb
++++ /dev/null
+@@ -1,7 +0,0 @@
+-# frozen_string_literal: true
+-
+-module Knowledge
+-  class Delivery < ActiveRecord::Base
+-    self.table_name = 'deliveries'
+-  end
+-end
+diff --git a/app/models/knowledge/document.rb b/app/models/knowledge/document.rb
+deleted file mode 100644
+index 91a72fb..0000000
+--- a/app/models/knowledge/document.rb
++++ /dev/null
+@@ -1,7 +0,0 @@
+-# frozen_string_literal: true
+-
+-module Knowledge
+-  class Document < ActiveRecord::Base
+-    self.table_name = 'documents'
+-  end
+-end
+diff --git a/app/models/knowledge/embedding.rb b/app/models/knowledge/embedding.rb
+deleted file mode 100644
+index 6e7be1e..0000000
+--- a/app/models/knowledge/embedding.rb
++++ /dev/null
+@@ -1,7 +0,0 @@
+-# frozen_string_literal: true
+-
+-module Knowledge
+-  class Embedding < ActiveRecord::Base
+-    self.table_name = 'embeddings'
+-  end
+-end
+diff --git a/app/services/knowledge/catalog.rb b/app/services/knowledge/catalog.rb
+deleted file mode 100644
+index 0be231a..0000000
+--- a/app/services/knowledge/catalog.rb
++++ /dev/null
+@@ -1,11 +0,0 @@
+-# frozen_string_literal: true
+-
+-module Knowledge
+-  class Catalog
+-    def self.list(tenant_id:)
+-      Document.where(tenant_id: tenant_id, published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
+-    end
+-  end
+-end
+diff --git a/app/services/knowledge/embedding_job.rb b/app/services/knowledge/embedding_job.rb
+deleted file mode 100644
+index aaed639..0000000
+--- a/app/services/knowledge/embedding_job.rb
++++ /dev/null
+@@ -1,20 +0,0 @@
+-# frozen_string_literal: true
+-
+-module Knowledge
+-  class EmbeddingJob
+-    def call(document_id:, tenant_id:, version:, provider:)
+-      snapshot = Document.find_by(id: document_id, tenant_id: tenant_id, published: true)
+-      return :discarded unless snapshot
+-
+-      vector = provider.call(snapshot.body)
+-      Document.transaction do
+-        current = Document.lock.find_by(id: document_id, tenant_id: tenant_id, published: true)
+-        return :discarded unless current && current.revision == snapshot.revision
+-
+-        Embedding.upsert({ document_id: current.id, tenant_id: tenant_id, revision: current.revision,
+-                           version: version, vector: JSON.generate(vector) }, unique_by: %i[document_id version])
+-      end
+-      :stored
+-    end
+-  end
+-end
+diff --git a/app/services/knowledge/publish_delivery.rb b/app/services/knowledge/publish_delivery.rb
+deleted file mode 100644
+index fe6b7e4..0000000
+--- a/app/services/knowledge/publish_delivery.rb
++++ /dev/null
+@@ -1,18 +0,0 @@
+-# frozen_string_literal: true
+-
+-module Knowledge
+-  class PublishDelivery
+-    def call(delivery_id:, store:)
+-      delivery = Delivery.find(delivery_id)
+-      payload = JSON.parse(delivery.payload)
+-      begin
+-        store.publish(id: delivery.event_id, type: 'DocumentPublished', data: payload)
+-      rescue store.duplicate_error
+-        existing = store.read(delivery.event_id)
+-        raise 'conflicting event' unless existing == { type: 'DocumentPublished', data: payload }
+-      end
+-      delivery.update!(delivered: true)
+-      :delivered
+-    end
+-  end
+-end
+diff --git a/app/services/knowledge/rebuild_search.rb b/app/services/knowledge/rebuild_search.rb
+deleted file mode 100644
+index 2917659..0000000
+--- a/app/services/knowledge/rebuild_search.rb
++++ /dev/null
+@@ -1,26 +0,0 @@
+-# frozen_string_literal: true
+-
+-module Knowledge
+-  class RebuildSearch
+-    def call(index:, after_backfill: -> {})
+-      candidate = index.create_candidate
+-      index.replace(candidate, documents)
+-      after_backfill.call
+-      Document.transaction do
+-        index.replace(candidate, documents)
+-        raise 'candidate validation failed' unless index.valid?(candidate, documents)
+-
+-        index.activate(candidate)
+-      end
+-      candidate
+-    end
+-
+-    private
+-
+-    def documents
+-      Document.where(published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
+-    end
+-  end
+-end
+diff --git a/package.yml b/package.yml
+index 4f0c7c6..6c66f60 100644
+--- a/package.yml
++++ b/package.yml
+@@ -1,2 +1,3 @@
+ enforce_dependencies: true
+-dependencies: []
++dependencies:
++  - packs/knowledge

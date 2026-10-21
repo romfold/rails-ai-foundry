@@ -1,0 +1,634 @@
+[
+  {
+    "trial": "01-boundary-extraction-rails-r1",
+    "status": "completed",
+    "seconds": 141.31935145800526,
+    "original_passed": false,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 43,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 306814,
+        "cacheWriteTokens": 0,
+        "inputTokens": 22645,
+        "outputTokens": 10607
+      }
+    ],
+    "skill_reads": [],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby test/visible_test.rb 2>&1",
+      "cd /candidate && git log --oneline -5 && git show HEAD:app/services/knowledge/catalog.rb 2>/dev/null; ls -la app/",
+      "cd /candidate && git ls-tree -r HEAD --name-only",
+      "cd /candidate && bundle exec ruby bin/rails runner 'puts Knowledge::Delivery.name; puts Knowledge.constants.sort'",
+      "cd /candidate && bundle exec ruby test/visible_test.rb && bundle exec ruby test/knowledge_boundary_test.rb",
+      "cd /candidate && bundle exec ruby test/visible_test.rb && bundle exec ruby test/knowledge_boundary_test.rb"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "02-boundary-extraction-packs-r1",
+    "status": "completed",
+    "seconds": 186.31488241699844,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 77,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 663360,
+        "cacheWriteTokens": 0,
+        "inputTokens": 30188,
+        "outputTokens": 12050
+      }
+    ],
+    "skill_reads": [],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby -rstringio -S packwerk validate 2>&1; bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && bundle exec ruby test/visible_test.rb 2>&1",
+      "find /usr/local/bundle/gems/packs-rails-0.1.0 -type f | head -30 && cat /usr/local/bundle/gems/packs-rails-0.1.0/README.md 2>/dev/null | head -80",
+      "cd /candidate && git log --oneline -5 && git show HEAD:app/services/knowledge/ 2>/dev/null; ls -la app/",
+      "cd /candidate && bundle exec ruby bin/rails runner 'puts Knowledge.constants' 2>&1",
+      "cd /candidate && git ls-tree -r HEAD --name-only",
+      "ls -la /candidate/.github 2>/dev/null; ls -la /candidate/bin/",
+      "cd /candidate && bundle exec ruby -e \"require 'packs'; Packs.configure; puts Packs.all.map(&:name)\"",
+      "cd /candidate && bundle exec ruby -rstringio -e \"require 'packwerk'; puts Packwerk::Context.new.load_package('.').name\" 2>&1; ls /usr/local/bundle/gems/packs-0.3.0/exe/",
+      "cd /candidate && bundle exec ruby test/visible_test.rb test/knowledge_catalog_test.rb 2>&1 && bundle exec ruby -rstringio -S packwerk validate 2>&1 && bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && bundle exec ruby -e \"Dir['test/*_test.rb'].each { |f| require_relative f }\" 2>&1",
+      "cd /candidate && bundle exec ruby -e \"Dir['test/*_test.rb'].each { |f| require_relative f }\" 2>&1",
+      "rmdir /candidate/app/models/knowledge 2>/dev/null; rmdir /candidate/app/services/knowledge 2>/dev/null; cd /candidate && bundle exec ruby test/visible_test.rb 2>&1"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "03-boundary-extraction-foundry-r1",
+    "status": "completed",
+    "seconds": 191.0471882089987,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 79,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 1152905,
+        "cacheWriteTokens": 0,
+        "inputTokens": 51400,
+        "outputTokens": 7910
+      }
+    ],
+    "skill_reads": [
+      ".agents/skills/foundry-add-package/SKILL.md",
+      ".agents/skills/foundry-add-package/references/packs.md",
+      ".agents/skills/foundry-adopt-existing-app/references/adoption-checkpoints.md",
+      ".agents/skills/foundry-add-feature/references/native-conventions.md"
+    ],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby -rstringio -S packwerk validate 2>&1; bundle exec ruby -rstringio -S packwerk check 2>&1; bundle exec rails test 2>&1",
+      "cd /candidate && bundle exec foundry check --sources 2>&1; bundle exec foundry check --boundaries 2>&1",
+      "cd /candidate && bundle exec packs help create 2>&1 | head -40",
+      "cd /candidate && git log --oneline -5 && git show HEAD:app/controllers/documents_controller.rb 2>/dev/null | head -15",
+      "cd /candidate && git ls-tree -r HEAD --name-only | sort",
+      "cd /candidate && bundle exec rails generate 2>&1 | grep -i delivery",
+      "cd /candidate && bundle exec packs create packs/knowledge --enforce-dependencies --enforce-privacy --no-enforce-layers 2>&1",
+      "cd /candidate && bundle exec packs move packs/knowledge app/models/knowledge/document.rb && bundle exec packs move packs/knowledge app/models/knowledge/delivery.rb && bundle exec packs move packs/knowledge app/models/knowledge/embedding.rb && bundle exec packs move packs/knowledge app/services/knowledge/embedding_job.rb && bundle exec packs move packs/knowledge app/services/knowledge/publish_delivery.rb && bundle exec packs move packs/knowledge app/services/knowledge/rebuild_search.rb && bundle exec packs move packs/knowledge app/services/knowledge/catalog.rb 2>&1",
+      "cd /candidate && bundle exec packs make_public packs/knowledge/app/services/knowledge/catalog.rb 2>&1 && bundle exec packs add_dependency . packs/knowledge 2>&1",
+      "cd /candidate && RAILS_ENV=test bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && bundle exec ruby -rstringio -S packwerk validate && bundle exec ruby -rstringio -S packwerk check && bundle exec rails test && bundle exec foundry check --sources && bundle exec foundry check --boundaries",
+      "cd /candidate && bundle exec rails test packs/knowledge/test 2>&1",
+      "cd /candidate && bundle exec rails test && bundle exec rails test packs/knowledge/test && bundle exec ruby test/visible_test.rb",
+      "cd /candidate && bundle exec rails test packs/knowledge/test && bundle exec ruby test/visible_test.rb",
+      "cd /candidate && bundle exec ruby -rstringio -S packwerk validate && bundle exec ruby -rstringio -S packwerk check"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "04-stale-embedding-rails-r1",
+    "status": "completed",
+    "seconds": 67.63195100000303,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 16,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 94323,
+        "cacheWriteTokens": 0,
+        "inputTokens": 10146,
+        "outputTokens": 2803
+      }
+    ],
+    "skill_reads": [],
+    "shell_commands": [
+      "cd /candidate && ruby -Itest test/visible_test.rb test/embedding_job_test.rb 2>&1",
+      "cd /candidate && ruby -Itest test/embedding_job_test.rb 2>&1 && ruby -Itest test/visible_test.rb 2>&1"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "05-stale-embedding-packs-r1",
+    "status": "completed",
+    "seconds": 82.07860391699796,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 19,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 116688,
+        "cacheWriteTokens": 0,
+        "inputTokens": 12976,
+        "outputTokens": 5207
+      }
+    ],
+    "skill_reads": [],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby -Itest test/visible_test.rb test/embedding_job_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby -rstringio -S packwerk validate && bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && bundle exec ruby -Itest -e \"Dir['test/**/*_test.rb'].each { |f| require_relative f }\" 2>&1"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "06-stale-embedding-foundry-r1",
+    "status": "completed",
+    "seconds": 97.87889929200173,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 28,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 151707,
+        "cacheWriteTokens": 0,
+        "inputTokens": 13761,
+        "outputTokens": 4338
+      }
+    ],
+    "skill_reads": [
+      ".agents/skills/foundry-add-feature/SKILL.md"
+    ],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby -Itest test/visible_test.rb test/embedding_job_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby -rstringio -S packwerk validate && bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && bundle exec foundry check --sources 2>&1",
+      "cd /candidate && bundle exec ruby -Itest test/embedding_job_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby -Itest -e \"Dir['test/*_test.rb'].each { |f| require f }\" 2>&1",
+      "cd /candidate && bundle exec foundry check --boundaries 2>&1"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "07-boundary-extraction-packs-r2",
+    "status": "completed",
+    "seconds": 111.66610316600418,
+    "original_passed": false,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 68,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 458656,
+        "cacheWriteTokens": 0,
+        "inputTokens": 19668,
+        "outputTokens": 7872
+      }
+    ],
+    "skill_reads": [],
+    "shell_commands": [
+      "bundle show packs-rails packwerk 2>/dev/null | head -5; ls $(bundle show packs-rails 2>/dev/null)/lib 2>/dev/null | head -20",
+      "bundle show packs-rails && bundle show packs",
+      "git log --oneline -5 && git show HEAD:app/services/knowledge/ 2>/dev/null; find /candidate -name '*.rb' | sort",
+      "bundle exec ruby -rstringio -S packwerk validate 2>&1; bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "bundle exec ruby test/visible_test.rb 2>&1 && bundle exec ruby test/knowledge_catalog_test.rb 2>&1 && bundle exec ruby test/delivery_published_documents_test.rb 2>&1 && bundle exec ruby -rstringio -S packwerk validate 2>&1 && bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "bundle exec ruby test/knowledge_catalog_test.rb 2>&1 && bundle exec ruby test/delivery_published_documents_test.rb 2>&1 && bundle exec ruby -rstringio -S packwerk validate 2>&1 && bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "bundle exec ruby test/visible_test.rb 2>&1"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "08-boundary-extraction-foundry-r2",
+    "status": "completed",
+    "seconds": 103.15139754199481,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 65,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 611816,
+        "cacheWriteTokens": 0,
+        "inputTokens": 31760,
+        "outputTokens": 5858
+      }
+    ],
+    "skill_reads": [
+      ".agents/skills/foundry-add-feature/SKILL.md",
+      ".agents/skills/foundry-add-feature/references/packs.md",
+      ".agents/skills/foundry-add-feature/references/native-conventions.md",
+      ".agents/skills/foundry-add-feature/references/adoption-checkpoints.md"
+    ],
+    "shell_commands": [
+      "cd /candidate && bundle exec packs help create 2>&1 | head -30",
+      "cd /candidate && bundle exec foundry check --sources 2>&1",
+      "cd /candidate && bundle exec packs create packs/knowledge --enforce-dependencies --enforce-privacy --no-enforce-layers 2>&1",
+      "cd /candidate && ls bin/ 2>/dev/null; bundle exec packs move packs/knowledge app/models/knowledge 2>&1",
+      "cd /candidate && bundle exec packs move packs/knowledge app/services/knowledge 2>&1",
+      "cd /candidate && bundle exec packs make_public packs/knowledge/app/services/knowledge/catalog.rb 2>&1",
+      "cd /candidate && bundle exec packs add_dependency . packs/knowledge 2>&1",
+      "cd /candidate && bundle binstubs packwerk 2>&1; bundle exec ruby -rstringio -S packwerk validate 2>&1; bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && bin/rails test test/visible_test.rb 2>&1",
+      "cd /candidate && bundle exec foundry check --sources 2>&1",
+      "cd /candidate && RAILS_ENV=test bundle exec foundry check --boundaries 2>&1; bin/rails zeitwerk:check 2>&1",
+      "cd /candidate && bin/rails test test/knowledge_catalog_test.rb test/visible_test.rb 2>&1",
+      "cd /candidate && bin/rails test 2>&1",
+      "cd /candidate && bin/rails test 2>&1",
+      "cd /candidate && bin/rails test 2>&1"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "09-boundary-extraction-rails-r2",
+    "status": "completed",
+    "seconds": 94.00794637499348,
+    "original_passed": false,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 41,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 228064,
+        "cacheWriteTokens": 0,
+        "inputTokens": 17858,
+        "outputTokens": 9558
+      }
+    ],
+    "skill_reads": [],
+    "shell_commands": [
+      "cd /candidate && git log --oneline -5 && git show HEAD --stat",
+      "cd /candidate && bundle exec ruby test/visible_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby test/visible_test.rb && bundle exec ruby test/knowledge_boundary_test.rb",
+      "cd /candidate && for f in test/*_test.rb; do echo \"=== $f ===\"; bundle exec ruby \"$f\" || exit 1; done",
+      "cd /candidate && bundle exec ruby bin/rails runner 'puts Knowledge::Delivery.name; puts Knowledge::PublishDelivery.new.method(:call).parameters.inspect'"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "10-stale-embedding-packs-r2",
+    "status": "completed",
+    "seconds": 61.51373754099768,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 20,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 125675,
+        "cacheWriteTokens": 0,
+        "inputTokens": 11417,
+        "outputTokens": 3611
+      }
+    ],
+    "skill_reads": [],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby -Itest test/embedding_job_test.rb test/visible_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby -rstringio -S packwerk validate && bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && bundle exec ruby -Itest test/visible_test.rb test/embedding_job_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby -Itest -e \"Dir['test/*_test.rb'].each { |f| require_relative f.sub('test/', '') }\" 2>&1 || bundle exec ruby -Itest test/*_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby -Itest test/visible_test.rb && bundle exec ruby -Itest test/embedding_job_test.rb"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "11-stale-embedding-foundry-r2",
+    "status": "completed",
+    "seconds": 57.80668445900665,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 26,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 137856,
+        "cacheWriteTokens": 0,
+        "inputTokens": 11133,
+        "outputTokens": 4601
+      }
+    ],
+    "skill_reads": [
+      ".agents/skills/foundry-add-feature/SKILL.md"
+    ],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby -Itest test/visible_test.rb test/embedding_job_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby -rstringio -S packwerk validate && bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && bundle exec foundry check --sources 2>&1",
+      "cd /candidate && bundle exec ruby -Itest test/embedding_job_test.rb 2>&1",
+      "cd /candidate && bundle exec foundry check --boundaries 2>&1",
+      "cd /candidate && bundle exec ruby -Itest test/visible_test.rb 2>&1 && bundle exec ruby -Itest test/embedding_job_test.rb 2>&1"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "12-stale-embedding-rails-r2",
+    "status": "completed",
+    "seconds": 53.56848862500192,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 16,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 74478,
+        "cacheWriteTokens": 0,
+        "inputTokens": 11507,
+        "outputTokens": 3738
+      }
+    ],
+    "skill_reads": [],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby test/visible_test.rb && bundle exec ruby test/embedding_job_test.rb"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "13-boundary-extraction-foundry-r3",
+    "status": "completed",
+    "seconds": 139.80993654099439,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 72,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 814835,
+        "cacheWriteTokens": 0,
+        "inputTokens": 37333,
+        "outputTokens": 7170
+      }
+    ],
+    "skill_reads": [
+      ".agents/skills/foundry-add-package/SKILL.md",
+      ".agents/skills/foundry-add-package/references/packs.md"
+    ],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby test/visible_test.rb 2>&1; bundle exec ruby -rstringio -S packwerk validate 2>&1; bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && bundle exec foundry check --sources 2>&1; bundle exec packs help create 2>&1 | head -40",
+      "cd /candidate && bundle exec packs create packs/knowledge --enforce-dependencies --enforce-privacy --no-enforce-layers 2>&1",
+      "cd /candidate && bundle exec packs add_dependency . packs/knowledge 2>&1",
+      "cd /candidate && bundle exec packs move packs/knowledge app/models/knowledge 2>&1",
+      "cd /candidate && bundle exec packs move packs/knowledge app/services/knowledge 2>&1",
+      "cd /candidate && bundle exec packs make_public packs/knowledge/app/services/knowledge/catalog.rb 2>&1",
+      "cd /candidate && bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && bundle exec ruby test/visible_test.rb 2>&1",
+      "cd /candidate && bundle exec foundry check --boundaries 2>&1",
+      "cd /candidate && bundle exec rails generate foundry:context knowledge --profile=modular --pretend 2>&1 | head -30",
+      "cd /candidate && bundle exec ruby test/visible_test.rb 2>&1 && bundle exec ruby test/knowledge_catalog_test.rb 2>&1 && bundle exec ruby -rstringio -S packwerk validate 2>&1 && bundle exec ruby -rstringio -S packwerk check 2>&1 && bundle exec foundry check --sources 2>&1 && bundle exec foundry check --boundaries 2>&1",
+      "cd /candidate && bundle exec ruby test/knowledge_catalog_test.rb 2>&1 && bundle exec ruby -rstringio -S packwerk check 2>&1 && bundle exec foundry check --boundaries 2>&1 && bundle exec foundry check --sources 2>&1",
+      "cd /candidate && bundle exec ruby test/knowledge_catalog_test.rb 2>&1 && bundle exec ruby test/visible_test.rb 2>&1 && bundle exec ruby -rstringio -S packwerk validate 2>&1 && bundle exec ruby -rstringio -S packwerk check 2>&1 && bundle exec foundry check --boundaries 2>&1 && bundle exec foundry check --sources 2>&1",
+      "cd /candidate && bundle exec ruby test/knowledge_catalog_test.rb 2>&1 && bundle exec ruby test/visible_test.rb 2>&1 && bundle exec ruby -rstringio -S packwerk check 2>&1 && bundle exec foundry check --boundaries 2>&1 && bundle exec foundry check --sources 2>&1"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "14-boundary-extraction-rails-r3",
+    "status": "completed",
+    "seconds": 132.95785500000056,
+    "original_passed": false,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 46,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 280472,
+        "cacheWriteTokens": 0,
+        "inputTokens": 40009,
+        "outputTokens": 9635
+      }
+    ],
+    "skill_reads": [],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby test/visible_test.rb 2>&1",
+      "cd /candidate && git log --oneline -5 && git show HEAD --stat 2>&1 | head -40",
+      "cd /candidate && bundle exec ruby -e \"require './config/environment'; puts Dir['app/**/*.rb'].sort\"",
+      "cd /candidate && bundle exec ruby -e \"require './config/environment'; p Rails.application.config.autoload_paths.grep(/app/)\"",
+      "cd /candidate && bundle exec ruby -e \"require './config/environment'; Knowledge::Catalog; Answering::RetrievalTool; puts 'ok'\"",
+      "cd /candidate && bundle exec ruby test/visible_test.rb test/knowledge_boundary_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby -e \"require 'minitest/autorun'; Dir['test/*_test.rb'].each { |f| require_relative f }\" 2>&1",
+      "cd /candidate && bundle exec ruby test/visible_test.rb && bundle exec ruby -e \"require 'minitest/autorun'; require_relative 'test/knowledge_boundary_test'\" 2>&1"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "15-boundary-extraction-packs-r3",
+    "status": "completed",
+    "seconds": 132.68127500000264,
+    "original_passed": false,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 69,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 457312,
+        "cacheWriteTokens": 0,
+        "inputTokens": 18602,
+        "outputTokens": 12165
+      }
+    ],
+    "skill_reads": [],
+    "shell_commands": [
+      "cd /candidate && git log --oneline -5 && git show HEAD:app/services/knowledge/ 2>/dev/null; ls -la app/",
+      "cd /candidate && bundle exec ruby test/visible_test.rb 2>&1; bundle exec ruby -rstringio -S packwerk validate 2>&1; bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && git ls-tree -r HEAD --name-only",
+      "cd /candidate && bundle exec ruby test/visible_test.rb 2>&1; bundle exec ruby test/knowledge_catalog_test.rb 2>&1; bundle exec ruby -rstringio -S packwerk validate 2>&1; bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && bundle exec ruby -Itest test/knowledge_catalog_test.rb test/visible_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby -Itest test/visible_test.rb test/knowledge_catalog_test.rb 2>&1",
+      "cd /candidate && for f in test/*_test.rb; do echo \"== $f ==\"; bundle exec ruby \"$f\" || exit 1; done",
+      "find /candidate/app -type d -empty 2>/dev/null; ls -laR /candidate/app 2>/dev/null",
+      "cd /candidate && for f in test/*_test.rb; do bundle exec ruby \"$f\" || exit 1; done && bundle exec ruby -rstringio -S packwerk validate && bundle exec ruby -rstringio -S packwerk check"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "16-stale-embedding-foundry-r3",
+    "status": "completed",
+    "seconds": 77.73596245799854,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 22,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 129353,
+        "cacheWriteTokens": 0,
+        "inputTokens": 15367,
+        "outputTokens": 4916
+      }
+    ],
+    "skill_reads": [
+      ".agents/skills/foundry-add-feature/SKILL.md"
+    ],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby -Itest test/visible_test.rb test/embedding_job_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby -rstringio -S packwerk validate && bundle exec ruby -rstringio -S packwerk check 2>&1",
+      "cd /candidate && bundle exec foundry check --sources 2>&1",
+      "cd /candidate && bundle exec ruby -Itest test/embedding_job_test.rb 2>&1",
+      "cd /candidate && bundle exec foundry check --boundaries 2>&1"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "17-stale-embedding-rails-r3",
+    "status": "completed",
+    "seconds": 83.2564548329974,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 22,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 142045,
+        "cacheWriteTokens": 0,
+        "inputTokens": 22983,
+        "outputTokens": 5152
+      }
+    ],
+    "skill_reads": [],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby -Itest test/visible_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby -Itest test/visible_test.rb test/embedding_job_test.rb 2>&1",
+      "cd /candidate && bundle exec ruby -Itest -e \"require 'minitest/autorun'; require_relative 'test/embedding_job_test'; require_relative 'test/visible_test'\" 2>&1",
+      "cd /candidate && bundle exec ruby -Itest test/embedding_job_test.rb test/visible_test.rb 2>&1; ls test/",
+      "cd /candidate && bundle exec rails test 2>&1"
+    ],
+    "malformed_event_lines": 0
+  },
+  {
+    "trial": "18-stale-embedding-packs-r3",
+    "status": "completed",
+    "seconds": 52.03028875000018,
+    "original_passed": true,
+    "protocol_violations": [],
+    "candidate_unchanged_since_grade": true,
+    "actual_models": [
+      "Composer 2.5"
+    ],
+    "auth_sources": [
+      "login"
+    ],
+    "tool_calls": 18,
+    "reported_usage": [
+      {
+        "cacheReadTokens": 97146,
+        "cacheWriteTokens": 0,
+        "inputTokens": 11587,
+        "outputTokens": 3372
+      }
+    ],
+    "skill_reads": [],
+    "shell_commands": [
+      "cd /candidate && bundle exec ruby test/visible_test.rb && bundle exec ruby test/embedding_job_test.rb && bundle exec ruby -rstringio -S packwerk validate && bundle exec ruby -rstringio -S packwerk check"
+    ],
+    "malformed_event_lines": 0
+  }
+]

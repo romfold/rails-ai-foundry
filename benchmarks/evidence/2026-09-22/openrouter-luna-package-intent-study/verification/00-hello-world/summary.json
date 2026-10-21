@@ -1,0 +1,73 @@
+{
+  "records": [
+    {
+      "task": "hello-world",
+      "native_outcome": "completed",
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260922-r6/results/00-hello-world/gpt-5.6-luna-medium/hello-world__F2dBAN7/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "hello-world",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "b1397839bf2e4b153a7e7fedd7e131a6ff3e76d462dd3d8de3db66d7072b43b2",
+        "foundry": null,
+        "verification_phase": "task",
+        "baseline_exit_code": 0,
+        "verification_status": "passed",
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "miniswen",
+      "control_passed": null,
+      "category": "smoke"
+    }
+  ],
+  "counts": {
+    "passed": 1
+  },
+  "native_files": {
+    "gpt-5.6-luna-medium/hello-world__F2dBAN7/agent.patch": "b1397839bf2e4b153a7e7fedd7e131a6ff3e76d462dd3d8de3db66d7072b43b2",
+    "gpt-5.6-luna-medium/hello-world__F2dBAN7/checks.json": "b2568abc64fceb7046125ee063569a9288a50388965448108ff3fd7ddd6bfc54",
+    "gpt-5.6-luna-medium/hello-world__F2dBAN7/result.json": "23b0488eba99fb7386b0a0d3a7528aa3c70015965d30f5a1e7d887bf4bba2bd3",
+    "gpt-5.6-luna-medium/hello-world__F2dBAN7/trajectory.json": "4d5f183449c6ada304853292eecfc561e764fc9b105cd02cb5a72a6c599a4a98",
+    "gpt-5.6-luna-medium/hello-world__F2dBAN7/verifier.log": "b848ac7be717c52a7ff78c4bc208e34d3e14fc3386c0522799cd1e61ca96511c"
+  },
+  "expected_tasks": [
+    "hello-world"
+  ],
+  "missing_tasks": [],
+  "verification_sources": {
+    "command_paths.rb": "064530753de47223a21ceeb9812f81b133620157d33ca0bfff616dbb03a66a0b",
+    "container.rb": "151db3246d6312db0c4ed7ffb889a5426561fcf790a2d8926d1ce8d7515bbb4c",
+    "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+    "corpus.rb": "038c32cd9985b52c1409755a489dca79d9f94d11bd43399b38b0b9f717c7ee1d",
+    "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+    "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+    "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+    "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+    "images.rb": "f5e35c10ef785d8de4d58d2302597354c557ee8ae18511f55c759acabe077aa8",
+    "isolation.rb": "949a44b7b69d0d6d0bad8e2db0da69edb7f1a00931ef3b7f1924df6465c4f72e",
+    "local_overrides.rb": "230f7b47a9d0cad6d0cf2910ac388626ea3fedc576e7c851433ce4eb732ce75b",
+    "openrouter_account.rb": "8802042332e1af4cb210711edebcaca5ac31d323aa32d7b81d08b8abe21674e9",
+    "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+    "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+    "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+    "replay.rb": "492872eb306451845a57f96b910323544aa5f435a725238e3d4611a671647701",
+    "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+    "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+    "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+    "study.rb": "b17a59c6664611ce9b356940265e0869675205e192e31df5d21efc4f8015d48c",
+    "study_budget.rb": "b75933c65947c11be9b865ad52ab5b586da6be15db0c3867de2c7ab299bdf44e",
+    "study_outcome.rb": "7862f52c3021a3a4dee3d16f1c146836cf82c2179a82498c595c53e12e758098",
+    "study_preflight.rb": "8c20e12ec4233e761007a8540d59973977c79e46b73984e5b1352d6cc020d23c",
+    "study_preparation.rb": "bc234f48eff81f210fcffd6f4071080ad17a8244c6cac84b9f95e8bc74a02bf4",
+    "study_report.rb": "8c8c940eb1ae90ecf14c7bbe90c431bc532123ff8ca4b3dd08c56d3c1d6c7c34",
+    "study_results.rb": "5b4eca72bfe4d121d395fd86f92b69a13a056bc3dd9fde4efed92fc3fa69502d",
+    "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+    "trusted_tests.rb": "b595ac4ee85be5a3cc741198c08a25161cc2fad42387b077b46f5e2470faf781",
+    "upstream.rb": "5ef487e07962c9f11c9138e0e75641c90e24a05b8755e8fab5cd192c5b815f00",
+    "verification.rb": "a9eb1f8096cb20b8b2f09662348f59199b16756cbb099e24afe855408dcd66cc",
+    "verification_phases.rb": "cb4d6b1d51a5cc401462e1a74542ce1231799f6b01a06a5a4d43fdc509f80f3e"
+  }
+}

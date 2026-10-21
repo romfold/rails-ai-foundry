@@ -1,0 +1,7 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+ruby '3.4.10'
+gem 'lemans', git: 'https://github.com/rails/lemans.git', ref: '2d0b7fb8d3b0077574dcf7b70fd4e32c8f9d6e76'
+gem 'minitest', '~> 5.25'

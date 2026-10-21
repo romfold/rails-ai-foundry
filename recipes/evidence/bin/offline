@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'json'
+require_relative '../lib/evaluation'
+
+cases = JSON.parse(File.read(File.expand_path('../cases.json', __dir__)))
+results = cases.map do |item|
+  { 'id' => item.fetch('id'), 'score' => Evidence::Evaluation.score(expected: item.fetch('expected'),
+                                                                    actual: item.fetch('expected')) }
+end
+puts JSON.pretty_generate('kind' => 'deterministic scorer calibration; no model-quality claim', 'results' => results)

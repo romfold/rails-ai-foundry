@@ -1,0 +1,20 @@
+Running 20 tests in a single process (parallelization threshold is 50)
+Run options: --seed 47901
+
+# Running:
+
+........Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:45617
+2026-09-21 21:26:20 INFO Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging
+
+2026-09-21 21:26:20 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+2026-09-21 21:26:20 WARN Selenium [:selenium_manager] Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event) 
+2026-09-21 21:26:28 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+.........2026-09-21 21:27:14 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+...
+
+Finished in 76.009696s, 0.2631 runs/s, 1.8419 assertions/s.
+20 runs, 140 assertions, 0 failures, 0 errors, 0 skips

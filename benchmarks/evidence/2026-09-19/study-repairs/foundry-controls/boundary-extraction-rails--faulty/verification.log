@@ -1,0 +1,36 @@
+bundle exec ruby test/visible_test.rb
+Run options: --seed 48257
+
+# Running:
+
+..
+
+Finished in 0.136094s, 14.6958 runs/s, 29.3915 assertions/s.
+2 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -I/tests -report-lemans /tests/acceptance_test.rb
+Run options: --seed 16107
+
+# Running:
+
+F
+
+Failure:
+AcceptanceTest#test_selected_task [/tests/acceptance_test.rb:45]:
+Expected: ["a"]
+  Actual: ["b"]
+
+bin/rails test /tests/acceptance_test.rb:37
+
+F
+
+Failure:
+AcceptanceTest#test_trusted_tenant_and_published_visibility [/tests/acceptance_test.rb:21]:
+Expected: [2]
+  Actual: [3]
+
+bin/rails test /tests/acceptance_test.rb:15
+
+.
+
+Finished in 0.141294s, 21.2323 runs/s, 63.6969 assertions/s.
+3 runs, 9 assertions, 2 failures, 0 errors, 0 skips

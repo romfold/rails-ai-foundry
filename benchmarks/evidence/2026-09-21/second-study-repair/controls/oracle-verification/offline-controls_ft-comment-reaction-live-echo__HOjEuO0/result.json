@@ -1,0 +1,5 @@
+{
+  "status": "infrastructure_error",
+  "error_class": "Errno::ENOENT",
+  "message": "No such file or directory @ rb_sysopen - /private/tmp/foundry-openrouter-luna-20260921/sources/upstream/images.json"
+}

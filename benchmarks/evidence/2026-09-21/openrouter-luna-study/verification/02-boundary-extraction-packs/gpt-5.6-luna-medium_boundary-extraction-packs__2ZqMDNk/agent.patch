@@ -1,0 +1,129 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..4b9c806 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Knowledge::Catalog.list(tenant_id: tenant)
+   end
+ end
+diff --git a/config/application.rb b/config/application.rb
+index 3268cf5..baf95bd 100644
+--- a/config/application.rb
++++ b/config/application.rb
+@@ -14,5 +14,6 @@ module KnowledgeBenchmark
+     config.hosts = ['www.example.com', 'example.org', 'localhost']
+     config.logger = Logger.new($stdout)
+     config.log_level = :error
++    config.autoload_paths << Rails.root.join('packs/knowledge/app/public')
+   end
+ end
+diff --git a/docs/knowledge-rollback.md b/docs/knowledge-rollback.md
+new file mode 100644
+index 0000000..e53d522
+--- /dev/null
++++ b/docs/knowledge-rollback.md
+@@ -0,0 +1,14 @@
++# Knowledge persistence rollback
++
++This boundary extraction deliberately does not change the `documents`, `embeddings`, or
++`deliveries` tables, their records, or the persistence implementation. Before any future
++persistence conversion, keep the current Active Record implementation available as the
++rollback point.
++
++If that conversion causes a regression, revert the conversion commit (or restore the
++Knowledge-owned models and queries from this revision), restart the application, and run
++the Knowledge characterization tests plus the `/documents` endpoint tests. The public
++`Knowledge::Catalog.list(tenant_id:)` contract is the stable seam: rollback work must
++preserve its published-only, id-ordered hashes and must not restore persistence access to
++Delivery. No data migration is required for this extraction, and no migration should be
++run as part of rolling it back.
+diff --git a/package.yml b/package.yml
+index 4f0c7c6..6c66f60 100644
+--- a/package.yml
++++ b/package.yml
+@@ -1,2 +1,3 @@
+ enforce_dependencies: true
+-dependencies: []
++dependencies:
++  - packs/knowledge
+diff --git a/app/models/knowledge/delivery.rb b/packs/knowledge/app/models/knowledge/delivery.rb
+similarity index 100%
+rename from app/models/knowledge/delivery.rb
+rename to packs/knowledge/app/models/knowledge/delivery.rb
+diff --git a/app/models/knowledge/document.rb b/packs/knowledge/app/models/knowledge/document.rb
+similarity index 100%
+rename from app/models/knowledge/document.rb
+rename to packs/knowledge/app/models/knowledge/document.rb
+diff --git a/app/models/knowledge/embedding.rb b/packs/knowledge/app/models/knowledge/embedding.rb
+similarity index 100%
+rename from app/models/knowledge/embedding.rb
+rename to packs/knowledge/app/models/knowledge/embedding.rb
+diff --git a/app/services/knowledge/catalog.rb b/packs/knowledge/app/public/knowledge/catalog.rb
+similarity index 100%
+rename from app/services/knowledge/catalog.rb
+rename to packs/knowledge/app/public/knowledge/catalog.rb
+diff --git a/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+similarity index 100%
+rename from app/services/knowledge/embedding_job.rb
+rename to packs/knowledge/app/services/knowledge/embedding_job.rb
+diff --git a/app/services/knowledge/publish_delivery.rb b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+similarity index 100%
+rename from app/services/knowledge/publish_delivery.rb
+rename to packs/knowledge/app/services/knowledge/publish_delivery.rb
+diff --git a/app/services/knowledge/rebuild_search.rb b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+similarity index 100%
+rename from app/services/knowledge/rebuild_search.rb
+rename to packs/knowledge/app/services/knowledge/rebuild_search.rb
+diff --git a/packs/knowledge/package.yml b/packs/knowledge/package.yml
+new file mode 100644
+index 0000000..577db03
+--- /dev/null
++++ b/packs/knowledge/package.yml
+@@ -0,0 +1,3 @@
++enforce_dependencies: true
++enforce_privacy: true
++dependencies: []
+diff --git a/packs/knowledge/test/catalog_test.rb b/packs/knowledge/test/catalog_test.rb
+new file mode 100644
+index 0000000..60fad32
+--- /dev/null
++++ b/packs/knowledge/test/catalog_test.rb
+@@ -0,0 +1,34 @@
++# frozen_string_literal: true
++
++require_relative '../../../test/test_helper'
++
++class KnowledgeCatalogTest < BenchmarkTest
++  include Rack::Test::Methods
++
++  def app
++    Rails.application
++  end
++
++  def test_lists_only_published_documents_for_tenant_in_id_order_with_public_fields
++    first = document(body: 'first')
++    document(body: 'hidden', published: false)
++    last = document(body: 'last', revision: 3)
++    document(tenant: 'b', body: 'other tenant')
++
++    assert_equal [
++      { 'id' => first.id, 'tenant_id' => 'a', 'body' => 'first', 'revision' => 1 },
++      { 'id' => last.id, 'tenant_id' => 'a', 'body' => 'last', 'revision' => 3 }
++    ], Knowledge::Catalog.list(tenant_id: 'a')
++  end
++
++  def test_documents_delivery_delegates_to_catalog
++    called_with = nil
++    result = [{ 'id' => 42, 'tenant_id' => 'a', 'body' => 'body', 'revision' => 1 }]
++    Knowledge::Catalog.stub :list, lambda { |tenant_id:| called_with = tenant_id; result } do
++      get '/documents', {}, { 'HTTP_AUTHORIZATION' => 'tenant-a-token' }
++      assert_equal 200, last_response.status
++      assert_equal 42, JSON.parse(last_response.body).first.fetch('id')
++    end
++    assert_equal 'a', called_with
++  end
++end

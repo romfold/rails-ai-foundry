@@ -1,0 +1,244 @@
+[
+  {
+    "name": "repaired-scrolled-1",
+    "expected": "passed",
+    "actual": {
+      "task": "ft-comment-reaction-live-echo",
+      "status": "passed",
+      "reward": 1.0,
+      "patch_sha256": "e66ee4c0bfecb0c8ab0ea0b6a528b06d4946bee198953358a3c456570d180fbe",
+      "foundry": null,
+      "verification_phase": "task",
+      "baseline_exit_code": 0,
+      "verification_status": "passed",
+      "protocol_violations": []
+    },
+    "checks": {
+      "pass": 20
+    },
+    "task_digest": "b26607c6b4f0c4b1",
+    "task_summary": "20 runs, 140 assertions, 0 failures, 0 errors, 0 skips",
+    "baseline_summary": "1517 runs, 5708 assertions, 0 failures, 0 errors, 2 skips"
+  },
+  {
+    "name": "repaired-scrolled-2",
+    "expected": "passed",
+    "actual": {
+      "task": "ft-comment-reaction-live-echo",
+      "status": "passed",
+      "reward": 1.0,
+      "patch_sha256": "e66ee4c0bfecb0c8ab0ea0b6a528b06d4946bee198953358a3c456570d180fbe",
+      "foundry": null,
+      "verification_phase": "task",
+      "baseline_exit_code": 0,
+      "verification_status": "passed",
+      "protocol_violations": []
+    },
+    "checks": {
+      "pass": 20
+    },
+    "task_digest": "b26607c6b4f0c4b1",
+    "task_summary": "20 runs, 140 assertions, 0 failures, 0 errors, 0 skips",
+    "baseline_summary": "1517 runs, 5708 assertions, 0 failures, 0 errors, 2 skips"
+  },
+  {
+    "name": "repaired-scrolled-3",
+    "expected": "passed",
+    "actual": {
+      "task": "ft-comment-reaction-live-echo",
+      "status": "passed",
+      "reward": 1.0,
+      "patch_sha256": "e66ee4c0bfecb0c8ab0ea0b6a528b06d4946bee198953358a3c456570d180fbe",
+      "foundry": null,
+      "verification_phase": "task",
+      "baseline_exit_code": 0,
+      "verification_status": "passed",
+      "protocol_violations": []
+    },
+    "checks": {
+      "pass": 20
+    },
+    "task_digest": "b26607c6b4f0c4b1",
+    "task_summary": "20 runs, 140 assertions, 0 failures, 0 errors, 0 skips",
+    "baseline_summary": "1517 runs, 5708 assertions, 0 failures, 0 errors, 2 skips"
+  },
+  {
+    "name": "guarded-composer-replacement-final",
+    "expected": "passed",
+    "actual": {
+      "task": "ft-comment-reaction-live-echo",
+      "status": "passed",
+      "reward": 1.0,
+      "patch_sha256": "8a48410c637915b8830036dc8f8e08c403ecba82af30df42b3ee2e0f755f3231",
+      "foundry": null,
+      "verification_phase": "task",
+      "baseline_exit_code": 0,
+      "verification_status": "passed",
+      "protocol_violations": []
+    },
+    "checks": {
+      "pass": 20
+    },
+    "task_digest": "b26607c6b4f0c4b1",
+    "task_summary": "20 runs, 140 assertions, 0 failures, 0 errors, 0 skips",
+    "baseline_summary": "1517 runs, 5708 assertions, 0 failures, 0 errors, 2 skips"
+  },
+  {
+    "name": "original",
+    "expected": "failed",
+    "actual": {
+      "task": "ft-comment-reaction-live-echo",
+      "status": "failed",
+      "reward": 0.0,
+      "patch_sha256": "0cba1a704df26b74a226492686c57e9c817fba73a4a2ae8d79112ea1cb952f78",
+      "foundry": null,
+      "verification_phase": "task",
+      "baseline_exit_code": 0,
+      "verification_status": "failed",
+      "protocol_violations": []
+    },
+    "checks": {
+      "fail": 3,
+      "pass": 2,
+      "error": 1
+    },
+    "task_digest": "9df099a35893d33b",
+    "task_summary": "6 runs, 32 assertions, 3 failures, 1 errors, 0 skips",
+    "baseline_summary": "1517 runs, 5708 assertions, 0 failures, 0 errors, 2 skips"
+  },
+  {
+    "name": "callback-collision-final",
+    "expected": "failed",
+    "actual": {
+      "task": "ft-comment-reaction-live-echo",
+      "status": "failed",
+      "reward": 0.0,
+      "patch_sha256": "5fa20a4d1be44901a97cc4485cbf9b5823157d23a008395d0003c7e5cbc8ee63",
+      "foundry": null,
+      "verification_phase": "task",
+      "baseline_exit_code": 0,
+      "verification_status": "failed",
+      "protocol_violations": []
+    },
+    "checks": {
+      "pass": 15,
+      "fail": 5
+    },
+    "task_digest": "6d3115a7ca3027ce",
+    "task_summary": "20 runs, 134 assertions, 5 failures, 0 errors, 0 skips",
+    "baseline_summary": "1517 runs, 5708 assertions, 0 failures, 0 errors, 2 skips"
+  },
+  {
+    "name": "malformed-deletion-isolated",
+    "expected": "failed",
+    "actual": {
+      "task": "ft-comment-reaction-live-echo",
+      "status": "failed",
+      "reward": 0.0,
+      "patch_sha256": "23dc3065dfb76e55859f1e7bc2b31596be2e047ec30dc5ad65060cef9ff36eac",
+      "foundry": null,
+      "verification_phase": "task",
+      "baseline_exit_code": 0,
+      "verification_status": "failed",
+      "protocol_violations": []
+    },
+    "checks": {
+      "pass": 14,
+      "fail": 3,
+      "error": 3
+    },
+    "task_digest": "6d3115a7ca3027ce",
+    "task_summary": "20 runs, 124 assertions, 3 failures, 3 errors, 0 skips",
+    "baseline_summary": "1517 runs, 5708 assertions, 0 failures, 0 errors, 2 skips"
+  },
+  {
+    "name": "duplicate-echo-final",
+    "expected": "failed",
+    "actual": {
+      "task": "ft-comment-reaction-live-echo",
+      "status": "failed",
+      "reward": 0.0,
+      "patch_sha256": "865d7ea2f0c4445726fe059e15ecce583daeb0b4b0b2a81989260452473d4cc6",
+      "foundry": null,
+      "verification_phase": "task",
+      "baseline_exit_code": 0,
+      "verification_status": "failed",
+      "protocol_violations": []
+    },
+    "checks": {
+      "pass": 14,
+      "error": 5,
+      "fail": 1
+    },
+    "task_digest": "b26607c6b4f0c4b1",
+    "task_summary": "20 runs, 125 assertions, 1 failures, 5 errors, 0 skips",
+    "baseline_summary": "1517 runs, 5708 assertions, 0 failures, 0 errors, 2 skips"
+  },
+  {
+    "name": "composer-replacement-final",
+    "expected": "failed",
+    "actual": {
+      "task": "ft-comment-reaction-live-echo",
+      "status": "failed",
+      "reward": 0.0,
+      "patch_sha256": "043b17f32f2aa1abd5ce4e05081d9fa030b025dc1e02120d02fdc697489277cf",
+      "foundry": null,
+      "verification_phase": "task",
+      "baseline_exit_code": 0,
+      "verification_status": "failed",
+      "protocol_violations": []
+    },
+    "checks": {
+      "pass": 18,
+      "fail": 1,
+      "error": 1
+    },
+    "task_digest": "b26607c6b4f0c4b1",
+    "task_summary": "20 runs, 138 assertions, 1 failures, 1 errors, 0 skips",
+    "baseline_summary": "1517 runs, 5708 assertions, 0 failures, 0 errors, 2 skips"
+  },
+  {
+    "name": "sender-controls-final",
+    "expected": "failed",
+    "actual": {
+      "task": "ft-comment-reaction-live-echo",
+      "status": "failed",
+      "reward": 0.0,
+      "patch_sha256": "cf163576881430332cf4d96b03fe463922f8071d2d07ec9e95043f137ab6a962",
+      "foundry": null,
+      "verification_phase": "task",
+      "baseline_exit_code": 0,
+      "verification_status": "failed",
+      "protocol_violations": []
+    },
+    "checks": {
+      "pass": 19,
+      "fail": 1
+    },
+    "task_digest": "b26607c6b4f0c4b1",
+    "task_summary": "20 runs, 139 assertions, 1 failures, 0 errors, 0 skips",
+    "baseline_summary": "1517 runs, 5708 assertions, 0 failures, 0 errors, 2 skips"
+  },
+  {
+    "name": "wrong-record-deletion-final",
+    "expected": "failed",
+    "actual": {
+      "task": "ft-comment-reaction-live-echo",
+      "status": "failed",
+      "reward": 0.0,
+      "patch_sha256": "07ca19ffd54beb9fc2b9bd92312de6914316b14d6d4c4394671c8dd8ca1447a4",
+      "foundry": null,
+      "verification_phase": "task",
+      "baseline_exit_code": 0,
+      "verification_status": "failed",
+      "protocol_violations": []
+    },
+    "checks": {
+      "pass": 17,
+      "fail": 3
+    },
+    "task_digest": "b26607c6b4f0c4b1",
+    "task_summary": "20 runs, 132 assertions, 3 failures, 0 errors, 0 skips",
+    "baseline_summary": "1517 runs, 5708 assertions, 0 failures, 0 errors, 2 skips"
+  }
+]

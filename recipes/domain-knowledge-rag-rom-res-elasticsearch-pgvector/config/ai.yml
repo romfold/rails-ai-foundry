@@ -1,0 +1,7 @@
+shared:
+  models:
+    embedding:
+      model: text-embedding-3-small
+      dimensions: 1536
+    answering:
+      model: gpt-4.1-mini

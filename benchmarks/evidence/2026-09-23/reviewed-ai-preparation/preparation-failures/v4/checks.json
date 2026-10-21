@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "behavior": "fail",
+    "http": "pass",
+    "browser": "pass",
+    "packages_validate": "pass",
+    "packages_check": "pass",
+    "foundry": "pass"
+  }
+}

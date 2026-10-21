@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'json'
+require_relative '../lib/live_settings'
+require_relative '../lib/live_run'
+
+begin
+  settings = Evidence::LiveSettings.new(ENV)
+  require_relative '../lib/ruby_llm_provider'
+  cases = JSON.parse(File.read(File.expand_path('../cases.json', __dir__)))
+  report = Evidence::LiveRun.new(settings: settings, provider: Evidence::RubyLLMProvider.new(settings)).call(cases)
+  puts JSON.pretty_generate(report)
+  exit(report['success'] ? 0 : 1)
+rescue ArgumentError => e
+  warn e.message
+  exit 1
+end

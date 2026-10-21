@@ -1,0 +1,7 @@
+# frozen_string_literal: true
+
+eval_gemfile 'ci_core.gemfile'
+# Faraday 2.14 passes positional JSON options; JSON 3 requires keyword options.
+gem 'json', '< 3'
+gem 'ruby_llm', '1.16.0'
+gem 'webmock', '3.26.4'

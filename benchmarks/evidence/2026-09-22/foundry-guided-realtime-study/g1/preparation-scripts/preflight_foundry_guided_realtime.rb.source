@@ -1,0 +1,58 @@
+# frozen_string_literal: true
+
+require File.expand_path('benchmarks/lib/benchmark_suite/study_budget', ENV.fetch('BENCHMARK_REPOSITORY', Dir.pwd))
+require File.expand_path('benchmarks/lib/benchmark_suite/openrouter_account',
+                         ENV.fetch('BENCHMARK_REPOSITORY', Dir.pwd))
+require File.expand_path('benchmarks/lib/benchmark_suite/evidence', ENV.fetch('BENCHMARK_REPOSITORY', Dir.pwd))
+
+root = Pathname(ARGV.fetch(0)).realpath
+cycle = Pathname(ARGV.fetch(1)).realpath
+evidence = BenchmarkSuite::Evidence.new(root.join('preflight'))
+manifest = JSON.parse(root.join('treatment.json').read)
+unless manifest.fetch('frozen_suite_files') == BenchmarkSuite::Support.files(root.join('suite'))
+  abort 'Frozen treatment changed'
+end
+abort 'Tooling changed' unless manifest.fetch('tooling') == BenchmarkSuite::Study.tooling
+abort 'Unexpected treatment model/provider/limits' unless manifest.values_at('model', 'provider', 'cost_limit',
+                                                                             'attempts') ==
+                                                          [BenchmarkSuite::Study::MODEL, BenchmarkSuite::Study::PROVIDER,
+                                                           0.75, 1]
+abort 'Attempt already started' if root.join('results').exist?
+task = Lemans::Config.load_file(root.join('suite')).tasks.fetch(0)
+unless task.config.agent.to_h == Lemans::Config::Agent.from_config(BenchmarkSuite::Study.profile).to_h
+  abort 'Agent limits changed'
+end
+%w[oracle nop].each do |control|
+  summary = JSON.parse(root.join('control-verification', control, 'summary.json').read)
+  rows = summary.fetch('records')
+  expected = control == 'oracle' ? 'passed' : 'failed'
+  abort "#{control} control failed" unless rows.size == 1 && rows.first.fetch('status') == expected
+  if control == 'nop'
+    independent = rows.first.fetch('independent')
+    unless independent['verification_phase'] == 'task' && independent['baseline_exit_code'] == 0
+      abort 'No-op failed before browser requirements'
+    end
+  end
+  summary.fetch('native_files').each do |relative, hash|
+    abort 'Control evidence changed' unless Digest::SHA256.file(root.join('controls', control,
+                                                                          relative)).hexdigest == hash
+  end
+end
+source = Pathname(manifest.fetch('source_study'))
+report = JSON.parse(source.join('reports/09-ft-comment-reaction-live-echo/report.json').read)
+previous = report.fetch('records')
+abort 'Expected ten completed previous native attempts' unless previous.size == 10
+previous.each do |row|
+  unless Digest::SHA256.file(row.fetch('native_result')).hexdigest == row.fetch('native_sha256')
+    abort 'Previous native evidence changed'
+  end
+end
+initial = JSON.parse(cycle.join('initial-accounting.json').read)
+snapshot = BenchmarkSuite::OpenrouterAccount.new.snapshot
+accounting = BenchmarkSuite::StudyBudget.validate!(snapshot, previous: previous, first: { 'snapshot' => initial },
+                                                             attempt: { 'cost_limit' => manifest.fetch('cost_limit') })
+result = { 'eligible' => true, 'treatment_manifest_sha256' => Digest::SHA256.file(root.join('treatment.json')).hexdigest,
+           'snapshot' => snapshot, 'cycle_accounting' => accounting, 'cycle_stopping_budget' => 7.0,
+           'trial_stopping_budget' => 0.75, 'recorded_at' => Time.now.utc.iso8601 }
+evidence.json('preflight.json', result)
+puts JSON.pretty_generate(result)

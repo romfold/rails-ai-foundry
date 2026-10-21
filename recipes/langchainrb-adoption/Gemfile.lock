@@ -1,0 +1,66 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.9.0)
+      public_suffix (>= 2.0.2, < 8.0)
+    ast (2.4.3)
+    baran (0.1.12)
+    bigdecimal (3.3.1)
+    csv (3.3.6)
+    json (3.0.2)
+    json-schema (5.2.2)
+      addressable (~> 2.8)
+      bigdecimal (~> 3.1)
+    langchainrb (0.19.5)
+      baran (~> 0.1.9)
+      csv
+      json-schema (>= 4, < 6)
+      matrix
+      pragmatic_segmenter (~> 0.3.0)
+      zeitwerk (~> 2.5)
+    language_server-protocol (3.17.0.6)
+    lint_roller (1.1.0)
+    matrix (0.4.3)
+    minitest (5.27.0)
+    parallel (2.2.0)
+    parser (3.3.12.0)
+      ast (~> 2.4.1)
+      racc
+    pragmatic_segmenter (0.3.24)
+    prism (1.9.0)
+    public_suffix (7.0.5)
+    racc (1.8.1)
+    rainbow (3.1.1)
+    regexp_parser (2.12.0)
+    rubocop (1.91.0)
+      json (>= 2.3)
+      language_server-protocol (~> 3.17.0.2)
+      lint_roller (~> 1.1.0)
+      parallel (>= 1.10)
+      parser (>= 3.3.0.2)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 2.9.3, < 3.0)
+      rubocop-ast (>= 1.49.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 4.0)
+    rubocop-ast (1.50.0)
+      parser (>= 3.3.7.2)
+      prism (~> 1.7)
+    ruby-progressbar (1.13.0)
+    unicode-display_width (3.2.0)
+      unicode-emoji (~> 4.1)
+    unicode-emoji (4.2.0)
+    zeitwerk (2.8.3)
+
+PLATFORMS
+  arm64-darwin-23
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  langchainrb (= 0.19.5)
+  minitest (~> 5.0)
+  rubocop (~> 1.75)
+
+BUNDLED WITH
+   2.6.9

@@ -1,0 +1,9 @@
+{
+  "source": "10d4d9b357fba462c86fea568286b4fb4216ba8b",
+  "comparison_candidate": "48649a0ea220b25a1d923eb7c5a2b8c322ee74e4",
+  "changed_files": [],
+  "retained_files": 3947,
+  "inventory_sha256": "fa5d0d1467cc9a903754d388d0ff0edf027d064f213fe573cca9de6ab83af18d",
+  "evidence": "docs/evidence/2026-09-24/release-candidate/README.md",
+  "limits": "Retained dated corpus evidence; not a new complete corpus run against the current gem."
+}

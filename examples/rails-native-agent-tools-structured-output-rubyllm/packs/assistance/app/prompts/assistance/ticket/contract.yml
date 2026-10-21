@@ -1,0 +1,17 @@
+schema: 1
+owner: packs/assistance
+agent: Assistance::TicketAgent
+templates:
+  - instructions.txt
+inputs:
+  user_message: untrusted
+  retrieved_evidence: untrusted
+output_schema: Assistance::AnswerSchema
+tools:
+  - Assistance::LookupTicket
+  - Assistance::CloseTicket
+evaluations:
+  - evaluation.yml
+acceptance:
+  - Provider failures remain explicit.
+  - Application code enforces tenant authorization and validates evidence.

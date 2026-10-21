@@ -1,0 +1,21 @@
+{
+  "implementation_commit": "847c3fd5c97673f7dea93b73e93406bd3b75ce6a",
+  "gem_sha256": "c2dd1df4bf6716e4cf58c7833a7f7eebb1ef5e81871a2cabc9e749c70b7f6037",
+  "files": {
+    "Gemfile.lock": "27eb8b1bff75876746e9a762a78b4509f6528b5eaeaa44314a76411c25fa881c",
+    "test_rspec/bundles/rails_7_1/Gemfile.lock": "064795ff452e590f03b6c949c91e82c2ab3349c860f200f5f6e4c8ea9c1edc78",
+    "test_rspec/bundles/rails_8_1/Gemfile.lock": "79dc21adcfa8ebe51fab81d397582535d0c3abcb517a874bce46b02d602359aa",
+    "packaging/files.txt": "2a592ea324a400efa55851d8b74a6c7e73425c92bb11bc1b8f7abb9cc76b806f",
+    "skills/foundry-verify/scripts/loaded_files.rb": "1db8e9a52fb616d062b91bc24dabee395824d6460f97c7d8186d886af3b311f5",
+    "skills/foundry-verify/scripts/minitest_reporter.rb": "4ed43131d5c53b75d4fd43755eeb4296135bef350343388404fc04fe8cf8a5c9",
+    "skills/foundry-verify/scripts/package_baseline.rb": "fe1c1ed4926089398d38500663c371faca2492a3d1d9a61ab6d1e9d3015654b1",
+    "skills/foundry-verify/scripts/package_discovery.rb": "10b91c4f3ea7530e10ce0a5d4f28f38271de9cbd32410f1e2b720b72763852a3",
+    "skills/foundry-verify/scripts/package_inventory.rb": "5967cb4a8f3ada53bf4995137ba296049094a575f25106b762eb2586932acf23",
+    "skills/foundry-verify/scripts/rspec_evidence.rb": "cd5fdbf14328ee78700d6b56aa45fd2769e077b3c1dbaa4fce0e2f3c440e6323",
+    "skills/foundry-verify/scripts/rspec_formatter.rb": "ea02170f4ed4352d30947c91ecba78571bb74e2edbfeb1a4da5d6a1ed7e1dbb2",
+    "skills/foundry-verify/scripts/rspec_runner.rb": "d54453b68c9d7264756bbc9bfdb227b4615a8c4f1a24bbce54d0bc85f61218f3",
+    "skills/foundry-verify/scripts/verification.rb": "6bd0588d5be53ef884bd4379e3bae55fca83be334bd774c02846f4d86926607a",
+    "skills/foundry-verify/scripts/verify.rb": "1e2d6e97e2ae3bcc032c894588356cdd8e6c5a93fad054f32cbb1f09f03277d3",
+    "docs/package-aware-verification.md": "10f7dc6c66d53b7e71c13700e875f9ff1aa80bd0d41b63c24c58a90e88f0e97b"
+  }
+}

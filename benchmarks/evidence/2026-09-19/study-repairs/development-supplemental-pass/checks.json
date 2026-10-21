@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "ReactionRepairAuthorizationTest#test_a_comment_from_another_card_cannot_be_addressed_through_the_visible_card": "pass",
+    "ReactionRepairAuthorizationTest#test_a_forged_deletion_is_rejected_and_leaves_the_reaction_intact": "pass",
+    "ReactionRepairTransactionTest#test_rolled_back_creation_and_deletion_do_not_broadcast": "pass",
+    "VerifierTest#test_a_reaction_reaches_everyone_watching_the_card": "pass",
+    "VerifierTest#test_a_reaction_shows_in_the_strip_with_who_left_it": "pass",
+    "VerifierTest#test_an_explicit_refresh_preserves_a_composing_viewer": "pass",
+    "VerifierTest#test_cancel_resets_only_the_local_composer_without_persisting_a_reaction": "pass",
+    "VerifierTest#test_confirming_puts_the_reaction_in_the_strip_and_brings_the_button_back,_empty": "pass",
+    "VerifierTest#test_deletion_reaches_another_viewer_without_replacing_their_draft": "pass",
+    "VerifierTest#test_people_can_take_back_their_own_reaction,_and_only_their_own": "pass",
+    "VerifierTest#test_someone_else's_reaction_landing_does_not_wipe_what_this_viewer_is_typing": "pass",
+    "VerifierTest#test_the_person_reacting_does_not_get_their_reaction_twice": "pass"
+  },
+  "failures": [],
+  "allowed_failures": {}
+}

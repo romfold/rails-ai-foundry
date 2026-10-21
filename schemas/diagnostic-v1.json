@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.rails-ai-foundry.invalid/diagnostic-v1.json",
+  "type": "object",
+  "properties": {
+    "file": {
+      "type": "string"
+    },
+    "line": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "rule": {
+      "type": "string",
+      "pattern": "^(source|prompt)\\.[a-z_]+$"
+    },
+    "certainty": {
+      "enum": [
+        "detected",
+        "inferred"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "constant": {
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "error",
+        "warning"
+      ]
+    }
+  },
+  "required": [
+    "file",
+    "line",
+    "rule",
+    "certainty",
+    "message"
+  ],
+  "additionalProperties": true
+}

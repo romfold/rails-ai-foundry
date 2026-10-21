@@ -1,0 +1,107 @@
+{
+  "records": [
+    {
+      "task": "boundary-extraction-foundry",
+      "native_outcome": "completed",
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260919-v3/results/03-boundary-extraction-foundry/gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "boundary-extraction-foundry",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "1a249c0036954e87a1ce79ad572daabc9a5151f6d4b21317a47878ae65739687",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "failed",
+            "policy_errors": [
+              "Modular Knowledge missing"
+            ],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "📦 Packwerk is running validation...\n\n📦 Finished in 0.61 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 0.79 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 0\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 2 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "verification_phase": "task",
+        "baseline_exit_code": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "failed",
+      "agent": "miniswen",
+      "control_passed": null,
+      "category": "foundry"
+    }
+  ],
+  "counts": {
+    "failed": 1
+  },
+  "native_files": {
+    "gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/agent.patch": "1a249c0036954e87a1ce79ad572daabc9a5151f6d4b21317a47878ae65739687",
+    "gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/foundry.json": "29da5111ee5213d635d77b7112b5bdc5eaa80ef306cda46ec204236b9df6bd08",
+    "gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/result.json": "68086cf4d400a90c0b41813765a2682f22b4327c6fae3f9398d528633ece73ac",
+    "gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/trajectory.json": "8c43d8782cc565fd92e09f5940d392042fb3772d1d2c29dae1c34e7215fed7f6",
+    "gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/verifier.log": "e03c1c08aec595d5437dfc65d939016c175316bf2ab99309587c9df352f434a5"
+  },
+  "expected_tasks": [
+    "boundary-extraction-foundry",
+    "boundary-extraction-packs",
+    "boundary-extraction-rails",
+    "stale-embedding-foundry",
+    "stale-embedding-packs",
+    "stale-embedding-rails"
+  ],
+  "missing_tasks": [
+    "boundary-extraction-packs",
+    "boundary-extraction-rails",
+    "stale-embedding-foundry",
+    "stale-embedding-packs",
+    "stale-embedding-rails"
+  ],
+  "verification_sources": {
+    "command_paths.rb": "064530753de47223a21ceeb9812f81b133620157d33ca0bfff616dbb03a66a0b",
+    "container.rb": "151db3246d6312db0c4ed7ffb889a5426561fcf790a2d8926d1ce8d7515bbb4c",
+    "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+    "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+    "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+    "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+    "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+    "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+    "images.rb": "f5e35c10ef785d8de4d58d2302597354c557ee8ae18511f55c759acabe077aa8",
+    "isolation.rb": "949a44b7b69d0d6d0bad8e2db0da69edb7f1a00931ef3b7f1924df6465c4f72e",
+    "local_overrides.rb": "230f7b47a9d0cad6d0cf2910ac388626ea3fedc576e7c851433ce4eb732ce75b",
+    "openrouter_account.rb": "8802042332e1af4cb210711edebcaca5ac31d323aa32d7b81d08b8abe21674e9",
+    "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+    "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+    "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+    "replay.rb": "492872eb306451845a57f96b910323544aa5f435a725238e3d4611a671647701",
+    "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+    "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+    "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+    "study.rb": "b17a59c6664611ce9b356940265e0869675205e192e31df5d21efc4f8015d48c",
+    "study_budget.rb": "b75933c65947c11be9b865ad52ab5b586da6be15db0c3867de2c7ab299bdf44e",
+    "study_outcome.rb": "7862f52c3021a3a4dee3d16f1c146836cf82c2179a82498c595c53e12e758098",
+    "study_preflight.rb": "70dabef823c4a40ef72c54fef17fdb6b9623348734393e2663dcffa6e8282c46",
+    "study_preparation.rb": "bc234f48eff81f210fcffd6f4071080ad17a8244c6cac84b9f95e8bc74a02bf4",
+    "study_report.rb": "8c8c940eb1ae90ecf14c7bbe90c431bc532123ff8ca4b3dd08c56d3c1d6c7c34",
+    "study_results.rb": "5b4eca72bfe4d121d395fd86f92b69a13a056bc3dd9fde4efed92fc3fa69502d",
+    "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+    "trusted_tests.rb": "b595ac4ee85be5a3cc741198c08a25161cc2fad42387b077b46f5e2470faf781",
+    "upstream.rb": "5ef487e07962c9f11c9138e0e75641c90e24a05b8755e8fab5cd192c5b815f00",
+    "verification.rb": "afaa7f4061deb7d74b5d283352151438ac04dea1d819ccb43dc68b3ac18c6b98",
+    "verification_phases.rb": "cb4d6b1d51a5cc401462e1a74542ce1231799f6b01a06a5a4d43fdc509f80f3e"
+  }
+}

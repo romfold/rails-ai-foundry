@@ -1,0 +1,28 @@
+diff --git a/app/models/reaction.rb b/app/models/reaction.rb
+index 2168f59..cd6d5ee 100644
+--- a/app/models/reaction.rb
++++ b/app/models/reaction.rb
+@@ -11,8 +11,8 @@ class Reaction < ApplicationRecord
+   private
+     def broadcast_creation
+       Current.with(account: comment.account, user: nil) do
+-        broadcast_append_to comment.card, target: ActionView::RecordIdentifier.dom_id(comment, :reaction_list),
+-          partial: "cards/comments/reaction", locals: { reaction: self }
++        broadcast_replace_to comment.card, target: ActionView::RecordIdentifier.dom_id(comment, :reactions),
++          partial: "cards/comments/reactions", locals: { comment: comment.reload }
+       end
+     end
+ 
+diff --git a/app/views/cards/comments/_reactions.html.erb b/app/views/cards/comments/_reactions.html.erb
+index ce3fba7..7cc96ab 100644
+--- a/app/views/cards/comments/_reactions.html.erb
++++ b/app/views/cards/comments/_reactions.html.erb
+@@ -3,7 +3,7 @@
+     <%= render partial: "cards/comments/reaction", collection: comment.reactions.includes(:user).order(:created_at) %>
+   </div>
+ 
+-  <details id="<%= dom_id(comment, :reaction_composer) %>" class="reaction__menu" data-turbo-permanent data-controller="reaction">
++  <details id="<%= dom_id(comment, :reaction_composer) %>" class="reaction__menu" data-controller="reaction">
+     <summary class="reactions__trigger btn btn--circle" title="Add reaction"><%= image_tag "boost-color.svg", alt: "Add reaction" %></summary>
+     <div class="reaction__popup panel">
+       <%= form_with url: card_comment_reactions_path(comment.card, comment), scope: :reaction,

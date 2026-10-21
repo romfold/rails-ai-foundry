@@ -1,0 +1,22 @@
+{
+  "visible": "passed",
+  "behavioral": "failed",
+  "architecture": {
+    "status": "failed",
+    "policy_errors": [],
+    "checks": [
+      {
+        "exit_code": 0,
+        "output": "📦 Packwerk is running validation...\n\n📦 Finished in 0.66 seconds\n\nValidation successful 🎉\n"
+      },
+      {
+        "exit_code": 1,
+        "output": "📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n.........\u001b[31mE\u001b[m..\n📦 Finished in 0.8 seconds\n\n\u001b[36mapp/controllers/documents_controller.rb\u001b[m:9:17\nPrivacy violation: '::Knowledge::Document' is private to 'packs/knowledge' but referenced from '.'.\nIs there a public entrypoint in 'packs/knowledge/app/public/' that you can use instead?\n\nInference details: this is a reference to ::Knowledge::Document which seems to be defined in packs/knowledge/app/models/knowledge/document.rb.\nTo receive help interpreting or resolving this error message, see: https://github.com/Shopify/packwerk/blob/main/TROUBLESHOOT.md#Troubleshooting-violations\n\n1 offense detected\n\nNo stale violations detected\n"
+      },
+      {
+        "exit_code": 0,
+        "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+      }
+    ]
+  }
+}

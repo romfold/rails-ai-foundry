@@ -1,0 +1,16 @@
+{
+  "task": "authorized-tool-rails--faulty",
+  "status": "failed",
+  "reward": 0.0,
+  "patch_sha256": "861065baf892562a17a99cb5254bc42f13b91b170c6facf2eb2d340c2573225f",
+  "foundry": {
+    "visible": "passed",
+    "behavioral": "failed",
+    "architecture": {
+      "status": "not_applicable"
+    }
+  },
+  "verification_phase": "task",
+  "baseline_exit_code": null,
+  "protocol_violations": []
+}

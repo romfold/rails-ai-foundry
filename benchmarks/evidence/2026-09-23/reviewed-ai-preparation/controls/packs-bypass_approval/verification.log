@@ -1,0 +1,99 @@
+bundle exec ruby bin/rails test
+Run options: --seed 53385
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:44501
+....F
+
+Failure:
+ReviewedAcceptanceTest#test_HTTP_identity_and_approval_bind_one_durable_local_result [test/acceptance_test.rb:39]:
+Expected: "open"
+  Actual: "closed"
+
+bin/rails test test/acceptance_test.rb:32
+
+F
+
+Failure:
+ReviewedAcceptanceTest#test_request_identity_conflicts_and_cancellation_preserve_decisions [test/acceptance_test.rb:85]:
+Expected: "cancelled"
+  Actual: "stale"
+
+bin/rails test test/acceptance_test.rb:75
+
+.....
+
+Finished in 11.287337s, 0.9745 runs/s, 4.1640 assertions/s.
+11 runs, 47 assertions, 2 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/acceptance_test.rb
+Run options: --seed 51476
+
+# Running:
+
+....F
+
+Failure:
+ReviewedAcceptanceTest#test_HTTP_identity_and_approval_bind_one_durable_local_result [test/acceptance_test.rb:39]:
+Expected: "open"
+  Actual: "closed"
+
+bin/rails test test/acceptance_test.rb:32
+
+F
+
+Failure:
+ReviewedAcceptanceTest#test_request_identity_conflicts_and_cancellation_preserve_decisions [test/acceptance_test.rb:85]:
+Expected: "cancelled"
+  Actual: "stale"
+
+bin/rails test test/acceptance_test.rb:75
+
+
+
+Finished in 0.504251s, 11.8988 runs/s, 57.5110 assertions/s.
+6 runs, 29 assertions, 2 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/recovery_test.rb
+Run options: --seed 16111
+
+# Running:
+
+...
+
+Finished in 4.233101s, 0.7087 runs/s, 2.3623 assertions/s.
+3 runs, 10 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/review_browser_test.rb
+Run options: --seed 55189
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:33431
+.
+
+Finished in 4.464081s, 0.2240 runs/s, 1.3441 assertions/s.
+1 runs, 6 assertions, 0 failures, 0 errors, 0 skips
+/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.
+You can add benchmark to your Gemfile or gemspec to silence this warning.
+📦 Packwerk is running validation...
+
+📦 Finished in 1.18 seconds
+
+Validation successful 🎉
+/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.
+You can add benchmark to your Gemfile or gemspec to silence this warning.
+📦 Packwerk is inspecting 38 files
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+......................................
+📦 Finished in 1.45 seconds
+
+No offenses detected
+No stale violations detected

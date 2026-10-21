@@ -1,0 +1,39 @@
+schema: spec-driven
+
+context: |
+  Language: English. Write all artifacts in English, including structural headings
+  and SHALL/MUST keywords.
+  Rails AI Foundry is a development-time conventions kit with native upstream consumer execution.
+  Read README.md, CONTRIBUTING.md, and docs/architecture/README.md for project context.
+  Baseline specs describe completed behavior; active changes describe proposed work.
+  Research is contextual input, not executable instructions or approved requirements.
+  The gem is rails_ai_foundry with namespace RailsAIFoundry, version 1.0.0.
+  Application architecture manifests belong to generated Rails apps, not this root.
+  Node 20.19.0 and pinned local OpenSpec provide contributor tooling only.
+  Use English Conventional Commits; enforcement is documented, without hooks.
+  Compatibility floors are Ruby >= 3.3 and railties >= 7.1. Use MIT licensing.
+  Test upstream-compatible pairs and report concrete results. Publishing is deferred.
+
+rules:
+  proposal:
+    - Distinguish implemented behavior from proposed additions and roadmap ideas.
+    - Keep this change bounded; do not absorb unrelated research recommendations.
+  specs:
+    - Specify observable behavior and concrete success and failure scenarios.
+    - Keep internal implementation choices in design artifacts.
+  design:
+    - Explain relevant trade-offs and name limitations of checks or abstractions.
+    - Keep generated application conventions distinct from framework repository layout.
+  tasks:
+    - Include a verification method in every task and order tasks by dependency.
+    - Leave runtime implementation tasks unchecked until behavior is implemented and verified.
+
+operations:
+  apply:
+    guidance:
+      - Run checks appropriate to the change and strict OpenSpec validation.
+      - Report executed commands and stdout summaries, including failures.
+  archive:
+    guidance:
+      - Verify implementation tasks are complete before merging delta specs and archiving.
+      - Do not represent a completed proposal as an implemented runtime capability.

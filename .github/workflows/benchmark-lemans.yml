@@ -1,0 +1,161 @@
+name: Le Mans offline acceptance
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+env:
+  BUNDLE_GEMFILE: benchmarks/Gemfile
+  RUBYOPT: -EUTF-8
+jobs:
+  foundry:
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record Foundry source revision
+        run: git rev-parse HEAD | tee "$RUNNER_TEMP/foundry-revision.txt"
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler-cache: true
+      - name: Contributor tests
+        run: bundle exec ruby -e 'Dir["benchmarks/test_lemans/*_test.rb"].sort.each { |file| require_relative file }'
+      - name: Prepare installed-gem task images
+        run: |
+          benchmarks/suite prepare-foundry "$RUNNER_TEMP/foundry"
+          benchmarks/suite images "$RUNNER_TEMP/foundry"
+          benchmarks/suite dependencies "$RUNNER_TEMP/foundry" "$RUNNER_TEMP/dependencies"
+          benchmarks/suite prepare-controls "$RUNNER_TEMP/foundry" "$RUNNER_TEMP/controls"
+          benchmarks/suite isolation "$RUNNER_TEMP/foundry" "$RUNNER_TEMP/isolation"
+      - name: Integrity controls
+        env:
+          BENCHMARK_WORKSPACE: ${{ runner.temp }}/foundry
+          BENCHMARK_EVIDENCE: ${{ runner.temp }}/integrity
+        run: bundle exec ruby benchmarks/acceptance/integrity_test.rb
+      - name: Native controls
+        continue-on-error: true
+        run: bundle exec lemans run --bench "$RUNNER_TEMP/controls" --agent oracle --concurrency 1 --runs-dir "$RUNNER_TEMP/native"
+      - name: Independent verification
+        if: always()
+        run: |
+          benchmarks/suite replay "$RUNNER_TEMP/controls" "$RUNNER_TEMP/native" "$RUNNER_TEMP/verification"
+          benchmarks/suite report "$RUNNER_TEMP/controls" "$RUNNER_TEMP/report" "$RUNNER_TEMP/verification/summary.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: foundry-offline-controls
+          path: |
+            ${{ runner.temp }}/native
+            ${{ runner.temp }}/verification
+            ${{ runner.temp }}/report
+            ${{ runner.temp }}/integrity
+            ${{ runner.temp }}/isolation
+            ${{ runner.temp }}/dependencies
+            ${{ runner.temp }}/foundry/manifest.json
+            ${{ runner.temp }}/foundry/images.json
+            ${{ runner.temp }}/controls/manifest.json
+            ${{ runner.temp }}/controls/images.json
+            ${{ runner.temp }}/foundry-revision.txt
+  upstream:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [writebook-atomic, fizzy-feature-0, fizzy-feature-1, fizzy-feature-2, saas]
+        include:
+          - shard: writebook-atomic
+            runner: ubuntu-24.04-arm
+          - shard: fizzy-feature-0
+            runner: ubuntu-24.04-arm
+          - shard: fizzy-feature-1
+            runner: ubuntu-24.04-arm
+          - shard: fizzy-feature-2
+            runner: ubuntu-24.04-arm
+          - shard: saas
+            runner: ubuntu-24.04
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record Foundry source revision
+        run: git rev-parse HEAD | tee "$RUNNER_TEMP/foundry-revision.txt"
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler-cache: true
+      - name: Prepare pinned upstream shard
+        run: |
+          benchmarks/suite prepare-upstream "$RUNNER_TEMP/upstream"
+          benchmarks/suite prepare-shard "$RUNNER_TEMP/upstream" "$RUNNER_TEMP/shard" "${{ matrix.shard }}"
+          benchmarks/suite images "$RUNNER_TEMP/shard"
+          benchmarks/suite dependencies "$RUNNER_TEMP/shard" "$RUNNER_TEMP/dependencies"
+          benchmarks/suite isolation "$RUNNER_TEMP/shard" "$RUNNER_TEMP/isolation"
+      - name: Executable skill browser controls
+        if: matrix.shard == 'fizzy-feature-1'
+        shell: bash
+        run: |
+          image=$(ruby -rjson -e 'images = JSON.parse(File.read(ARGV.fetch(0))); abort "Expected one Fizzy image" unless images.size == 1; puts images.values.fetch(0).fetch("id")' "$RUNNER_TEMP/shard/images.json")
+          ruby script/verify_skill_browser.rb "$image" 2>&1 | tee "$RUNNER_TEMP/skill-browser.log"
+      - name: Native oracle controls
+        continue-on-error: true
+        run: bundle exec lemans run --bench "$RUNNER_TEMP/shard" --agent oracle --concurrency 1 --runs-dir "$RUNNER_TEMP/oracle"
+      - name: Native no-op controls
+        continue-on-error: true
+        run: bundle exec lemans run --bench "$RUNNER_TEMP/shard" --agent nop --concurrency 1 --runs-dir "$RUNNER_TEMP/nop"
+      - name: Independent verification
+        if: always()
+        run: |
+          benchmarks/suite replay "$RUNNER_TEMP/shard" "$RUNNER_TEMP/oracle" "$RUNNER_TEMP/oracle-verification"
+          benchmarks/suite replay "$RUNNER_TEMP/shard" "$RUNNER_TEMP/nop" "$RUNNER_TEMP/nop-verification"
+          benchmarks/suite report "$RUNNER_TEMP/shard" "$RUNNER_TEMP/report" "$RUNNER_TEMP/oracle-verification/summary.json" "$RUNNER_TEMP/nop-verification/summary.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: upstream-offline-${{ matrix.shard }}
+          path: |
+            ${{ runner.temp }}/skill-browser.log
+            ${{ runner.temp }}/oracle
+            ${{ runner.temp }}/nop
+            ${{ runner.temp }}/oracle-verification
+            ${{ runner.temp }}/nop-verification
+            ${{ runner.temp }}/report
+            ${{ runner.temp }}/dependencies
+            ${{ runner.temp }}/shard/manifest.json
+            ${{ runner.temp }}/isolation
+            ${{ runner.temp }}/shard/shard.json
+            ${{ runner.temp }}/shard/images.json
+            ${{ runner.temp }}/shard/prerequisites.json
+            ${{ runner.temp }}/shard/local-overrides.json
+            ${{ runner.temp }}/shard/upstream-files.json
+            ${{ runner.temp }}/foundry-revision.txt
+  reviewed-ai-controls:
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler-cache: false
+      - name: Cache canonical dependency artifacts
+        run: |
+          bundle install --gemfile benchmarks/Gemfile
+          bundle install --gemfile examples/rails-native-agent-tools-structured-output-rubyllm/Gemfile
+      - name: Prepare and freeze offline feature study
+        run: |
+          benchmarks/suite prepare-reviewed-study "$RUNNER_TEMP/reviewed"
+          benchmarks/suite images "$RUNNER_TEMP/reviewed"
+          benchmarks/suite dependencies "$RUNNER_TEMP/reviewed" "$RUNNER_TEMP/reviewed-dependencies"
+          benchmarks/suite isolation "$RUNNER_TEMP/reviewed" "$RUNNER_TEMP/reviewed-isolation"
+      - name: Independently grade valid and faulty controls
+        run: benchmarks/suite reviewed-study-controls "$RUNNER_TEMP/reviewed" "$RUNNER_TEMP/reviewed-controls"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reviewed-ai-offline-controls
+          path: |
+            ${{ runner.temp }}/reviewed-controls
+            ${{ runner.temp }}/reviewed-dependencies
+            ${{ runner.temp }}/reviewed-isolation
+            ${{ runner.temp }}/reviewed/manifest.json
+            ${{ runner.temp }}/reviewed/images.json

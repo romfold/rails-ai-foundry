@@ -1,0 +1,17 @@
+diff --git a/app/views/cards/comments/_reaction.html.erb b/app/views/cards/comments/_reaction.html.erb
+index 5d09b7b..be75713 100644
+--- a/app/views/cards/comments/_reaction.html.erb
++++ b/app/views/cards/comments/_reaction.html.erb
+@@ -4,9 +4,8 @@
+   <span class="txt-small txt-medium"><%= reaction.content %></span>
+   <%= avatar_tag reaction.creator, hidden_for_screen_reader: true, class: "reaction__avatar" %>
+   <template data-reaction-entry-target="controls">
+-    <%= button_to card_comment_reaction_path(reaction.comment.card, reaction.comment, reaction), method: :delete,
+-          class: "reaction__delete btn btn--circle borderless", title: "Remove your reaction" do %>
+-      <%= icon_tag "close" %><span class="for-screen-reader">Remove reaction</span>
+-    <% end %>
++    <%= button_to card_comment_reaction_path(reaction.comment.card, reaction.comment, reaction),
++          controller: "cards/comments/reactions", action: "create", card_id: reaction.comment.card, comment_id: reaction.comment,
++          method: :delete, class: "reaction__delete btn btn--circle borderless", title: "Remove reaction" %>
+   </template>
+ </div>

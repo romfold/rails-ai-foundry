@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'rails_ai_foundry/cli'
+exit RailsAIFoundry::CLI.new.call(ARGV)

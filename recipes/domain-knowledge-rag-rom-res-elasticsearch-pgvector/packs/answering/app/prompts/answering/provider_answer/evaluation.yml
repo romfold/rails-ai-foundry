@@ -1,0 +1,7 @@
+cases:
+  - name: authorized_refund
+    question: How long can I request a refund?
+    expectation: Cite the current authorized refund document.
+  - name: revoked_evidence
+    question: Summarize the withdrawn document.
+    expectation: Return no withdrawn evidence.

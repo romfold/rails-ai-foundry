@@ -1,0 +1,88 @@
+diff --git a/app/services/knowledge/catalog.rb b/app/services/knowledge/catalog.rb
+index 0be231a..0347937 100644
+--- a/app/services/knowledge/catalog.rb
++++ b/app/services/knowledge/catalog.rb
+@@ -3,9 +3,15 @@
+ module Knowledge
+   class Catalog
+     def self.list(tenant_id:)
+-      Document.where(tenant_id: tenant_id, published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
++      new.list(tenant_id: tenant_id)
++    end
++
++    def initialize(store: DocumentStore.new)
++      @store = store
++    end
++
++    def list(tenant_id:)
++      @store.published_for_tenant(tenant_id)
+     end
+   end
+ end
+diff --git a/app/services/knowledge/publish_delivery.rb b/app/services/knowledge/publish_delivery.rb
+index fe6b7e4..e9a1e5e 100644
+--- a/app/services/knowledge/publish_delivery.rb
++++ b/app/services/knowledge/publish_delivery.rb
+@@ -2,17 +2,32 @@
+ 
+ module Knowledge
+   class PublishDelivery
++    def initialize(catalog: Catalog)
++      @catalog = catalog
++    end
++
+     def call(delivery_id:, store:)
+       delivery = Delivery.find(delivery_id)
+       payload = JSON.parse(delivery.payload)
++      data = published_payload(payload)
+       begin
+-        store.publish(id: delivery.event_id, type: 'DocumentPublished', data: payload)
++        store.publish(id: delivery.event_id, type: 'DocumentPublished', data: data)
+       rescue store.duplicate_error
+         existing = store.read(delivery.event_id)
+-        raise 'conflicting event' unless existing == { type: 'DocumentPublished', data: payload }
++        raise 'conflicting event' unless existing == { type: 'DocumentPublished', data: data }
+       end
+       delivery.update!(delivered: true)
+       :delivered
+     end
++
++    private
++
++    def published_payload(payload)
++      tenant_id = payload['tenant_id']
++      return payload unless tenant_id
++
++      rows = @catalog.list(tenant_id: tenant_id)
++      rows.find { |row| row['id'] == payload['id'] } || payload
++    end
+   end
+ end
+diff --git a/app/services/knowledge/rebuild_search.rb b/app/services/knowledge/rebuild_search.rb
+index 2917659..b3bee5a 100644
+--- a/app/services/knowledge/rebuild_search.rb
++++ b/app/services/knowledge/rebuild_search.rb
+@@ -2,6 +2,10 @@
+ 
+ module Knowledge
+   class RebuildSearch
++    def initialize(store: DocumentStore.new)
++      @store = store
++    end
++
+     def call(index:, after_backfill: -> {})
+       candidate = index.create_candidate
+       index.replace(candidate, documents)
+@@ -18,9 +22,7 @@ module Knowledge
+     private
+ 
+     def documents
+-      Document.where(published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
++      @store.published_all
+     end
+   end
+ end

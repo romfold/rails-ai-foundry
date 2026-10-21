@@ -1,0 +1,20 @@
+<turbo-frame id="resolution-status" data-status-url="<%= resolution_path(@work) %>">
+  <p>State: <strong id="state" data-terminal="<%= @work.terminal? %>"><%= @work.state %></strong></p>
+  <p>Generation attempts: <%= @work.attempt_count %> / 3</p>
+  <% if @work.failure_code %><p>Outcome: <%= @work.failure_code.humanize %></p><% end %>
+  <h3>Ticket snapshot (revision <%= @work.source_revision %>)</h3>
+  <p><%= @work.snapshot.fetch('subject') %></p><p><%= @work.question %></p>
+  <% if @work.proposal %><h3>Proposed resolution</h3><p id="proposal"><%= @work.proposal %></p><% end %>
+  <% if @work.approved_at %><p>Approved by editor <%= @work.approver_id %>. Approval is not completion.</p><% end %>
+  <% if @work.state == 'completed' %><p>Ticket closed. Approved resolution stored locally.</p><% end %>
+  <% if @work.state == 'awaiting_review' && @actor.can_close? %>
+    <%= button_to 'Approve resolution', approve_resolution_path(@work), params: { proposal_digest: @work.proposal_digest, ticket_revision: @work.source_revision }, data: { turbo: false } %>
+    <%= button_to 'Reject proposal', reject_resolution_path(@work), data: { turbo: false } %>
+  <% end %>
+  <% if !@work.terminal? && (@actor.can_close? || @actor.id == @work.requester_id) %>
+    <%= button_to 'Cancel request', cancel_resolution_path(@work), data: { turbo: false } %>
+  <% end %>
+  <% if @work.state == 'failed' && @actor.id == @work.requester_id %>
+    <%= button_to 'Retry as new request', retry_resolution_path(@work), params: { idempotency_key: SecureRandom.uuid }, data: { turbo: false } %>
+  <% end %>
+</turbo-frame>

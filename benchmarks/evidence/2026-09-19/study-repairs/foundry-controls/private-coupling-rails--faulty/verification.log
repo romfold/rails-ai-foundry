@@ -1,0 +1,26 @@
+bundle exec ruby test/visible_test.rb
+Run options: --seed 7903
+
+# Running:
+
+..
+
+Finished in 0.119252s, 16.7712 runs/s, 33.5425 assertions/s.
+2 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -I/tests -report-lemans /tests/acceptance_test.rb
+Run options: --seed 51869
+
+# Running:
+
+..F
+
+Failure:
+AcceptanceTest#test_selected_task [/tests/acceptance_test.rb:75]:
+Expected "# frozen_string_literal: true\n\nmodule Answering\n  class RetrievalTool\n    def initialize(tenant_id:, authorize:)\n      @tenant_id = tenant_id\n      @authorize = authorize\n    end\n\n    def call(query:, tenant_id: nil)\n      raise SecurityError, 'unauthorized retrieval' unless @authorize.call(@tenant_id)\n      raise SecurityError, 'tenant override' if tenant_id && tenant_id != @tenant_id\n\n      Knowledge::Document.where(tenant_id: @tenant_id, published: true).order(:id).map(&:attributes).select { |row| row.fetch('body').include?(query) }\n    end\n  end\nend\n" to include "Knowledge::Catalog".
+
+bin/rails test /tests/acceptance_test.rb:37
+
+
+
+Finished in 0.109755s, 27.3336 runs/s, 145.7791 assertions/s.
+3 runs, 16 assertions, 1 failures, 0 errors, 0 skips

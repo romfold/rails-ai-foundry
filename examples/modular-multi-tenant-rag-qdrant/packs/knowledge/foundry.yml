@@ -1,0 +1,12 @@
+schema: 1
+kind: domain
+profile: modular
+namespace: Knowledge
+patterns:
+  events: none
+  cqrs: read_model
+capabilities:
+  persistence:
+    adapter: postgresql
+  vectors:
+    adapter: qdrant

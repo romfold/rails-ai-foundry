@@ -1,0 +1,9 @@
+inherit_from: ../.rubocop.yml
+Metrics/AbcSize:
+  Exclude:
+    - evaluator/**/*
+    - fixture/test/**/*
+Metrics/BlockLength:
+  Exclude:
+    - evaluator/**/*
+    - fixture/test/**/*

@@ -1,0 +1,8 @@
+{
+  "ft-i18n-support": {
+    "command": "gem install rails-i18n -v 8.1.0",
+    "gem": "rails-i18n",
+    "version": "8.1.0",
+    "base_image": "lemans-8d33f0371429eafe8e6ad99ce2b955c3"
+  }
+}

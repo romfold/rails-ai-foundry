@@ -1,0 +1,74 @@
+[
+  {
+    "trial": "01-boundary-extraction-rails-r1",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "02-boundary-extraction-packs-r1",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "03-boundary-extraction-foundry-r1",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "04-stale-embedding-rails-r1",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "05-stale-embedding-packs-r1",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "06-stale-embedding-foundry-r1",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "07-boundary-extraction-packs-r2",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "08-boundary-extraction-foundry-r2",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "09-boundary-extraction-rails-r2",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "10-stale-embedding-packs-r2",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "11-stale-embedding-foundry-r2",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "12-stale-embedding-rails-r2",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "13-boundary-extraction-foundry-r3",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "14-boundary-extraction-rails-r3",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "15-boundary-extraction-packs-r3",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "16-stale-embedding-foundry-r3",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "17-stale-embedding-rails-r3",
+    "diff_reconstructs_graded_candidate": true
+  },
+  {
+    "trial": "18-stale-embedding-packs-r3",
+    "diff_reconstructs_graded_candidate": true
+  }
+]

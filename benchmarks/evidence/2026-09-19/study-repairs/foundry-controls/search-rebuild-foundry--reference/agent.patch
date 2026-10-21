@@ -1,0 +1,14 @@
+diff --git a/packs/knowledge/app/services/knowledge/rebuild_search.rb b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+index 4c7239b..2917659 100644
+--- a/packs/knowledge/app/services/knowledge/rebuild_search.rb
++++ b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+@@ -7,6 +7,9 @@ module Knowledge
+       index.replace(candidate, documents)
+       after_backfill.call
+       Document.transaction do
++        index.replace(candidate, documents)
++        raise 'candidate validation failed' unless index.valid?(candidate, documents)
++
+         index.activate(candidate)
+       end
+       candidate

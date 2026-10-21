@@ -1,0 +1,14 @@
+schema: 1
+kind: domain
+profile: rails_native
+namespace: Knowledge
+patterns:
+  events: none
+  cqrs: queries
+capabilities:
+  persistence:
+    adapter: postgresql
+  vector:
+    adapter: pgvector
+  ai:
+    adapter: ruby_llm

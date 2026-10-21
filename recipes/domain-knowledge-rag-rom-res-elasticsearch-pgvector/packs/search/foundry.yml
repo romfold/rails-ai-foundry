@@ -1,0 +1,14 @@
+schema: 1
+kind: domain
+profile: modular
+namespace: Search
+patterns:
+  events: none
+  cqrs: read_model
+capabilities:
+  persistence:
+    adapter: rom
+  search:
+    adapter: elasticsearch
+  vector:
+    adapter: pgvector

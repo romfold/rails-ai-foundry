@@ -1,0 +1,42 @@
+{
+  "classification": "human-assisted regression evidence",
+  "source_revision": "545e12f2cbfe6da095808c74ffbd29c5ec26229f",
+  "upstream_revision": "5327efe54dd767d662ab89332f6a4285fef07bd8",
+  "study_sha256": "b2531150d04fe69d5e3f7bdad18f1765b36f6908977597c614eb9275c0364759",
+  "suite": "upstream",
+  "task": "ft-comment-reaction-live-echo",
+  "task_digest": "9df099a35893d33b",
+  "image": "sha256:7a68abbb405addbea91cc7c9ea75c802b63e2603e2f25f51c3c03f92e64b85a0",
+  "original_sha256": "cb62fd83a4d7964fc49722bf047f4372461b0a5946cc9ae8114de81f7078edd3",
+  "baseline_tree": "5e339b176cb350bb1b7c014de7ba0c04d1833632",
+  "candidate_tree": "41c7df1515e2b2a895096d6c9a29629b9b52a5d4",
+  "repaired_tree": "930449e5cb81072184636ebf52879e5bfca1f1ac",
+  "companion": {
+    "suite": "foundry",
+    "task": "boundary-extraction-foundry",
+    "task_digest": "9c5344c304e48ff6",
+    "image": "sha256:adab4acc6cd0f4822661a64664f76f333464da27581dfa486625cd629b2ed27d",
+    "original_sha256": "58f0e44c60d33a64946406bdc1733fd3e6eeacf49bd12017fddb3cbba6b8cd92",
+    "baseline_tree": "ca49425a8bc643cc7881203f4ed50c4f2feed556",
+    "candidate_tree": "6873cd2963cac584688e6843265edc351817c50f",
+    "repaired_tree": "95679c3de49b28babb320b72f8bbdcf84a3a508a"
+  },
+  "files": {
+    "authorization_test.rb": "22a8833b480188433d036c982acdc10b66ca6a9c1584c0e271e922afdae52075",
+    "boundary-complete.patch": "0db0cb921de69fa5423e0818a2ab8ef334f2c13fccd7bba61f3847eb029cd9ef",
+    "boundary-repair.patch": "3331fda3ec100205af1b35ece349a27bee3d188b945b74ba8c2f9b3433026afb",
+    "callback-collision-complete.patch": "9d4150562bbbff4a7632f1911664b7c7cf6f4cee31f82370a5a2894ae0af8cbd",
+    "callback-collision.patch": "3cab68344fb1dc2accdcdd2f088107caf1eedd5d77f449bd643baaa04a3dfa13",
+    "composer-replacement-complete.patch": "a10f8d1a7a60e03d5052ccde7ab00e60baf2ed57469f32f3588502f3ac3ee460",
+    "composer-replacement.patch": "2792a1e04f7bc200c9049458683b8c858dfedef7fb48dde734ec077b50619d6e",
+    "guarded-composer-replacement-complete.patch": "b0868636ac950607d106a5d034cbb77a11a2b2ca52bf47e10b44056b39503379",
+    "guarded-composer-replacement.patch": "101350ab0e36b151bbe700d508035c404233fe758a9921a5bac7e4bb5c95c72c",
+    "realtime-complete.patch": "492f95781341af8786546f394eec5860586b8960d5339659eca7782cb44a0e20",
+    "realtime-repair.patch": "7d7400b369022b84f784747e041eef4b75b0e8ee6ebe21a47088851cc6fdda30",
+    "realtime_test.rb": "0c555ccdbb8bc18f230f67e43a3b9e422e4b4aaf6805d21d4af9aa02c7c9eecb",
+    "schema-only-complete.patch": "e879fa0456cb3a46508b1e99433ab7e1c35dddc377d93b06d5f4d86cee0e6938",
+    "transaction_test.rb": "44c2a9275798e05586c8d639f374e91e8fc0b411c2e1682b127426fbafbbe380",
+    "zero-size-controls-complete.patch": "78c578692a9674393650446a8c1b0a287748e70ae00d204f26406a6a3205b566",
+    "zero-size-controls.patch": "3f0699e5cdd4ef5efca988202079360957d2bfca0c40abcf35c0a064d8196fff"
+  }
+}

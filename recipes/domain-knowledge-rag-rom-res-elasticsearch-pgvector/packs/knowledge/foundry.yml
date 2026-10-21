@@ -1,0 +1,10 @@
+schema: 1
+kind: domain
+profile: domain
+namespace: Knowledge
+patterns:
+  events: integration
+  cqrs: none
+capabilities:
+  persistence:
+    adapter: rom

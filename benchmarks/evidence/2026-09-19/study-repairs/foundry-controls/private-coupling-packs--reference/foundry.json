@@ -1,0 +1,18 @@
+{
+  "visible": "passed",
+  "behavioral": "passed",
+  "architecture": {
+    "status": "passed",
+    "policy_errors": [],
+    "checks": [
+      {
+        "exit_code": 0,
+        "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.66 seconds\n\nValidation successful 🎉\n"
+      },
+      {
+        "exit_code": 0,
+        "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 0.9 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+      }
+    ]
+  }
+}

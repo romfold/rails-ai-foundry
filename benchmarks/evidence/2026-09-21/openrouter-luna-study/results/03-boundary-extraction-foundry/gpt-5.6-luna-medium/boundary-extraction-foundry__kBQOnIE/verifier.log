@@ -1,0 +1,93 @@
+bundle exec ruby test/visible_test.rb
+`/tmp/home` is not a directory.
+Bundler will use `/tmp/bundler20260921-601-gkmea4601' as your home directory temporarily.
+Run options: --seed 25180
+
+# Running:
+
+..
+
+Finished in 0.065380s, 30.5906 runs/s, 61.1811 assertions/s.
+2 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -I/tests -report-lemans /tests/acceptance_test.rb
+`/tmp/home` is not a directory.
+Bundler will use `/tmp/bundler20260921-609-fsv3nl609' as your home directory temporarily.
+Run options: --seed 27170
+
+# Running:
+
+...
+
+Finished in 0.066764s, 44.9347 runs/s, 209.6952 assertions/s.
+3 runs, 14 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -rstringio -S packwerk validate
+`/tmp/home` is not a directory.
+Bundler will use `/tmp/bundler20260921-617-71qivu617' as your home directory temporarily.
+📦 Packwerk is running validation...
+
+📦 Finished in 0.38 seconds
+
+Validation successful 🎉
+bundle exec ruby -rstringio -S packwerk check
+`/tmp/home` is not a directory.
+Bundler will use `/tmp/bundler20260921-622-wdb6w9622' as your home directory temporarily.
+📦 Packwerk is inspecting 12 files
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+/usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2326:in 'Dir.rmdir': No such file or directory @ dir_s_rmdir - /tmp/bundler20260921-622-wdb6w9622 (Errno::ENOENT)
+	from /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2326:in 'block in Bundler::FileUtils::Entry_#remove_dir1'
+	from /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2337:in 'Bundler::FileUtils::Entry_#platform_support'
+	from /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2325:in 'Bundler::FileUtils::Entry_#remove_dir1'
+	from /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2318:in 'Bundler::FileUtils::Entry_#remove'
+	from /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:1414:in 'block in Bundler::FileUtils.remove_entry_secure'
+	from /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2383:in 'Bundler::FileUtils::Entry_#postorder_traverse'
+	from /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:1412:in 'Bundler::FileUtils.remove_entry_secure'
+	from /usr/local/lib/ruby/3.4.0/bundler.rb:355:in 'Bundler.rm_rf'
+	from /usr/local/lib/ruby/3.4.0/bundler.rb:687:in 'block (2 levels) in Bundler.tmp_home_path'
+	from /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:675:in 'Process.fork'
+	from /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:675:in 'Parallel.worker'
+	from /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:658:in 'block in Parallel.create_workers'
+	from /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:657:in 'Array#each'
+	from /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:657:in 'Enumerable#each_with_index'
+	from /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:657:in 'Parallel.create_workers'
+	from /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:595:in 'Parallel.work_in_processes'
+	from /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:317:in 'Parallel.map'
+	from /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:330:in 'Parallel.flat_map'
+	from /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/parse_run.rb:38:in 'Packwerk::ParseRun#find_offenses'
+	from /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'
+	from /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::ParseRun#_on_method_added'
+	from /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/commands/check_command.rb:27:in 'block in Packwerk::Commands::CheckCommand#run'
+	from /usr/local/bundle/gems/benchmark-0.5.0/lib/benchmark.rb:324:in 'Benchmark.realtime'
+	from /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:29:in 'Packwerk::Formatters::ProgressFormatter#started_inspection'
+	from /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'
+	from /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::Formatters::ProgressFormatter#_on_method_added'
+	from /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/commands/check_command.rb:26:in 'Packwerk::Commands::CheckCommand#run'
+	from /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'
+	from /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::Commands::CheckCommand#_on_method_added'
+	from /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/cli.rb:58:in 'Packwerk::Cli#execute_command'
+	from /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'
+	from /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::Cli#_on_method_added'
+	from /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/cli.rb:41:in 'Packwerk::Cli#run'
+	from /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'
+	from /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::Cli#_on_method_added'
+	from /usr/local/bundle/gems/packwerk-3.1.0/exe/packwerk:16:in '<top (required)>'
+	from /usr/local/bundle/bin/packwerk:25:in 'Kernel#load'
+	from /usr/local/bundle/bin/packwerk:25:in '<main>'
+............
+📦 Finished in 0.5 seconds
+
+No offenses detected
+No stale violations detected
+bundle exec foundry check --sources
+Foundry structural assessment: /candidate
+Workflow: none; workload: balanced
+Context configurations validated: 1
+Configuration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.
+Source check: 9 Ruby files; passed.
+Application app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.
+No files were changed.
+Run owning-context behavioral tests.
+Run foundry check --boundaries in an isolated test environment for upstream Packwerk verification.
+Preserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.

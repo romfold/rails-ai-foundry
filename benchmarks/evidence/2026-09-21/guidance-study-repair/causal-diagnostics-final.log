@@ -1,0 +1,18 @@
+Running 7 tests in a single process (parallelization threshold is 50)
+Run options: --include /diagnostic/ --seed 53140
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:34205
+2026-09-21 20:55:20 INFO Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging
+
+2026-09-21 20:55:20 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+CAUSAL_DIAGNOSTIC={"requests":[{"controller":"Cards::Comments::ReactionsController","action":"create","status":200},{"controller":"Cards::Comments::ReactionsController","action":"create","status":400}],"persisted_content":"diagnostic","callback_count":1,"applicable":{"create":0,"destroy":1},"expected_stream":"Z2lkOi8vZml6enkvQ2FyZC8wM2F5bm44azlkOTJvNzc3MW5kM29mbXh4","broadcasts":[{"broadcasting":"Z2lkOi8vZml6enkvQm9hcmQvMDNheXY2bXA2MHhnM2FxZXMwbTlzYTY4dw","message":"<turbo-stream request-id=\"50261de7-f2a7-40e0-82b9-74dfc9a67b7c\" action=\"refresh\"></turbo-stream>"},{"broadcasting":"Z2lkOi8vZml6enkvQWNjb3VudC8wM2F5YXVuZXR2M3o0bjY4MWQ1OHdkeXNk:all_boards","message":"<turbo-stream request-id=\"50261de7-f2a7-40e0-82b9-74dfc9a67b7c\" action=\"refresh\"></turbo-stream>"}],"connected":true,"form_html":"<form class=\"button_to\" method=\"post\" action=\"/897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions?aria%5Blabel%5D=Remove+reaction&amp;class=reaction__delete+btn+btn--plain&amp;data%5Baction%5D=click-%3Ereactions%23stop&amp;data%5Bturbo%5D=true&amp;method=delete&amp;title=Remove+reaction\" aria-busy=\"true\"><button type=\"submit\" disabled=\"\">/897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions/03gwtpo1bhwp32zqeflzzd3jl</button></form>","delete_controls":0,"delete_overrides":0}
+.
+
+Finished in 13.008418s, 0.0769 runs/s, 0.6919 assertions/s.
+1 runs, 9 assertions, 0 failures, 0 errors, 0 skips

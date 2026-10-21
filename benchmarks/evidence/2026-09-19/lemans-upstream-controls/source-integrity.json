@@ -1,0 +1,9 @@
+{
+  "revision": "5327efe54dd767d662ab89332f6a4285fef07bd8",
+  "checked_files": 190,
+  "preserved_original_locations": {
+    "bench.yml": "upstream-bench.yml",
+    "tasks/ft-saas-billing/environment/Dockerfile": "upstream-environments/ft-saas-billing/Dockerfile"
+  },
+  "differences": []
+}

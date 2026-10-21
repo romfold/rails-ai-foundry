@@ -1,0 +1,237 @@
+{
+  "model": "openrouter/openai/gpt-5.6-luna#medium",
+  "records": [
+    {
+      "id": "00-hello-world",
+      "suite": "smoke",
+      "task": "hello-world",
+      "cost_limit": 0.25,
+      "native": {
+        "trial": "hello-world__BAaTzp8",
+        "task": "hello-world",
+        "agent": "miniswen",
+        "model": "openrouter/openai/gpt-5.6-luna#medium",
+        "index": 1,
+        "profile_digest": "8437c3dbd5a33564",
+        "task_digest": "ff08ef86ca7f0efb",
+        "revision": {
+          "commit": null,
+          "dirty": null
+        },
+        "lemans_version": "1.3.5",
+        "tags": [],
+        "metadata": {
+          "category": "infrastructure",
+          "rails_anchor": "none - infrastructure hello-world, deliberately not a Rails task"
+        },
+        "phases": [
+          {
+            "name": "environment_setup",
+            "started_at": "2026-09-21T19:53:21.769476Z",
+            "finished_at": "2026-09-21T19:53:23.391038Z"
+          },
+          {
+            "name": "agent",
+            "started_at": "2026-09-21T19:53:23.391068Z",
+            "finished_at": "2026-09-21T19:54:02.536176Z"
+          },
+          {
+            "name": "verifier",
+            "started_at": "2026-09-21T19:54:02.964932Z",
+            "finished_at": "2026-09-21T19:54:25.919330Z"
+          }
+        ],
+        "reward": 1.0,
+        "credit": 1.0,
+        "outcome": {
+          "name": "completed",
+          "scored": true
+        },
+        "usage": {
+          "input_tokens": 19877,
+          "output_tokens": 1148,
+          "cached_tokens": 14182,
+          "steps": 6,
+          "cost_usd": 0.00304494,
+          "cost_source": {
+            "name": "model_registry",
+            "model": "openrouter/openai/gpt-5.6-luna#medium",
+            "priced_as": "openrouter/openai/gpt-5.6-luna",
+            "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+          }
+        },
+        "duration": 64.1,
+        "started_at": "2026-09-21T19:53:21Z",
+        "finished_at": "2026-09-21T19:54:25Z"
+      },
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260921-r4/results/00-hello-world/gpt-5.6-luna-medium/hello-world__BAaTzp8/result.json",
+      "native_sha256": "b9f77adfd3578846af999b901e3b8a15be0bea9ee83418f07c9fb236a7bca757",
+      "status": "passed",
+      "verification": {
+        "task": "hello-world",
+        "native_outcome": "completed",
+        "native_result": "/private/tmp/foundry-openrouter-luna-20260921-r4/results/00-hello-world/gpt-5.6-luna-medium/hello-world__BAaTzp8/result.json",
+        "native_status": "passed",
+        "independent": {
+          "task": "hello-world",
+          "status": "passed",
+          "reward": 1.0,
+          "patch_sha256": "b1397839bf2e4b153a7e7fedd7e131a6ff3e76d462dd3d8de3db66d7072b43b2",
+          "foundry": null,
+          "verification_phase": "task",
+          "baseline_exit_code": 0,
+          "verification_status": "passed",
+          "protocol_violations": [],
+          "assertion_failure": false
+        },
+        "status": "passed",
+        "agent": "miniswen",
+        "control_passed": null,
+        "category": "smoke"
+      },
+      "verification_sha256": "96887de62593b353abbbadca390d26e8165d6a36b05573b950d5498157971a9a"
+    },
+    {
+      "id": "01-boundary-extraction-rails",
+      "suite": "foundry",
+      "task": "boundary-extraction-rails",
+      "cost_limit": 0.75,
+      "status": "unstarted"
+    },
+    {
+      "id": "02-boundary-extraction-packs",
+      "suite": "foundry",
+      "task": "boundary-extraction-packs",
+      "cost_limit": 0.75,
+      "status": "unstarted"
+    },
+    {
+      "id": "03-boundary-extraction-foundry",
+      "suite": "foundry",
+      "task": "boundary-extraction-foundry",
+      "cost_limit": 0.75,
+      "status": "unstarted"
+    },
+    {
+      "id": "04-stale-embedding-rails",
+      "suite": "foundry",
+      "task": "stale-embedding-rails",
+      "cost_limit": 0.75,
+      "status": "unstarted"
+    },
+    {
+      "id": "05-stale-embedding-packs",
+      "suite": "foundry",
+      "task": "stale-embedding-packs",
+      "cost_limit": 0.75,
+      "status": "unstarted"
+    },
+    {
+      "id": "06-stale-embedding-foundry",
+      "suite": "foundry",
+      "task": "stale-embedding-foundry",
+      "cost_limit": 0.75,
+      "status": "unstarted"
+    },
+    {
+      "id": "07-ar-tenant-isolation",
+      "suite": "upstream",
+      "task": "ar-tenant-isolation",
+      "cost_limit": 0.75,
+      "status": "unstarted"
+    },
+    {
+      "id": "08-aj-enqueue-after-commit",
+      "suite": "upstream",
+      "task": "aj-enqueue-after-commit",
+      "cost_limit": 0.75,
+      "status": "unstarted"
+    },
+    {
+      "id": "09-ft-comment-reaction-live-echo",
+      "suite": "upstream",
+      "task": "ft-comment-reaction-live-echo",
+      "cost_limit": 0.75,
+      "status": "unstarted"
+    }
+  ],
+  "counts": {
+    "passed": 1,
+    "unstarted": 9
+  },
+  "suites": {
+    "smoke": {
+      "passed": 1
+    },
+    "foundry": {
+      "unstarted": 6
+    },
+    "upstream": {
+      "unstarted": 3
+    }
+  },
+  "foundry_groups": {
+    "rails": {
+      "unstarted": 2
+    },
+    "packs": {
+      "unstarted": 2
+    },
+    "foundry": {
+      "unstarted": 2
+    }
+  },
+  "accounting": {
+    "reported_cost": 0.00304494,
+    "provider": {
+      "snapshot": {
+        "account": {
+          "limit": 20,
+          "limit_remaining": 19.69703361,
+          "limit_reset": null,
+          "usage": 0.30296639
+        },
+        "endpoint": {
+          "name": "OpenAI | openai/gpt-5.6-luna-20260709",
+          "model_id": "openai/gpt-5.6-luna",
+          "tag": "openai",
+          "provider_name": "OpenAI",
+          "status": 0,
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "seed",
+            "max_tokens",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "pricing": {
+            "prompt": "0.0000002",
+            "completion": "0.0000012",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000002",
+            "input_cache_write": "0.00000025",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.0000004",
+                "completion": "0.0000018",
+                "input_cache_read": "0.00000004",
+                "input_cache_write": "0.0000005"
+              }
+            ]
+          }
+        },
+        "key_fingerprint": "93912b400a84b63496cdb8f63334e93d3daa332b450042d8715ba4d5e6bdcafd",
+        "model": "openai/gpt-5.6-luna",
+        "captured_at": "2026-09-21T19:55:09Z"
+      },
+      "study_usage_delta": 0.003044939999999996
+    }
+  },
+  "manifest_sha256": "702f34d0353d370082d600711740421083cedce44f6a92bebf588e52290cafa1"
+}

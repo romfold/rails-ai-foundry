@@ -1,0 +1,6 @@
+{
+  "name": "modular-legacy-adoption-packwerk",
+  "private": true,
+  "scripts": { "spec:validate": "openspec validate --all --strict --no-interactive" },
+  "devDependencies": { "@fission-ai/openspec": "1.12.0" }
+}

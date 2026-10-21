@@ -1,0 +1,29 @@
+Running 20 tests in a single process (parallelization threshold is 50)
+Run options: --seed 32979
+
+# Running:
+
+........Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:37865
+2026-09-21 21:33:45 INFO Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging
+
+2026-09-21 21:33:45 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+2026-09-21 21:33:45 WARN Selenium [:selenium_manager] Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event) 
+..2026-09-21 21:34:04 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+.[Screenshot Image]: /app/tmp/screenshots/failures_test_broadcast_controls_belong_to_the_viewer_rather_than_the_sender.png 
+F
+
+Failure:
+VerifierTest#test_broadcast_controls_belong_to_the_viewer_rather_than_the_sender [/tests/realtime_test.rb:38]:
+expected not to find visible css ".reaction__delete", found 1 match: "Remove reaction"
+
+bin/rails test /tests/realtime_test.rb:25
+
+....2026-09-21 21:34:59 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+....
+
+Finished in 110.651547s, 0.1807 runs/s, 1.2562 assertions/s.
+20 runs, 139 assertions, 1 failures, 0 errors, 0 skips

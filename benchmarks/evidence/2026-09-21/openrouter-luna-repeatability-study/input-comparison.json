@@ -1,0 +1,67 @@
+{
+  "tasks": [
+    {
+      "suite": "smoke",
+      "task": "hello-world",
+      "task_digest_equal": true,
+      "profile_digest_equal": true
+    },
+    {
+      "suite": "foundry",
+      "task": "boundary-extraction-foundry",
+      "task_digest_equal": true,
+      "profile_digest_equal": true
+    },
+    {
+      "suite": "foundry",
+      "task": "boundary-extraction-packs",
+      "task_digest_equal": true,
+      "profile_digest_equal": true
+    },
+    {
+      "suite": "foundry",
+      "task": "boundary-extraction-rails",
+      "task_digest_equal": true,
+      "profile_digest_equal": true
+    },
+    {
+      "suite": "foundry",
+      "task": "stale-embedding-foundry",
+      "task_digest_equal": true,
+      "profile_digest_equal": true
+    },
+    {
+      "suite": "foundry",
+      "task": "stale-embedding-packs",
+      "task_digest_equal": true,
+      "profile_digest_equal": true
+    },
+    {
+      "suite": "foundry",
+      "task": "stale-embedding-rails",
+      "task_digest_equal": true,
+      "profile_digest_equal": true
+    },
+    {
+      "suite": "upstream",
+      "task": "aj-enqueue-after-commit",
+      "task_digest_equal": true,
+      "profile_digest_equal": true
+    },
+    {
+      "suite": "upstream",
+      "task": "ar-tenant-isolation",
+      "task_digest_equal": true,
+      "profile_digest_equal": true
+    },
+    {
+      "suite": "upstream",
+      "task": "ft-comment-reaction-live-echo",
+      "task_digest_equal": true,
+      "profile_digest_equal": true
+    }
+  ],
+  "gem_payload_equal": true,
+  "payload_file_count": 137,
+  "changed_payload_paths": []
+}

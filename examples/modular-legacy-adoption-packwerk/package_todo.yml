@@ -1,0 +1,9 @@
+# Reviewed extraction debt: only the existing legacy report accesses the private model.
+# Owner: adoption example. Remove this identity after moving the endpoint to Reports.
+packs/billing:
+  "::Billing::Invoice":
+    violations:
+      - dependency
+      - privacy
+    files:
+      - app/services/legacy_sales_report.rb

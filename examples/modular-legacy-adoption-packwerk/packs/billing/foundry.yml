@@ -1,0 +1,8 @@
+schema: 1
+kind: domain
+profile: modular
+namespace: Billing
+patterns:
+  events: none
+  cqrs: queries
+capabilities: {}

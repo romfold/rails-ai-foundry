@@ -1,0 +1,30 @@
+diff --git a/app/services/knowledge/catalog.rb b/app/services/knowledge/catalog.rb
+index 0be231a..39ba323 100644
+--- a/app/services/knowledge/catalog.rb
++++ b/app/services/knowledge/catalog.rb
+@@ -3,9 +3,7 @@
+ module Knowledge
+   class Catalog
+     def self.list(tenant_id:)
+-      Document.where(tenant_id: tenant_id, published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
++      Persistence::PublishedDocuments.for_tenant(tenant_id)
+     end
+   end
+ end
+diff --git a/app/services/knowledge/rebuild_search.rb b/app/services/knowledge/rebuild_search.rb
+index 2917659..18e2d7d 100644
+--- a/app/services/knowledge/rebuild_search.rb
++++ b/app/services/knowledge/rebuild_search.rb
+@@ -18,9 +18,7 @@ module Knowledge
+     private
+ 
+     def documents
+-      Document.where(published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
++      Persistence::PublishedDocuments.all
+     end
+   end
+ end

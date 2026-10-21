@@ -1,0 +1,30 @@
+diff --git a/app/models/reaction.rb b/app/models/reaction.rb
+index 908c396..e72a253 100644
+--- a/app/models/reaction.rb
++++ b/app/models/reaction.rb
+@@ -15,9 +15,9 @@ class Reaction < ApplicationRecord
+ 
+     def broadcast_creation
+       Current.with(account: comment.account, user: nil) do
+-        broadcast_append_to comment.card,
+-          target: ActionView::RecordIdentifier.dom_id(comment, :reaction_list),
+-          partial: "cards/comments/reaction", locals: { reaction: self }
++        broadcast_replace_to comment.card,
++          target: ActionView::RecordIdentifier.dom_id(comment, :reactions),
++          partial: "cards/comments/reactions", locals: { comment: comment.reload }
+       end
+     end
+ 
+diff --git a/app/views/cards/comments/_reactions.html.erb b/app/views/cards/comments/_reactions.html.erb
+index 0ed69b7..8030ed2 100644
+--- a/app/views/cards/comments/_reactions.html.erb
++++ b/app/views/cards/comments/_reactions.html.erb
+@@ -2,7 +2,7 @@
+   <div id="<%= dom_id(comment, :reaction_list) %>" class="reactions__list">
+     <%= render partial: "cards/comments/reaction", collection: comment.reactions.includes(:creator).order(:created_at, :id) %>
+   </div>
+-  <div id="<%= dom_id(comment, :reaction_composer) %>" data-turbo-permanent data-controller="reaction">
++  <div id="<%= dom_id(comment, :reaction_composer) %>" data-controller="reaction">
+   <button type="button" class="reactions__trigger btn btn--circle" data-action="reaction#showForm" title="Add a reaction"><%= image_tag "boost-color.svg", alt: "Add a reaction" %></button>
+   <%= form_with model: [comment.card, comment, Reaction.new], class: "reaction reaction__form", hidden: true, data: { reaction_target: "form", action: "turbo:submit-start->reaction#submitting turbo:submit-end->reaction#submitted" } do |form| %>
+     <%= form.text_field :content, class: "reaction__input input", maxlength: 16, autocomplete: "off", aria: { label: "Your reaction" }, data: { reaction_target: "input" } %>

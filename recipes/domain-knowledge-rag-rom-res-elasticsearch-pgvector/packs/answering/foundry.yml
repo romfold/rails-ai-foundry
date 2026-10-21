@@ -1,0 +1,10 @@
+schema: 1
+kind: domain
+profile: modular
+namespace: Answering
+patterns:
+  events: none
+  cqrs: none
+capabilities:
+  ai:
+    adapter: ruby_llm

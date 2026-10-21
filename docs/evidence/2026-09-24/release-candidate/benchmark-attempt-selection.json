@@ -1,0 +1,1190 @@
+{
+  "reason": "Replace the invalid export/import native attempt overlapping host hibernation with its separately verified retry; replace six reference and 42 no-op independent infrastructure failures after Docker became unavailable with fresh grading of the unchanged native artifacts. Preserve every original result.",
+  "excluded": [
+    {
+      "task": "ft-data-export-and-import",
+      "native_outcome": "verifier_error",
+      "native_result": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/ft-data-export-and-import__0QgzUHN/result.json",
+      "native_status": "infrastructure_error",
+      "independent": {
+        "task": "ft-data-export-and-import",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "37309e1bf68b04904ffd0cf34e0c50f206f8376ea2d8e7a99bc0f991f1da5227",
+        "foundry": null,
+        "verification_phase": "task",
+        "baseline_exit_code": 0,
+        "verification_status": "passed",
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "disagreement",
+      "agent": "oracle",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-webhook-delivery-trust-and-restart",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/ft-webhook-delivery-trust-and-restart__KZ4HZDI/result.json",
+      "native_status": "passed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Verification time budget exhausted",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "oracle",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "hello-world",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/hello-world__G3UvUTp/result.json",
+      "native_status": "passed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Verification time budget exhausted",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "oracle",
+      "control_passed": false,
+      "category": "smoke"
+    },
+    {
+      "task": "hw-scoped-broadcast",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/hw-scoped-broadcast__taDRVJV/result.json",
+      "native_status": "passed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Verification time budget exhausted",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "oracle",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "sup-legacy-conversions",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/sup-legacy-conversions__IvgcTjg/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "sup-legacy-conversions",
+        "status": "infrastructure_error",
+        "reward": 0.0,
+        "patch_sha256": "c13f63677da78e9dad2ba419ee1e24fe24a055f01cccc5607dc1c1b771c36f1f",
+        "foundry": null,
+        "verification_phase": "task",
+        "baseline_exit_code": 0,
+        "verification_status": "infrastructure_error",
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "oracle",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "sup-log-to-terminal",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/sup-log-to-terminal__4zMNyZR/result.json",
+      "native_status": "passed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "oracle",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "tst-error-page-flake",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/tst-error-page-flake__GcotyFD/result.json",
+      "native_status": "passed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "oracle",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "ac-deep-link-return",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ac-deep-link-return__i00U5kI/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "ac-throttle-search",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ac-throttle-search__gnhxyuQ/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "aj-enqueue-after-commit",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/aj-enqueue-after-commit__HtXs8Sz/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "aj-resumable-cleanup",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/aj-resumable-cleanup__2qmrBqv/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-announce-once",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-announce-once__swlr6Mi/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-archive-book-access",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-archive-book-access__liAM9Gm/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-atomic-import",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-atomic-import__lNjJvfI/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-bulk-access-grants",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-bulk-access-grants__udUupdY/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-compact-positions",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-compact-positions__3s1sgo2/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-erase-account",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-erase-account__qIQY1uO/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-release-recap",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-release-recap__pPzNySq/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-tenant-isolation",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-tenant-isolation__hFmODtp/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "as-purge-embedded-images",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/as-purge-embedded-images__F1TUmby/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "as-variant-processed-once",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/as-variant-processed-once__M6vbtMQ/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "av-toc-cache-per-role",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/av-toc-cache-per-role__Jn6ZzEr/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "ft-account-id-rollout",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-account-id-rollout__KC8X258/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-active-storage-tracking",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-active-storage-tracking__0q7G71k/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-activity-feed-api",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-activity-feed-api__ZlpinHd/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-board-publish-unpublish-public-boundary",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-board-publish-unpublish-public-boundary__dp3y54K/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-cancelled-account-cleanup",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-cancelled-account-cleanup__7Mn9LfD/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-card-drop-settled-landing",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-card-drop-settled-landing__e9bbbi2/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-card-reactions",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-card-reactions__5Z6BfuD/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-card-stalled-quiet-clock",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-card-stalled-quiet-clock__ERdmeHj/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-comment-reaction-live-echo",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-comment-reaction-live-echo__JiYvhef/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-data-export-and-import",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-data-export-and-import__hOx9MHV/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-email-code-sign-in",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-email-code-sign-in__1onDS2H/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-entropy-sweep",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-entropy-sweep__q51UKi3/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-i18n-support",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-i18n-support__qYPqpDX/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-kamal-deploy",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-kamal-deploy__6N5pKkp/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-local-time-human-clock",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-local-time-human-clock__IKur5L3/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-mysql-fulltext-search-foundation",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-mysql-fulltext-search-foundation__VxApIkj/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-notification-bundle-window-overlap",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-notification-bundle-window-overlap__RQQBKWY/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-saas-billing",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-saas-billing__IJ6JngY/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-web-push-device-delivery",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-web-push-device-delivery__a6bkj7Y/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "ft-webhook-delivery-trust-and-restart",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-webhook-delivery-trust-and-restart__cuyryRK/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "feature"
+    },
+    {
+      "task": "hello-world",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/hello-world__j0tFJRq/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "smoke"
+    },
+    {
+      "task": "hw-scoped-broadcast",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/hw-scoped-broadcast__jtae4vf/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "sec-audit-sweep",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/sec-audit-sweep__M66mgVR/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "sup-cache-library-digest",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/sup-cache-library-digest__ytP7Ktz/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "sup-legacy-conversions",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/sup-legacy-conversions__D0Zptwb/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "sup-log-to-terminal",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/sup-log-to-terminal__ir0vf2v/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    },
+    {
+      "task": "tst-error-page-flake",
+      "native_outcome": "completed",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/tst-error-page-flake__SEaGBb0/result.json",
+      "native_status": "failed",
+      "independent": {
+        "status": "infrastructure_error",
+        "error_class": "BenchmarkSuite::Failure",
+        "message": "Command failed (125): docker",
+        "assertion_failure": false
+      },
+      "status": "infrastructure_error",
+      "agent": "nop",
+      "control_passed": false,
+      "category": "atomic"
+    }
+  ],
+  "replacements": [
+    {
+      "task": "ft-data-export-and-import",
+      "agent": "oracle",
+      "native_result": "$TMP/foundry-rc-upstream-export-retry/offline-controls/ft-data-export-and-import__IOjE2N7/result.json",
+      "status": "passed"
+    },
+    {
+      "task": "ft-webhook-delivery-trust-and-restart",
+      "agent": "oracle",
+      "native_result": "$TMP/foundry-rc-upstream-engine-retry-inputs/ft-webhook-delivery-trust-and-restart__KZ4HZDI/result.json",
+      "status": "passed"
+    },
+    {
+      "task": "hello-world",
+      "agent": "oracle",
+      "native_result": "$TMP/foundry-rc-upstream-engine-retry-inputs/hello-world__G3UvUTp/result.json",
+      "status": "passed"
+    },
+    {
+      "task": "hw-scoped-broadcast",
+      "agent": "oracle",
+      "native_result": "$TMP/foundry-rc-upstream-engine-retry-inputs/hw-scoped-broadcast__taDRVJV/result.json",
+      "status": "passed"
+    },
+    {
+      "task": "sup-legacy-conversions",
+      "agent": "oracle",
+      "native_result": "$TMP/foundry-rc-upstream-engine-retry-inputs/sup-legacy-conversions__IvgcTjg/result.json",
+      "status": "passed"
+    },
+    {
+      "task": "sup-log-to-terminal",
+      "agent": "oracle",
+      "native_result": "$TMP/foundry-rc-upstream-engine-retry-inputs/sup-log-to-terminal__4zMNyZR/result.json",
+      "status": "passed"
+    },
+    {
+      "task": "tst-error-page-flake",
+      "agent": "oracle",
+      "native_result": "$TMP/foundry-rc-upstream-engine-retry-inputs/tst-error-page-flake__GcotyFD/result.json",
+      "status": "passed"
+    },
+    {
+      "task": "ac-deep-link-return",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ac-deep-link-return__i00U5kI/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ac-throttle-search",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ac-throttle-search__gnhxyuQ/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "aj-enqueue-after-commit",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/aj-enqueue-after-commit__HtXs8Sz/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "aj-resumable-cleanup",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/aj-resumable-cleanup__2qmrBqv/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ar-announce-once",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-announce-once__swlr6Mi/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ar-archive-book-access",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-archive-book-access__liAM9Gm/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ar-atomic-import",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-atomic-import__lNjJvfI/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ar-bulk-access-grants",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-bulk-access-grants__udUupdY/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ar-compact-positions",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-compact-positions__3s1sgo2/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ar-erase-account",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-erase-account__qIQY1uO/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ar-release-recap",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-release-recap__pPzNySq/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ar-tenant-isolation",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ar-tenant-isolation__hFmODtp/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "as-purge-embedded-images",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/as-purge-embedded-images__F1TUmby/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "as-variant-processed-once",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/as-variant-processed-once__M6vbtMQ/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "av-toc-cache-per-role",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/av-toc-cache-per-role__Jn6ZzEr/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-account-id-rollout",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-account-id-rollout__KC8X258/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-active-storage-tracking",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-active-storage-tracking__0q7G71k/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-activity-feed-api",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-activity-feed-api__ZlpinHd/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-board-publish-unpublish-public-boundary",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-board-publish-unpublish-public-boundary__dp3y54K/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-cancelled-account-cleanup",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-cancelled-account-cleanup__7Mn9LfD/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-card-drop-settled-landing",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-card-drop-settled-landing__e9bbbi2/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-card-reactions",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-card-reactions__5Z6BfuD/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-card-stalled-quiet-clock",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-card-stalled-quiet-clock__ERdmeHj/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-comment-reaction-live-echo",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-comment-reaction-live-echo__JiYvhef/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-data-export-and-import",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-data-export-and-import__hOx9MHV/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-email-code-sign-in",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-email-code-sign-in__1onDS2H/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-entropy-sweep",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-entropy-sweep__q51UKi3/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-i18n-support",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-i18n-support__qYPqpDX/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-kamal-deploy",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-kamal-deploy__6N5pKkp/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-local-time-human-clock",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-local-time-human-clock__IKur5L3/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-mysql-fulltext-search-foundation",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-mysql-fulltext-search-foundation__VxApIkj/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-notification-bundle-window-overlap",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-notification-bundle-window-overlap__RQQBKWY/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-saas-billing",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-saas-billing__IJ6JngY/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-web-push-device-delivery",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-web-push-device-delivery__a6bkj7Y/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "ft-webhook-delivery-trust-and-restart",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/ft-webhook-delivery-trust-and-restart__cuyryRK/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "hello-world",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/hello-world__j0tFJRq/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "hw-scoped-broadcast",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/hw-scoped-broadcast__jtae4vf/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "sec-audit-sweep",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/sec-audit-sweep__M66mgVR/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "sup-cache-library-digest",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/sup-cache-library-digest__ytP7Ktz/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "sup-legacy-conversions",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/sup-legacy-conversions__D0Zptwb/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "sup-log-to-terminal",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/sup-log-to-terminal__ir0vf2v/result.json",
+      "status": "failed"
+    },
+    {
+      "task": "tst-error-page-flake",
+      "agent": "nop",
+      "native_result": "$TMP/foundry-rc-upstream-nop-utf8/offline-controls/tst-error-page-flake__SEaGBb0/result.json",
+      "status": "failed"
+    }
+  ],
+  "inputs": {
+    "original_oracle": {
+      "path": "$TMP/foundry-rc-upstream-oracle-utf8-verification/summary.json",
+      "sha256": "3cf998a19a11597bc91bfb2ce8359e3e035494beef0958d5b57f6cf0987f4127"
+    },
+    "original_nop": {
+      "path": "$TMP/foundry-rc-upstream-nop-utf8-verification/summary.json",
+      "sha256": "6060796e69d3793773b75716a2850ca1e1ad5d6c06f70bf6820c7c5678e3b47c"
+    },
+    "export_retry": {
+      "path": "$TMP/foundry-rc-upstream-export-retry-verification/summary.json",
+      "sha256": "aa8356e91932e6c55da2d030546e4d22cc3e127c1dfd57238586be4e19179471"
+    },
+    "engine_oracle_retry": {
+      "path": "$TMP/foundry-rc-upstream-engine-retry-verification/summary.json",
+      "sha256": "3ef57ba7a687061be7c87ed241fcb7c389fd03e9936c2d735993b94e898094b5"
+    },
+    "engine_nop_retry": {
+      "path": "$TMP/foundry-rc-upstream-engine-nop-verification/summary.json",
+      "sha256": "12a19a767d5f4366666ca30db401133b1442887000ab4a40da5e85ae8cdf35ae"
+    }
+  },
+  "reference_retry_native_copies": {
+    "sha256": "7797e0830bdc7afdd0bf7911614e59089aaf217ce6727af8c9dfc4c00f586cc4",
+    "data": [
+      {
+        "task": "ft-webhook-delivery-trust-and-restart",
+        "original": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/ft-webhook-delivery-trust-and-restart__KZ4HZDI",
+        "copy": "$TMP/foundry-rc-upstream-engine-retry-inputs/ft-webhook-delivery-trust-and-restart__KZ4HZDI",
+        "files": {
+          "result.json": "ba993c5778874afaf8216fc91aefc7f0bb3c56999e2b21c498d32c820d599274",
+          "agent.patch": "01c5aaaa8a098112acb051c32345f3ecaf6333019268c04b02c089c7dd7d44c2",
+          "verifier.log": "e9ff69fcc400d8225d5d8acae232416788ec89a2ecccdad8485d04366988dba1",
+          "checks.json": "4e8f19b83d365f10bd48b45d84bd15eb385df698040a110ff51666b37612804d"
+        }
+      },
+      {
+        "task": "hello-world",
+        "original": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/hello-world__G3UvUTp",
+        "copy": "$TMP/foundry-rc-upstream-engine-retry-inputs/hello-world__G3UvUTp",
+        "files": {
+          "result.json": "750dab37704505a47d4fc960157ab2bd0c2dc3c2fc09bd84e984790d24af0dfd",
+          "agent.patch": "757a4bfa51facc12c83b70a4b3510b0b5978160d6c51acd2586a8d806b33c0fb",
+          "verifier.log": "98e2c45656928224f8ffe791bd940e6ea391b6973b64b2b8941e320003ac0094",
+          "checks.json": "b2568abc64fceb7046125ee063569a9288a50388965448108ff3fd7ddd6bfc54"
+        }
+      },
+      {
+        "task": "hw-scoped-broadcast",
+        "original": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/hw-scoped-broadcast__taDRVJV",
+        "copy": "$TMP/foundry-rc-upstream-engine-retry-inputs/hw-scoped-broadcast__taDRVJV",
+        "files": {
+          "result.json": "497778b9db0b83173dbe6cb1c5109888c3b7d339332fcf3b059cb60a47e0ad30",
+          "agent.patch": "058fc22f3fd02a640cdd3600a7525d4338a9bd6dee263ca3bc8f1ec1ad1a26be",
+          "verifier.log": "a42909775d4a762550664cdeceae41b2c13b329615caed9f519b70b764f88954",
+          "checks.json": "f31f0597798fb3c88f937f9e02f1f2b914d5c514ce157a1beed82d149660b583"
+        }
+      },
+      {
+        "task": "sup-legacy-conversions",
+        "original": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/sup-legacy-conversions__IvgcTjg",
+        "copy": "$TMP/foundry-rc-upstream-engine-retry-inputs/sup-legacy-conversions__IvgcTjg",
+        "files": {
+          "result.json": "4d0f19cf6bec2ccaf0aac3a921ef326bca1cb1068165fecd487b1c1850fd2599",
+          "agent.patch": "c13f63677da78e9dad2ba419ee1e24fe24a055f01cccc5607dc1c1b771c36f1f",
+          "verifier.log": "9ea5c761056d5c3b0e9990796d2edf8ab2286492d26adf252fe56bb7c5788bb1",
+          "checks.json": "07164f4dbf2092b12afea30c3d7669f83f2562b10dfd41b236ba86246ee79df4"
+        }
+      },
+      {
+        "task": "sup-log-to-terminal",
+        "original": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/sup-log-to-terminal__4zMNyZR",
+        "copy": "$TMP/foundry-rc-upstream-engine-retry-inputs/sup-log-to-terminal__4zMNyZR",
+        "files": {
+          "result.json": "daa9e574909d7bda29eea350e2179ccd422f0e6cd250420f0c790510d5a7f1b5",
+          "agent.patch": "e0241953541268af4023790421c93ae01505ced196433368bca7615d8e1649af",
+          "verifier.log": "7588c873266929873bfd1b0f909697786bd86e2520a4d9e93ab867419e0ba930",
+          "checks.json": "36023dc70906e7782fca1ebe0533eaf6689da14f0410b189bc6e19490e854224"
+        }
+      },
+      {
+        "task": "tst-error-page-flake",
+        "original": "$TMP/foundry-rc-upstream-oracle-utf8/offline-controls/tst-error-page-flake__GcotyFD",
+        "copy": "$TMP/foundry-rc-upstream-engine-retry-inputs/tst-error-page-flake__GcotyFD",
+        "files": {
+          "result.json": "e03ebf24921283d650b73c1e1817bd3bcf90d0700a97d684285a92efd6af251d",
+          "agent.patch": "f0e63d6db22e8095d366bfed9d46f4da06a5f02d29e83f4e314ce71c2df682bf",
+          "verifier.log": "92aad3a7b1c4b9ce9b8bf62df7813f05b18a8f49598aac322780fd2fc683b539",
+          "checks.json": "516d8943b4bb8cd41fdffa5cb8a2cdd07c02b029b0a2f637af071d5c830876d1"
+        }
+      }
+    ]
+  }
+}

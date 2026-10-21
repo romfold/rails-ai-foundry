@@ -1,0 +1,9 @@
+Running 12 tests in a single process (parallelization threshold is 50)
+Run options: --include /inaccessible/ --seed 8463
+
+# Running:
+
+.
+
+Finished in 1.526012s, 0.6553 runs/s, 6.5530 assertions/s.
+1 runs, 10 assertions, 0 failures, 0 errors, 0 skips

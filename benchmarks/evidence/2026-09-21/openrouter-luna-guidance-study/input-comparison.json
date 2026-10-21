@@ -1,0 +1,66 @@
+{
+  "manifest_sha256": "702f34d0353d370082d600711740421083cedce44f6a92bebf588e52290cafa1",
+  "previous": "/private/tmp/foundry-openrouter-luna-20260921-r3-v2",
+  "records": [
+    {
+      "task": "hello-world",
+      "suite": "smoke",
+      "task_equal": true,
+      "profile_equal": true
+    },
+    {
+      "task": "boundary-extraction-foundry",
+      "suite": "foundry",
+      "task_equal": false,
+      "profile_equal": true
+    },
+    {
+      "task": "boundary-extraction-packs",
+      "suite": "foundry",
+      "task_equal": false,
+      "profile_equal": true
+    },
+    {
+      "task": "boundary-extraction-rails",
+      "suite": "foundry",
+      "task_equal": false,
+      "profile_equal": true
+    },
+    {
+      "task": "stale-embedding-foundry",
+      "suite": "foundry",
+      "task_equal": false,
+      "profile_equal": true
+    },
+    {
+      "task": "stale-embedding-packs",
+      "suite": "foundry",
+      "task_equal": false,
+      "profile_equal": true
+    },
+    {
+      "task": "stale-embedding-rails",
+      "suite": "foundry",
+      "task_equal": false,
+      "profile_equal": true
+    },
+    {
+      "task": "aj-enqueue-after-commit",
+      "suite": "upstream",
+      "task_equal": true,
+      "profile_equal": true
+    },
+    {
+      "task": "ar-tenant-isolation",
+      "suite": "upstream",
+      "task_equal": true,
+      "profile_equal": true
+    },
+    {
+      "task": "ft-comment-reaction-live-echo",
+      "suite": "upstream",
+      "task_equal": true,
+      "profile_equal": true
+    }
+  ]
+}

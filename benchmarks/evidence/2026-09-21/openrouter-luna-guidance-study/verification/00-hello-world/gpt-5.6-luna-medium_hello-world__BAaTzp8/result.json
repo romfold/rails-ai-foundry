@@ -1,0 +1,11 @@
+{
+  "task": "hello-world",
+  "status": "passed",
+  "reward": 1.0,
+  "patch_sha256": "b1397839bf2e4b153a7e7fedd7e131a6ff3e76d462dd3d8de3db66d7072b43b2",
+  "foundry": null,
+  "verification_phase": "task",
+  "baseline_exit_code": 0,
+  "verification_status": "passed",
+  "protocol_violations": []
+}

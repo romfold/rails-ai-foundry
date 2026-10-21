@@ -1,0 +1,18 @@
+inherit_from: ../../.rubocop.yml
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - db/queue_schema.rb
+    - vendor/**/*
+    - node_modules/**/*
+Metrics/BlockLength:
+  Exclude:
+    - test/**/*
+    - db/migrate/*
+Metrics/AbcSize:
+  Exclude:
+    - test/**/*
+    - db/migrate/20260916193000_create_queue_tables.rb
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/20260916193000_create_queue_tables.rb

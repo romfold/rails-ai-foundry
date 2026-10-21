@@ -1,0 +1,11 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+gemspec path: '..'
+gem 'activejob', ENV.fetch('FOUNDRY_RAILS_VERSION')
+gem 'activerecord', ENV.fetch('FOUNDRY_RAILS_VERSION')
+gem 'minitest', '~> 5.0'
+gem 'packs-rails', '~> 0.1.0', require: false
+gem 'railties', ENV.fetch('FOUNDRY_RAILS_VERSION')
+gem 'rake', '~> 13.0'
+gem 'sqlite3', '2.9.6'

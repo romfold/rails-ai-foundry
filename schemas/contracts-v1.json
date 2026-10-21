@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.rails-ai-foundry.invalid/contracts-v1.json",
+  "allOf": [
+    {
+      "$ref": "common-v1.json#/definitions/envelope"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "report_kind": {
+          "enum": [
+            "contracts"
+          ]
+        },
+        "configuration_schema": {
+          "const": 1
+        },
+        "schemas": {
+          "type": "object",
+          "minProperties": 8,
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "generators": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "skill_targets": {
+          "type": "object",
+          "properties": {
+            "agents": {
+              "type": "string"
+            },
+            "claude": {
+              "type": "string"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "agents",
+            "claude",
+            "cursor"
+          ],
+          "additionalProperties": true
+        },
+        "public_ruby_api": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "report_kind",
+        "configuration_schema",
+        "schemas",
+        "generators",
+        "skills",
+        "skill_targets",
+        "public_ruby_api"
+      ],
+      "additionalProperties": true
+    }
+  ]
+}

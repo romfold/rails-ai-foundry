@@ -1,0 +1,111 @@
+diff --git a/app/services/knowledge/embedding_job.rb b/app/services/knowledge/embedding_job.rb
+index 5f19625..a40e908 100644
+--- a/app/services/knowledge/embedding_job.rb
++++ b/app/services/knowledge/embedding_job.rb
+@@ -3,18 +3,40 @@
+ module Knowledge
+   class EmbeddingJob
+     def call(document_id:, tenant_id:, version:, provider:)
++      # Take the snapshot before calling the provider.  In particular, do not
++      # hold a database transaction (or a row lock) while doing provider work.
+       snapshot = Document.find_by(id: document_id, tenant_id: tenant_id, published: true)
+       return :discarded unless snapshot
+ 
+       vector = provider.call(snapshot.body)
++
++      discarded = false
+       Document.transaction do
++        # The snapshot is only input to the provider.  The row below is the
++        # authority for whether the result is still allowed to be persisted.
+         current = Document.lock.find_by(id: document_id, tenant_id: tenant_id, published: true)
+-        current ||= snapshot
++        unless current && current.revision == snapshot.revision
++          discarded = true
++          raise ActiveRecord::Rollback
++        end
+ 
+-        Embedding.upsert({ document_id: current.id, tenant_id: tenant_id, revision: current.revision,
+-                           version: version, vector: JSON.generate(vector) }, unique_by: %i[document_id version])
++        embedding = Embedding.lock.find_by(document_id: current.id, version: version)
++        # A slower job must never replace a result produced for a newer
++        # document revision.  An existing result at this revision (or an old
++        # one) may be replaced by this result.
++        if embedding.nil?
++          Embedding.create!(document_id: current.id, tenant_id: current.tenant_id,
++                            revision: current.revision, version: version,
++                            vector: JSON.generate(vector))
++        elsif embedding.revision <= current.revision
++          embedding.update!(tenant_id: current.tenant_id, revision: current.revision,
++                            vector: JSON.generate(vector))
++        end
+       end
+-      :stored
++
++      # Rollback is deliberately used as control flow so no partial write can
++      # escape if the document disappeared or changed during provider.call.
++      discarded ? :discarded : :stored
+     end
+   end
+ end
+diff --git a/test/embedding_job_test.rb b/test/embedding_job_test.rb
+new file mode 100644
+index 0000000..4c05c4d
+--- /dev/null
++++ b/test/embedding_job_test.rb
+@@ -0,0 +1,56 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class EmbeddingJobTest < BenchmarkTest
++  def call_job(doc, tenant: 'a', version: 'v1', &provider)
++    Knowledge::EmbeddingJob.new.call(document_id: doc.id, tenant_id: tenant,
++                                      version: version, provider: provider)
++  end
++
++  def test_revision_change_during_provider_discards_without_writing
++    doc = document
++    result = call_job(doc) do |_body|
++      doc.update!(revision: 2)
++      [1, 2]
++    end
++
++    assert_equal :discarded, result
++    assert_empty Knowledge::Embedding.all
++  end
++
++  def test_withdrawal_deletion_and_tenant_change_are_rejected
++    [
++      ->(doc) { doc.update!(published: false) },
++      ->(doc) { doc.destroy! },
++      ->(doc) { doc.update!(tenant_id: 'b') }
++    ].each do |change|
++      doc = document
++      result = call_job(doc, &lambda do |_body|
++        change.call(doc)
++        [1]
++      end)
++      assert_equal :discarded, result
++      assert_empty Knowledge::Embedding.all
++    end
++  end
++
++  def test_newer_embedding_is_not_overwritten_and_versions_coexist
++    doc = document(revision: 2)
++    Knowledge::Embedding.create!(document_id: doc.id, tenant_id: 'a', revision: 3,
++                                 version: 'v1', vector: '[9]')
++
++    assert_equal :stored, call_job(doc) { [1] }
++    assert_equal '[9]', Knowledge::Embedding.find_by!(document_id: doc.id, version: 'v1').vector
++
++    assert_equal :stored, call_job(doc, version: 'v2') { [2] }
++    assert_equal 2, Knowledge::Embedding.where(document_id: doc.id).count
++  end
++
++  def test_provider_error_does_not_write
++    doc = document
++    error = assert_raises(RuntimeError) { call_job(doc) { raise 'provider failed' } }
++    assert_equal 'provider failed', error.message
++    assert_empty Knowledge::Embedding.all
++  end
++end

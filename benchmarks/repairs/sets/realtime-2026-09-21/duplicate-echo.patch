@@ -1,0 +1,10 @@
+diff --git a/app/views/cards/comments/_reaction.html.erb b/app/views/cards/comments/_reaction.html.erb
+index f5f455b..d77e26a 100644
+--- a/app/views/cards/comments/_reaction.html.erb
++++ b/app/views/cards/comments/_reaction.html.erb
+@@ -1,4 +1,4 @@
+-<div id="<%= dom_id(reaction) %>" class="reaction" title="<%= reaction.user.name %>"
++<div id="<%= dom_id(reaction, SecureRandom.hex(4)) %>" class="reaction" title="<%= reaction.user.name %>"
+      data-controller="reaction-entry" data-reaction-entry-user-id-value="<%= reaction.user_id %>"
+      data-action="click->reaction-entry#toggle">
+   <span class="txt-small txt-medium"><%= reaction.body %></span>

@@ -1,0 +1,146 @@
+{
+  "treatment": "installed-foundry-skills-only",
+  "native": {
+    "trial": "ft-comment-reaction-live-echo__uCGty1B",
+    "task": "ft-comment-reaction-live-echo",
+    "agent": "miniswen",
+    "model": "openrouter/openai/gpt-5.6-luna#medium",
+    "index": 1,
+    "profile_digest": "97d460222451478a",
+    "task_digest": "9df099a35893d33b",
+    "revision": {
+      "commit": null,
+      "dirty": null
+    },
+    "lemans_version": "1.3.5",
+    "tags": [
+      "rails",
+      "hotwire",
+      "turbo-streams",
+      "active-record",
+      "callbacks"
+    ],
+    "metadata": {
+      "category": "full-features"
+    },
+    "phases": [
+      {
+        "name": "environment_setup",
+        "started_at": "2026-09-22T15:22:16.738955Z",
+        "finished_at": "2026-09-22T15:22:21.910535Z"
+      },
+      {
+        "name": "agent",
+        "started_at": "2026-09-22T15:22:21.910571Z",
+        "finished_at": "2026-09-22T15:25:49.165785Z"
+      },
+      {
+        "name": "verifier",
+        "started_at": "2026-09-22T15:25:49.639499Z",
+        "finished_at": "2026-09-22T15:27:16.947046Z"
+      }
+    ],
+    "reward": 0.0,
+    "credit": 0.0,
+    "outcome": {
+      "name": "completed",
+      "scored": true
+    },
+    "usage": {
+      "input_tokens": 612397,
+      "output_tokens": 8837,
+      "cached_tokens": 568264,
+      "steps": 21,
+      "cost_usd": 0.03295603,
+      "cost_source": {
+        "name": "model_registry",
+        "model": "openrouter/openai/gpt-5.6-luna#medium",
+        "priced_as": "openrouter/openai/gpt-5.6-luna",
+        "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+      }
+    },
+    "duration": 300.2,
+    "started_at": "2026-09-22T15:22:16Z",
+    "finished_at": "2026-09-22T15:27:16Z"
+  },
+  "native_result_sha256": "e66d7080b0b1ec86fe91f158c8aae68d968921a74215b7f592f35d46c1b80dbe",
+  "independent": {
+    "task": "ft-comment-reaction-live-echo",
+    "native_outcome": "completed",
+    "native_result": "/private/tmp/foundry-realtime-guided-20260922-g1-prepared/results/gpt-5.6-luna-medium/ft-comment-reaction-live-echo__uCGty1B/result.json",
+    "native_status": "failed",
+    "independent": {
+      "task": "ft-comment-reaction-live-echo",
+      "status": "failed",
+      "reward": 0.0,
+      "patch_sha256": "eca488fea2fddb865f75c599971437e6007b0c428d2cebd76cb8a51624eac985",
+      "foundry": null,
+      "verification_phase": "task",
+      "baseline_exit_code": 0,
+      "verification_status": "failed",
+      "protocol_violations": [],
+      "assertion_failure": false
+    },
+    "status": "failed",
+    "agent": "miniswen",
+    "control_passed": null,
+    "category": "feature"
+  },
+  "accounting": {
+    "reported_trial_cost": 0.03295603,
+    "reported_cycle_cost": 0.16441974,
+    "provider_trial_delta": 0.03295603,
+    "provider_cycle_delta": 0.16441974,
+    "conservative_cycle_spend": 0.16441974,
+    "cycle_remaining": 6.83558026,
+    "provider_confirmed": true,
+    "snapshot": {
+      "account": {
+        "limit": 20,
+        "limit_remaining": 19.27380293,
+        "limit_reset": null,
+        "usage": 0.72619707
+      },
+      "endpoint": {
+        "name": "OpenAI | openai/gpt-5.6-luna-20260709",
+        "model_id": "openai/gpt-5.6-luna",
+        "tag": "openai",
+        "provider_name": "OpenAI",
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "seed",
+          "max_tokens",
+          "response_format",
+          "structured_outputs",
+          "tools",
+          "tool_choice",
+          "reasoning_effort"
+        ],
+        "pricing": {
+          "prompt": "0.0000002",
+          "completion": "0.0000012",
+          "web_search": "0.01",
+          "input_cache_read": "0.00000002",
+          "input_cache_write": "0.00000025",
+          "discount": 0,
+          "overrides": [
+            {
+              "min_prompt_tokens": 272000,
+              "prompt": "0.0000004",
+              "completion": "0.0000018",
+              "input_cache_read": "0.00000004",
+              "input_cache_write": "0.0000005"
+            }
+          ]
+        }
+      },
+      "key_fingerprint": "93912b400a84b63496cdb8f63334e93d3daa332b450042d8715ba4d5e6bdcafd",
+      "model": "openai/gpt-5.6-luna",
+      "captured_at": "2026-09-22T15:31:14Z"
+    }
+  },
+  "manifest_sha256": "13d6351806904776b71d5b515659f9c05d24ee0a8db2ed95eb9d8f72763c5736",
+  "original_cohort": "9 native passes / 1 failure; unchanged by this separate treatment"
+}

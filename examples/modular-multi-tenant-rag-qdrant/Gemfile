@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+gem 'dry-operation', '~> 1.1'
+gem 'json', '>= 2.9', '< 3'
+
+gem 'packs-rails', '0.1.0'
+gem 'pg', '1.6.3'
+gem 'puma', '7.2.1'
+gem 'rails', '8.1.3.1'
+
+group :development, :test do
+  gem 'minitest', '~> 5.0'
+  gem 'rails_ai_foundry', path: '../..'
+  gem 'rubocop', '~> 1.75', require: false
+end

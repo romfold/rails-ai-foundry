@@ -1,0 +1,55 @@
+Running 6 tests in a single process (parallelization threshold is 50)
+Run options: --seed 38648
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:39331
+2026-09-21 21:15:59 INFO Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging
+
+2026-09-21 21:15:59 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+2026-09-21 21:15:59 WARN Selenium [:selenium_manager] Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event) 
+2026-09-21 21:16:20 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+.2026-09-21 21:16:48 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+.[Screenshot Image]: /app/tmp/screenshots/failures_test_confirming_puts_the_reaction_in_the_strip_and_brings_the_button_back-_empty.png 
+E
+
+Error:
+VerifierTest#test_confirming_puts_the_reaction_in_the_strip_and_brings_the_button_back,_empty:
+Selenium::WebDriver::Error::ElementClickInterceptedError: element click intercepted: Element <a role="button" class="reactions__trigger btn btn--circle" data-controller="tooltip soft-keyboard" data-turbo-frame="new_reaction_comment_03awxh12kqcfnj9ai29xpa75h" data-action="dialog#close soft-keyboard#open" href="/897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions/new">...</a> is not clickable at point (994, 641). Other element would receive the click: <button class="tray__toggle" data-action="dialog#toggle keydown.n@document-&gt;hotkey#click" data-controller="hotkey" aria-label="Toggle notifications stack" aria-haspopup="true">...</button>
+  (Session info: chrome=153.0.8010.47)
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/response.rb:63:in 'Selenium::WebDriver::Remote::Response#add_cause'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/response.rb:41:in 'Selenium::WebDriver::Remote::Response#error'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/response.rb:52:in 'Selenium::WebDriver::Remote::Response#assert_ok'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/response.rb:34:in 'Selenium::WebDriver::Remote::Response#initialize'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/http/common.rb:135:in 'Class#new'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/http/common.rb:135:in 'Selenium::WebDriver::Remote::Http::Common#create_response'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/http/default.rb:103:in 'Selenium::WebDriver::Remote::Http::Default#request'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/http/common.rb:70:in 'Selenium::WebDriver::Remote::Http::Common#call'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/bridge.rb:633:in 'Selenium::WebDriver::Remote::Bridge#execute'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/bridge.rb:373:in 'Selenium::WebDriver::Remote::Bridge#click_element'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/common/element.rb:77:in 'Selenium::WebDriver::Element#click'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/selenium/node.rb:108:in 'Capybara::Selenium::Node#click'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/selenium/extensions/file_input_click_emulation.rb:6:in 'Capybara::Selenium::Node::FileInputClickEmulation#click'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/selenium/nodes/chrome_node.rb:34:in 'Capybara::Selenium::ChromeNode#click'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/element.rb:172:in 'block in Capybara::Node::Element#click'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/element.rb:608:in 'block in Capybara::Node::Element#perform_click_action'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/base.rb:84:in 'Capybara::Node::Base#synchronize'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/element.rb:608:in 'Capybara::Node::Element#perform_click_action'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/element.rb:171:in 'Capybara::Node::Element#click'
+    /tests/verification_test.rb:101:in 'block in VerifierTest#react'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/session.rb:366:in 'Capybara::Session#within'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/dsl.rb:52:in 'Method#call'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/dsl.rb:52:in 'Capybara::DSL#within'
+    /tests/verification_test.rb:100:in 'VerifierTest#react'
+    /tests/verification_test.rb:18:in 'block in <class:VerifierTest>'
+
+bin/rails test /tests/verification_test.rb:17
+
+...
+
+Finished in 222.456545s, 0.0270 runs/s, 0.1438 assertions/s.
+6 runs, 32 assertions, 0 failures, 1 errors, 0 skips

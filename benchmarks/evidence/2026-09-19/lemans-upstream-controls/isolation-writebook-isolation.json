@@ -1,0 +1,11 @@
+{
+  "candidate": {
+    "exit_code": 0,
+    "output": "Candidate isolation passed\n"
+  },
+  "grader": {
+    "exit_code": 0,
+    "output": "Grader isolation passed\n"
+  },
+  "image": "sha256:2b864d871d4fa7ed3d6a12cd72fbe6135f7863e20128116dc3dd881cee84a4d9"
+}

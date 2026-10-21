@@ -1,0 +1,5 @@
+{
+  "id": "duplicate-delivery",
+  "version": 1,
+  "title": "Repair duplicate outbox delivery"
+}

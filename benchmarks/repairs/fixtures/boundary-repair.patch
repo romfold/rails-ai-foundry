@@ -1,0 +1,35 @@
+diff --git a/config/application.rb b/config/application.rb
+index a825763..3268cf5 100644
+--- a/config/application.rb
++++ b/config/application.rb
+@@ -14,6 +14,5 @@ module KnowledgeBenchmark
+     config.hosts = ['www.example.com', 'example.org', 'localhost']
+     config.logger = Logger.new($stdout)
+     config.log_level = :error
+-    config.autoload_paths << root.join('packs/knowledge/app/public')
+   end
+ end
+diff --git a/packs/knowledge/config/foundry.yml b/packs/knowledge/config/foundry.yml
+deleted file mode 100644
+index b2516f7..0000000
+--- a/packs/knowledge/config/foundry.yml
++++ /dev/null
+@@ -1,4 +0,0 @@
+-# Knowledge is the focal modular business context.
+-profile: modular
+-workflow:
+-  specs: none
+diff --git a/packs/knowledge/foundry.yml b/packs/knowledge/foundry.yml
+new file mode 100644
+index 0000000..fc11f56
+--- /dev/null
++++ b/packs/knowledge/foundry.yml
+@@ -0,0 +1,8 @@
++schema: 1
++kind: domain
++namespace: Knowledge
++profile: modular
++patterns:
++  events: none
++  cqrs: none
++capabilities: {}

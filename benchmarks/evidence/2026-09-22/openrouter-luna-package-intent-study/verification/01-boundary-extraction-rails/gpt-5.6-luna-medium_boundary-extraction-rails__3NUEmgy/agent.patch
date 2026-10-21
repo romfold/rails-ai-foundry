@@ -1,0 +1,80 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..4b9c806 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Knowledge::Catalog.list(tenant_id: tenant)
+   end
+ end
+diff --git a/docs/knowledge_boundary.md b/docs/knowledge_boundary.md
+new file mode 100644
+index 0000000..ed4bce3
+--- /dev/null
++++ b/docs/knowledge_boundary.md
+@@ -0,0 +1,17 @@
++# Knowledge boundary
++
++`Knowledge::Catalog.list(tenant_id:)` is the public read API for published
++Knowledge documents. Callers, including document delivery, must not depend on
++`Knowledge::Document` or query the persistence layer directly. Persistence
++remains an internal implementation detail of Knowledge.
++
++## Rollback plan
++
++Before any future persistence change, characterize the current catalog contract
++(the ordered hash fields `id`, `tenant_id`, `body`, and `revision`, published
++filter, and tenant scoping). If a persistence migration must be rolled back,
++restore the previous Knowledge persistence implementation behind
++`Knowledge::Catalog` and deploy it without changing callers or the `/documents`
++endpoint. Verify the catalog and endpoint characterization tests, then revert
++any migration only after confirming that no new records depend on it. This
++change performs no persistence conversion.
+diff --git a/test/regression_test.rb b/test/regression_test.rb
+new file mode 100644
+index 0000000..8a3f8ea
+--- /dev/null
++++ b/test/regression_test.rb
+@@ -0,0 +1,39 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeBoundaryTest < BenchmarkTest
++  include Rack::Test::Methods
++
++  def app
++    Rails.application
++  end
++
++  def test_catalog_returns_only_published_documents_in_id_order_with_public_shape
++    later = document(body: 'later', tenant: 'a', revision: 3)
++    document(body: 'draft', tenant: 'a', published: false)
++    earlier = document(body: 'earlier', tenant: 'a', revision: 2)
++    document(body: 'other tenant', tenant: 'b')
++
++    assert_equal [later.id, earlier.id], Knowledge::Catalog.list(tenant_id: 'a').map { |row| row.fetch('id') }
++    assert_equal [
++      { 'id' => later.id, 'tenant_id' => 'a', 'body' => 'later', 'revision' => 3 },
++      { 'id' => earlier.id, 'tenant_id' => 'a', 'body' => 'earlier', 'revision' => 2 }
++    ], Knowledge::Catalog.list(tenant_id: 'a')
++  end
++
++  def test_documents_endpoint_delegates_to_catalog_after_authentication
++    catalog = Minitest::Mock.new
++    catalog.expect(:list, [{ 'id' => 17, 'tenant_id' => 'a', 'body' => 'from catalog', 'revision' => 4 }], tenant_id: 'a')
++    original = Knowledge::Catalog.method(:list)
++    Knowledge::Catalog.define_singleton_method(:list) { |tenant_id:| catalog.list(tenant_id: tenant_id) }
++
++    get '/documents', {}, { 'HTTP_AUTHORIZATION' => 'tenant-a-token' }
++
++    assert_equal 200, last_response.status
++    assert_equal [{ 'id' => 17, 'tenant_id' => 'a', 'body' => 'from catalog', 'revision' => 4 }], JSON.parse(last_response.body)
++    catalog.verify
++  ensure
++    Knowledge::Catalog.define_singleton_method(:list, original)
++  end
++end

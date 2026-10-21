@@ -1,0 +1,20 @@
+Running 7 tests in a single process (parallelization threshold is 50)
+Run options: -n /diagnose/ --seed 40024
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:42921
+FORM DIAGNOSTIC
+<form class="reaction reaction__form" data-reaction-target="form" data-action="turbo:submit-end-&gt;reaction#submitted" action="/897362094/cards/1/comments/03awxh12kqcfnj9ai29xpa75h/reactions" accept-charset="UTF-8" method="post">
+    <input class="reaction__input input" maxlength="16" autocomplete="off" aria-label="Your reaction" data-reaction-target="input" size="16" type="text" name="reaction[content]" id="reaction_content">
+    <button name="button" type="submit" class="reaction__submit-btn btn btn--plain" title="Confirm"><span class="icon icon--check" aria-hidden="true"></span></button>
+    <button type="button" class="reaction__cancel-btn btn btn--plain" title="Cancel" data-action="reaction#cancel"><span class="icon icon--close" aria-hidden="true"></span></button>
+</form>
+[{"display" => "inline-flex", "html" => "<button name=\"button\" type=\"submit\" class=\"reaction__submit-btn btn btn--plain\" title=\"Confirm\"><span class=\"icon icon--check\" aria-hidden=\"true\"></span></button>", "rect" => {"bottom" => 0, "height" => 0, "left" => 0, "right" => 0, "top" => 0, "width" => 0, "x" => 0, "y" => 0}, "visibility" => "visible"}, {"display" => "flex", "html" => "<button name=\"button\" type=\"submit\" class=\"reaction__submit-btn btn btn--plain\" title=\"Confirm\"><span class=\"icon icon--check\" aria-hidden=\"true\"></span></button>", "rect" => {"bottom" => 328, "height" => 0, "left" => 448.125, "right" => 448.125, "top" => 328, "width" => 0, "x" => 448.125, "y" => 328}, "visibility" => "visible"}, {"display" => "inline-flex", "html" => "<button name=\"button\" type=\"submit\" class=\"reaction__submit-btn btn btn--plain\" title=\"Confirm\"><span class=\"icon icon--check\" aria-hidden=\"true\"></span></button>", "rect" => {"bottom" => 0, "height" => 0, "left" => 0, "right" => 0, "top" => 0, "width" => 0, "x" => 0, "y" => 0}, "visibility" => "visible"}, {"display" => "inline-flex", "html" => "<button name=\"button\" type=\"submit\" class=\"reaction__submit-btn btn btn--plain\" title=\"Confirm\"><span class=\"icon icon--check\" aria-hidden=\"true\"></span></button>", "rect" => {"bottom" => 0, "height" => 0, "left" => 0, "right" => 0, "top" => 0, "width" => 0, "x" => 0, "y" => 0}, "visibility" => "visible"}, {"display" => "inline-flex", "html" => "<button name=\"button\" type=\"submit\" class=\"reaction__submit-btn btn btn--plain\" title=\"Confirm\"><span class=\"icon icon--check\" aria-hidden=\"true\"></span></button>", "rect" => {"bottom" => 0, "height" => 0, "left" => 0, "right" => 0, "top" => 0, "width" => 0, "x" => 0, "y" => 0}, "visibility" => "visible"}]
+.
+
+Finished in 10.304004s, 0.0970 runs/s, 0.0970 assertions/s.
+1 runs, 1 assertions, 0 failures, 0 errors, 0 skips

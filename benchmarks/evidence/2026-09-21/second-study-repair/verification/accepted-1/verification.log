@@ -1,0 +1,29 @@
+Running 17 tests in a single process (parallelization threshold is 50)
+Run options: --seed 54441
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:44987
+2026-09-21 09:38:15 INFO Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging
+
+2026-09-21 09:38:15 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+2026-09-21 09:38:15 WARN Selenium [:selenium_manager] Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event) 
+....2026-09-21 09:38:42 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+....2026-09-21 09:39:43 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+.....F
+
+Failure:
+ReactionRepairAuthorizationTest#test_an_inaccessible_card_cannot_receive_or_lose_reactions [/tests/authorization_test.rb:57]:
+Expected response to be a <404: missing>, but was a <422: Unprocessable Content>
+Response body: <turbo-stream action="update" target="reaction_errors_comment_03gwq1pnfr0m547pl5dfs0962"><template>User has already been taken</template></turbo-stream>
+
+bin/rails test /tests/authorization_test.rb:49
+
+...
+
+Finished in 107.308194s, 0.1584 runs/s, 1.0437 assertions/s.
+17 runs, 112 assertions, 1 failures, 0 errors, 0 skips

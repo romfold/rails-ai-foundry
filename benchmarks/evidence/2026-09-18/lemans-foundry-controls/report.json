@@ -1,0 +1,31 @@
+{
+  "accepted": true,
+  "missing": [],
+  "extra": [],
+  "duplicates": [],
+  "counts": {
+    "attempted": 45,
+    "valid": 45,
+    "behavior_passed": 24,
+    "behavior_failed": 21,
+    "invalid_protocol": 0,
+    "infrastructure_error": 0,
+    "disagreement": 0,
+    "controls_passed": 45
+  },
+  "categories": {
+    "foundry": {
+      "attempted": 45,
+      "valid": 45,
+      "behavior_passed": 24,
+      "behavior_failed": 21,
+      "invalid_protocol": 0,
+      "infrastructure_error": 0,
+      "disagreement": 0,
+      "controls_passed": 45
+    }
+  },
+  "summary_files": {
+    "/private/tmp/foundry-lemans-controls-replay-20260918/summary.json": "3d577d1a56d38ddda9ae17c14b63350c3ddbd154e89b5d27bc54743cc76b457a"
+  }
+}

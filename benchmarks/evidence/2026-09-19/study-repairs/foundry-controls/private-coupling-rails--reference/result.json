@@ -1,0 +1,16 @@
+{
+  "task": "private-coupling-rails--reference",
+  "status": "passed",
+  "reward": 1.0,
+  "patch_sha256": "79716542762d3ae00c321d95c919714c36be06ed9b9064dd69fbb717badda855",
+  "foundry": {
+    "visible": "passed",
+    "behavioral": "passed",
+    "architecture": {
+      "status": "not_applicable"
+    }
+  },
+  "verification_phase": "task",
+  "baseline_exit_code": null,
+  "protocol_violations": []
+}

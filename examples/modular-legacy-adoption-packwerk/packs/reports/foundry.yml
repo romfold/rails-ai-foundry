@@ -1,0 +1,8 @@
+schema: 1
+kind: domain
+profile: rails_native
+namespace: Reports
+patterns:
+  events: none
+  cqrs: queries
+capabilities: {}

@@ -1,0 +1,44 @@
+name: Legacy adoption flagship
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  adoption:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: examples/modular-legacy-adoption-packwerk
+    env:
+      BUNDLE_FROZEN: 'true'
+      OPENSPEC_TELEMETRY: '0'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler: '2.6.9'
+          bundler-cache: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20.19.0'
+          package-manager-cache: false
+      - name: Install independent locked dependencies
+        run: |
+          bundle install
+          npm ci
+      - name: Verify behavior, extraction and workflow
+        run: |
+          bin/setup
+          bin/verify
+          bundle exec rubocop
+          npm run spec:validate
+          bundle exec ruby ../../script/validate_examples.rb

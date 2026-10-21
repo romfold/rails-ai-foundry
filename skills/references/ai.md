@@ -1,0 +1,13 @@
+# Native AI
+
+Select RubyLLM explicitly in the context capabilities and application bundle. Implement direct upstream code; optionally scaffold with `foundry:agent NAME --context=NAME`. Use direct RubyLLM::Agent, RubyLLM::Tool and RubyLLM::Schema classes, pack-local app/prompts plain-text instructions with explicit paths relative to the agent file and application-owned config/ai.yml aliases.
+
+Bind a trusted principal in the authorization callable. Authorization must return true before each tool operation; enforce tenant scope inside the operation too. Keep external requests outside database transactions. Keep user and tool content out of system instructions. Validate structured output and test provider errors, authorization denial and prompt contracts offline. Do not add live evaluation execution without explicit activation and request, token, time and spend limits.
+
+Foundry provides no AI execution tracker, store, container or inference abstraction. The twelve-app corpus includes RAG, durable chat and voice; generated agents alone do not establish those integrations. The separate evidence recipe provides offline scoring and an explicitly activated live runner. Require model, credentials and request/token/time/spend budgets; unknown provider usage stops further calls, and estimates are not guaranteed billing caps.
+
+Keep credentials and model aliases in application configuration. Keep prompts, contracts and evaluation fixtures with their owning pack. Use plain text by default; RubyLLM instruction blocks can read application-owned files without a prompt framework. Run `foundry check --prompts` explicitly for declarations and safe file references; it does not execute evaluations, resolve constants or establish authorization. Test missing prompts before provider I/O and edits on new agent construction. Preserve complete customized receipts; prompt relocation requires an explicit reviewed change, never automatic regeneration.
+
+For proposals awaiting a human decision, read [reviewed AI work](reviewed-ai-work.md). Separate the proposal agent from delegated mutation tools and verify current approval authority at local execution.
+
+For AI artifacts, `foundry check --prompts` covers every upstream package prompt root, including packages without foundry.yml. Use the actual deepest package as contract owner; apply namespace intent only from that owner’s explicit configuration. Missing contracts and unsafe artifacts fail; zero contracts is not AI acceptance. Review newly exposed findings explicitly, preserve prompt/agent receipts, and run authorization, provider-failure and evaluation tests separately with offline inputs.

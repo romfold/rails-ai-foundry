@@ -1,0 +1,26 @@
+{
+  "boundary-extraction-foundry": {
+    "task_digest": "9c5344c304e48ff6",
+    "profile_digest": "9023ee1711a69905"
+  },
+  "boundary-extraction-packs": {
+    "task_digest": "b75b9dc1a1387f23",
+    "profile_digest": "9023ee1711a69905"
+  },
+  "boundary-extraction-rails": {
+    "task_digest": "f0709220733aad6e",
+    "profile_digest": "9023ee1711a69905"
+  },
+  "stale-embedding-foundry": {
+    "task_digest": "7c3e532577a5a827",
+    "profile_digest": "9023ee1711a69905"
+  },
+  "stale-embedding-packs": {
+    "task_digest": "f7689cdd634cb5c6",
+    "profile_digest": "9023ee1711a69905"
+  },
+  "stale-embedding-rails": {
+    "task_digest": "0e0333ce57ccd0e2",
+    "profile_digest": "9023ee1711a69905"
+  }
+}

@@ -1,0 +1,138 @@
+diff --git a/ROLLBACK.md b/ROLLBACK.md
+new file mode 100644
+index 0000000..b4f60f8
+--- /dev/null
++++ b/ROLLBACK.md
+@@ -0,0 +1,10 @@
++# Rollback
++
++To undo the Knowledge boundary extraction:
++
++1. Restore `app/services/knowledge/catalog.rb` to query `Knowledge::Document` directly.
++2. Restore `app/services/knowledge/rebuild_search.rb` to use `Document.where` in its private `documents` method.
++3. Restore `app/services/answering/retrieval_tool.rb` to call `Knowledge::Catalog.list` directly.
++4. Remove `app/services/knowledge/persistence/published_documents.rb` and `app/services/knowledge/delivery/published_documents.rb`.
++
++No database migrations or schema changes were introduced.
+diff --git a/app/services/knowledge/catalog.rb b/app/services/knowledge/catalog.rb
+index 0be231a..39ba323 100644
+--- a/app/services/knowledge/catalog.rb
++++ b/app/services/knowledge/catalog.rb
+@@ -3,9 +3,7 @@
+ module Knowledge
+   class Catalog
+     def self.list(tenant_id:)
+-      Document.where(tenant_id: tenant_id, published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
++      Persistence::PublishedDocuments.for_tenant(tenant_id)
+     end
+   end
+ end
+diff --git a/app/services/knowledge/delivery/published_documents.rb b/app/services/knowledge/delivery/published_documents.rb
+new file mode 100644
+index 0000000..2b1f0b6
+--- /dev/null
++++ b/app/services/knowledge/delivery/published_documents.rb
+@@ -0,0 +1,11 @@
++# frozen_string_literal: true
++
++module Knowledge
++  class Delivery
++    class PublishedDocuments
++      def self.list(tenant_id:, catalog: Catalog)
++        catalog.list(tenant_id: tenant_id)
++      end
++    end
++  end
++end
+diff --git a/app/services/knowledge/persistence/published_documents.rb b/app/services/knowledge/persistence/published_documents.rb
+new file mode 100644
+index 0000000..50b00cd
+--- /dev/null
++++ b/app/services/knowledge/persistence/published_documents.rb
+@@ -0,0 +1,23 @@
++# frozen_string_literal: true
++
++module Knowledge
++  module Persistence
++    module PublishedDocuments
++      CATALOG_KEYS = %w[id tenant_id body revision].freeze
++
++      module_function
++
++      def for_tenant(tenant_id)
++        Document.where(tenant_id: tenant_id, published: true).order(:id).map { |row| catalog_hash(row) }
++      end
++
++      def all
++        Document.where(published: true).order(:id).map { |row| catalog_hash(row) }
++      end
++
++      def catalog_hash(row)
++        row.attributes.slice(*CATALOG_KEYS)
++      end
++    end
++  end
++end
+diff --git a/app/services/knowledge/rebuild_search.rb b/app/services/knowledge/rebuild_search.rb
+index 2917659..18e2d7d 100644
+--- a/app/services/knowledge/rebuild_search.rb
++++ b/app/services/knowledge/rebuild_search.rb
+@@ -18,9 +18,7 @@ module Knowledge
+     private
+ 
+     def documents
+-      Document.where(published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
++      Persistence::PublishedDocuments.all
+     end
+   end
+ end
+diff --git a/test/knowledge_boundary_test.rb b/test/knowledge_boundary_test.rb
+new file mode 100644
+index 0000000..0789f0b
+--- /dev/null
++++ b/test/knowledge_boundary_test.rb
+@@ -0,0 +1,40 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeBoundaryTest < BenchmarkTest
++  def test_catalog_list_returns_published_documents_for_tenant_ordered_by_id
++    first = document(tenant: 'a', body: 'first', revision: 1)
++    second = document(tenant: 'a', body: 'second', revision: 2)
++    document(tenant: 'b', body: 'other tenant', revision: 1)
++    document(tenant: 'a', body: 'draft', published: false)
++
++    rows = Knowledge::Catalog.list(tenant_id: 'a')
++
++    assert_equal [first.id, second.id], rows.map { |row| row.fetch('id') }
++    assert_equal(
++      [
++        { 'id' => first.id, 'tenant_id' => 'a', 'body' => 'first', 'revision' => 1 },
++        { 'id' => second.id, 'tenant_id' => 'a', 'body' => 'second', 'revision' => 2 }
++      ],
++      rows
++    )
++  end
++
++  def test_delivery_published_documents_delegates_to_catalog
++    expected = document(tenant: 'a', body: 'policy')
++
++    catalog_rows = Knowledge::Catalog.list(tenant_id: 'a')
++    delivery_rows = Knowledge::Delivery::PublishedDocuments.list(tenant_id: 'a')
++
++    assert_equal catalog_rows, delivery_rows
++    assert_equal [expected.id], delivery_rows.map { |row| row.fetch('id') }
++  end
++
++  def test_delivery_published_documents_does_not_touch_persistence
++    source = File.read(File.expand_path('../app/services/knowledge/delivery/published_documents.rb', __dir__))
++    refute_match(/Knowledge::Document/, source)
++    refute_match(/Document\./, source)
++    refute_match(/Persistence::/, source)
++  end
++end

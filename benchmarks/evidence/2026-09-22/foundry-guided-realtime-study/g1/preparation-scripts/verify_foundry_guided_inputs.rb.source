@@ -1,0 +1,51 @@
+# frozen_string_literal: true
+
+require 'json'
+require 'digest'
+require 'open3'
+require 'shellwords'
+require 'pathname'
+
+root = Pathname(ARGV.fetch(0)).realpath
+manifest = JSON.parse(root.join('treatment.json').read)
+images = JSON.parse(root.join('suite/images.json').read)
+image = images.values.fetch(0).fetch('id')
+script = <<~RUBY
+  require 'json'
+  require 'digest'
+  files = IO.popen(['git', 'ls-files', '-z'], &:read).split("\\0")
+  hashes = files.to_h { |path| [path, Digest::SHA256.file(path).hexdigest] }
+  puts JSON.generate('files' => hashes, 'agent_instructions' => File.read('AGENTS.md'))
+RUBY
+states = [manifest.fetch('base_image'), image].map do |source|
+  command = ['docker', 'run', '--rm', '--network', 'none', '--read-only', '--cap-drop', 'ALL',
+             '--security-opt', 'no-new-privileges', '--workdir', '/app', '--entrypoint', 'ruby', source, '-e', script]
+  puts Shellwords.join(command)
+  stdout, stderr, status = Open3.capture3(*command)
+  puts stderr unless stderr.empty?
+  abort "Image inventory failed: #{status.exitstatus}" unless status.success?
+  data = JSON.parse(stdout)
+  puts "Inventoried #{data.fetch('files').size} tracked files from #{source}"
+  data
+end
+base, candidate = states
+unless candidate.fetch('agent_instructions').start_with?(base.fetch('agent_instructions'))
+  abort 'Original agent guidance lost'
+end
+changed = base.fetch('files').keys.reject { |name| candidate.fetch('files')[name] == base.fetch('files')[name] }
+abort "Application changes: #{changed.inspect}" unless changed == ['AGENTS.md']
+added = candidate.fetch('files').keys - base.fetch('files').keys
+expected = manifest.fetch('installed_skills').keys + %w[.foundry/skills/agents.json config/foundry.yml]
+abort 'Unexpected added files' unless added.sort == expected.sort
+manifest.fetch('installed_skills').each do |relative, hash|
+  abort "Installed skill changed: #{relative}" unless candidate.fetch('files').fetch(relative) == hash
+end
+result = { 'base_image' => manifest.fetch('base_image'), 'treatment_image' => image,
+           'unchanged_application_files' => base.fetch('files').size - changed.size,
+           'changed_files' => changed, 'added_files' => added, 'preserved_original_agent_instructions' => true,
+           'states' => states }
+File.open(root.join('application-inputs.json'), File::WRONLY | File::CREAT | File::EXCL, 0o600) do |file|
+  file.write("#{JSON.pretty_generate(result)}\n")
+end
+puts "Verified #{result.fetch('unchanged_application_files')} unchanged files, " \
+     "appended AGENTS.md, #{added.size} installed treatment files"

@@ -1,0 +1,36 @@
+name: Installed reviewed AI journey
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  journey:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: foundry
+        ports: ['55544:5432']
+        options: --health-cmd pg_isready --health-interval 5s --health-retries 10
+    env:
+      PGPORT: '55544'
+      BUNDLE_VERSION: '2.6.9'
+      RUBYOPT: -EUTF-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler: '2.6.9'
+          bundler-cache: false
+      - name: Cache independently locked application dependencies
+        run: |
+          bundle install
+          bundle install --gemfile examples/rails-native-agent-tools-structured-output-rubyllm/Gemfile
+      - name: Prepare browser
+        run: BUNDLE_GEMFILE=examples/rails-native-agent-tools-structured-output-rubyllm/Gemfile bundle exec ruby -rselenium-webdriver -e 'puts Selenium::WebDriver::SeleniumManager.binary_paths("--browser", "chrome")'
+      - name: Replay installed instructions in both roots
+        run: bundle exec rake test:journey

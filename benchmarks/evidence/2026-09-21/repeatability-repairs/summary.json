@@ -1,0 +1,319 @@
+{
+  "classification": "offline task and protocol controls; not agent scores",
+  "records": [
+    {
+      "task": "hello-world",
+      "classification": "unchanged saved candidate",
+      "result": {
+        "task": "hello-world",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "b1397839bf2e4b153a7e7fedd7e131a6ff3e76d462dd3d8de3db66d7072b43b2",
+        "foundry": null,
+        "verification_phase": "task",
+        "baseline_exit_code": 0,
+        "verification_status": "passed",
+        "protocol_violations": []
+      }
+    },
+    {
+      "task": "boundary-extraction-rails",
+      "classification": "unchanged saved candidate",
+      "result": {
+        "task": "boundary-extraction-rails",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "e06cc9704c34388b9df9b7a1efa68f8bd712dd007afa03e8720cee5898d23da2",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "verification_phase": "task",
+        "baseline_exit_code": null,
+        "verification_status": "passed",
+        "protocol_violations": []
+      }
+    },
+    {
+      "task": "boundary-extraction-packs",
+      "classification": "unchanged saved candidate",
+      "result": {
+        "task": "boundary-extraction-packs",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "989d52dda0c36d1d5f7de78121847b9acd25f67ec920a56e4c9012ca763b658c",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.71 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n📦 Packwerk is inspecting 13 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n.............\n📦 Finished in 0.96 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "verification_phase": "task",
+        "baseline_exit_code": null,
+        "verification_status": "passed",
+        "protocol_violations": []
+      }
+    },
+    {
+      "task": "boundary-extraction-foundry",
+      "classification": "human-assisted repair",
+      "result": {
+        "task": "boundary-extraction-foundry",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "921038202a26c6bc2b80dca05bfdf7a78238b2b5a5c8ad6051e83faf37c70d70",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "📦 Packwerk is running validation...\n\n📦 Finished in 0.67 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 0.77 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 1\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "verification_phase": "task",
+        "baseline_exit_code": null,
+        "verification_status": "passed",
+        "protocol_violations": []
+      }
+    },
+    {
+      "task": "stale-embedding-rails",
+      "classification": "unchanged saved candidate",
+      "result": {
+        "task": "stale-embedding-rails",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "9f3d1a192a9bf4abc8d01706d01044eb9cb3989e164ae5cd55377458c4b5531f",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "verification_phase": "task",
+        "baseline_exit_code": null,
+        "verification_status": "passed",
+        "protocol_violations": []
+      }
+    },
+    {
+      "task": "stale-embedding-packs",
+      "classification": "unchanged saved candidate",
+      "result": {
+        "task": "stale-embedding-packs",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "31793291f594d93e585851000aa94fcdcceceddd276fd5ec7be773882bd61b01",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.76 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 0.8 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "verification_phase": "task",
+        "baseline_exit_code": null,
+        "verification_status": "passed",
+        "protocol_violations": []
+      }
+    },
+    {
+      "task": "stale-embedding-foundry",
+      "classification": "human-assisted repair",
+      "result": {
+        "task": "stale-embedding-foundry",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "171b0326e4feddb58c3ef72b2576eaea6ebfe242b160b588a1a30471939ae44c",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "📦 Packwerk is running validation...\n\n📦 Finished in 0.71 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 0.92 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "verification_phase": "task",
+        "baseline_exit_code": null,
+        "verification_status": "passed",
+        "protocol_violations": []
+      }
+    },
+    {
+      "task": "ar-tenant-isolation",
+      "classification": "pinned upstream reference",
+      "result": {
+        "task": "ar-tenant-isolation",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "c967b9f4739bda8ae0c1391d5c237727ab52cb5458f0c7006559ddd38b585581",
+        "foundry": null,
+        "verification_phase": "task",
+        "baseline_exit_code": 0,
+        "verification_status": "passed",
+        "protocol_violations": []
+      }
+    },
+    {
+      "task": "aj-enqueue-after-commit",
+      "classification": "pinned upstream reference",
+      "result": {
+        "task": "aj-enqueue-after-commit",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "55f58f9b9b869a7550b1bfa6b3da6fe832a00937a8f5b9fb659a2e192926f763",
+        "foundry": null,
+        "verification_phase": "task",
+        "baseline_exit_code": 0,
+        "verification_status": "passed",
+        "protocol_violations": []
+      }
+    },
+    {
+      "task": "ft-comment-reaction-live-echo",
+      "classification": "pinned upstream reference",
+      "result": {
+        "task": "ft-comment-reaction-live-echo",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "fb9a8f48111f31e837c1372ea836b65f155a0bef550b692fbb2d4aedf7102739",
+        "foundry": null,
+        "verification_phase": "task",
+        "baseline_exit_code": 0,
+        "verification_status": "passed",
+        "protocol_violations": []
+      }
+    },
+    {
+      "task": "boundary-extraction-foundry",
+      "classification": "original negative control",
+      "result": {
+        "task": "boundary-extraction-foundry",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "9f6ef49e9fe5fe04054f891f49dba6c18f37abd6887f0cee3d5daa122aab02e8",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "failed",
+            "policy_errors": [
+              "Privacy enforcement missing: packs/knowledge/package.yml"
+            ],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "📦 Packwerk is running validation...\n\n📦 Finished in 1.01 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.34 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 1\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "verification_phase": "task",
+        "baseline_exit_code": null,
+        "verification_status": "failed",
+        "protocol_violations": []
+      }
+    },
+    {
+      "task": "stale-embedding-foundry",
+      "classification": "original negative control",
+      "result": {
+        "task": "stale-embedding-foundry",
+        "status": "invalid_protocol",
+        "reward": 1.0,
+        "patch_sha256": "1e45e2b56be77b7d4488912779a4b48b5ca7e6c0595f5c960b1f55223af99f30",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "📦 Packwerk is running validation...\n\n📦 Finished in 0.93 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.45 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "verification_phase": "task",
+        "baseline_exit_code": null,
+        "verification_status": "passed",
+        "protocol_violations": [
+          "test/visible_test.rb"
+        ]
+      }
+    }
+  ]
+}

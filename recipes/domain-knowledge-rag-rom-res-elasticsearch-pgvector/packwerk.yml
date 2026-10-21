@@ -1,0 +1,8 @@
+require:
+  - packwerk-extensions
+exclude:
+  - test/**/*
+  - db/**/*
+  - vendor/**/*
+  - tmp/**/*
+  - node_modules/**/*

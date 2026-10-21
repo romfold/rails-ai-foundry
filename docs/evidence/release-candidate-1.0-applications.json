@@ -1,0 +1,787 @@
+{
+  "candidate_commit": "71cfd0c4a251553ec70a95b65f1d5f8886d97500",
+  "date": "2026-09-10",
+  "platform": "macOS arm64",
+  "ruby": "3.4.10",
+  "bundler": "2.6.9",
+  "gem_sha256": "83c2268d28e748db567dc5ca5d84f6b7f155a3fce7588e4a3a230955ecb5653b",
+  "applications": [
+    {
+      "application": "modular-legacy-adoption-packwerk",
+      "commands": [
+        {
+          "argv": [
+            "bundle",
+            "check"
+          ],
+          "exit_status": 0,
+          "seconds": 0.16
+        },
+        {
+          "argv": [
+            "bin/setup"
+          ],
+          "exit_status": 0,
+          "seconds": 2.5
+        },
+        {
+          "argv": [
+            "bin/verify"
+          ],
+          "exit_status": 0,
+          "seconds": 15.13
+        },
+        {
+          "argv": [
+            "bundle",
+            "exec",
+            "rubocop"
+          ],
+          "exit_status": 0,
+          "seconds": 1.3
+        },
+        {
+          "argv": [
+            "npm",
+            "run",
+            "spec:validate"
+          ],
+          "exit_status": 0,
+          "seconds": 1.0
+        }
+      ],
+      "success": true,
+      "locks_and_debt_unchanged": true,
+      "test_summaries": [
+        "3 runs, 18 assertions, 0 failures, 0 errors, 0 skips",
+        "3 runs, 18 assertions, 0 failures, 0 errors, 0 skips"
+      ]
+    },
+    {
+      "application": "domain-event-sourced-ledger-rails-event-store",
+      "commands": [
+        {
+          "argv": [
+            "docker",
+            "compose",
+            "--project-name",
+            "foundry-rc-1",
+            "up",
+            "-d",
+            "--wait"
+          ],
+          "exit_status": 0,
+          "seconds": 4.01
+        },
+        {
+          "argv": [
+            "bundle",
+            "check"
+          ],
+          "exit_status": 0,
+          "seconds": 0.27
+        },
+        {
+          "argv": [
+            "bin/setup"
+          ],
+          "exit_status": 0,
+          "seconds": 2.36
+        },
+        {
+          "argv": [
+            "bin/verify"
+          ],
+          "exit_status": 0,
+          "seconds": 7.86
+        },
+        {
+          "argv": [
+            "bundle",
+            "exec",
+            "rubocop"
+          ],
+          "exit_status": 0,
+          "seconds": 1.2
+        }
+      ],
+      "success": true,
+      "cleanup": {
+        "argv": [
+          "docker",
+          "compose",
+          "--project-name",
+          "foundry-rc-1",
+          "down",
+          "-v"
+        ],
+        "exit_status": 0,
+        "seconds": 0.79
+      },
+      "locks_and_debt_unchanged": true,
+      "test_summaries": [
+        "5 runs, 21 assertions, 0 failures, 0 errors, 0 skips"
+      ]
+    },
+    {
+      "application": "modular-event-pipeline-kafka-karafka",
+      "commands": [
+        {
+          "argv": [
+            "docker",
+            "compose",
+            "--project-name",
+            "foundry-rc-2",
+            "up",
+            "-d",
+            "--wait"
+          ],
+          "exit_status": 0,
+          "seconds": 9.59
+        },
+        {
+          "argv": [
+            "bundle",
+            "check"
+          ],
+          "exit_status": 0,
+          "seconds": 0.21
+        },
+        {
+          "argv": [
+            "bin/setup"
+          ],
+          "exit_status": 0,
+          "seconds": 2.21
+        },
+        {
+          "argv": [
+            "bin/verify"
+          ],
+          "exit_status": 0,
+          "seconds": 25.03
+        },
+        {
+          "argv": [
+            "bundle",
+            "exec",
+            "rubocop"
+          ],
+          "exit_status": 0,
+          "seconds": 1.14
+        }
+      ],
+      "success": true,
+      "cleanup": {
+        "argv": [
+          "docker",
+          "compose",
+          "--project-name",
+          "foundry-rc-2",
+          "down",
+          "-v"
+        ],
+        "exit_status": 0,
+        "seconds": 1.53
+      },
+      "locks_and_debt_unchanged": true,
+      "test_summaries": [
+        "5 runs, 27 assertions, 0 failures, 0 errors, 0 skips"
+      ]
+    },
+    {
+      "application": "modular-graphql-async-dataloader",
+      "commands": [
+        {
+          "argv": [
+            "docker",
+            "compose",
+            "--project-name",
+            "foundry-rc-3",
+            "up",
+            "-d",
+            "--wait"
+          ],
+          "exit_status": 0,
+          "seconds": 3.2
+        },
+        {
+          "argv": [
+            "bundle",
+            "check"
+          ],
+          "exit_status": 0,
+          "seconds": 0.15
+        },
+        {
+          "argv": [
+            "bin/setup"
+          ],
+          "exit_status": 0,
+          "seconds": 2.03
+        },
+        {
+          "argv": [
+            "bin/verify"
+          ],
+          "exit_status": 0,
+          "seconds": 9.42
+        },
+        {
+          "argv": [
+            "bundle",
+            "exec",
+            "rubocop"
+          ],
+          "exit_status": 0,
+          "seconds": 1.29
+        }
+      ],
+      "success": true,
+      "cleanup": {
+        "argv": [
+          "docker",
+          "compose",
+          "--project-name",
+          "foundry-rc-3",
+          "down",
+          "-v"
+        ],
+        "exit_status": 0,
+        "seconds": 0.99
+      },
+      "locks_and_debt_unchanged": true,
+      "test_summaries": [
+        "5 runs, 24 assertions, 0 failures, 0 errors, 0 skips"
+      ]
+    },
+    {
+      "application": "modular-multi-tenant-rag-qdrant",
+      "commands": [
+        {
+          "argv": [
+            "docker",
+            "compose",
+            "--project-name",
+            "foundry-rc-5",
+            "up",
+            "-d",
+            "--wait"
+          ],
+          "exit_status": 0,
+          "seconds": 3.72
+        },
+        {
+          "argv": [
+            "bundle",
+            "check"
+          ],
+          "exit_status": 0,
+          "seconds": 0.16
+        },
+        {
+          "argv": [
+            "bin/setup"
+          ],
+          "exit_status": 0,
+          "seconds": 2.02
+        },
+        {
+          "argv": [
+            "bin/verify"
+          ],
+          "exit_status": 0,
+          "seconds": 7.05
+        },
+        {
+          "argv": [
+            "bundle",
+            "exec",
+            "rubocop"
+          ],
+          "exit_status": 0,
+          "seconds": 1.14
+        }
+      ],
+      "success": true,
+      "cleanup": {
+        "argv": [
+          "docker",
+          "compose",
+          "--project-name",
+          "foundry-rc-5",
+          "down",
+          "-v"
+        ],
+        "exit_status": 0,
+        "seconds": 0.79
+      },
+      "locks_and_debt_unchanged": true,
+      "test_summaries": [
+        "4 runs, 24 assertions, 0 failures, 0 errors, 0 skips"
+      ]
+    },
+    {
+      "application": "modular-opensearch-cqrs",
+      "commands": [
+        {
+          "argv": [
+            "docker",
+            "compose",
+            "--project-name",
+            "foundry-rc-6",
+            "up",
+            "-d",
+            "--wait"
+          ],
+          "exit_status": 0,
+          "seconds": 21.27
+        },
+        {
+          "argv": [
+            "bundle",
+            "check"
+          ],
+          "exit_status": 0,
+          "seconds": 0.27
+        },
+        {
+          "argv": [
+            "bin/setup"
+          ],
+          "exit_status": 0,
+          "seconds": 2.78
+        },
+        {
+          "argv": [
+            "bin/verify"
+          ],
+          "exit_status": 0,
+          "seconds": 9.43
+        },
+        {
+          "argv": [
+            "bundle",
+            "exec",
+            "rubocop"
+          ],
+          "exit_status": 0,
+          "seconds": 1.38
+        }
+      ],
+      "success": true,
+      "cleanup": {
+        "argv": [
+          "docker",
+          "compose",
+          "--project-name",
+          "foundry-rc-6",
+          "down",
+          "-v"
+        ],
+        "exit_status": 0,
+        "seconds": 1.44
+      },
+      "locks_and_debt_unchanged": true,
+      "test_summaries": [
+        "8 runs, 43 assertions, 0 failures, 0 errors, 0 skips"
+      ]
+    },
+    {
+      "application": "modular-realtime-voice-rabbitmq",
+      "commands": [
+        {
+          "argv": [
+            "docker",
+            "compose",
+            "--project-name",
+            "foundry-rc-7",
+            "up",
+            "-d",
+            "--wait"
+          ],
+          "exit_status": 0,
+          "seconds": 7.86
+        },
+        {
+          "argv": [
+            "bundle",
+            "check"
+          ],
+          "exit_status": 0,
+          "seconds": 0.24
+        },
+        {
+          "argv": [
+            "bin/setup"
+          ],
+          "exit_status": 0,
+          "seconds": 2.26
+        },
+        {
+          "argv": [
+            "bin/verify"
+          ],
+          "exit_status": 0,
+          "seconds": 8.33
+        },
+        {
+          "argv": [
+            "bundle",
+            "exec",
+            "rubocop"
+          ],
+          "exit_status": 0,
+          "seconds": 1.2
+        }
+      ],
+      "success": true,
+      "cleanup": {
+        "argv": [
+          "docker",
+          "compose",
+          "--project-name",
+          "foundry-rc-7",
+          "down",
+          "-v"
+        ],
+        "exit_status": 0,
+        "seconds": 1.47
+      },
+      "locks_and_debt_unchanged": true,
+      "test_summaries": [
+        "8 runs, 81 assertions, 0 failures, 0 errors, 0 skips"
+      ]
+    },
+    {
+      "application": "modular-transactional-outbox-postgresql-sidekiq",
+      "commands": [
+        {
+          "argv": [
+            "docker",
+            "compose",
+            "--project-name",
+            "foundry-rc-8",
+            "up",
+            "-d",
+            "--wait"
+          ],
+          "exit_status": 0,
+          "seconds": 3.7
+        },
+        {
+          "argv": [
+            "bundle",
+            "check"
+          ],
+          "exit_status": 0,
+          "seconds": 0.15
+        },
+        {
+          "argv": [
+            "bin/setup"
+          ],
+          "exit_status": 0,
+          "seconds": 1.95
+        },
+        {
+          "argv": [
+            "bin/verify"
+          ],
+          "exit_status": 0,
+          "seconds": 11.23
+        },
+        {
+          "argv": [
+            "bundle",
+            "exec",
+            "rubocop"
+          ],
+          "exit_status": 0,
+          "seconds": 1.39
+        }
+      ],
+      "success": true,
+      "cleanup": {
+        "argv": [
+          "docker",
+          "compose",
+          "--project-name",
+          "foundry-rc-8",
+          "down",
+          "-v"
+        ],
+        "exit_status": 0,
+        "seconds": 0.73
+      },
+      "locks_and_debt_unchanged": true,
+      "test_summaries": [
+        "5 runs, 30 assertions, 0 failures, 0 errors, 0 skips"
+      ]
+    },
+    {
+      "application": "rails-native-agent-tools-structured-output-rubyllm",
+      "commands": [
+        {
+          "argv": [
+            "docker",
+            "compose",
+            "--project-name",
+            "foundry-rc-9",
+            "up",
+            "-d",
+            "--wait"
+          ],
+          "exit_status": 0,
+          "seconds": 3.19
+        },
+        {
+          "argv": [
+            "bundle",
+            "check"
+          ],
+          "exit_status": 0,
+          "seconds": 0.15
+        },
+        {
+          "argv": [
+            "bin/setup"
+          ],
+          "exit_status": 0,
+          "seconds": 2.0
+        },
+        {
+          "argv": [
+            "bin/verify"
+          ],
+          "exit_status": 0,
+          "seconds": 7.47
+        },
+        {
+          "argv": [
+            "bundle",
+            "exec",
+            "rubocop"
+          ],
+          "exit_status": 0,
+          "seconds": 1.2
+        }
+      ],
+      "success": true,
+      "cleanup": {
+        "argv": [
+          "docker",
+          "compose",
+          "--project-name",
+          "foundry-rc-9",
+          "down",
+          "-v"
+        ],
+        "exit_status": 0,
+        "seconds": 0.71
+      },
+      "locks_and_debt_unchanged": true,
+      "test_summaries": [
+        "6 runs, 29 assertions, 0 failures, 0 errors, 0 skips"
+      ]
+    },
+    {
+      "application": "rails-native-ai-chat-rubyllm-hotwire",
+      "commands": [
+        {
+          "argv": [
+            "docker",
+            "compose",
+            "--project-name",
+            "foundry-rc-10",
+            "up",
+            "-d",
+            "--wait"
+          ],
+          "exit_status": 0,
+          "seconds": 3.18
+        },
+        {
+          "argv": [
+            "bundle",
+            "check"
+          ],
+          "exit_status": 0,
+          "seconds": 0.15
+        },
+        {
+          "argv": [
+            "bin/setup"
+          ],
+          "exit_status": 0,
+          "seconds": 2.0
+        },
+        {
+          "argv": [
+            "bin/verify"
+          ],
+          "exit_status": 0,
+          "seconds": 8.02
+        },
+        {
+          "argv": [
+            "bundle",
+            "exec",
+            "rubocop"
+          ],
+          "exit_status": 0,
+          "seconds": 1.2
+        }
+      ],
+      "success": true,
+      "cleanup": {
+        "argv": [
+          "docker",
+          "compose",
+          "--project-name",
+          "foundry-rc-10",
+          "down",
+          "-v"
+        ],
+        "exit_status": 0,
+        "seconds": 0.86
+      },
+      "locks_and_debt_unchanged": true,
+      "test_summaries": [
+        "5 runs, 38 assertions, 0 failures, 0 errors, 0 skips"
+      ]
+    },
+    {
+      "application": "rails-native-nextjs-graphql",
+      "commands": [
+        {
+          "argv": [
+            "docker",
+            "compose",
+            "--project-name",
+            "foundry-rc-11",
+            "up",
+            "-d",
+            "--wait"
+          ],
+          "exit_status": 0,
+          "seconds": 3.18
+        },
+        {
+          "argv": [
+            "bundle",
+            "check"
+          ],
+          "exit_status": 0,
+          "seconds": 0.16
+        },
+        {
+          "argv": [
+            "bin/setup"
+          ],
+          "exit_status": 0,
+          "seconds": 2.18
+        },
+        {
+          "argv": [
+            "bin/verify"
+          ],
+          "exit_status": 0,
+          "seconds": 19.43
+        },
+        {
+          "argv": [
+            "bundle",
+            "exec",
+            "rubocop"
+          ],
+          "exit_status": 0,
+          "seconds": 2.38
+        }
+      ],
+      "success": true,
+      "cleanup": {
+        "argv": [
+          "docker",
+          "compose",
+          "--project-name",
+          "foundry-rc-11",
+          "down",
+          "-v"
+        ],
+        "exit_status": 0,
+        "seconds": 0.95
+      },
+      "locks_and_debt_unchanged": true,
+      "test_summaries": [
+        "2 runs, 5 assertions, 0 failures, 0 errors, 0 skips"
+      ]
+    },
+    {
+      "application": "rails-native-rag-pgvector",
+      "commands": [
+        {
+          "argv": [
+            "docker",
+            "compose",
+            "--project-name",
+            "foundry-rc-12",
+            "up",
+            "-d",
+            "--wait"
+          ],
+          "exit_status": 0,
+          "seconds": 3.19
+        },
+        {
+          "argv": [
+            "bundle",
+            "check"
+          ],
+          "exit_status": 0,
+          "seconds": 0.21
+        },
+        {
+          "argv": [
+            "bin/setup"
+          ],
+          "exit_status": 0,
+          "seconds": 2.33
+        },
+        {
+          "argv": [
+            "bin/verify"
+          ],
+          "exit_status": 0,
+          "seconds": 7.2
+        },
+        {
+          "argv": [
+            "bundle",
+            "exec",
+            "rubocop"
+          ],
+          "exit_status": 0,
+          "seconds": 1.28
+        }
+      ],
+      "success": true,
+      "cleanup": {
+        "argv": [
+          "docker",
+          "compose",
+          "--project-name",
+          "foundry-rc-12",
+          "down",
+          "-v"
+        ],
+        "exit_status": 0,
+        "seconds": 0.7
+      },
+      "locks_and_debt_unchanged": true,
+      "test_summaries": [
+        "6 runs, 38 assertions, 0 failures, 0 errors, 0 skips"
+      ]
+    }
+  ]
+}

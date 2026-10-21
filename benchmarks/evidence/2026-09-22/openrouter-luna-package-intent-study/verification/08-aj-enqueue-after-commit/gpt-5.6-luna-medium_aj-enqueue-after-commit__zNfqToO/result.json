@@ -1,0 +1,11 @@
+{
+  "task": "aj-enqueue-after-commit",
+  "status": "passed",
+  "reward": 1.0,
+  "patch_sha256": "a04a432ac7e7babfbcd1b386c63e7fc5a1d56b8ea40aa7d6c4a04d156674d5d1",
+  "foundry": null,
+  "verification_phase": "task",
+  "baseline_exit_code": 0,
+  "verification_status": "passed",
+  "protocol_violations": []
+}

@@ -1,0 +1,202 @@
+The client is unable to verify that the server is Elasticsearch. Some functionality may not be compatible if the server is running an unsupported product.
+{
+  "documents": 10000,
+  "dimensions": 1536,
+  "seed": 17,
+  "status": "passed",
+  "stages": {
+    "seed": {
+      "seconds": 0.6602799999964191,
+      "queries": 43,
+      "allocated_objects": 727380
+    },
+    "search_rebuild_recovery": {
+      "seconds": 10.615788000002794,
+      "queries": 11412,
+      "allocated_objects": 3554919
+    },
+    "vector_rebuild": {
+      "seconds": 71.52317700000276,
+      "queries": 81424,
+      "allocated_objects": 9934488
+    },
+    "retrieval": {
+      "seconds": 0.14443999999639345,
+      "queries": 18,
+      "allocated_objects": 18527
+    }
+  },
+  "measurements": {
+    "rebuild_unit.knowledge": {
+      "duration_ms": 2052.8029999986757
+    },
+    "snapshot_page.knowledge": {
+      "rows": 250,
+      "bytes": 67253
+    },
+    "rebuild_batch.knowledge": {
+      "rows": 250,
+      "bytes": 73252
+    },
+    "rebuild_gate.knowledge": {
+      "duration_ms": 25.4620000050636
+    },
+    "embedding_provider.knowledge": {
+      "duration_ms": 9.764000002178364
+    },
+    "vector_page.knowledge": {
+      "rows": 250,
+      "bytes": 788750
+    },
+    "retrieval_budget.knowledge": {
+      "candidates": 20
+    },
+    "retrieval.knowledge": {
+      "duration_ms": 27.109000002383254
+    }
+  },
+  "recovery_seconds": 10.536130000000412,
+  "retrieval": {
+    "samples_ms": [
+      22.59100000082981,
+      22.814999996626284,
+      23.177000002760906,
+      23.603000001457985,
+      24.062999997113366
+    ],
+    "p50_ms": 23.177000002760906,
+    "p95_ms": 24.062999997113366
+  },
+  "query_plan": [
+    {
+      "Plan": {
+        "Node Type": "Limit",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 566.07,
+        "Total Cost": 566.12,
+        "Plan Rows": 20,
+        "Plan Width": 28,
+        "Actual Startup Time": 19.909,
+        "Actual Total Time": 19.911,
+        "Actual Rows": 20,
+        "Actual Loops": 1,
+        "Shared Hit Blocks": 24124,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Sort",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 566.07,
+            "Total Cost": 591.12,
+            "Plan Rows": 10022,
+            "Plan Width": 28,
+            "Actual Startup Time": 19.908,
+            "Actual Total Time": 19.909,
+            "Actual Rows": 20,
+            "Actual Loops": 1,
+            "Sort Key": [
+              "((embedding <=> '[1,0,0,0,0,0,0,0,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]'::vector))",
+              "document_id"
+            ],
+            "Sort Method": "top-N heapsort",
+            "Sort Space Used": 26,
+            "Sort Space Type": "Memory",
+            "Shared Hit Blocks": 24124,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Seq Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "search_vectors",
+                "Alias": "search_vectors",
+                "Startup Cost": 0.0,
+                "Total Cost": 299.38,
+                "Plan Rows": 10022,
+                "Plan Width": 28,
+                "Actual Startup Time": 0.013,
+                "Actual Total Time": 19.03,
+                "Actual Rows": 8000,
+                "Actual Loops": 1,
+                "Filter": "(((tenant_id)::text = 'tenant-a'::text) AND ((version)::text = 'measure-v2'::text))",
+                "Rows Removed by Filter": 2000,
+                "Shared Hit Blocks": 24124,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              }
+            ]
+          }
+        ]
+      },
+      "Planning": {
+        "Shared Hit Blocks": 0,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0
+      },
+      "Planning Time": 0.038,
+      "Triggers": [],
+      "Execution Time": 19.921
+    }
+  ],
+  "query_count": 92898,
+  "versions": {
+    "ruby": "3.4.10",
+    "host": "arm64-apple-darwin23",
+    "elasticsearch": "9.3.0",
+    "postgres": "17.11 (Debian 17.11-1.pgdg12+2)",
+    "lock_sha256": "9103eb62de506b9cef2765ead7b8fbcf78053efd80e4ae00d493c203567d876d"
+  },
+  "source_sha256": "210bb66491c826b1b16e7139ed5eb91ba1b6b1f07c34e4acb1c97f9c7ef0e71c"
+}
+       84.93 real        25.90 user         5.48 sys
+           260046848  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               24154  page reclaims
+                3434  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+               93218  messages sent
+               96954  messages received
+                   0  signals received
+               94650  voluntary context switches
+              159984  involuntary context switches
+        113383682025  instructions retired
+         65656203913  cycles elapsed
+           170297600  peak memory footprint

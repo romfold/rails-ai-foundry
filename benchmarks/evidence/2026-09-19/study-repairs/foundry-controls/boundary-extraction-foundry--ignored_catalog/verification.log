@@ -1,0 +1,67 @@
+bundle exec ruby test/visible_test.rb
+Run options: --seed 7369
+
+# Running:
+
+..
+
+Finished in 0.113424s, 17.6329 runs/s, 35.2659 assertions/s.
+2 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -I/tests -report-lemans /tests/acceptance_test.rb
+Run options: --seed 63501
+
+# Running:
+
+..F
+
+Failure:
+AcceptanceTest#test_selected_task [/tests/acceptance_test.rb:45]:
+--- expected
++++ actual
+@@ -1 +1 @@
+-[{"id" => -1, "tenant_id" => "a", "body" => "catalog contract", "revision" => 99}]
++[{"id" => 7, "tenant_id" => "a", "body" => "refund policy", "revision" => 7}]
+
+
+bin/rails test /tests/acceptance_test.rb:37
+
+
+
+Finished in 0.129731s, 23.1247 runs/s, 92.4988 assertions/s.
+3 runs, 12 assertions, 1 failures, 0 errors, 0 skips
+bundle exec ruby -rstringio -S packwerk validate
+📦 Packwerk is running validation...
+
+📦 Finished in 0.66 seconds
+
+Validation successful 🎉
+bundle exec ruby -rstringio -S packwerk check
+📦 Packwerk is inspecting 12 files
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+.........[31mE[m..
+📦 Finished in 0.8 seconds
+
+[36mapp/controllers/documents_controller.rb[m:9:17
+Privacy violation: '::Knowledge::Document' is private to 'packs/knowledge' but referenced from '.'.
+Is there a public entrypoint in 'packs/knowledge/app/public/' that you can use instead?
+
+Inference details: this is a reference to ::Knowledge::Document which seems to be defined in packs/knowledge/app/models/knowledge/document.rb.
+To receive help interpreting or resolving this error message, see: https://github.com/Shopify/packwerk/blob/main/TROUBLESHOOT.md#Troubleshooting-violations
+
+1 offense detected
+
+No stale violations detected
+bundle exec foundry check --sources
+Foundry structural assessment: /candidate
+Workflow: none; workload: balanced
+Context configurations validated: 2
+Configuration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.
+Source check: 9 Ruby files; passed.
+Application app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.
+No files were changed.
+Run owning-context behavioral tests.
+Run foundry check --boundaries in an isolated test environment for upstream Packwerk verification.
+Preserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.

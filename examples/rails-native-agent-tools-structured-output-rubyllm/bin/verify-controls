@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'open3'
+require 'rbconfig'
+require 'shellwords'
+Dir.chdir(File.expand_path('..', __dir__))
+controls = {
+  'valid' => nil,
+  'valid_delegated' => nil,
+  'bypass_approval' => 'test_execution_cannot_bypass_approval',
+  'ignore_revision' => 'test_changed_source_invalidates_approved_work',
+  'stale_generation' => 'test_lease_expiry_fences_old_result_and_replacement_result_succeeds',
+  'duplicate_execution' => 'test_reader_requests_editor_approves_and_duplicate_execution_has_exactly_one_local_effect'
+}
+controls.each do |control, name|
+  args = [RbConfig.ruby, 'test/controls/runner.rb', control]
+  args += ['--name', name] if name
+  puts Shellwords.join(args)
+  output, status = Open3.capture2e(*args)
+  puts output
+  expected = if control.start_with?('valid')
+               status.success?
+             else
+               !status.success? && output.include?('1 failures, 0 errors')
+             end
+  abort "Unexpected outcome: #{control}" unless expected
+end
+puts 'Accepted valid behavior; rejected all four faulty controls.'

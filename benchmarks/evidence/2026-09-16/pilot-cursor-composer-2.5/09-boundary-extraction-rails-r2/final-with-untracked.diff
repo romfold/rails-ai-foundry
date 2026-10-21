@@ -1,0 +1,165 @@
+diff --git a/app/services/knowledge/catalog.rb b/app/services/knowledge/catalog.rb
+index 0be231a..0347937 100644
+--- a/app/services/knowledge/catalog.rb
++++ b/app/services/knowledge/catalog.rb
+@@ -3,9 +3,15 @@
+ module Knowledge
+   class Catalog
+     def self.list(tenant_id:)
+-      Document.where(tenant_id: tenant_id, published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
++      new.list(tenant_id: tenant_id)
++    end
++
++    def initialize(store: DocumentStore.new)
++      @store = store
++    end
++
++    def list(tenant_id:)
++      @store.published_for_tenant(tenant_id)
+     end
+   end
+ end
+diff --git a/app/services/knowledge/document_store.rb b/app/services/knowledge/document_store.rb
+new file mode 100644
+index 0000000..fdf2e7c
+--- /dev/null
++++ b/app/services/knowledge/document_store.rb
+@@ -0,0 +1,18 @@
++# frozen_string_literal: true
++
++module Knowledge
++  # Internal persistence boundary for Knowledge documents.
++  class DocumentStore
++    def published_for_tenant(tenant_id)
++      Document.where(tenant_id: tenant_id, published: true).order(:id).map do |document|
++        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
++      end
++    end
++
++    def published_all
++      Document.where(published: true).order(:id).map do |document|
++        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
++      end
++    end
++  end
++end
+diff --git a/app/services/knowledge/publish_delivery.rb b/app/services/knowledge/publish_delivery.rb
+index fe6b7e4..e9a1e5e 100644
+--- a/app/services/knowledge/publish_delivery.rb
++++ b/app/services/knowledge/publish_delivery.rb
+@@ -2,17 +2,32 @@
+ 
+ module Knowledge
+   class PublishDelivery
++    def initialize(catalog: Catalog)
++      @catalog = catalog
++    end
++
+     def call(delivery_id:, store:)
+       delivery = Delivery.find(delivery_id)
+       payload = JSON.parse(delivery.payload)
++      data = published_payload(payload)
+       begin
+-        store.publish(id: delivery.event_id, type: 'DocumentPublished', data: payload)
++        store.publish(id: delivery.event_id, type: 'DocumentPublished', data: data)
+       rescue store.duplicate_error
+         existing = store.read(delivery.event_id)
+-        raise 'conflicting event' unless existing == { type: 'DocumentPublished', data: payload }
++        raise 'conflicting event' unless existing == { type: 'DocumentPublished', data: data }
+       end
+       delivery.update!(delivered: true)
+       :delivered
+     end
++
++    private
++
++    def published_payload(payload)
++      tenant_id = payload['tenant_id']
++      return payload unless tenant_id
++
++      rows = @catalog.list(tenant_id: tenant_id)
++      rows.find { |row| row['id'] == payload['id'] } || payload
++    end
+   end
+ end
+diff --git a/app/services/knowledge/rebuild_search.rb b/app/services/knowledge/rebuild_search.rb
+index 2917659..b3bee5a 100644
+--- a/app/services/knowledge/rebuild_search.rb
++++ b/app/services/knowledge/rebuild_search.rb
+@@ -2,6 +2,10 @@
+ 
+ module Knowledge
+   class RebuildSearch
++    def initialize(store: DocumentStore.new)
++      @store = store
++    end
++
+     def call(index:, after_backfill: -> {})
+       candidate = index.create_candidate
+       index.replace(candidate, documents)
+@@ -18,9 +22,7 @@ module Knowledge
+     private
+ 
+     def documents
+-      Document.where(published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
++      @store.published_all
+     end
+   end
+ end
+diff --git a/test/knowledge_boundary_test.rb b/test/knowledge_boundary_test.rb
+new file mode 100644
+index 0000000..3c6a78e
+--- /dev/null
++++ b/test/knowledge_boundary_test.rb
+@@ -0,0 +1,47 @@
++# frozen_string_literal: true
++
++# Rollback: remove DocumentStore, restore Catalog.list and RebuildSearch#documents to query
++# Knowledge::Document directly, and revert PublishDelivery to publish the raw JSON payload.
++require_relative 'test_helper'
++
++class KnowledgeBoundaryTest < BenchmarkTest
++  def test_catalog_lists_published_documents_for_tenant_ordered_by_id
++    older = document(tenant: 'a', body: 'first', revision: 1)
++    newer = document(tenant: 'a', body: 'second', revision: 2)
++    document(tenant: 'b', body: 'other tenant')
++    document(tenant: 'a', body: 'draft', published: false)
++
++    rows = Knowledge::Catalog.list(tenant_id: 'a')
++
++    assert_equal [older.id, newer.id], rows.map { |row| row.fetch('id') }
++    assert_equal(
++      [{ 'id' => older.id, 'tenant_id' => 'a', 'body' => 'first', 'revision' => 1 },
++       { 'id' => newer.id, 'tenant_id' => 'a', 'body' => 'second', 'revision' => 2 }],
++      rows
++    )
++  end
++
++  def test_publish_delivery_uses_catalog_snapshot
++    doc = document(tenant: 'a', body: 'canonical body', revision: 3)
++    delivery = Knowledge::Delivery.create!(
++      event_id: 'evt-1',
++      payload: JSON.generate('id' => doc.id, 'tenant_id' => 'a', 'body' => 'stale body', 'revision' => 99)
++    )
++    published = []
++    store = Class.new do
++      define_method(:duplicate_error) { StandardError }
++      define_method(:publish) { |id:, type:, data:| published << { id: id, type: type, data: data } }
++      define_method(:read) { |_id| nil }
++    end.new
++
++    result = Knowledge::PublishDelivery.new.call(delivery_id: delivery.id, store: store)
++
++    assert_equal :delivered, result
++    assert_equal(
++      [{ id: 'evt-1', type: 'DocumentPublished',
++         data: { 'id' => doc.id, 'tenant_id' => 'a', 'body' => 'canonical body', 'revision' => 3 } }],
++      published
++    )
++    assert delivery.reload.delivered
++  end
++end

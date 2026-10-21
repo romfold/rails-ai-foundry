@@ -1,0 +1,28 @@
+bundle exec ruby test/visible_test.rb
+Run options: --seed 43518
+
+# Running:
+
+..
+
+Finished in 0.161668s, 12.3711 runs/s, 24.7421 assertions/s.
+2 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -I/tests -report-lemans /tests/acceptance_test.rb
+Run options: --seed 47394
+
+# Running:
+
+..F
+
+Failure:
+AcceptanceTest#test_selected_task [/tests/acceptance_test.rb:125]:
+revision.
+Expected: :discarded
+  Actual: :stored
+
+bin/rails test /tests/acceptance_test.rb:37
+
+
+
+Finished in 0.174311s, 17.2106 runs/s, 51.6318 assertions/s.
+3 runs, 9 assertions, 1 failures, 0 errors, 0 skips

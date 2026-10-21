@@ -1,0 +1,13 @@
+{
+  "historical_files_unchanged": 2189,
+  "inventories_verified": {
+    "openrouter-luna-package-intent-study": 192,
+    "foundry-guided-realtime-study/g1": 53,
+    "foundry-guided-realtime-study/g2": 52
+  },
+  "credential_scan": "No exact provider key in report or archived artifacts",
+  "report_links_verified": 12,
+  "original_cohort": "9 native passes / 1 failure; preserved",
+  "guided_attempts": "Both failed native and independent verification; no candidate repairs",
+  "historical_inventory_sha256": "08b170ff0e630258248cc6b65399c1deb4f9eeeb9be2bf9362f59f3b11a4d96d"
+}

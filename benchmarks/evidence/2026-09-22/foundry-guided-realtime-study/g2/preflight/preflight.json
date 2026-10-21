@@ -1,0 +1,58 @@
+{
+  "eligible": true,
+  "treatment_manifest_sha256": "08127ec9d3b6f8d3ffb1800a083c6906dcc83604f7038e42cbb8c83a631ed048",
+  "snapshot": {
+    "account": {
+      "limit": 20,
+      "limit_remaining": 19.27380293,
+      "limit_reset": null,
+      "usage": 0.72619707
+    },
+    "endpoint": {
+      "name": "OpenAI | openai/gpt-5.6-luna-20260709",
+      "model_id": "openai/gpt-5.6-luna",
+      "tag": "openai",
+      "provider_name": "OpenAI",
+      "status": 0,
+      "supported_parameters": [
+        "reasoning",
+        "include_reasoning",
+        "seed",
+        "max_tokens",
+        "response_format",
+        "structured_outputs",
+        "tools",
+        "tool_choice",
+        "reasoning_effort"
+      ],
+      "pricing": {
+        "prompt": "0.0000002",
+        "completion": "0.0000012",
+        "web_search": "0.01",
+        "input_cache_read": "0.00000002",
+        "input_cache_write": "0.00000025",
+        "discount": 0,
+        "overrides": [
+          {
+            "min_prompt_tokens": 272000,
+            "prompt": "0.0000004",
+            "completion": "0.0000018",
+            "input_cache_read": "0.00000004",
+            "input_cache_write": "0.0000005"
+          }
+        ]
+      }
+    },
+    "key_fingerprint": "93912b400a84b63496cdb8f63334e93d3daa332b450042d8715ba4d5e6bdcafd",
+    "model": "openai/gpt-5.6-luna",
+    "captured_at": "2026-09-22T15:40:21Z"
+  },
+  "cycle_accounting": {
+    "provider_usage_delta": 0.16441974000000004,
+    "reported_cost": 0.16441974,
+    "conservative_spend": 0.16441974000000004
+  },
+  "cycle_stopping_budget": 7.0,
+  "trial_stopping_budget": 0.75,
+  "recorded_at": "2026-09-22T15:40:21Z"
+}

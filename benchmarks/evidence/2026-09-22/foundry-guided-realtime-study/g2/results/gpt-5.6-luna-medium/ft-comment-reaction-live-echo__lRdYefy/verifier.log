@@ -1,0 +1,168 @@
+Running 1517 tests in parallel using 2 processes
+Run options: --seed 60185
+
+# Running:
+
+...........................................................................................................................................................................................................................................................................................................E
+
+Error:
+CardsControllerTest#test_admins_can_see_delete_button_on_any_card:
+ActionView::Template::Error: undefined method 'reactions' for an instance of Comment
+    app/views/cards/comments/_comment.html.erb:1
+    app/views/cards/_messages.html.erb:3
+    app/helpers/messages_helper.rb:3:in 'MessagesHelper#messages_tag'
+    app/views/cards/_messages.html.erb:1
+    app/views/cards/show.html.erb:19
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+    test/controllers/cards_controller_test.rb:126:in 'block in <class:CardsControllerTest>'
+
+bin/rails test test/controllers/cards_controller_test.rb:125
+
+..........E
+
+Error:
+CardsControllerTest#test_show_renders_inline_code_in_title:
+ActionView::Template::Error: undefined method 'reactions' for an instance of Comment
+    app/views/cards/comments/_comment.html.erb:1
+    app/views/cards/_messages.html.erb:3
+    app/helpers/messages_helper.rb:3:in 'MessagesHelper#messages_tag'
+    app/views/cards/_messages.html.erb:1
+    app/views/cards/show.html.erb:19
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+    test/controllers/cards_controller_test.rb:79:in 'block in <class:CardsControllerTest>'
+
+bin/rails test test/controllers/cards_controller_test.rb:75
+
+.E
+
+Error:
+CardsControllerTest#test_users_can_only_see_cards_in_boards_they_have_access_to:
+ActionView::Template::Error: undefined method 'reactions' for an instance of Comment
+    app/views/cards/comments/_comment.html.erb:1
+    app/views/cards/_messages.html.erb:3
+    app/helpers/messages_helper.rb:3:in 'MessagesHelper#messages_tag'
+    app/views/cards/_messages.html.erb:1
+    app/views/cards/show.html.erb:19
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+    test/controllers/cards_controller_test.rb:115:in 'block in <class:CardsControllerTest>'
+
+bin/rails test test/controllers/cards_controller_test.rb:114
+
+....E
+
+Error:
+CardsControllerTest#test_show_renders_assign-to-me_hotkey_using_self_assignment_path:
+ActionView::Template::Error: undefined method 'reactions' for an instance of Comment
+    app/views/cards/comments/_comment.html.erb:1
+    app/views/cards/_messages.html.erb:3
+    app/helpers/messages_helper.rb:3:in 'MessagesHelper#messages_tag'
+    app/views/cards/_messages.html.erb:1
+    app/views/cards/show.html.erb:19
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+    test/controllers/cards_controller_test.rb:69:in 'block in <class:CardsControllerTest>'
+
+bin/rails test test/controllers/cards_controller_test.rb:66
+
+.........E
+
+Error:
+CardsControllerTest#test_show_card_with_comment_containing_malformed_remote_image_attachment:
+ActionView::Template::Error: undefined method 'reactions' for an instance of Comment
+    app/views/cards/comments/_comment.html.erb:1
+    app/views/cards/_messages.html.erb:3
+    app/helpers/messages_helper.rb:3:in 'MessagesHelper#messages_tag'
+    app/views/cards/_messages.html.erb:1
+    app/views/cards/show.html.erb:19
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+    test/controllers/cards_controller_test.rb:184:in 'block in <class:CardsControllerTest>'
+
+bin/rails test test/controllers/cards_controller_test.rb:178
+
+......E
+
+Error:
+CardsControllerTest#test_non-admins_cannot_see_delete_button_on_cards_they_did_not_create:
+ActionView::Template::Error: undefined method 'reactions' for an instance of Comment
+    app/views/cards/comments/_comment.html.erb:1
+    app/views/cards/_messages.html.erb:3
+    app/helpers/messages_helper.rb:3:in 'MessagesHelper#messages_tag'
+    app/views/cards/_messages.html.erb:1
+    app/views/cards/show.html.erb:19
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+    test/controllers/cards_controller_test.rb:144:in 'block in <class:CardsControllerTest>'
+
+bin/rails test test/controllers/cards_controller_test.rb:141
+
+.....E
+
+Error:
+CardsControllerTest#test_card_creators_can_see_delete_button_on_their_own_cards:
+ActionView::Template::Error: undefined method 'reactions' for an instance of Comment
+    app/views/cards/comments/_comment.html.erb:1
+    app/views/cards/_messages.html.erb:3
+    app/helpers/messages_helper.rb:3:in 'MessagesHelper#messages_tag'
+    app/views/cards/_messages.html.erb:1
+    app/views/cards/show.html.erb:19
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+    test/controllers/cards_controller_test.rb:135:in 'block in <class:CardsControllerTest>'
+
+bin/rails test test/controllers/cards_controller_test.rb:132
+
+.........................................................................................................................................................................................................E
+
+Error:
+Cards::CommentsControllerTest#test_update:
+ActionView::Template::Error: undefined method 'reactions' for an instance of Comment
+    app/views/cards/comments/_comment.html.erb:1
+    app/views/cards/comments/update.turbo_stream.erb:1
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+    test/controllers/cards/comments_controller_test.rb:27:in 'block in <class:CommentsControllerTest>'
+
+bin/rails test test/controllers/cards/comments_controller_test.rb:26
+
+.........E
+
+Error:
+Cards::CommentsControllerTest#test_create:
+ActionView::Template::Error: undefined method 'reactions' for an instance of Comment
+    app/views/cards/comments/_comment.html.erb:1
+    app/views/cards/comments/create.turbo_stream.erb:1
+    app/controllers/concerns/current_timezone.rb:15:in 'CurrentTimezone#set_current_timezone'
+    config/initializers/tenanting/account_slug.rb:31:in 'block in AccountSlug::Extractor#call'
+    app/models/current.rb:22:in 'Current#with_account'
+    config/initializers/tenanting/account_slug.rb:30:in 'AccountSlug::Extractor#call'
+    test/controllers/cards/comments_controller_test.rb:10:in 'block (2 levels) in <class:CommentsControllerTest>'
+    test/controllers/cards/comments_controller_test.rb:9:in 'block in <class:CommentsControllerTest>'
+
+bin/rails test test/controllers/cards/comments_controller_test.rb:8
+
+.........................................................................................................................................................................................S.S........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+
+Finished in 31.001266s, 48.9335 runs/s, 183.3796 assertions/s.
+1517 runs, 5685 assertions, 0 failures, 9 errors, 2 skips
+
+You have skipped tests. Run with --verbose for details.

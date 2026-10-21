@@ -1,0 +1,13 @@
+diff --git a/packs/knowledge/app/services/knowledge/rebuild_search.rb b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+index 4c7239b..4638287 100644
+--- a/packs/knowledge/app/services/knowledge/rebuild_search.rb
++++ b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+@@ -7,6 +7,8 @@ module Knowledge
+       index.replace(candidate, documents)
+       after_backfill.call
+       Document.transaction do
++        index.replace(candidate, documents)
++
+         index.activate(candidate)
+       end
+       candidate

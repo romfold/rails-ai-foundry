@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+gem 'dry-operation', '~> 1.1'
+gem 'dry-system', '~> 1.2'
+gem 'minitest', '~> 5.0'
+gem 'pg', '~> 1.6'
+gem 'rom-sql', '~> 3.7'
+gem 'rubocop', '~> 1.0'
+gem 'trailblazer-operation', '~> 0.11'

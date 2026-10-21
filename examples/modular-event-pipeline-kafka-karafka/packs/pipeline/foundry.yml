@@ -1,0 +1,12 @@
+schema: 1
+kind: domain
+profile: modular
+namespace: Pipeline
+patterns:
+  events: integration
+  cqrs: none
+capabilities:
+  persistence:
+    adapter: postgresql
+  messaging:
+    adapter: kafka

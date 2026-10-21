@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../config/environment'
+broker = Voice::Broker.new
+begin
+  publisher = Voice::PublishControls.new(broker: broker)
+  consumer = Voice::ConsumeControl.new(broker: broker)
+  100.times { break unless publisher.call }
+  100.times { break unless consumer.call }
+ensure
+  broker.close
+end

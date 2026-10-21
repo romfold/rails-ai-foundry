@@ -1,0 +1,22 @@
+bundle exec ruby test/visible_test.rb
+`/tmp/home` is not a directory.
+Bundler will use `/tmp/bundler20260922-306-t6cq3l306' as your home directory temporarily.
+Run options: --seed 33307
+
+# Running:
+
+..
+
+Finished in 0.047796s, 41.8447 runs/s, 83.6894 assertions/s.
+2 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -I/tests -report-lemans /tests/acceptance_test.rb
+`/tmp/home` is not a directory.
+Bundler will use `/tmp/bundler20260922-314-knzhu1314' as your home directory temporarily.
+Run options: --seed 7283
+
+# Running:
+
+...
+
+Finished in 0.052611s, 57.0223 runs/s, 627.2448 assertions/s.
+3 runs, 33 assertions, 0 failures, 0 errors, 0 skips

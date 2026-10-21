@@ -1,0 +1,106 @@
+diff --git a/packs/knowledge/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+index 5f19625..d95ec39 100644
+--- a/packs/knowledge/app/services/knowledge/embedding_job.rb
++++ b/packs/knowledge/app/services/knowledge/embedding_job.rb
+@@ -6,15 +6,27 @@ module Knowledge
+       snapshot = Document.find_by(id: document_id, tenant_id: tenant_id, published: true)
+       return :discarded unless snapshot
+ 
++      # The provider can be slow (and can perform its own database work), so do
++      # not hold a database transaction open while it runs.
+       vector = provider.call(snapshot.body)
++
++      accepted = false
+       Document.transaction do
+-        current = Document.lock.find_by(id: document_id, tenant_id: tenant_id, published: true)
+-        current ||= snapshot
++        current = Document.lock.find_by(id: document_id)
++        next unless current && current.tenant_id == tenant_id && current.published? && current.revision == snapshot.revision
+ 
+-        Embedding.upsert({ document_id: current.id, tenant_id: tenant_id, revision: current.revision,
+-                           version: version, vector: JSON.generate(vector) }, unique_by: %i[document_id version])
++        accepted = true
++        embedding = Embedding.lock.find_by(document_id: document_id, version: version)
++        # A result for an older revision must never replace one which has
++        # already been produced for a newer revision.
++        if embedding.nil?
++          Embedding.create!(document_id: document_id, tenant_id: tenant_id, revision: current.revision,
++                            version: version, vector: JSON.generate(vector))
++        elsif embedding.revision <= current.revision
++          embedding.update!(tenant_id: tenant_id, revision: current.revision, vector: JSON.generate(vector))
++        end
+       end
+-      :stored
++      accepted ? :stored : :discarded
+     end
+   end
+ end
+diff --git a/test/regression_test.rb b/test/regression_test.rb
+new file mode 100644
+index 0000000..731fa3b
+--- /dev/null
++++ b/test/regression_test.rb
+@@ -0,0 +1,63 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class EmbeddingJobRegressionTest < BenchmarkTest
++  def test_discards_when_document_revision_changes_while_provider_runs
++    current = document
++    result = run_job(current) do
++      current.update!(revision: 2)
++    end
++
++    assert_equal :discarded, result
++    assert_empty Knowledge::Embedding.all
++  end
++
++  def test_discards_when_document_is_withdrawn_deleted_or_reassigned
++    [
++      ->(row) { row.update!(published: false) },
++      ->(row) { row.destroy! },
++      ->(row) { row.update!(tenant_id: 'b') }
++    ].each do |change|
++      current = document
++      result = run_job(current, &change)
++      assert_equal :discarded, result
++      assert_empty Knowledge::Embedding.all
++    end
++  end
++
++  def test_does_not_replace_newer_embedding_revision
++    current = document
++    Knowledge::Embedding.create!(document_id: current.id, tenant_id: 'a', revision: 2,
++                                 version: 'v1', vector: JSON.generate([9]))
++
++    assert_equal :stored, run_job(current)
++    embedding = Knowledge::Embedding.find_by!(document_id: current.id, version: 'v1')
++    assert_equal 2, embedding.revision
++    assert_equal [9], JSON.parse(embedding.vector)
++  end
++
++  def test_versions_coexist_and_provider_errors_do_not_write
++    current = document
++    assert_equal :stored, run_job(current, version: 'v1')
++    assert_equal :stored, run_job(current, version: 'v2')
++    assert_equal 2, Knowledge::Embedding.where(document_id: current.id).count
++
++    assert_raises(RuntimeError) do
++      Knowledge::EmbeddingJob.new.call(document_id: current.id, tenant_id: 'a', version: 'v3',
++                                       provider: ->(_) { raise 'provider failed' })
++    end
++    assert_equal 2, Knowledge::Embedding.count
++  end
++
++  private
++
++  def run_job(current, version: 'v1')
++    provider = lambda do |_body|
++      yield current if block_given?
++      [0.25]
++    end
++    Knowledge::EmbeddingJob.new.call(document_id: current.id, tenant_id: 'a', version: version,
++                                      provider: provider)
++  end
++end

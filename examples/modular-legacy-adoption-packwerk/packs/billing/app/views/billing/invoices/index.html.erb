@@ -1,0 +1,7 @@
+<h1>Incremental Rails adoption</h1>
+<p>Billing owns invoice behavior. The legacy and extracted reports return the same paid total.</p>
+<p><%= link_to 'Legacy report (accepted debt)', '/legacy_report' %> · <%= link_to 'Extracted report (public API)', '/report' %></p>
+<table><thead><tr><th>Invoice</th><th>Amount (cents)</th><th>Status</th><th>Action</th></tr></thead>
+<tbody><% @invoices.each do |invoice| %>
+<tr><td><%= invoice.reference %></td><td><%= invoice.amount_cents %></td><td><%= invoice.status %></td><td><% if invoice.status == 'open' %><%= button_to 'Mark paid', pay_invoice_path(invoice) %><% end %></td></tr>
+<% end %></tbody></table>

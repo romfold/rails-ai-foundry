@@ -1,0 +1,19 @@
+diff --git a/packs/knowledge/app/services/knowledge/publish_delivery.rb b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+index a0b78e4..b682dc1 100644
+--- a/packs/knowledge/app/services/knowledge/publish_delivery.rb
++++ b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+@@ -5,9 +5,11 @@ module Knowledge
+     def call(delivery_id:, store:)
+       delivery = Delivery.find(delivery_id)
+       payload = JSON.parse(delivery.payload)
+-
+-      store.publish(id: delivery.event_id, type: 'DocumentPublished', data: payload)
+-
++      begin
++        store.publish(id: delivery.event_id, type: 'DocumentPublished', data: payload)
++      rescue store.duplicate_error
++        # Deliberately faulty control: acknowledge every duplicate.
++      end
+       delivery.update!(delivered: true)
+       :delivered
+     end

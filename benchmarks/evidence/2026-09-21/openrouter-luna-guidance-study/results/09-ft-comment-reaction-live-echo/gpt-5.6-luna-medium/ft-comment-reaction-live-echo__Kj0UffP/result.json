@@ -1,0 +1,63 @@
+{
+  "trial": "ft-comment-reaction-live-echo__Kj0UffP",
+  "task": "ft-comment-reaction-live-echo",
+  "agent": "miniswen",
+  "model": "openrouter/openai/gpt-5.6-luna#medium",
+  "index": 1,
+  "profile_digest": "e94522229f9a121a",
+  "task_digest": "9df099a35893d33b",
+  "revision": {
+    "commit": null,
+    "dirty": null
+  },
+  "lemans_version": "1.3.5",
+  "tags": [
+    "rails",
+    "hotwire",
+    "turbo-streams",
+    "active-record",
+    "callbacks"
+  ],
+  "metadata": {
+    "category": "full-features"
+  },
+  "phases": [
+    {
+      "name": "environment_setup",
+      "started_at": "2026-09-21T20:16:29.997083Z",
+      "finished_at": "2026-09-21T20:16:35.085126Z"
+    },
+    {
+      "name": "agent",
+      "started_at": "2026-09-21T20:16:35.085152Z",
+      "finished_at": "2026-09-21T20:18:33.331754Z"
+    },
+    {
+      "name": "verifier",
+      "started_at": "2026-09-21T20:18:33.760410Z",
+      "finished_at": "2026-09-21T20:20:09.757997Z"
+    }
+  ],
+  "reward": 0.0,
+  "credit": 0.0,
+  "outcome": {
+    "name": "completed",
+    "scored": true
+  },
+  "usage": {
+    "input_tokens": 472155,
+    "output_tokens": 7106,
+    "cached_tokens": 436132,
+    "steps": 20,
+    "cost_usd": 0.026208839999999997,
+    "cost_source": {
+      "name": "model_registry",
+      "model": "openrouter/openai/gpt-5.6-luna#medium",
+      "priced_as": "openrouter/openai/gpt-5.6-luna",
+      "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+    }
+  },
+  "duration": 219.8,
+  "started_at": "2026-09-21T20:16:29Z",
+  "finished_at": "2026-09-21T20:20:09Z"
+}

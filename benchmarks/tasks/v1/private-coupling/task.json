@@ -1,0 +1,5 @@
+{
+  "id": "private-coupling",
+  "version": 1,
+  "title": "Repair private cross-context coupling"
+}

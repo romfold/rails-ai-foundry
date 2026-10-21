@@ -1,0 +1,9 @@
+{
+  "time": "2026-09-19T07:03:05Z",
+  "pid": 79035,
+  "task": "ft-saas-billing",
+  "original_run": "/tmp/foundry-lemans-upstream-oracle-20260918",
+  "action": "SIGINT after the first 41 task results",
+  "reason": "Obsolete emulated attempt stopped after the unchanged source-built native oracle passed; no score assigned to interruption",
+  "replacement": "/tmp/foundry-lemans-saas-native-oracle-20260919"
+}

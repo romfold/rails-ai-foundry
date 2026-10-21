@@ -1,0 +1,11 @@
+{
+  "event": "host_hibernation",
+  "source": "pmset -g log",
+  "sleep_started_at": "2026-09-18T21:27:57Z",
+  "woke_at": "2026-09-19T07:01:26Z",
+  "reason": "Low Power Sleep",
+  "duration_seconds": 34409,
+  "interpretation": "Native wall-clock durations spanning this interval include hibernation. No performance claims. The SaaS baseline failure overlaps the interrupted run; causality is unproven.",
+  "retained_failure": "/tmp/foundry-lemans-saas-fresh-20260919/ft-saas-billing__GOya8Fe",
+  "follow_up": "One separately recorded fresh no-op verification with unchanged tests"
+}

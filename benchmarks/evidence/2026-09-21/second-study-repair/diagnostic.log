@@ -1,0 +1,87 @@
+Running 7 tests in a single process (parallelization threshold is 50)
+Run options: -n /diagnostic/ --seed 25254
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:45781
+{
+  "shown": false,
+  "requests": [
+    {
+      "controller": "Cards::Comments::ReactionsController",
+      "action": "create",
+      "status": 204
+    }
+  ],
+  "records": [
+    [
+      "diagnostic",
+      "03axmdh9z1hcfmcedk3ir6znh"
+    ]
+  ],
+  "commit_callbacks": [
+    {
+      "filter": "broadcast_comment",
+      "conditions": [
+        [
+          "/usr/local/bundle/bundler/gems/rails-d0e506f131fa/activerecord/lib/active_record/transactions.rb",
+          331
+        ],
+        [
+          "/usr/local/bundle/bundler/gems/rails-d0e506f131fa/activerecord/lib/active_record/transactions.rb",
+          352
+        ]
+      ]
+    }
+  ],
+  "broadcasts": [
+    {
+      "broadcasting": "Z2lkOi8vZml6enkvQm9hcmQvMDNheXY2bXA2MHhnM2FxZXMwbTlzYTY4dw",
+      "message": "<turbo-stream request-id=\"450317ae-fdd4-40df-a78c-21beb6a83bcd\" action=\"refresh\"></turbo-stream>"
+    },
+    {
+      "broadcasting": "Z2lkOi8vZml6enkvQWNjb3VudC8wM2F5YXVuZXR2M3o0bjY4MWQ1OHdkeXNk:all_boards",
+      "message": "<turbo-stream request-id=\"450317ae-fdd4-40df-a78c-21beb6a83bcd\" action=\"refresh\"></turbo-stream>"
+    }
+  ],
+  "expected_stream": "Z2lkOi8vZml6enkvQ2FyZC8wM2F5bm44azlkOTJvNzc3MW5kM29mbXh4",
+  "subscription_connected": true,
+  "frame_ids": [
+    "my_menu",
+    "flash",
+    "board_picker",
+    "tagging_card_03aynn8k9d92o7771nd3ofmxx",
+    "edit_card_03aynn8k9d92o7771nd3ofmxx",
+    "columns_card_03aynn8k9d92o7771nd3ofmxx",
+    "assignment_card_03aynn8k9d92o7771nd3ofmxx",
+    "watch_card_03aynn8k9d92o7771nd3ofmxx",
+    "pin_card_03aynn8k9d92o7771nd3ofmxx",
+    "messages_card_03aynn8k9d92o7771nd3ofmxx",
+    "container_comment_03axk2kbcat8obtanmeyiwow7",
+    "container_comment_03awxh12kqcfnj9ai29xpa75h",
+    "container_comment_03aybftotqhu06lrfpqhv4mah",
+    "container_comment_03ax24i4199cpu1ohkpa98150",
+    "container_comment_03ax8y4k2mjlpwjk0hvalf8bo",
+    "bar_content",
+    "pins",
+    "notifications"
+  ],
+  "broadcast_target": "container_comment_03awxh12kqcfnj9ai29xpa75h",
+  "input_disabled": true
+}
+[Screenshot Image]: /app/tmp/screenshots/failures_test_diagnostic_original_request_and_broadcast_path.png 
+F
+
+Failure:
+VerifierTest#test_diagnostic_original_request_and_broadcast_path [/tmp/diagnostic_test.rb:28]:
+Expected false to be truthy.
+
+bin/rails test /tmp/diagnostic_test.rb:3
+
+
+
+Finished in 16.773450s, 0.0596 runs/s, 0.2385 assertions/s.
+1 runs, 4 assertions, 1 failures, 0 errors, 0 skips

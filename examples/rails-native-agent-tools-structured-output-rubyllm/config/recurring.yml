@@ -1,0 +1,7 @@
+development: &recurring
+  discover_resolutions:
+    class: Assistance::DiscoverResolutionsJob
+    schedule: every 30 seconds
+production:
+  <<: *recurring
+test: {}

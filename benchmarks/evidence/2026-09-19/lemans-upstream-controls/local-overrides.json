@@ -1,0 +1,9 @@
+{
+  "ft-saas-billing": {
+    "verifier_timeout": "30m",
+    "base_image": "lemans-8d33f0371429eafe8e6ad99ce2b955c3",
+    "original_dockerfile": "upstream-environments/ft-saas-billing/Dockerfile",
+    "reason": "Build the same SaaS setup from the pinned Fizzy source for local architecture",
+    "requirements_and_assertions": "unchanged"
+  }
+}

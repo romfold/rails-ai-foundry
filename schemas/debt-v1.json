@@ -1,0 +1,209 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.rails-ai-foundry.invalid/debt-v1.json",
+  "allOf": [
+    {
+      "$ref": "common-v1.json#/definitions/envelope"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "report_kind": {
+          "enum": [
+            "audit",
+            "parity"
+          ]
+        },
+        "accepted": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 5,
+            "maxItems": 5
+          }
+        },
+        "current": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 5,
+            "maxItems": 5
+          }
+        },
+        "new": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 5,
+            "maxItems": 5
+          }
+        },
+        "resolved": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 5,
+            "maxItems": 5
+          }
+        },
+        "retained": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 5,
+            "maxItems": 5
+          }
+        },
+        "application": {
+          "type": "string"
+        },
+        "fingerprint": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "authority": {
+          "const": "packwerk"
+        },
+        "source_unchanged": {
+          "type": "boolean"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "commands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "argv": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "stdout": {
+                "type": "string"
+              },
+              "stderr": {
+                "type": "string"
+              },
+              "exit_status": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "argv",
+              "stdout",
+              "stderr",
+              "exit_status"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "parity": {
+          "type": "boolean"
+        },
+        "pks_only": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 5,
+            "maxItems": 5
+          }
+        },
+        "packwerk_only": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 5,
+            "maxItems": 5
+          }
+        },
+        "tools": {
+          "type": "object",
+          "properties": {
+            "packwerk": {
+              "type": "string"
+            },
+            "pks": {
+              "type": "string"
+            },
+            "ruby": {
+              "type": "string"
+            },
+            "pks_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "packwerk",
+            "pks",
+            "ruby",
+            "pks_sha256"
+          ],
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "report_kind",
+        "accepted",
+        "current",
+        "new",
+        "resolved",
+        "retained",
+        "application",
+        "fingerprint",
+        "authority",
+        "source_unchanged",
+        "success",
+        "commands",
+        "limitations"
+      ],
+      "additionalProperties": true
+    },
+    {
+      "if": {
+        "properties": {
+          "report_kind": {
+            "const": "parity"
+          }
+        },
+        "type": "object"
+      },
+      "then": {
+        "required": [
+          "parity",
+          "pks_only",
+          "packwerk_only",
+          "tools"
+        ],
+        "type": "object"
+      }
+    }
+  ]
+}

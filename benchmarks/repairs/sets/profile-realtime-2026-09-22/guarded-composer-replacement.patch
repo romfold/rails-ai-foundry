@@ -1,0 +1,17 @@
+diff --git a/app/models/reaction.rb b/app/models/reaction.rb
+index 908c396..e72a253 100644
+--- a/app/models/reaction.rb
++++ b/app/models/reaction.rb
+@@ -15,9 +15,9 @@ class Reaction < ApplicationRecord
+ 
+     def broadcast_creation
+       Current.with(account: comment.account, user: nil) do
+-        broadcast_append_to comment.card,
+-          target: ActionView::RecordIdentifier.dom_id(comment, :reaction_list),
+-          partial: "cards/comments/reaction", locals: { reaction: self }
++        broadcast_replace_to comment.card,
++          target: ActionView::RecordIdentifier.dom_id(comment, :reactions),
++          partial: "cards/comments/reactions", locals: { comment: comment.reload }
+       end
+     end
+ 

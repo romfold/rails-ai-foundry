@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'fileutils'
+Dir.chdir(File.expand_path('..', __dir__)) do
+  FileUtils.mkdir_p(%w[log tmp])
+  system('bundle', 'check', exception: true)
+  system('bin/rails', 'db:prepare', exception: true)
+  system('bin/rails', 'runner', 'Rails.configuration.x.search.setup', exception: true)
+end

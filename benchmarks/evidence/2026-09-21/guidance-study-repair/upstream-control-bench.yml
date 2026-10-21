@@ -1,0 +1,30 @@
+---
+version: 1
+environment:
+  dockerfile: docker/writebook/Dockerfile
+  profiles:
+    fizzy:
+      dockerfile: docker/fizzy/Dockerfile
+  resources:
+    cpus: 2
+    memory: 2GB
+    storage: 5GB
+  build_timeout: 30m
+  network:
+    mode: none
+  backend: docker
+agent:
+  name: nop
+  model: offline-controls
+  timeout: 10m
+  environment:
+    network:
+      mode: none
+verifier:
+  timeout: 10m
+  command: ruby -Itest -report-lemans /tests/verification_test.rb
+  preverify: bin/rails test
+  restore:
+  - test
+  - bin
+  - config/environments/test.rb

@@ -1,0 +1,629 @@
+{
+  "historical_revision": "c3401a383e87585de54fc132d61f31e5da36be4d",
+  "files": {
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/COMMANDS.md": {
+      "sha256": "a4f1900d454baf0bbb1c1d016e4dcdef0e5959062e485160ae8f69f7ddf20311",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/REPORT.md": {
+      "sha256": "538c30783cf08c2036da5b4085b25e0e33d58ce6286af4d6304490356a5f8081",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/artifact-inventory.json": {
+      "sha256": "d6afa85fab5c3add51db5cb57ffdf5e38e59db14157697c6de63e6b8a24a95a3",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflight-output/00-hello-world/preflight.json": {
+      "sha256": "ebe40cabba3d56efb15444036fd590e6a140b522e31736ba72882b9b7b8b98a4",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflight-output/01-boundary-extraction-rails/preflight.json": {
+      "sha256": "5b25841789048bee39e21f8a3ac22df4d14b19940223bc432d01680ecfda4327",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflight-output/02-boundary-extraction-packs/preflight.json": {
+      "sha256": "611842fdaa06f5f834fb7a970e36b456b6c60b4da5ae9224b650d2903d4f98ff",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflight-output/03-boundary-extraction-foundry/preflight.json": {
+      "sha256": "723049be58f2b1d93dffb44fdf53211cb6e92dd3ea9eb67a3c50e9ebf5488de2",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflight-output/04-stale-embedding-rails/preflight.json": {
+      "sha256": "2269e3837a230edbacb757c1d92f3a8ef1718329ec815bda0e317ae704664273",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflight-output/05-stale-embedding-packs/preflight.json": {
+      "sha256": "b67135d6b542f81a81ded1368f85272653d0c8aad65f07b7952487f8e6dc64ee",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflight-output/06-stale-embedding-foundry/preflight.json": {
+      "sha256": "5e21bad2a5e0156a864d0950809dbdda766f1c0368c5715bc6a9688de1555c39",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflight-output/07-ar-tenant-isolation/preflight.json": {
+      "sha256": "569257c93949b19de18eefbdf806cbc329f58d5e24ebd9558b11bf6fdea807f4",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflight-output/08-aj-enqueue-after-commit/preflight.json": {
+      "sha256": "e8cb6082b072930f911c099e6cc601894d8f88092a84aa3aa49f98081a5e120f",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflight-output/09-ft-comment-reaction-live-echo/preflight.json": {
+      "sha256": "48f69293d87ce21eb00f0052c7237af0e5200b0a4d41b4e3800c61642c72236f",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflights/00-hello-world.json": {
+      "sha256": "ebe40cabba3d56efb15444036fd590e6a140b522e31736ba72882b9b7b8b98a4",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflights/01-boundary-extraction-rails.json": {
+      "sha256": "5b25841789048bee39e21f8a3ac22df4d14b19940223bc432d01680ecfda4327",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflights/02-boundary-extraction-packs.json": {
+      "sha256": "611842fdaa06f5f834fb7a970e36b456b6c60b4da5ae9224b650d2903d4f98ff",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflights/03-boundary-extraction-foundry.json": {
+      "sha256": "723049be58f2b1d93dffb44fdf53211cb6e92dd3ea9eb67a3c50e9ebf5488de2",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflights/04-stale-embedding-rails.json": {
+      "sha256": "2269e3837a230edbacb757c1d92f3a8ef1718329ec815bda0e317ae704664273",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflights/05-stale-embedding-packs.json": {
+      "sha256": "b67135d6b542f81a81ded1368f85272653d0c8aad65f07b7952487f8e6dc64ee",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflights/06-stale-embedding-foundry.json": {
+      "sha256": "5e21bad2a5e0156a864d0950809dbdda766f1c0368c5715bc6a9688de1555c39",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflights/07-ar-tenant-isolation.json": {
+      "sha256": "569257c93949b19de18eefbdf806cbc329f58d5e24ebd9558b11bf6fdea807f4",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflights/08-aj-enqueue-after-commit.json": {
+      "sha256": "e8cb6082b072930f911c099e6cc601894d8f88092a84aa3aa49f98081a5e120f",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/preflights/09-ft-comment-reaction-live-echo.json": {
+      "sha256": "48f69293d87ce21eb00f0052c7237af0e5200b0a4d41b4e3800c61642c72236f",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/reports/final/REPORT.md": {
+      "sha256": "02e54a0b68d08f16538628efa179e62eee76ad088b838f31fa91ff5e763cf7b1",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/reports/final/report.json": {
+      "sha256": "f1e68f3b6c1ec7a8897de0d7170f5489e4b85c5b6d483bca6e2b10304a5468f1",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/00-hello-world/gpt-5.6-luna-medium/hello-world__SG8JOjX/agent.patch": {
+      "sha256": "b1397839bf2e4b153a7e7fedd7e131a6ff3e76d462dd3d8de3db66d7072b43b2",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/00-hello-world/gpt-5.6-luna-medium/hello-world__SG8JOjX/checks.json": {
+      "sha256": "b2568abc64fceb7046125ee063569a9288a50388965448108ff3fd7ddd6bfc54",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/00-hello-world/gpt-5.6-luna-medium/hello-world__SG8JOjX/result.json": {
+      "sha256": "a2da5200a0233240539d89efa1e4b2bd1a9ca9d09ab7e5d96efb4f8e89822b04",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/00-hello-world/gpt-5.6-luna-medium/hello-world__SG8JOjX/trajectory.json": {
+      "sha256": "7cb241f93a605cf83ebd94a14403b5e2773e11330732d43123be62257950384b",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/00-hello-world/gpt-5.6-luna-medium/hello-world__SG8JOjX/verifier.log": {
+      "sha256": "e02fa815a762477ad1c2e3f906c6d00ce1e4ffef95148bbf6254edf8f70f42d7",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/01-boundary-extraction-rails/gpt-5.6-luna-medium/boundary-extraction-rails__POzCc8q/agent.patch": {
+      "sha256": "a6042d5127c29b0501eb3f8a1ea39b6d2684eb46fcd1afb9ea6a92a933683a54",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/01-boundary-extraction-rails/gpt-5.6-luna-medium/boundary-extraction-rails__POzCc8q/checks.json": {
+      "sha256": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/01-boundary-extraction-rails/gpt-5.6-luna-medium/boundary-extraction-rails__POzCc8q/foundry.json": {
+      "sha256": "5e517932b9fc8bd2cd8b1c4c28b2577f3715239124e0f3673bdc2f585bb05e96",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/01-boundary-extraction-rails/gpt-5.6-luna-medium/boundary-extraction-rails__POzCc8q/result.json": {
+      "sha256": "e944f409c05bf137fe4ac2f9176421db25c0e1d9f64d1dd3ef827e6d0e0b0ae7",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/01-boundary-extraction-rails/gpt-5.6-luna-medium/boundary-extraction-rails__POzCc8q/trajectory.json": {
+      "sha256": "5de1d8d8e9d1fba7a8cfe32c367dd75d84486233012cc05ff7cc28af52368dad",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/01-boundary-extraction-rails/gpt-5.6-luna-medium/boundary-extraction-rails__POzCc8q/verifier.log": {
+      "sha256": "7b74b15f8fa51b39cce5d2dd9a165e62de6d8ab7ca2c3639eb6ebdde49e4c0b7",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/02-boundary-extraction-packs/gpt-5.6-luna-medium/boundary-extraction-packs__metfVxm/agent.patch": {
+      "sha256": "07fc61ab5e81ebc849a0d6e87a9335e06c01716a843589604338f32b15a16d5d",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/02-boundary-extraction-packs/gpt-5.6-luna-medium/boundary-extraction-packs__metfVxm/checks.json": {
+      "sha256": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/02-boundary-extraction-packs/gpt-5.6-luna-medium/boundary-extraction-packs__metfVxm/foundry.json": {
+      "sha256": "9595671299380ea01b259f51b6885cc9eb68f326e93c51ea4642e58326d943a7",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/02-boundary-extraction-packs/gpt-5.6-luna-medium/boundary-extraction-packs__metfVxm/result.json": {
+      "sha256": "7c40d2b090678f5c353381ff81a50091a8b2b0fde231c62171722729aed79127",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/02-boundary-extraction-packs/gpt-5.6-luna-medium/boundary-extraction-packs__metfVxm/trajectory.json": {
+      "sha256": "e7140aa1e5c4844879868ab9b4ed079a1a5f2b6c1705ea41f088a750c02b15c8",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/02-boundary-extraction-packs/gpt-5.6-luna-medium/boundary-extraction-packs__metfVxm/verifier.log": {
+      "sha256": "052618e4b8a773a01ba6bddcea3e89cdde919dbcfb4525394bf2c48ba77fb595",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/03-boundary-extraction-foundry/gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/agent.patch": {
+      "sha256": "1a249c0036954e87a1ce79ad572daabc9a5151f6d4b21317a47878ae65739687",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/03-boundary-extraction-foundry/gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/checks.json": {
+      "sha256": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/03-boundary-extraction-foundry/gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/foundry.json": {
+      "sha256": "29da5111ee5213d635d77b7112b5bdc5eaa80ef306cda46ec204236b9df6bd08",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/03-boundary-extraction-foundry/gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/result.json": {
+      "sha256": "68086cf4d400a90c0b41813765a2682f22b4327c6fae3f9398d528633ece73ac",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/03-boundary-extraction-foundry/gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/trajectory.json": {
+      "sha256": "8c43d8782cc565fd92e09f5940d392042fb3772d1d2c29dae1c34e7215fed7f6",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/03-boundary-extraction-foundry/gpt-5.6-luna-medium/boundary-extraction-foundry__vq1av4S/verifier.log": {
+      "sha256": "e03c1c08aec595d5437dfc65d939016c175316bf2ab99309587c9df352f434a5",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/04-stale-embedding-rails/gpt-5.6-luna-medium/stale-embedding-rails__vMpA6au/agent.patch": {
+      "sha256": "1d4bb79692c9eac24a4bf0c401283caea50ed517c66fbc764fd5226b51acaad3",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/04-stale-embedding-rails/gpt-5.6-luna-medium/stale-embedding-rails__vMpA6au/checks.json": {
+      "sha256": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/04-stale-embedding-rails/gpt-5.6-luna-medium/stale-embedding-rails__vMpA6au/foundry.json": {
+      "sha256": "5e517932b9fc8bd2cd8b1c4c28b2577f3715239124e0f3673bdc2f585bb05e96",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/04-stale-embedding-rails/gpt-5.6-luna-medium/stale-embedding-rails__vMpA6au/result.json": {
+      "sha256": "70f86acf59b763aab89c47fcd35a85ddb1695b86c7c13917c934994b86f398ec",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/04-stale-embedding-rails/gpt-5.6-luna-medium/stale-embedding-rails__vMpA6au/trajectory.json": {
+      "sha256": "a9b0c1f794da0e0f5dca2facfbc3a1d23c4bc08047f96c8dbdc999b78dbee523",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/04-stale-embedding-rails/gpt-5.6-luna-medium/stale-embedding-rails__vMpA6au/verifier.log": {
+      "sha256": "ebe05f6624833fb7bba9c8566d96b933bfc50b142ff36edbf3bd1e7c04e1a30d",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/05-stale-embedding-packs/gpt-5.6-luna-medium/stale-embedding-packs__fhKqBHP/agent.patch": {
+      "sha256": "635281deed2003810702d411ab2e8473c73fb258702883cd710fa8cf2d162f05",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/05-stale-embedding-packs/gpt-5.6-luna-medium/stale-embedding-packs__fhKqBHP/checks.json": {
+      "sha256": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/05-stale-embedding-packs/gpt-5.6-luna-medium/stale-embedding-packs__fhKqBHP/foundry.json": {
+      "sha256": "a743830c11a5cf90853ff5bd6bf55dc084e0e0e6777c06d27f3ebcb88fe59374",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/05-stale-embedding-packs/gpt-5.6-luna-medium/stale-embedding-packs__fhKqBHP/result.json": {
+      "sha256": "4d0b13247ba9b722aa64c27fea04b8e38ae6ce4034cdc2b4842880be9b71864f",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/05-stale-embedding-packs/gpt-5.6-luna-medium/stale-embedding-packs__fhKqBHP/trajectory.json": {
+      "sha256": "01c71a80d6886f82716f3f19640e015a4c07bc119649aa8451768fb60b943d51",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/05-stale-embedding-packs/gpt-5.6-luna-medium/stale-embedding-packs__fhKqBHP/verifier.log": {
+      "sha256": "6fb646ce90f7dba0945207851c695bf8ed6a4a86a9f98accbe4ad65ad5f742c4",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/06-stale-embedding-foundry/gpt-5.6-luna-medium/stale-embedding-foundry__FlrR4tg/agent.patch": {
+      "sha256": "76a9f2205b6aab27f237e675e89dd35ab78d301318d21dbe333cd00d9378f8ef",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/06-stale-embedding-foundry/gpt-5.6-luna-medium/stale-embedding-foundry__FlrR4tg/checks.json": {
+      "sha256": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/06-stale-embedding-foundry/gpt-5.6-luna-medium/stale-embedding-foundry__FlrR4tg/foundry.json": {
+      "sha256": "caff804b526d2ccb35203748c88cd514e6b86ad2b58986354aebe9ab7bca34a4",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/06-stale-embedding-foundry/gpt-5.6-luna-medium/stale-embedding-foundry__FlrR4tg/result.json": {
+      "sha256": "f84129f496087bced46780a867c04621b71a6d144f59250b5f301cf9ab3ca4bb",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/06-stale-embedding-foundry/gpt-5.6-luna-medium/stale-embedding-foundry__FlrR4tg/trajectory.json": {
+      "sha256": "a10807b37471de0d5d86bf31e013cdfc2ed5ca4cb4de2e6ba6f50fcdbaca624d",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/06-stale-embedding-foundry/gpt-5.6-luna-medium/stale-embedding-foundry__FlrR4tg/verifier.log": {
+      "sha256": "84bb8472fee05a715c76d9b5b3a9fcdcb77722747e09ab1f33d3a85ef9ed177d",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/07-ar-tenant-isolation/gpt-5.6-luna-medium/ar-tenant-isolation__gBf6f8A/agent.patch": {
+      "sha256": "bae8d0e8c5aad72ccf15c8206b024477bed1b73bd4dcbf33a7f26a8d6bcbeb90",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/07-ar-tenant-isolation/gpt-5.6-luna-medium/ar-tenant-isolation__gBf6f8A/checks.json": {
+      "sha256": "a349d661b68897011fc2490124820135be0151b645850d91a0210ba7f5ae7ba4",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/07-ar-tenant-isolation/gpt-5.6-luna-medium/ar-tenant-isolation__gBf6f8A/result.json": {
+      "sha256": "cf9d2a5c030e1eb03d5484a3e6aea6dc7bb9eeaaba7610c2a06092b2820a88bd",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/07-ar-tenant-isolation/gpt-5.6-luna-medium/ar-tenant-isolation__gBf6f8A/trajectory.json": {
+      "sha256": "82f87e18760e640027f88e11434f3777393c6f1f5690e9e3da3b928d94cece81",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/07-ar-tenant-isolation/gpt-5.6-luna-medium/ar-tenant-isolation__gBf6f8A/verifier.log": {
+      "sha256": "96456299b11576451e37c30b1cd6de1a8cdb3d661f8a6a577fc1ffe13240b4c0",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/08-aj-enqueue-after-commit/gpt-5.6-luna-medium/aj-enqueue-after-commit__EfYmSv2/agent.patch": {
+      "sha256": "74abcfee8e64922f8649635de791469623e1e7e35eb500baef5f67c51f66ee4d",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/08-aj-enqueue-after-commit/gpt-5.6-luna-medium/aj-enqueue-after-commit__EfYmSv2/checks.json": {
+      "sha256": "0980595eca07458bc29ba53f99b6d1661bcc09031edd94e724c3e9d32e7e171d",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/08-aj-enqueue-after-commit/gpt-5.6-luna-medium/aj-enqueue-after-commit__EfYmSv2/result.json": {
+      "sha256": "d9969907687e8350422ed2f69385581a1cd8b50b602c0060d8085c8eb16ab2cb",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/08-aj-enqueue-after-commit/gpt-5.6-luna-medium/aj-enqueue-after-commit__EfYmSv2/trajectory.json": {
+      "sha256": "ff63e982228bf2c7742d8eff33c2653181615847592a3d1ace8d77ec3d5f7ac5",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/08-aj-enqueue-after-commit/gpt-5.6-luna-medium/aj-enqueue-after-commit__EfYmSv2/verifier.log": {
+      "sha256": "9d6a06a275bd91e570d31de274f6ab3504c2f081a8c5d9c75fb3ef280599d9ee",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium/ft-comment-reaction-live-echo__4cRFdci/agent.patch": {
+      "sha256": "9accc21fbce6ad64a050a8857ae77d8bedb69c6b9db747cbacac3be4dd3a0d74",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium/ft-comment-reaction-live-echo__4cRFdci/checks.json": {
+      "sha256": "bfee5632394171ffb548cc8807eb61cbd5f6ba38dec6b81f3881f163358a17bd",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium/ft-comment-reaction-live-echo__4cRFdci/result.json": {
+      "sha256": "a78dcdcbf3632b942ba7a01a010a61813bbae16b9a55c2a3675c7c4f87bce1c4",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium/ft-comment-reaction-live-echo__4cRFdci/trajectory.json": {
+      "sha256": "529f0bb5d4df2ac25b714ff1f4307835b779cb2a7f4ffe4346cc7f07408c6244",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/results/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium/ft-comment-reaction-live-echo__4cRFdci/verifier.log": {
+      "sha256": "9e9ca5dce42fedf55bde74b75141d738bc463500303a021c44c8c9c3def2ef9a",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/study.json": {
+      "sha256": "57f4ec662120aba7464edf9e21aea923a1fa51e5f28afdc7847ebda9f6716247",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/00-hello-world/gpt-5.6-luna-medium_hello-world__SG8JOjX/agent.patch": {
+      "sha256": "b1397839bf2e4b153a7e7fedd7e131a6ff3e76d462dd3d8de3db66d7072b43b2",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/00-hello-world/gpt-5.6-luna-medium_hello-world__SG8JOjX/checks.json": {
+      "sha256": "67959fc2ecd082bcab20d0df7e441ec06971a87886479d75f24f7cbda82afb47",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/00-hello-world/gpt-5.6-luna-medium_hello-world__SG8JOjX/inputs.json": {
+      "sha256": "8c69dd59966cec9c28fe58040cb5a49a968e435ae6787ab2202e53e9001eef45",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/00-hello-world/gpt-5.6-luna-medium_hello-world__SG8JOjX/preverify-checks.json": {
+      "sha256": "947818b36c4011f2f763c0f131e11f4e1239ec70041f126781eea01e9854c7bf",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/00-hello-world/gpt-5.6-luna-medium_hello-world__SG8JOjX/preverify.log": {
+      "sha256": "d111d37fb29a53d95c4cee04788f4743aa4ab723d75dee3f9c83c144a936abe9",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/00-hello-world/gpt-5.6-luna-medium_hello-world__SG8JOjX/result.json": {
+      "sha256": "993d6dc866c41b81e5625718d8da0bf490a97d4081bca922cb6e963a892d58d5",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/00-hello-world/gpt-5.6-luna-medium_hello-world__SG8JOjX/verification.log": {
+      "sha256": "1d03e63413fe9f9abf2cf0e82b7d16f2d97c07b22872e9a3efb55f17842c0161",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/00-hello-world/summary.json": {
+      "sha256": "791d10c4a53010d63156c2a8fb796ed6a23193a37546c7948962da2631484f90",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/01-boundary-extraction-rails/gpt-5.6-luna-medium_boundary-extraction-rails__POzCc8q/agent.patch": {
+      "sha256": "a6042d5127c29b0501eb3f8a1ea39b6d2684eb46fcd1afb9ea6a92a933683a54",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/01-boundary-extraction-rails/gpt-5.6-luna-medium_boundary-extraction-rails__POzCc8q/checks.json": {
+      "sha256": "1d1e31e028c397a0816387b9cdd550bb095c65f4e9f257da1bfd24cb6de479f7",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/01-boundary-extraction-rails/gpt-5.6-luna-medium_boundary-extraction-rails__POzCc8q/foundry.json": {
+      "sha256": "43718c1f8349f1aee352e018d49563a55e50c7740701937e20ac5bdb6ec2d70c",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/01-boundary-extraction-rails/gpt-5.6-luna-medium_boundary-extraction-rails__POzCc8q/inputs.json": {
+      "sha256": "e164f15c128431bd3447d21f545f89592731c21c142f405d92aa15eaca60b70a",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/01-boundary-extraction-rails/gpt-5.6-luna-medium_boundary-extraction-rails__POzCc8q/result.json": {
+      "sha256": "2c099708bb4004cc0614f6118ea2d7928d8e307f1a014a66de834ada051c731a",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/01-boundary-extraction-rails/gpt-5.6-luna-medium_boundary-extraction-rails__POzCc8q/verification.log": {
+      "sha256": "b50ece870cebdb1eb847a52c9f7d717ed0c816ac2b7892d0f69aeb1fe2529154",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/01-boundary-extraction-rails/summary.json": {
+      "sha256": "c372e36c6be8e09af4d1819c0878ba36d88e4db070512e731df77dae4174a7d0",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/02-boundary-extraction-packs/gpt-5.6-luna-medium_boundary-extraction-packs__metfVxm/agent.patch": {
+      "sha256": "07fc61ab5e81ebc849a0d6e87a9335e06c01716a843589604338f32b15a16d5d",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/02-boundary-extraction-packs/gpt-5.6-luna-medium_boundary-extraction-packs__metfVxm/checks.json": {
+      "sha256": "1d1e31e028c397a0816387b9cdd550bb095c65f4e9f257da1bfd24cb6de479f7",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/02-boundary-extraction-packs/gpt-5.6-luna-medium_boundary-extraction-packs__metfVxm/foundry.json": {
+      "sha256": "3c72c335b5f90aea6aea3097bb80603c54580654176c4641bc0d978d7098cb17",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/02-boundary-extraction-packs/gpt-5.6-luna-medium_boundary-extraction-packs__metfVxm/inputs.json": {
+      "sha256": "dfec0a2ee54c92e22365e674bc89ab481f42ae27ce417e8f1a0477254cfe6fb2",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/02-boundary-extraction-packs/gpt-5.6-luna-medium_boundary-extraction-packs__metfVxm/result.json": {
+      "sha256": "3165ee4cb4c3cd0c58af32e2ed07d5e27df2f9bc1bee74552a48e6acb19bd0be",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/02-boundary-extraction-packs/gpt-5.6-luna-medium_boundary-extraction-packs__metfVxm/verification.log": {
+      "sha256": "7d22bc66e8f1609d110fdf1a7cd3e9c9126dc07988dbc7a6969001eee9ddba6d",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/02-boundary-extraction-packs/summary.json": {
+      "sha256": "038745f853c8c012503d56e3ed97237d0b5c9d16efb261fa2dfa341b83f6e0dd",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/03-boundary-extraction-foundry/gpt-5.6-luna-medium_boundary-extraction-foundry__vq1av4S/agent.patch": {
+      "sha256": "1a249c0036954e87a1ce79ad572daabc9a5151f6d4b21317a47878ae65739687",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/03-boundary-extraction-foundry/gpt-5.6-luna-medium_boundary-extraction-foundry__vq1av4S/checks.json": {
+      "sha256": "1d1e31e028c397a0816387b9cdd550bb095c65f4e9f257da1bfd24cb6de479f7",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/03-boundary-extraction-foundry/gpt-5.6-luna-medium_boundary-extraction-foundry__vq1av4S/foundry.json": {
+      "sha256": "aca82c7457c2c0a22ce55e8abff64c0cf0ab58f2001454d1f781d2a23e08165c",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/03-boundary-extraction-foundry/gpt-5.6-luna-medium_boundary-extraction-foundry__vq1av4S/inputs.json": {
+      "sha256": "7ccee1aec3fb9d6e1f12385d92d6216d894f6f49325cd068e07cca551ef31b3d",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/03-boundary-extraction-foundry/gpt-5.6-luna-medium_boundary-extraction-foundry__vq1av4S/result.json": {
+      "sha256": "e09bbd9b2387a5e5bf144baa9cce5edd1dccdada3ba559054c18898b91724554",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/03-boundary-extraction-foundry/gpt-5.6-luna-medium_boundary-extraction-foundry__vq1av4S/verification.log": {
+      "sha256": "5687222f39a9e30d466dd34a93555e9dfecc79f8c9f00306f01bceaf2a793002",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/03-boundary-extraction-foundry/summary.json": {
+      "sha256": "df71028d38dbcf7d32e0ccbbae401bd5ba1f86c3dc6c51e0755be89db67a1e4e",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/04-stale-embedding-rails/gpt-5.6-luna-medium_stale-embedding-rails__vMpA6au/agent.patch": {
+      "sha256": "1d4bb79692c9eac24a4bf0c401283caea50ed517c66fbc764fd5226b51acaad3",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/04-stale-embedding-rails/gpt-5.6-luna-medium_stale-embedding-rails__vMpA6au/checks.json": {
+      "sha256": "1d1e31e028c397a0816387b9cdd550bb095c65f4e9f257da1bfd24cb6de479f7",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/04-stale-embedding-rails/gpt-5.6-luna-medium_stale-embedding-rails__vMpA6au/foundry.json": {
+      "sha256": "43718c1f8349f1aee352e018d49563a55e50c7740701937e20ac5bdb6ec2d70c",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/04-stale-embedding-rails/gpt-5.6-luna-medium_stale-embedding-rails__vMpA6au/inputs.json": {
+      "sha256": "5c7c0abeca49ba7a3a3c9c1335990dced81d4afd27322027a646a41b83ef4f83",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/04-stale-embedding-rails/gpt-5.6-luna-medium_stale-embedding-rails__vMpA6au/result.json": {
+      "sha256": "99f665d4e9204149307061d387d90ab81dfd1f08b77b6e280fd60c0cc08f6304",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/04-stale-embedding-rails/gpt-5.6-luna-medium_stale-embedding-rails__vMpA6au/verification.log": {
+      "sha256": "1e31651d6b98051debdc17375addeb8424f54dbeedfc1be22010a432fd70707c",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/04-stale-embedding-rails/summary.json": {
+      "sha256": "2026095aecb87a63b3d0a82954fd87c94810bb8e25fedc7e90da38db7ea879f3",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/05-stale-embedding-packs/gpt-5.6-luna-medium_stale-embedding-packs__fhKqBHP/agent.patch": {
+      "sha256": "635281deed2003810702d411ab2e8473c73fb258702883cd710fa8cf2d162f05",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/05-stale-embedding-packs/gpt-5.6-luna-medium_stale-embedding-packs__fhKqBHP/checks.json": {
+      "sha256": "1d1e31e028c397a0816387b9cdd550bb095c65f4e9f257da1bfd24cb6de479f7",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/05-stale-embedding-packs/gpt-5.6-luna-medium_stale-embedding-packs__fhKqBHP/foundry.json": {
+      "sha256": "6f4a628eb28e0a17486c158d64545609759c7d12e9ff4abe133c8c0a2a518022",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/05-stale-embedding-packs/gpt-5.6-luna-medium_stale-embedding-packs__fhKqBHP/inputs.json": {
+      "sha256": "451313bb69a62c0207e4c0e58e07163a5d7704f28e1bc8b1f137cf8905c0f84b",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/05-stale-embedding-packs/gpt-5.6-luna-medium_stale-embedding-packs__fhKqBHP/result.json": {
+      "sha256": "88e00611b1503a487ee04d927fe42d2c58abca7bb101f25851d57df7db528569",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/05-stale-embedding-packs/gpt-5.6-luna-medium_stale-embedding-packs__fhKqBHP/verification.log": {
+      "sha256": "a71deab0b11cf52a9a630bcbfd4426f5bf847b9942e774668e7f4d74973ed5aa",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/05-stale-embedding-packs/summary.json": {
+      "sha256": "b4aae8b178dba9ebeb2ce2a14fa181c4c2685007374f671881ac19c74793f08b",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/06-stale-embedding-foundry/gpt-5.6-luna-medium_stale-embedding-foundry__FlrR4tg/agent.patch": {
+      "sha256": "76a9f2205b6aab27f237e675e89dd35ab78d301318d21dbe333cd00d9378f8ef",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/06-stale-embedding-foundry/gpt-5.6-luna-medium_stale-embedding-foundry__FlrR4tg/checks.json": {
+      "sha256": "1d1e31e028c397a0816387b9cdd550bb095c65f4e9f257da1bfd24cb6de479f7",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/06-stale-embedding-foundry/gpt-5.6-luna-medium_stale-embedding-foundry__FlrR4tg/foundry.json": {
+      "sha256": "e994908f34f455e8d669b8fb7db9cedf3d713092a03ade6863793a3a7300897c",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/06-stale-embedding-foundry/gpt-5.6-luna-medium_stale-embedding-foundry__FlrR4tg/inputs.json": {
+      "sha256": "4a97927e20aaadc022e917219f4210bd630591b9c9fcae9287c19753bde75d96",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/06-stale-embedding-foundry/gpt-5.6-luna-medium_stale-embedding-foundry__FlrR4tg/result.json": {
+      "sha256": "7a1d900c61535dfdc1cc5293a072bbc3a8588fff9aa7a947c958869eb511134e",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/06-stale-embedding-foundry/gpt-5.6-luna-medium_stale-embedding-foundry__FlrR4tg/verification.log": {
+      "sha256": "d8ca12592fe1ddc5cb3b273ae656e96d286035b033e6bfe8e1e379713d0228f9",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/06-stale-embedding-foundry/summary.json": {
+      "sha256": "fb8999ca5b900fad39b16a0ef5ccd5aef5a33743160f78d12f330f14a6b40150",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/07-ar-tenant-isolation/gpt-5.6-luna-medium_ar-tenant-isolation__gBf6f8A/agent.patch": {
+      "sha256": "bae8d0e8c5aad72ccf15c8206b024477bed1b73bd4dcbf33a7f26a8d6bcbeb90",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/07-ar-tenant-isolation/gpt-5.6-luna-medium_ar-tenant-isolation__gBf6f8A/checks.json": {
+      "sha256": "2e3f74934d5a8d003862b09151b75eef05c9e7ec73391d7bccaad82a8298b181",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/07-ar-tenant-isolation/gpt-5.6-luna-medium_ar-tenant-isolation__gBf6f8A/inputs.json": {
+      "sha256": "ec126a57597bc7c741ac3a67725c48b526138073cf84cae72081e2483f77f796",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/07-ar-tenant-isolation/gpt-5.6-luna-medium_ar-tenant-isolation__gBf6f8A/preverify-checks.json": {
+      "sha256": "947818b36c4011f2f763c0f131e11f4e1239ec70041f126781eea01e9854c7bf",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/07-ar-tenant-isolation/gpt-5.6-luna-medium_ar-tenant-isolation__gBf6f8A/preverify.log": {
+      "sha256": "2801d4dea228a9656b0dd57341be5eac9fdf65ccbd62ee2d815f5f3ebb55a865",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/07-ar-tenant-isolation/gpt-5.6-luna-medium_ar-tenant-isolation__gBf6f8A/result.json": {
+      "sha256": "ae288da98bb1cf9e5429a53a3648a156ce1ed65c7de2a29924bab3163145c7aa",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/07-ar-tenant-isolation/gpt-5.6-luna-medium_ar-tenant-isolation__gBf6f8A/verification.log": {
+      "sha256": "2c7ce35a01b2435fd2b9cf3408454fc5a65dc6aad8262bf38527e9c802502de5",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/07-ar-tenant-isolation/summary.json": {
+      "sha256": "55c665ea31df2d33fb3308598b3878c849fde2be5c0b3a4f130a8c4c84207629",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/08-aj-enqueue-after-commit/gpt-5.6-luna-medium_aj-enqueue-after-commit__EfYmSv2/agent.patch": {
+      "sha256": "74abcfee8e64922f8649635de791469623e1e7e35eb500baef5f67c51f66ee4d",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/08-aj-enqueue-after-commit/gpt-5.6-luna-medium_aj-enqueue-after-commit__EfYmSv2/checks.json": {
+      "sha256": "9dc51a1a961f6ccb317ef0bd3c5b02fccdd232e6514be9ede3e6b06d7bc75e2b",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/08-aj-enqueue-after-commit/gpt-5.6-luna-medium_aj-enqueue-after-commit__EfYmSv2/inputs.json": {
+      "sha256": "bd2bb08df012c8fd72aa7fbe5dadc405b2acca0e1a4737d4a8857f43fbccfaf8",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/08-aj-enqueue-after-commit/gpt-5.6-luna-medium_aj-enqueue-after-commit__EfYmSv2/preverify-checks.json": {
+      "sha256": "947818b36c4011f2f763c0f131e11f4e1239ec70041f126781eea01e9854c7bf",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/08-aj-enqueue-after-commit/gpt-5.6-luna-medium_aj-enqueue-after-commit__EfYmSv2/preverify.log": {
+      "sha256": "f8472b10c9fecf17329fd288fc6ea283dd68c9bdbdff1de4c8e719437cc3fe7e",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/08-aj-enqueue-after-commit/gpt-5.6-luna-medium_aj-enqueue-after-commit__EfYmSv2/result.json": {
+      "sha256": "5ea2f644c1a5a6fbd9ae42a64b811d1a520f52238a49956b7ae81533b090649b",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/08-aj-enqueue-after-commit/gpt-5.6-luna-medium_aj-enqueue-after-commit__EfYmSv2/verification.log": {
+      "sha256": "7c1cc784cc9e31bf356617133a56d39bd867ea27aa8059b083c41663ed2677b3",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/08-aj-enqueue-after-commit/summary.json": {
+      "sha256": "65c41c9f1c3d9ed189f0ceea35aed13e88ffc44e0f6719b3c9056cff4a12c74f",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium_ft-comment-reaction-live-echo__4cRFdci/agent.patch": {
+      "sha256": "9accc21fbce6ad64a050a8857ae77d8bedb69c6b9db747cbacac3be4dd3a0d74",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium_ft-comment-reaction-live-echo__4cRFdci/checks.json": {
+      "sha256": "6435525829fa44e5d08473f104daa560995563958fc8e337f20b89bd4a4e26bc",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium_ft-comment-reaction-live-echo__4cRFdci/inputs.json": {
+      "sha256": "e0cef910e011818809dfeff75fb274767421ad9227d4c1f58597914bd0339d74",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium_ft-comment-reaction-live-echo__4cRFdci/preverify-checks.json": {
+      "sha256": "f76969e9555d46f20a8cfd20206f584bb589492a27573f42270627a337cd6273",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium_ft-comment-reaction-live-echo__4cRFdci/preverify.log": {
+      "sha256": "37a3d18c709fe78e79e092471827fe019a2c6a0643f540ccb8895d23b06ea41b",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium_ft-comment-reaction-live-echo__4cRFdci/result.json": {
+      "sha256": "215fe71397baf40ea00fda80698adcef26ed8cc65f9f8588e08d57faa4e5abe3",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium_ft-comment-reaction-live-echo__4cRFdci/verification.log": {
+      "sha256": "2261583ddf0e39d90cf45722c9021598d9246309b2d40909c5c8688d6b28c521",
+      "unchanged": true
+    },
+    "benchmarks/evidence/2026-09-19/openrouter-luna-study/verification/09-ft-comment-reaction-live-echo/summary.json": {
+      "sha256": "f41615af672cc6ddf25b9ebec76c5cd4dbba8e2542de20428f0207bf343a6df3",
+      "unchanged": true
+    }
+  }
+}

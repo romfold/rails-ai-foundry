@@ -1,0 +1,9 @@
+default: &default
+  adapter: sqlite3
+  database: <%= ENV.fetch('BENCHMARK_DATABASE', '/tmp/knowledge-benchmark.sqlite3') %>
+  timeout: 5000
+  pool: 5
+development:
+  <<: *default
+test:
+  <<: *default

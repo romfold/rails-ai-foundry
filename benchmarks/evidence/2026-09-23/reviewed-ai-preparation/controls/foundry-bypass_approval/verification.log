@@ -1,0 +1,107 @@
+bundle exec ruby bin/rails test
+Run options: --seed 10949
+
+# Running:
+
+...F
+
+Failure:
+ReviewedAcceptanceTest#test_request_identity_conflicts_and_cancellation_preserve_decisions [test/acceptance_test.rb:85]:
+Expected: "cancelled"
+  Actual: "stale"
+
+bin/rails test test/acceptance_test.rb:75
+
+.F
+
+Failure:
+ReviewedAcceptanceTest#test_HTTP_identity_and_approval_bind_one_durable_local_result [test/acceptance_test.rb:39]:
+Expected: "open"
+  Actual: "closed"
+
+bin/rails test test/acceptance_test.rb:32
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:33379
+.....
+
+Finished in 8.782958s, 1.2524 runs/s, 5.3513 assertions/s.
+11 runs, 47 assertions, 2 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/acceptance_test.rb
+Run options: --seed 42576
+
+# Running:
+
+..F
+
+Failure:
+ReviewedAcceptanceTest#test_request_identity_conflicts_and_cancellation_preserve_decisions [test/acceptance_test.rb:85]:
+Expected: "cancelled"
+  Actual: "stale"
+
+bin/rails test test/acceptance_test.rb:75
+
+F
+
+Failure:
+ReviewedAcceptanceTest#test_HTTP_identity_and_approval_bind_one_durable_local_result [test/acceptance_test.rb:39]:
+Expected: "open"
+  Actual: "closed"
+
+bin/rails test test/acceptance_test.rb:32
+
+..
+
+Finished in 0.451132s, 13.2999 runs/s, 64.2827 assertions/s.
+6 runs, 29 assertions, 2 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/recovery_test.rb
+Run options: --seed 55836
+
+# Running:
+
+...
+
+Finished in 4.127493s, 0.7268 runs/s, 2.4228 assertions/s.
+3 runs, 10 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/review_browser_test.rb
+Run options: --seed 44063
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:40307
+.
+
+Finished in 4.330453s, 0.2309 runs/s, 1.3855 assertions/s.
+1 runs, 6 assertions, 0 failures, 0 errors, 0 skips
+📦 Packwerk is running validation...
+
+📦 Finished in 1.18 seconds
+
+Validation successful 🎉
+📦 Packwerk is inspecting 38 files
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+......................................
+📦 Finished in 1.45 seconds
+
+No offenses detected
+No stale violations detected
+Foundry structural assessment: /candidate
+Workflow: none; workload: balanced
+Context configurations validated: 1
+Configuration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.
+Source check: 21 Ruby files; passed.
+Application app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.
+Prompt check: 1 contracts; passed.
+Explicit contract declarations and file existence only; constants, model aliases, template semantics, authorization and evaluation outcomes are not resolved or executed. Only application and configured context app/prompts roots are inspected.
+No files were changed.
+Run owning-context behavioral tests.
+Run foundry check --boundaries in an isolated test environment for upstream Packwerk verification.
+Preserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.

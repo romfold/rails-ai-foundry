@@ -1,0 +1,147 @@
+{
+  "date": "2026-09-17",
+  "source_evidence_sha256": "682d23703287b55fa22b1e79fa439b33c2ac44e79213c1971128fe263fa691b4",
+  "result": "passed",
+  "checkpoints": [
+    {
+      "checkpoint": "01-characterize",
+      "package_root": "packs",
+      "gem_sha256": "0b7fbcdbf196638bad65c93823c1d4c06dc61ae1e7cadae158d188e47d1e9873",
+      "source_file_count": 23,
+      "source_map_sha256": "ba05f3632e0e2194f60a546a5fede43218c1cf1705f539c0314ece0cccfe112f",
+      "workflow_sha256": {
+        "openspec/changes/archive/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/changes/archive/fixture-baseline/proposal.md": "78cff9ad2f52e6609ed2ceee7ac74cb5604b905b258cff4bbe20db8f6c980f0e",
+        "openspec/config.yaml": "2a791b0ccc50e2c2ebbb3ba28692a4ad0e4b6ab94ed2151375ac404d7056e89a",
+        "openspec/specs/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/specs/knowledge-lifecycle/spec.md": "21eac9f839eaf2fd29cdf93c837c1b2b463a09db37786f53d9510bdb603b7c4c"
+      }
+    },
+    {
+      "checkpoint": "03-extract",
+      "package_root": "packs",
+      "gem_sha256": "0b7fbcdbf196638bad65c93823c1d4c06dc61ae1e7cadae158d188e47d1e9873",
+      "source_file_count": 27,
+      "source_map_sha256": "a14eb9cd91f1d6ef73607beb0052085f210f792f8abbbed099b7a7beae54b57f",
+      "workflow_sha256": {
+        "openspec/changes/archive/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/changes/archive/fixture-baseline/proposal.md": "78cff9ad2f52e6609ed2ceee7ac74cb5604b905b258cff4bbe20db8f6c980f0e",
+        "openspec/config.yaml": "2a791b0ccc50e2c2ebbb3ba28692a4ad0e4b6ab94ed2151375ac404d7056e89a",
+        "openspec/specs/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/specs/knowledge-lifecycle/spec.md": "21eac9f839eaf2fd29cdf93c837c1b2b463a09db37786f53d9510bdb603b7c4c"
+      }
+    },
+    {
+      "checkpoint": "04-public-api",
+      "package_root": "packs",
+      "gem_sha256": "0b7fbcdbf196638bad65c93823c1d4c06dc61ae1e7cadae158d188e47d1e9873",
+      "source_file_count": 27,
+      "source_map_sha256": "cd760ce681621108618403828c742bac2fa823527164c2b3088d96fee1d40c64",
+      "workflow_sha256": {
+        "openspec/changes/archive/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/changes/archive/fixture-baseline/proposal.md": "78cff9ad2f52e6609ed2ceee7ac74cb5604b905b258cff4bbe20db8f6c980f0e",
+        "openspec/config.yaml": "2a791b0ccc50e2c2ebbb3ba28692a4ad0e4b6ab94ed2151375ac404d7056e89a",
+        "openspec/specs/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/specs/knowledge-lifecycle/spec.md": "21eac9f839eaf2fd29cdf93c837c1b2b463a09db37786f53d9510bdb603b7c4c"
+      }
+    },
+    {
+      "checkpoint": "05-rom",
+      "package_root": "packs",
+      "gem_sha256": "0b7fbcdbf196638bad65c93823c1d4c06dc61ae1e7cadae158d188e47d1e9873",
+      "source_file_count": 28,
+      "source_map_sha256": "c9a3df24aca3a20ca39d9bbd96028afb45f9db5988fdbe2297da93654d162811",
+      "workflow_sha256": {
+        "openspec/changes/archive/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/changes/archive/fixture-baseline/proposal.md": "78cff9ad2f52e6609ed2ceee7ac74cb5604b905b258cff4bbe20db8f6c980f0e",
+        "openspec/config.yaml": "2a791b0ccc50e2c2ebbb3ba28692a4ad0e4b6ab94ed2151375ac404d7056e89a",
+        "openspec/specs/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/specs/knowledge-lifecycle/spec.md": "21eac9f839eaf2fd29cdf93c837c1b2b463a09db37786f53d9510bdb603b7c4c"
+      }
+    },
+    {
+      "checkpoint": "06-integrations",
+      "package_root": "packs",
+      "gem_sha256": "0b7fbcdbf196638bad65c93823c1d4c06dc61ae1e7cadae158d188e47d1e9873",
+      "source_file_count": 70,
+      "source_map_sha256": "043369f28ed95784f9acbbc2820a120e83d5f4addaf50a87d68d64d5b54a2bcc",
+      "workflow_sha256": {
+        "openspec/changes/archive/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/changes/archive/fixture-baseline/proposal.md": "78cff9ad2f52e6609ed2ceee7ac74cb5604b905b258cff4bbe20db8f6c980f0e",
+        "openspec/config.yaml": "2a791b0ccc50e2c2ebbb3ba28692a4ad0e4b6ab94ed2151375ac404d7056e89a",
+        "openspec/specs/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/specs/knowledge-lifecycle/spec.md": "21eac9f839eaf2fd29cdf93c837c1b2b463a09db37786f53d9510bdb603b7c4c"
+      }
+    },
+    {
+      "checkpoint": "01-characterize",
+      "package_root": "components",
+      "gem_sha256": "0b7fbcdbf196638bad65c93823c1d4c06dc61ae1e7cadae158d188e47d1e9873",
+      "source_file_count": 23,
+      "source_map_sha256": "ba05f3632e0e2194f60a546a5fede43218c1cf1705f539c0314ece0cccfe112f",
+      "workflow_sha256": {
+        "openspec/changes/archive/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/changes/archive/fixture-baseline/proposal.md": "78cff9ad2f52e6609ed2ceee7ac74cb5604b905b258cff4bbe20db8f6c980f0e",
+        "openspec/config.yaml": "2a791b0ccc50e2c2ebbb3ba28692a4ad0e4b6ab94ed2151375ac404d7056e89a",
+        "openspec/specs/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/specs/knowledge-lifecycle/spec.md": "21eac9f839eaf2fd29cdf93c837c1b2b463a09db37786f53d9510bdb603b7c4c"
+      }
+    },
+    {
+      "checkpoint": "03-extract",
+      "package_root": "components",
+      "gem_sha256": "0b7fbcdbf196638bad65c93823c1d4c06dc61ae1e7cadae158d188e47d1e9873",
+      "source_file_count": 27,
+      "source_map_sha256": "15508f4ff53f335d8a85b96503fee1d0103aabdaa24c0e61d8b01964453729d5",
+      "workflow_sha256": {
+        "openspec/changes/archive/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/changes/archive/fixture-baseline/proposal.md": "78cff9ad2f52e6609ed2ceee7ac74cb5604b905b258cff4bbe20db8f6c980f0e",
+        "openspec/config.yaml": "2a791b0ccc50e2c2ebbb3ba28692a4ad0e4b6ab94ed2151375ac404d7056e89a",
+        "openspec/specs/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/specs/knowledge-lifecycle/spec.md": "21eac9f839eaf2fd29cdf93c837c1b2b463a09db37786f53d9510bdb603b7c4c"
+      }
+    },
+    {
+      "checkpoint": "04-public-api",
+      "package_root": "components",
+      "gem_sha256": "0b7fbcdbf196638bad65c93823c1d4c06dc61ae1e7cadae158d188e47d1e9873",
+      "source_file_count": 27,
+      "source_map_sha256": "e7d8194a2b9dec6730aa0f3e956d5b3ac82345d7f8fb95d59afd56868e0e26ba",
+      "workflow_sha256": {
+        "openspec/changes/archive/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/changes/archive/fixture-baseline/proposal.md": "78cff9ad2f52e6609ed2ceee7ac74cb5604b905b258cff4bbe20db8f6c980f0e",
+        "openspec/config.yaml": "2a791b0ccc50e2c2ebbb3ba28692a4ad0e4b6ab94ed2151375ac404d7056e89a",
+        "openspec/specs/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/specs/knowledge-lifecycle/spec.md": "21eac9f839eaf2fd29cdf93c837c1b2b463a09db37786f53d9510bdb603b7c4c"
+      }
+    },
+    {
+      "checkpoint": "05-rom",
+      "package_root": "components",
+      "gem_sha256": "0b7fbcdbf196638bad65c93823c1d4c06dc61ae1e7cadae158d188e47d1e9873",
+      "source_file_count": 28,
+      "source_map_sha256": "c0585fc3d96083ec3f13244af0b4db4ccb91c059f7921f515a22f8dd37468192",
+      "workflow_sha256": {
+        "openspec/changes/archive/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/changes/archive/fixture-baseline/proposal.md": "78cff9ad2f52e6609ed2ceee7ac74cb5604b905b258cff4bbe20db8f6c980f0e",
+        "openspec/config.yaml": "2a791b0ccc50e2c2ebbb3ba28692a4ad0e4b6ab94ed2151375ac404d7056e89a",
+        "openspec/specs/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/specs/knowledge-lifecycle/spec.md": "21eac9f839eaf2fd29cdf93c837c1b2b463a09db37786f53d9510bdb603b7c4c"
+      }
+    },
+    {
+      "checkpoint": "06-integrations",
+      "package_root": "components",
+      "gem_sha256": "0b7fbcdbf196638bad65c93823c1d4c06dc61ae1e7cadae158d188e47d1e9873",
+      "source_file_count": 70,
+      "source_map_sha256": "dd827f6f65bc0217564cf057d27feb13730fbde0a14473a3d6f39e58d98b479d",
+      "workflow_sha256": {
+        "openspec/changes/archive/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/changes/archive/fixture-baseline/proposal.md": "78cff9ad2f52e6609ed2ceee7ac74cb5604b905b258cff4bbe20db8f6c980f0e",
+        "openspec/config.yaml": "2a791b0ccc50e2c2ebbb3ba28692a4ad0e4b6ab94ed2151375ac404d7056e89a",
+        "openspec/specs/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "openspec/specs/knowledge-lifecycle/spec.md": "21eac9f839eaf2fd29cdf93c837c1b2b463a09db37786f53d9510bdb603b7c4c"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+diff --git a/app/controllers/delivery/documents_controller.rb b/app/controllers/delivery/documents_controller.rb
+new file mode 100644
+index 0000000..38dfe13
+--- /dev/null
++++ b/app/controllers/delivery/documents_controller.rb
+@@ -0,0 +1,10 @@
++# frozen_string_literal: true
++
++class Delivery::DocumentsController < ActionController::Base
++  def index
++    tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
++    return head :unauthorized unless tenant
++
++    render json: Knowledge::Catalog.list(tenant_id: tenant)
++  end
++end
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+deleted file mode 100644
+index 7ea7d35..0000000
+--- a/app/controllers/documents_controller.rb
++++ /dev/null
+@@ -1,10 +0,0 @@
+-# frozen_string_literal: true
+-
+-class DocumentsController < ActionController::Base
+-  def index
+-    tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+-    return head :unauthorized unless tenant
+-
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
+-  end
+-end
+diff --git a/config/routes.rb b/config/routes.rb
+index 80b6ecb..314ca88 100644
+--- a/config/routes.rb
++++ b/config/routes.rb
+@@ -1,5 +1,5 @@
+ # frozen_string_literal: true
+ 
+ Rails.application.routes.draw do
+-  get '/documents', to: 'documents#index'
++  get '/documents', to: 'delivery/documents#index'
+ end

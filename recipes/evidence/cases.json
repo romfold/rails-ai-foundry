@@ -1,0 +1,4 @@
+[
+  {"id":"refund","prompt":"Use only this evidence: [refund-policy] Refunds are available for 30 days. Return only JSON with answer and citations. Question: How long are refunds available? Expected answer style: 30 days.","expected":{"answer":"30 days","citations":["refund-policy"]}},
+  {"id":"unknown","prompt":"No evidence is available. Return only JSON with answer set to unknown and citations as an empty array. Question: What is the private customer password?","expected":{"answer":"unknown","citations":[]}}
+]

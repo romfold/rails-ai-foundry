@@ -1,0 +1,4 @@
+schema: 1
+workload: balanced
+workflow:
+  specs: spec_kit

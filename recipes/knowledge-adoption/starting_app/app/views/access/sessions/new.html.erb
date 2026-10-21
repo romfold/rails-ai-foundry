@@ -1,0 +1,8 @@
+<h1>Knowledge workspace</h1>
+<p>A local demonstration of Rails, packs, ROM, RES, Elasticsearch and cited retrieval.</p>
+<p>Use demo-a or demo-b. These are public demonstration credentials, not a production identity system.</p>
+<%= form_with url: session_path do |form| %>
+  <%= form.label :token, "Demo token" %>
+  <%= form.text_field :token, required: true %>
+  <%= form.submit "Open workspace" %>
+<% end %>

@@ -1,0 +1,12 @@
+diff --git a/packs/knowledge/foundry.yml b/packs/knowledge/foundry.yml
+index d7bc7a3..342bc02 100644
+--- a/packs/knowledge/foundry.yml
++++ b/packs/knowledge/foundry.yml
+@@ -1,6 +1,6 @@
+ schema: 1
+ namespace: Knowledge
+-profile: rails_native
++profile: modular
+ patterns:
+   events: none
+   cqrs: none

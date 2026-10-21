@@ -1,0 +1,16 @@
+{
+  "scope": "Fresh retest after demonstrated skill fix; previous candidate and scores preserved",
+  "model": "openrouter/openai/gpt-5.6-luna#medium",
+  "cycle_stopping_budget": 7.0,
+  "trial_stopping_budget": 0.75,
+  "prior_cycle_spend": 0.16441974,
+  "prior_treatments": [
+    "/private/tmp/foundry-realtime-guided-20260922-g1-prepared"
+  ],
+  "scripts": {
+    "prepare_guided_retest": "256fd4816fc0932a422736a9d9d1bbec3f5c0a1e01ba23a6ac1944035fd23692",
+    "preflight_guided_retest": "d0d639c98daa38f024ccee3b0393f4ead2281be50caecfa06761925ab7ddac0e",
+    "verify_foundry_guided_inputs": "482051ce1c79b7b4562c3540353f9c4bba71ae6d58c0777a660672f1d04a8303",
+    "report_guided_realtime": "3b4eec09104ed4750b37e3bc66544f025d599dda815a9344c38fa91f214074bd"
+  }
+}

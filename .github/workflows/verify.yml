@@ -1,0 +1,100 @@
+name: Verify
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  compatibility:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - ruby: '3.3.10'
+            rails: '7.1.6'
+            bundler: '2.5.18'
+          - ruby: '3.4.10'
+            rails: '8.1.3.1'
+            bundler: '2.6.9'
+          - ruby: '4.0.6'
+            rails: '8.1.3.1'
+            bundler: '4.0.10'
+    env:
+      FOUNDRY_RAILS_VERSION: ${{ matrix.rails }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler: ${{ matrix.bundler }}
+          bundler-cache: false
+      - name: Resolve isolated bundles before offline acceptance
+        run: |
+          for suite in core ai; do
+            BUNDLE_GEMFILE="gemfiles/ci_${suite}.gemfile" bundle install
+          done
+          BUNDLE_GEMFILE=gemfiles/ci_core.gemfile bundle exec ruby script/prepare_acceptance
+      - name: Core and installed gem
+        env:
+          BUNDLE_GEMFILE: gemfiles/ci_core.gemfile
+        run: bundle exec rake test test:package
+      - name: Provider-blocked AI acceptance
+        env:
+          BUNDLE_GEMFILE: gemfiles/ci_ai.gemfile
+        run: bundle exec rake test:ai
+
+  managed:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      FOUNDRY_RAILS_VERSION: '8.1.3.1'
+      OPENSPEC_TELEMETRY: '0'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler: '2.6.9'
+          bundler-cache: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20.19.0'
+          package-manager-cache: false
+      - name: Resolve dependencies
+        run: |
+          bundle install
+          npm ci
+      - name: Style, skills and specifications
+        run: |
+          bundle exec rubocop
+          ruby script/validate_skills
+          ruby script/privacy_check.rb
+          npm run contracts:validate
+          npm run spec:validate
+      - name: Install pinned specification tooling for consumer acceptance
+        run: |
+          python3 -m venv "$RUNNER_TEMP/foundry-spec-kit"
+          "$RUNNER_TEMP/foundry-spec-kit/bin/pip" install 'git+https://github.com/github/spec-kit.git@v1.0.0'
+          echo "$RUNNER_TEMP/foundry-spec-kit/bin" >> "$GITHUB_PATH"
+      - name: Native workflow initialization in generated Rails consumers
+        run: |
+          export PATH="$PWD/node_modules/.bin:$PATH"
+          bundle exec rake test:workflows
+          bundle exec ruby script/prepare_acceptance
+          for workflow in spec-kit openspec; do
+            FOUNDRY_ACCEPTANCE_WORKFLOW="$workflow" bundle exec ruby -Itest -Ilib test_packaging/native_new_test.rb -n test_native_rails_new_from_installed_gem
+          done

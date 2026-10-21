@@ -1,0 +1,220 @@
+GIT
+  remote: https://github.com/rails/lemans.git
+  revision: 2d0b7fb8d3b0077574dcf7b70fd4e32c8f9d6e76
+  ref: 2d0b7fb8d3b0077574dcf7b70fd4e32c8f9d6e76
+  specs:
+    lemans (1.3.5)
+      concurrent-ruby (~> 1.3)
+      csv (~> 3.3)
+      daytona (~> 0.203)
+      faraday (~> 2.10)
+      faraday-multipart (~> 1.1)
+      json (< 3)
+      rexml (~> 3.4)
+      ruby_llm (~> 1.16)
+      thor (~> 1.5)
+      zeitwerk (~> 2.8)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    aws-eventstream (1.4.0)
+    aws-partitions (1.1287.0)
+    aws-sdk-core (3.257.0)
+      aws-eventstream (~> 1, >= 1.3.0)
+      aws-partitions (~> 1, >= 1.992.0)
+      aws-sigv4 (~> 1.9)
+      base64
+      bigdecimal
+      jmespath (~> 1, >= 1.6.1)
+      logger
+      rexml (~> 3.4, >= 3.4.2)
+    aws-sdk-kms (1.132.0)
+      aws-sdk-core (~> 3, >= 3.256.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-s3 (1.232.1)
+      aws-sdk-core (~> 3, >= 3.256.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.5)
+    aws-sigv4 (1.12.1)
+      aws-eventstream (~> 1, >= 1.0.2)
+    base64 (0.3.0)
+    bigdecimal (4.1.3)
+    concurrent-ruby (1.3.8)
+    csv (3.3.6)
+    daytona (0.214.0)
+      aws-sdk-s3 (>= 1.197.0, < 2)
+      daytona_analytics_api_client (= 0.214.0)
+      daytona_api_client (= 0.214.0)
+      daytona_toolbox_api_client (= 0.214.0)
+      dotenv (>= 2.0, < 4)
+      observer (~> 0.1)
+      opentelemetry-exporter-otlp (~> 0.29)
+      opentelemetry-exporter-otlp-metrics (~> 0.1)
+      opentelemetry-metrics-sdk (~> 0.2)
+      opentelemetry-sdk (~> 1.4)
+      toml (~> 0.3)
+      websocket-client-simple (~> 0.9.0)
+    daytona_analytics_api_client (0.214.0)
+      typhoeus (~> 1.0, >= 1.0.1)
+    daytona_api_client (0.214.0)
+      typhoeus (~> 1.0, >= 1.0.1)
+    daytona_toolbox_api_client (0.214.0)
+      typhoeus (~> 1.0, >= 1.0.1)
+    dotenv (3.2.0)
+    ethon (0.18.0)
+      ffi (>= 1.15.0)
+      logger
+    event_emitter (0.2.6)
+    event_stream_parser (1.0.0)
+    faraday (2.14.4)
+      faraday-net_http (>= 2.0, < 3.5)
+      json
+      logger
+    faraday-multipart (1.2.0)
+      multipart-post (~> 2.0)
+    faraday-net_http (3.4.4)
+      net-http (~> 0.5)
+    faraday-retry (2.4.0)
+      faraday (~> 2.0)
+    ffi (1.17.4)
+    ffi (1.17.4-aarch64-linux-gnu)
+    ffi (1.17.4-aarch64-linux-musl)
+    ffi (1.17.4-arm-linux-gnu)
+    ffi (1.17.4-arm-linux-musl)
+    ffi (1.17.4-arm64-darwin)
+    ffi (1.17.4-x86-linux-gnu)
+    ffi (1.17.4-x86-linux-musl)
+    ffi (1.17.4-x86_64-darwin)
+    ffi (1.17.4-x86_64-linux-gnu)
+    ffi (1.17.4-x86_64-linux-musl)
+    google-protobuf (4.36.2)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.36.2-aarch64-linux-gnu)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.36.2-aarch64-linux-musl)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.36.2-arm64-darwin)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.36.2-x86-linux-gnu)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.36.2-x86-linux-musl)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.36.2-x86_64-darwin)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.36.2-x86_64-linux-gnu)
+      bigdecimal
+      rake (~> 13.3)
+    google-protobuf (4.36.2-x86_64-linux-musl)
+      bigdecimal
+      rake (~> 13.3)
+    googleapis-common-protos-types (1.23.0)
+      google-protobuf (~> 4.26)
+    jmespath (1.6.2)
+    json (2.21.2)
+    logger (1.7.0)
+    marcel (1.2.1)
+    minitest (5.27.0)
+    multipart-post (2.4.1)
+    mutex_m (0.3.0)
+    net-http (0.9.1)
+      uri (>= 0.11.1)
+    observer (0.1.2)
+    opentelemetry-api (1.11.1)
+      logger
+    opentelemetry-common (0.25.1)
+      opentelemetry-api (~> 1.0)
+    opentelemetry-exporter-otlp (0.36.0)
+      google-protobuf (>= 3.18)
+      googleapis-common-protos-types (~> 1.3)
+      opentelemetry-api (~> 1.1)
+      opentelemetry-common (~> 0.20)
+      opentelemetry-exporter-otlp-common
+      opentelemetry-sdk (~> 1.10)
+      opentelemetry-semantic_conventions
+    opentelemetry-exporter-otlp-common (0.2.0)
+      google-protobuf (>= 3.18)
+      googleapis-common-protos-types (~> 1.3)
+      opentelemetry-api (~> 1.1)
+    opentelemetry-exporter-otlp-metrics (0.12.0)
+      google-protobuf (>= 3.18, < 5.0)
+      googleapis-common-protos-types (~> 1.3)
+      opentelemetry-api (~> 1.1)
+      opentelemetry-common (~> 0.20)
+      opentelemetry-metrics-api (~> 0.2)
+      opentelemetry-metrics-sdk (~> 0.5)
+      opentelemetry-sdk (~> 1.2)
+      opentelemetry-semantic_conventions
+    opentelemetry-metrics-api (0.7.1)
+      opentelemetry-api (~> 1.0)
+    opentelemetry-metrics-sdk (0.18.0)
+      opentelemetry-api (~> 1.1)
+      opentelemetry-metrics-api (~> 0.2)
+      opentelemetry-sdk (~> 1.13.0)
+    opentelemetry-registry (0.6.3)
+      opentelemetry-api (~> 1.1)
+    opentelemetry-sdk (1.13.1)
+      logger
+      opentelemetry-api (~> 1.1)
+      opentelemetry-common (~> 0.20)
+      opentelemetry-registry (~> 0.2)
+      opentelemetry-semantic_conventions
+    opentelemetry-semantic_conventions (1.44.0)
+      opentelemetry-api (~> 1.0)
+    parslet (2.0.0)
+    rake (13.4.2)
+    rexml (3.4.4)
+    ruby_llm (1.16.0)
+      base64
+      event_stream_parser (~> 1)
+      faraday (>= 1.10.0)
+      faraday-multipart (>= 1)
+      faraday-net_http (>= 1)
+      faraday-retry (>= 1)
+      marcel (~> 1)
+      ruby_llm-schema (~> 0)
+      zeitwerk (~> 2)
+    ruby_llm-schema (0.4.0)
+    thor (1.5.0)
+    toml (0.3.0)
+      parslet (>= 1.8.0, < 3.0.0)
+    typhoeus (1.6.0)
+      ethon (>= 0.18.0)
+    uri (1.1.1)
+    websocket (1.2.11)
+    websocket-client-simple (0.9.0)
+      base64
+      event_emitter
+      mutex_m
+      websocket
+    zeitwerk (2.8.3)
+
+PLATFORMS
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin
+  ruby
+  x86-linux-gnu
+  x86-linux-musl
+  x86_64-darwin
+  x86_64-linux-gnu
+  x86_64-linux-musl
+
+DEPENDENCIES
+  lemans!
+  minitest (~> 5.25)
+
+RUBY VERSION
+   ruby 3.4.10p104
+
+BUNDLED WITH
+   2.6.9

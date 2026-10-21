@@ -1,0 +1,35 @@
+{
+  "task_digest": "89ccbdbff4f43d83",
+  "verification_sources": {
+    "verification.rb": "afaa7f4061deb7d74b5d283352151438ac04dea1d819ccb43dc68b3ac18c6b98",
+    "container.rb": "151db3246d6312db0c4ed7ffb889a5426561fcf790a2d8926d1ce8d7515bbb4c",
+    "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+    "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+    "trusted_tests.rb": "b595ac4ee85be5a3cc741198c08a25161cc2fad42387b077b46f5e2470faf781",
+    "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+    "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+    "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+    "verification_phases.rb": "cb4d6b1d51a5cc401462e1a74542ce1231799f6b01a06a5a4d43fdc509f80f3e",
+    "../../verification/foundry_baseline.rb": "7d3f4b344dcb471bef46a5eeca86f32df28172d2f0f9555dd4a59b5dd7762b7f",
+    "../../verification/minitest/foundry_baseline_plugin.rb": "a7802fc56e2fe3e0c77aa4c4e876ee99be3550840898b65d09f58580af1197bf"
+  },
+  "protocol": {
+    "restore": [
+      "Gemfile",
+      "Gemfile.lock",
+      "AGENTS.md",
+      "TASK.md",
+      "test"
+    ],
+    "forbidden": [
+      "Gemfile",
+      "Gemfile.lock",
+      "AGENTS.md",
+      "TASK.md",
+      "test/visible_test.rb",
+      "test/test_helper.rb"
+    ],
+    "application_tests": "Edits are retained as evidence and restored before grading; they cannot award credit"
+  },
+  "process_limit": 256
+}

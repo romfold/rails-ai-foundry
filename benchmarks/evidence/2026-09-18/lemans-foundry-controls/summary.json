@@ -1,0 +1,1730 @@
+{
+  "records": [
+    {
+      "task": "authorized-tool-foundry--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/authorized-tool-foundry--faulty__wRqUXEw/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "authorized-tool-foundry--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e8b78b4424b6d9455b4be70968b1bfdf4b21759f471ebed2095a37467e9bab92",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-127-29mdoj127' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.98 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-132-92n2j4132' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 3.29 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "authorized-tool-foundry--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/authorized-tool-foundry--reference__s8VwVpD/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "authorized-tool-foundry--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "3015de9514134492ffdac2cb37fe26292ee58b02129ab02e29f23e03b875c9bf",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-126-2x132t126' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 2.24 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-131-y1blp7131' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n/usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2332:in 'File.unlink': No such file or directory @ apply2files - /tmp/bundler20260918-131-y1blp7131 (Errno::ENOENT)\n\tfrom /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2332:in 'block in Bundler::FileUtils::Entry_#remove_file'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2337:in 'Bundler::FileUtils::Entry_#platform_support'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2331:in 'Bundler::FileUtils::Entry_#remove_file'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2320:in 'Bundler::FileUtils::Entry_#remove'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:1414:in 'block in Bundler::FileUtils.remove_entry_secure'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2383:in 'Bundler::FileUtils::Entry_#postorder_traverse'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:1412:in 'Bundler::FileUtils.remove_entry_secure'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler.rb:355:in 'Bundler.rm_rf'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler.rb:687:in 'block (2 levels) in Bundler.tmp_home_path'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:675:in 'Process.fork'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:675:in 'Parallel.worker'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:658:in 'block in Parallel.create_workers'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:657:in 'Array#each'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:657:in 'Enumerable#each_with_index'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:657:in 'Parallel.create_workers'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:595:in 'Parallel.work_in_processes'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:317:in 'Parallel.map'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:330:in 'Parallel.flat_map'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/parse_run.rb:38:in 'Packwerk::ParseRun#find_offenses'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::ParseRun#_on_method_added'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/commands/check_command.rb:27:in 'block in Packwerk::Commands::CheckCommand#run'\n\tfrom /usr/local/bundle/gems/benchmark-0.5.0/lib/benchmark.rb:324:in 'Benchmark.realtime'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:29:in 'Packwerk::Formatters::ProgressFormatter#started_inspection'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::Formatters::ProgressFormatter#_on_method_added'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/commands/check_command.rb:26:in 'Packwerk::Commands::CheckCommand#run'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::Commands::CheckCommand#_on_method_added'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/cli.rb:58:in 'Packwerk::Cli#execute_command'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::Cli#_on_method_added'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/cli.rb:41:in 'Packwerk::Cli#run'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::Cli#_on_method_added'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/exe/packwerk:16:in '<top (required)>'\n\tfrom /usr/local/bundle/bin/packwerk:25:in 'Kernel#load'\n\tfrom /usr/local/bundle/bin/packwerk:25:in '<main>'\n............\n📦 Finished in 3.28 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "authorized-tool-packs--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/authorized-tool-packs--faulty__hAvx9yI/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "authorized-tool-packs--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e8b78b4424b6d9455b4be70968b1bfdf4b21759f471ebed2095a37467e9bab92",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-124-b863a4124' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.23 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-129-bvulgo129' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.75 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "authorized-tool-packs--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/authorized-tool-packs--reference__aOGxQHA/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "authorized-tool-packs--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "3015de9514134492ffdac2cb37fe26292ee58b02129ab02e29f23e03b875c9bf",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-124-5yds11124' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.83 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-129-u7z5jd129' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.77 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "authorized-tool-rails--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/authorized-tool-rails--faulty__X5VYHCd/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "authorized-tool-rails--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "861065baf892562a17a99cb5254bc42f13b91b170c6facf2eb2d340c2573225f",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "authorized-tool-rails--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/authorized-tool-rails--reference__197k141/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "authorized-tool-rails--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "1b4e7f8eb42530c76e42ec1c1e43fd0be3329400e40ba51112126dd2b375030b",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-foundry--delegated_reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-foundry--delegated_reference__0RVd4DH/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "boundary-extraction-foundry--delegated_reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "912c8dc6d07ca9c19f4dc5cc504c3dc13554fe26c743c428994110652fb954b1",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-126-uln81r126' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.07 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-131-l0yvip131' as your home directory temporarily.\n📦 Packwerk is inspecting 13 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n.............\n📦 Finished in 2.09 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 10 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-foundry--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-foundry--faulty__eWjqxDO/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "boundary-extraction-foundry--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "2e96309cda4b958a3590c0b3d779adf8b475ff53072c0fe127ef34ca81a4fef0",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-126-e4iwmu126' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.28 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-131-a9rumg131' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.8 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-foundry--ignored_catalog",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-foundry--ignored_catalog__OHxmnm7/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "boundary-extraction-foundry--ignored_catalog",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "24692ad7dbfaee9ab88e54247b53cdca027f62eb6317d36e8f943c26c5c42e1f",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "failed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-131-numkzd131' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.8 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 1,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-136-5prbft136' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n\u001b[31mE\u001b[m...........\n📦 Finished in 1.69 seconds\n\n\u001b[36mapp/controllers/documents_controller.rb\u001b[m:9:17\nPrivacy violation: '::Knowledge::Document' is private to 'packs/knowledge' but referenced from '.'.\nIs there a public entrypoint in 'packs/knowledge/app/public/' that you can use instead?\n\nInference details: this is a reference to ::Knowledge::Document which seems to be defined in packs/knowledge/app/models/knowledge/document.rb.\nTo receive help interpreting or resolving this error message, see: https://github.com/Shopify/packwerk/blob/main/TROUBLESHOOT.md#Troubleshooting-violations\n\n1 offense detected\n\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-foundry--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-foundry--reference__BN4cRMf/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "boundary-extraction-foundry--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "9dd70409abeb47989e60c8915762b3e1bf0315731ff49dd1904bdffa2a9137dc",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-128-ra8og2128' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.15 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-133-afw2r133' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.63 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-foundry--relocated_reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-foundry--relocated_reference__zh0UYYM/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "boundary-extraction-foundry--relocated_reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "e365b758e9a5de62bd80cdcb30889fff1baf0fb2e9bc1a656936064952710ee4",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-125-ecfc1j125' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.22 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-130-9z5ktm130' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.83 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-packs--delegated_reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-packs--delegated_reference__QCm9guW/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "boundary-extraction-packs--delegated_reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "381557cf67f84826d7038cead6a4c3255737213a75443d54ca4dc8a14bc710b2",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-127-69cs63127' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.06 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-132-kre91i132' as your home directory temporarily.\n📦 Packwerk is inspecting 13 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n.............\n📦 Finished in 1.75 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-packs--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-packs--faulty__UrftSDt/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "boundary-extraction-packs--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "97a75b3cbe3c156cd2d5c47354630428dfaf3b026ed154a7b11e4f3fafec494b",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-127-idtvae127' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.26 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-132-kt9bhk132' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.77 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-packs--ignored_catalog",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-packs--ignored_catalog__0kZDxxl/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "boundary-extraction-packs--ignored_catalog",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "b4c30cce4b9c56492b51deeb9d5208413626a28fcafbed33ebf279883f0bc066",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "failed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-130-quns3z130' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.16 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 1,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-135-y18bq3135' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n..........\u001b[31mE\u001b[m.\n📦 Finished in 2.09 seconds\n\n\u001b[36mapp/controllers/documents_controller.rb\u001b[m:9:17\nPrivacy violation: '::Knowledge::Document' is private to 'packs/knowledge' but referenced from '.'.\nIs there a public entrypoint in 'packs/knowledge/app/public/' that you can use instead?\n\nInference details: this is a reference to ::Knowledge::Document which seems to be defined in packs/knowledge/app/models/knowledge/document.rb.\nTo receive help interpreting or resolving this error message, see: https://github.com/Shopify/packwerk/blob/main/TROUBLESHOOT.md#Troubleshooting-violations\n\n1 offense detected\n\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-packs--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-packs--reference__ughJm9D/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "boundary-extraction-packs--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "a1fd6636781e0c3578a5dd156a426b5440bf4579e8413a7456ec612298359a9a",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-127-hsd4mb127' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 2.37 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-132-osqu0s132' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n<internal:dir>:184:in 'Dir.open': No such file or directory @ dir_initialize - /tmp/bundler20260918-132-osqu0s132 (Errno::ENOENT)\n\tfrom /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2166:in 'Dir.children'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2166:in 'Bundler::FileUtils::Entry_#entries'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:2360:in 'Bundler::FileUtils::Entry_#preorder_traverse'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler/vendor/fileutils/lib/fileutils.rb:1406:in 'Bundler::FileUtils.remove_entry_secure'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler.rb:355:in 'Bundler.rm_rf'\n\tfrom /usr/local/lib/ruby/3.4.0/bundler.rb:687:in 'block (2 levels) in Bundler.tmp_home_path'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:675:in 'Process.fork'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:675:in 'Parallel.worker'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:658:in 'block in Parallel.create_workers'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:657:in 'Array#each'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:657:in 'Enumerable#each_with_index'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:657:in 'Parallel.create_workers'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:595:in 'Parallel.work_in_processes'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:317:in 'Parallel.map'\n\tfrom /usr/local/bundle/gems/parallel-2.2.0/lib/parallel.rb:330:in 'Parallel.flat_map'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/parse_run.rb:38:in 'Packwerk::ParseRun#find_offenses'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::ParseRun#_on_method_added'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/commands/check_command.rb:27:in 'block in Packwerk::Commands::CheckCommand#run'\n\tfrom /usr/local/lib/ruby/3.4.0/benchmark.rb:323:in 'Benchmark.realtime'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:29:in 'Packwerk::Formatters::ProgressFormatter#started_inspection'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::Formatters::ProgressFormatter#_on_method_added'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/commands/check_command.rb:26:in 'Packwerk::Commands::CheckCommand#run'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::Commands::CheckCommand#_on_method_added'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/cli.rb:58:in 'Packwerk::Cli#execute_command'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::Cli#_on_method_added'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/cli.rb:41:in 'Packwerk::Cli#run'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'UnboundMethod#bind_call'\n\tfrom /usr/local/bundle/gems/sorbet-runtime-0.6.13505/lib/types/private/methods/_methods.rb:465:in 'block in Packwerk::Cli#_on_method_added'\n\tfrom /usr/local/bundle/gems/packwerk-3.1.0/exe/packwerk:16:in '<top (required)>'\n\tfrom /usr/local/bundle/bin/packwerk:25:in 'Kernel#load'\n\tfrom /usr/local/bundle/bin/packwerk:25:in '<main>'\n............\n📦 Finished in 2.11 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-packs--relocated_reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-packs--relocated_reference__osh7pOR/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "boundary-extraction-packs--relocated_reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "bcca60b805da8a1d7d53ed71ed51ad3119974993881599fca743f3766bd7c372",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-126-qoj3o2126' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 3.02 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-131-j6002t131' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 4.49 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-rails--delegated_reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-rails--delegated_reference__9rBZyBk/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "boundary-extraction-rails--delegated_reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "ffcd2e96636395030067a9e4a887d7db01eb8a6ecfc737fe4dba71c7ae5b29c8",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-rails--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-rails--faulty__tI5cA9O/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "boundary-extraction-rails--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e8af60a026a5bbde42fa8d43570388b703c3c1a055d9e75c1a9d93c2a5d3755a",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-rails--ignored_catalog",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-rails--ignored_catalog__eIrV8Cu/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "boundary-extraction-rails--ignored_catalog",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "6c3d32a37c025943ff16fccb9f0781f96bdf5b1e35a60f9ff2c7d338670d7586",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-rails--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-rails--reference__xER1uZP/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "boundary-extraction-rails--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "3ab33ad06ae68d8e559ae48be69ca9e25744fa4cd03925334bc71737279745e5",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "boundary-extraction-rails--relocated_reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/boundary-extraction-rails--relocated_reference__y5QYKy5/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "boundary-extraction-rails--relocated_reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "f957dadef183a336b23bd22a1d0c6ea011f36f9d0364301e04fdaed704617599",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "duplicate-delivery-foundry--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/duplicate-delivery-foundry--faulty__YZKgi9D/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "duplicate-delivery-foundry--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "8aabafcbc90e85d6cccd4b2c0c231542f0d6144e2cfd7dbfd1164c9c6c6d3cee",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-127-cb9zax127' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.79 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-132-d1s9im132' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.41 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "duplicate-delivery-foundry--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/duplicate-delivery-foundry--reference__J1Ifdkb/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "duplicate-delivery-foundry--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "3bc074243e7cb1219af50b5fa99f1d5d13feba7ed5e2180270f3391affa63b17",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-125-hrjh62125' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 3.07 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-130-v1dn3m130' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 2.76 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "duplicate-delivery-packs--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/duplicate-delivery-packs--faulty__BpEPphS/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "duplicate-delivery-packs--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "8aabafcbc90e85d6cccd4b2c0c231542f0d6144e2cfd7dbfd1164c9c6c6d3cee",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-125-q05trq125' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.6 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-130-ig2v85130' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.33 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "duplicate-delivery-packs--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/duplicate-delivery-packs--reference__pvajKIj/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "duplicate-delivery-packs--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "3bc074243e7cb1219af50b5fa99f1d5d13feba7ed5e2180270f3391affa63b17",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-127-w4qbv6127' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.28 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-132-o7f5ri132' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.46 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "duplicate-delivery-rails--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/duplicate-delivery-rails--faulty__akPuGBK/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "duplicate-delivery-rails--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "b4ce6d2a05d7dff7423407910072658cef3101ccba2b51975a6149dc93639713",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "duplicate-delivery-rails--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/duplicate-delivery-rails--reference__MSOg9xv/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "duplicate-delivery-rails--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "caa71291d8d828937a34746fe44f9959266085bf07671eea4bcb11666a75f069",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "private-coupling-foundry--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/private-coupling-foundry--faulty__9jcaajc/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "private-coupling-foundry--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "failed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-124-4o0jmj124' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.93 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 1,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-129-pdawnx129' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n...\u001b[31mE\u001b[m........\n📦 Finished in 1.33 seconds\n\n\u001b[36mpacks/answering/app/services/answering/retrieval_tool.rb\u001b[m:14:6\nPrivacy violation: '::Knowledge::Document' is private to 'packs/knowledge' but referenced from 'packs/answering'.\nIs there a public entrypoint in 'packs/knowledge/app/public/' that you can use instead?\n\nInference details: this is a reference to ::Knowledge::Document which seems to be defined in packs/knowledge/app/models/knowledge/document.rb.\nTo receive help interpreting or resolving this error message, see: https://github.com/Shopify/packwerk/blob/main/TROUBLESHOOT.md#Troubleshooting-violations\n\n1 offense detected\n\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "private-coupling-foundry--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/private-coupling-foundry--reference__mCQW774/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "private-coupling-foundry--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "e31118472d17937659f3218fae3ae69fbebb86d374c9337811368a2229d23201",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-125-45ofcu125' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.81 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-130-iz0xy9130' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.28 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "private-coupling-packs--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/private-coupling-packs--faulty__z9yK9sx/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "private-coupling-packs--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "failed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-127-d4i298127' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.06 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 1,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-132-j7w29u132' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n...\u001b[31mE\u001b[m........\n📦 Finished in 1.44 seconds\n\n\u001b[36mpacks/answering/app/services/answering/retrieval_tool.rb\u001b[m:14:6\nPrivacy violation: '::Knowledge::Document' is private to 'packs/knowledge' but referenced from 'packs/answering'.\nIs there a public entrypoint in 'packs/knowledge/app/public/' that you can use instead?\n\nInference details: this is a reference to ::Knowledge::Document which seems to be defined in packs/knowledge/app/models/knowledge/document.rb.\nTo receive help interpreting or resolving this error message, see: https://github.com/Shopify/packwerk/blob/main/TROUBLESHOOT.md#Troubleshooting-violations\n\n1 offense detected\n\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "private-coupling-packs--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/private-coupling-packs--reference__JKTILl1/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "private-coupling-packs--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "e31118472d17937659f3218fae3ae69fbebb86d374c9337811368a2229d23201",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-126-tygn43126' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.64 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-131-f81s25131' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 0.97 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "private-coupling-rails--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/private-coupling-rails--faulty__8scROcT/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "private-coupling-rails--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "private-coupling-rails--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/private-coupling-rails--reference__pxwgoFi/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "private-coupling-rails--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "79716542762d3ae00c321d95c919714c36be06ed9b9064dd69fbb717badda855",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "search-rebuild-foundry--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/search-rebuild-foundry--faulty__IYml0ju/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "search-rebuild-foundry--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "036021130088ada6b28cbdb6dda2b47b3df836cec41b80c9489e987ece6af805",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-126-umjq9m126' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.08 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-131-8plxxj131' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.32 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "search-rebuild-foundry--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/search-rebuild-foundry--reference__PoTtX7r/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "search-rebuild-foundry--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "1b942ece77320a263cbee2f1b382fcb9ef2079cdfa21bb6c5d7d4ea0306b459e",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-126-c3qk0i126' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.42 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-131-rmoscz131' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.7 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "search-rebuild-packs--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/search-rebuild-packs--faulty__lHVvf9N/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "search-rebuild-packs--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "036021130088ada6b28cbdb6dda2b47b3df836cec41b80c9489e987ece6af805",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-125-mg7sog125' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.94 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-130-77mr7a130' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.46 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "search-rebuild-packs--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/search-rebuild-packs--reference__ulfsqSr/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "search-rebuild-packs--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "1b942ece77320a263cbee2f1b382fcb9ef2079cdfa21bb6c5d7d4ea0306b459e",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-125-pilsgv125' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.41 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-130-a5bu4f130' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.34 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "search-rebuild-rails--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/search-rebuild-rails--faulty__QlyN3cB/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "search-rebuild-rails--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "ea36fd20cb7feebf67a1c3e6c937661cfee77451487f9473bb493faeae458c0f",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "search-rebuild-rails--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/search-rebuild-rails--reference__K38ImyA/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "search-rebuild-rails--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "0c778c0a0704f0d393b76e6a9766efeab3b5594b02912fc8cd42b30cf13dec8c",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "stale-embedding-foundry--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/stale-embedding-foundry--faulty__BeaD6Xz/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "stale-embedding-foundry--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "31ffe9a92a45c0dd23a59e948adc3d12317708398fe6f76193a59a6ac5d2a10c",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-125-y6pdcd125' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.45 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-130-nh22lc130' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.55 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "stale-embedding-foundry--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/stale-embedding-foundry--reference__z15obAZ/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "stale-embedding-foundry--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "066d918cb93b1322d568a848548896f6863290940fd07c482184650fdb0d616a",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-127-6jazjo127' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.82 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-132-7jeymq132' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.43 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "stale-embedding-packs--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/stale-embedding-packs--faulty__LricQAa/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "stale-embedding-packs--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "31ffe9a92a45c0dd23a59e948adc3d12317708398fe6f76193a59a6ac5d2a10c",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-127-f526nc127' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.54 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-132-j9gkno132' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.4 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "stale-embedding-packs--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/stale-embedding-packs--reference__ViJe5SI/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "stale-embedding-packs--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "066d918cb93b1322d568a848548896f6863290940fd07c482184650fdb0d616a",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "passed",
+            "policy_errors": [],
+            "checks": [
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-126-iliy1d126' as your home directory temporarily.\n📦 Packwerk is running validation...\n\n📦 Finished in 1.4 seconds\n\nValidation successful 🎉\n"
+              },
+              {
+                "exit_code": 0,
+                "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n`/tmp/home` is not a directory.\nBundler will use `/tmp/bundler20260918-131-xbknnb131' as your home directory temporarily.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 1.84 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+              }
+            ]
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "stale-embedding-rails--faulty",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/stale-embedding-rails--faulty__HCkVK08/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "stale-embedding-rails--faulty",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "030c4087e436e225aeff3f0c00f6c04f55b01378e615f314625d21fb7551a171",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "failed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    },
+    {
+      "task": "stale-embedding-rails--reference",
+      "native_result": "/private/tmp/foundry-lemans-controls-selected-20260918/stale-embedding-rails--reference__os7G7J8/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "stale-embedding-rails--reference",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "0492a8e920a3e775107a1f5c473b694066b139af9e9dda233a546860e88072f7",
+        "foundry": {
+          "visible": "passed",
+          "behavioral": "passed",
+          "architecture": {
+            "status": "not_applicable"
+          }
+        },
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "foundry"
+    }
+  ],
+  "counts": {
+    "failed": 21,
+    "passed": 24
+  },
+  "native_files": {
+    "authorized-tool-foundry--faulty__wRqUXEw/agent.patch": "e8b78b4424b6d9455b4be70968b1bfdf4b21759f471ebed2095a37467e9bab92",
+    "authorized-tool-foundry--faulty__wRqUXEw/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "authorized-tool-foundry--faulty__wRqUXEw/foundry.json": "b3b9c627a0dd50d2bc8eee5f3718715040475f4be4f9beab72f8612e780ed4e6",
+    "authorized-tool-foundry--faulty__wRqUXEw/result.json": "e81c284221cc6cb5c602e7725e82b76064a5cd339174df284c0843e42badf3a1",
+    "authorized-tool-foundry--faulty__wRqUXEw/verifier.log": "c8869e8c7c2f7fd3b01fba8d565279f8950998642004cf3cab70d6feaf26975a",
+    "authorized-tool-foundry--reference__s8VwVpD/agent.patch": "3015de9514134492ffdac2cb37fe26292ee58b02129ab02e29f23e03b875c9bf",
+    "authorized-tool-foundry--reference__s8VwVpD/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "authorized-tool-foundry--reference__s8VwVpD/foundry.json": "53ed4ee84069d24111e8a93536bfb72a4f297aadfdcdce22d8b8523ac0e8b343",
+    "authorized-tool-foundry--reference__s8VwVpD/result.json": "5326c3a422fa282c09f28db63d8b49a1c899cb632c1e410b68f249ae903f34c7",
+    "authorized-tool-foundry--reference__s8VwVpD/verifier.log": "366b4f9347118ad667ef4a2edff2538c23b44b2a120ca86e8079d449b7977e0b",
+    "authorized-tool-packs--faulty__hAvx9yI/agent.patch": "e8b78b4424b6d9455b4be70968b1bfdf4b21759f471ebed2095a37467e9bab92",
+    "authorized-tool-packs--faulty__hAvx9yI/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "authorized-tool-packs--faulty__hAvx9yI/foundry.json": "76fb141007d4664d8f57a1b8c5d5159fc8b00506304cbf20ada32fb484b6d44a",
+    "authorized-tool-packs--faulty__hAvx9yI/result.json": "aefe7117b08bdb95800118b910b3f7f32b19c485407f3ffa8da0b182687fe647",
+    "authorized-tool-packs--faulty__hAvx9yI/verifier.log": "7b38ddd3b1fc8db1761bc046d1565ba7edae5addd3712586f2f234d62a0aca59",
+    "authorized-tool-packs--reference__aOGxQHA/agent.patch": "3015de9514134492ffdac2cb37fe26292ee58b02129ab02e29f23e03b875c9bf",
+    "authorized-tool-packs--reference__aOGxQHA/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "authorized-tool-packs--reference__aOGxQHA/foundry.json": "57a64a4e0e46db1b2e3ac4f99815edd11acfb63a06a23b43f51316a83688470d",
+    "authorized-tool-packs--reference__aOGxQHA/result.json": "2b416566363fd9f18f049ae38f1297146a39f99ebe71bc801b56b3ed67797cd0",
+    "authorized-tool-packs--reference__aOGxQHA/verifier.log": "3ef31f0d5f2cd95f9437d1a03a0c37214fbe13565878b948956c8075ccb434e2",
+    "authorized-tool-rails--faulty__X5VYHCd/agent.patch": "861065baf892562a17a99cb5254bc42f13b91b170c6facf2eb2d340c2573225f",
+    "authorized-tool-rails--faulty__X5VYHCd/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "authorized-tool-rails--faulty__X5VYHCd/foundry.json": "19df1c4b56b10dc49dab0ac422cedf5a26f3940d82f9fb81416f5a88e8604d2c",
+    "authorized-tool-rails--faulty__X5VYHCd/result.json": "67fe2c2cacc84ff9d9811bba421448756d4fba4a5fc82bb878a59cf4a5768c3e",
+    "authorized-tool-rails--faulty__X5VYHCd/verifier.log": "16c5bc43901ec64bda90f9d7108688c312f372581c4735e577b4b2584cc2b3f9",
+    "authorized-tool-rails--reference__197k141/agent.patch": "1b4e7f8eb42530c76e42ec1c1e43fd0be3329400e40ba51112126dd2b375030b",
+    "authorized-tool-rails--reference__197k141/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "authorized-tool-rails--reference__197k141/foundry.json": "5e517932b9fc8bd2cd8b1c4c28b2577f3715239124e0f3673bdc2f585bb05e96",
+    "authorized-tool-rails--reference__197k141/result.json": "b1f64f739f27ae50010951bf4c7fa4af4bb3e8dff630793b935bfbe9a6d26c05",
+    "authorized-tool-rails--reference__197k141/verifier.log": "a477ad86077384c0980aaba480e39009f60793328ac16092fe235abf593f3846",
+    "boundary-extraction-foundry--delegated_reference__0RVd4DH/agent.patch": "912c8dc6d07ca9c19f4dc5cc504c3dc13554fe26c743c428994110652fb954b1",
+    "boundary-extraction-foundry--delegated_reference__0RVd4DH/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "boundary-extraction-foundry--delegated_reference__0RVd4DH/foundry.json": "56c6867190db4d7e77bf27e0fd404e77fe4b94c4a0636c328a6d4b81a4b7fc7f",
+    "boundary-extraction-foundry--delegated_reference__0RVd4DH/result.json": "6f7b41d67883c9e548855f2b8f06c18fa8908f59de9b940f2857d6e3915c3453",
+    "boundary-extraction-foundry--delegated_reference__0RVd4DH/verifier.log": "dc66567570c9d68d63581525257ee14604a5fb34af133957a7d35981d9fc43f4",
+    "boundary-extraction-foundry--faulty__eWjqxDO/agent.patch": "2e96309cda4b958a3590c0b3d779adf8b475ff53072c0fe127ef34ca81a4fef0",
+    "boundary-extraction-foundry--faulty__eWjqxDO/checks.json": "550997f6f6582329406e1ef190d175fe86027c60022094e097ad8d823bb481ba",
+    "boundary-extraction-foundry--faulty__eWjqxDO/foundry.json": "4067c89bb7984f40d0f47abbcacc450634f7aa71e9beb5c95c199819ec2e03cd",
+    "boundary-extraction-foundry--faulty__eWjqxDO/result.json": "2d97a71246d57dd9269e15b540f031d3918eaede7d96db799b0955d767992baa",
+    "boundary-extraction-foundry--faulty__eWjqxDO/verifier.log": "6b4cf5d83a053181e061f525a885f55896f3dd4f43af91917cd63db8eea57f07",
+    "boundary-extraction-foundry--ignored_catalog__OHxmnm7/agent.patch": "24692ad7dbfaee9ab88e54247b53cdca027f62eb6317d36e8f943c26c5c42e1f",
+    "boundary-extraction-foundry--ignored_catalog__OHxmnm7/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "boundary-extraction-foundry--ignored_catalog__OHxmnm7/foundry.json": "72838b39e190c01175eb6911a5fe54a5055a117e2cbf3cef7f61d3b290b50905",
+    "boundary-extraction-foundry--ignored_catalog__OHxmnm7/result.json": "c994077d1f947adafcd43b8e842de2c7a7f85154aa94f76d36e0425ce8ed5ff4",
+    "boundary-extraction-foundry--ignored_catalog__OHxmnm7/verifier.log": "9bc5d6bc1152adc4f80e7456d334db4ae84a376aa7c0288567bcb05ebac0142b",
+    "boundary-extraction-foundry--reference__BN4cRMf/agent.patch": "9dd70409abeb47989e60c8915762b3e1bf0315731ff49dd1904bdffa2a9137dc",
+    "boundary-extraction-foundry--reference__BN4cRMf/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "boundary-extraction-foundry--reference__BN4cRMf/foundry.json": "4d81afd637c6aa51d51667cdab0fea1547df64bf0326ad4a75c1154134668ff9",
+    "boundary-extraction-foundry--reference__BN4cRMf/result.json": "ca32a0ec1eb86d6ee067bc3ce23ad900b0ec26ce7b54c7796994968aef590dc4",
+    "boundary-extraction-foundry--reference__BN4cRMf/verifier.log": "c5dab7cf2344232673b78c74ca851db39fe37ef1acaa6045835b193f2628df2e",
+    "boundary-extraction-foundry--relocated_reference__zh0UYYM/agent.patch": "e365b758e9a5de62bd80cdcb30889fff1baf0fb2e9bc1a656936064952710ee4",
+    "boundary-extraction-foundry--relocated_reference__zh0UYYM/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "boundary-extraction-foundry--relocated_reference__zh0UYYM/foundry.json": "9671bb2f98f3b41fe45660782cb3cc7fc0604a910cae7b924d0f97b037a210df",
+    "boundary-extraction-foundry--relocated_reference__zh0UYYM/result.json": "c274e0242402528b6082b482506f82cfe6021aeea2e37d91b85c812c2afdccf1",
+    "boundary-extraction-foundry--relocated_reference__zh0UYYM/verifier.log": "793d180882e3a349c31d090d26583e1d09294e4f15a7292e3ffa3a0187f634f8",
+    "boundary-extraction-packs--delegated_reference__QCm9guW/agent.patch": "381557cf67f84826d7038cead6a4c3255737213a75443d54ca4dc8a14bc710b2",
+    "boundary-extraction-packs--delegated_reference__QCm9guW/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "boundary-extraction-packs--delegated_reference__QCm9guW/foundry.json": "dd44aca362596882932d32c715b6220ccce25a58bda3ea143beb1efa9292205f",
+    "boundary-extraction-packs--delegated_reference__QCm9guW/result.json": "94ece37500ae8aa998c4e87d2272ffb602f8a13eef13ab2cee8a32e421e8a9e4",
+    "boundary-extraction-packs--delegated_reference__QCm9guW/verifier.log": "0f349bfea5c6f5c8cba22bb02531eeaf16ca3ba5377edd647ae14de27de4df1b",
+    "boundary-extraction-packs--faulty__UrftSDt/agent.patch": "97a75b3cbe3c156cd2d5c47354630428dfaf3b026ed154a7b11e4f3fafec494b",
+    "boundary-extraction-packs--faulty__UrftSDt/checks.json": "550997f6f6582329406e1ef190d175fe86027c60022094e097ad8d823bb481ba",
+    "boundary-extraction-packs--faulty__UrftSDt/foundry.json": "1773583f5779eb6f65d0ad09a891aa1b65ecd7780ebe87b8d99c2a1e3025c99d",
+    "boundary-extraction-packs--faulty__UrftSDt/result.json": "e124452785481a1b5a5bc12aa1c3d8abbd34f145dffa19949f4c8f1694e5a051",
+    "boundary-extraction-packs--faulty__UrftSDt/verifier.log": "70124dcf9fb245850b0eaaa14e1afa4ed6720201fc77ded7262fd1cf13b87920",
+    "boundary-extraction-packs--ignored_catalog__0kZDxxl/agent.patch": "b4c30cce4b9c56492b51deeb9d5208413626a28fcafbed33ebf279883f0bc066",
+    "boundary-extraction-packs--ignored_catalog__0kZDxxl/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "boundary-extraction-packs--ignored_catalog__0kZDxxl/foundry.json": "04007bb64bfd192d1d197ff0fdb01603569112e232643520857947a8b341d4cc",
+    "boundary-extraction-packs--ignored_catalog__0kZDxxl/result.json": "c7afba9e1b242573f507cea86e5cae09c99bdf58db288612fb9acdbddbaed53e",
+    "boundary-extraction-packs--ignored_catalog__0kZDxxl/verifier.log": "9cd207e674473ab8fd23add324e91f40aee5aab2e5d7a59066471993b929f56e",
+    "boundary-extraction-packs--reference__ughJm9D/agent.patch": "a1fd6636781e0c3578a5dd156a426b5440bf4579e8413a7456ec612298359a9a",
+    "boundary-extraction-packs--reference__ughJm9D/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "boundary-extraction-packs--reference__ughJm9D/foundry.json": "18272ca8f3ffa8ff513a1a3759241c73be8a4ed6c581e702f6d2eeecec2a2d44",
+    "boundary-extraction-packs--reference__ughJm9D/result.json": "03dc53e8d49222add980ad1030279ab997d7953f4f8e873364b1c025326199ed",
+    "boundary-extraction-packs--reference__ughJm9D/verifier.log": "d056f3a0c86afadead158b7dd82099d0f1a4733762bc9733f4edf2a4f5134c6d",
+    "boundary-extraction-packs--relocated_reference__osh7pOR/agent.patch": "bcca60b805da8a1d7d53ed71ed51ad3119974993881599fca743f3766bd7c372",
+    "boundary-extraction-packs--relocated_reference__osh7pOR/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "boundary-extraction-packs--relocated_reference__osh7pOR/foundry.json": "04900605cb1f99edb7afb8778b294f1140b59f962c7c2e4beb66f5dfec75aebe",
+    "boundary-extraction-packs--relocated_reference__osh7pOR/result.json": "1398daf692a40d023316ab9210313707ebfb5c040c423c5db1c8d36acd6bec7a",
+    "boundary-extraction-packs--relocated_reference__osh7pOR/verifier.log": "16459793ea38cf615c4dfe61f0298a6b8b5a220176fbd4048722887ec3197478",
+    "boundary-extraction-rails--delegated_reference__9rBZyBk/agent.patch": "ffcd2e96636395030067a9e4a887d7db01eb8a6ecfc737fe4dba71c7ae5b29c8",
+    "boundary-extraction-rails--delegated_reference__9rBZyBk/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "boundary-extraction-rails--delegated_reference__9rBZyBk/foundry.json": "5e517932b9fc8bd2cd8b1c4c28b2577f3715239124e0f3673bdc2f585bb05e96",
+    "boundary-extraction-rails--delegated_reference__9rBZyBk/result.json": "0da477b887152590a80957eb8355fe16cf0f12d65118e921731b7cf1ca5ccb6a",
+    "boundary-extraction-rails--delegated_reference__9rBZyBk/verifier.log": "6352633d6805f2a1517f8c7267d88609450e40203dbcca3557a2e1f19fc3a98e",
+    "boundary-extraction-rails--faulty__tI5cA9O/agent.patch": "e8af60a026a5bbde42fa8d43570388b703c3c1a055d9e75c1a9d93c2a5d3755a",
+    "boundary-extraction-rails--faulty__tI5cA9O/checks.json": "550997f6f6582329406e1ef190d175fe86027c60022094e097ad8d823bb481ba",
+    "boundary-extraction-rails--faulty__tI5cA9O/foundry.json": "19df1c4b56b10dc49dab0ac422cedf5a26f3940d82f9fb81416f5a88e8604d2c",
+    "boundary-extraction-rails--faulty__tI5cA9O/result.json": "0c5baec874c7c392d1820b676413e26d2ec2a7f9448a7bb1982259d20aae5694",
+    "boundary-extraction-rails--faulty__tI5cA9O/verifier.log": "8d31093a69cacb85ca7a5286f75c1ff4008d6a6b676ff6f4f85d87ae4e45607c",
+    "boundary-extraction-rails--ignored_catalog__eIrV8Cu/agent.patch": "6c3d32a37c025943ff16fccb9f0781f96bdf5b1e35a60f9ff2c7d338670d7586",
+    "boundary-extraction-rails--ignored_catalog__eIrV8Cu/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "boundary-extraction-rails--ignored_catalog__eIrV8Cu/foundry.json": "19df1c4b56b10dc49dab0ac422cedf5a26f3940d82f9fb81416f5a88e8604d2c",
+    "boundary-extraction-rails--ignored_catalog__eIrV8Cu/result.json": "ce964477e6294149ab129d29737227bb9f83aa552aaf8b1bdfca866215465caa",
+    "boundary-extraction-rails--ignored_catalog__eIrV8Cu/verifier.log": "e004c3663dd5181d13f42e57b7216abb1d6a3b4fe14ae1cd62e0524632f47646",
+    "boundary-extraction-rails--reference__xER1uZP/agent.patch": "3ab33ad06ae68d8e559ae48be69ca9e25744fa4cd03925334bc71737279745e5",
+    "boundary-extraction-rails--reference__xER1uZP/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "boundary-extraction-rails--reference__xER1uZP/foundry.json": "5e517932b9fc8bd2cd8b1c4c28b2577f3715239124e0f3673bdc2f585bb05e96",
+    "boundary-extraction-rails--reference__xER1uZP/result.json": "999c729097b49c43eb1bb34fc235e4d2b9d86b9e68982f9d8bf9ad16127cc13d",
+    "boundary-extraction-rails--reference__xER1uZP/verifier.log": "df679f4546584085962dc59fe7960e9e7bf3410308a4c459b17529e8c90512f4",
+    "boundary-extraction-rails--relocated_reference__y5QYKy5/agent.patch": "f957dadef183a336b23bd22a1d0c6ea011f36f9d0364301e04fdaed704617599",
+    "boundary-extraction-rails--relocated_reference__y5QYKy5/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "boundary-extraction-rails--relocated_reference__y5QYKy5/foundry.json": "5e517932b9fc8bd2cd8b1c4c28b2577f3715239124e0f3673bdc2f585bb05e96",
+    "boundary-extraction-rails--relocated_reference__y5QYKy5/result.json": "79e4eb88c3f936209fe2580bbc6c9311a1ade18b70856e76afb333327666f956",
+    "boundary-extraction-rails--relocated_reference__y5QYKy5/verifier.log": "7757932d24c833d9ef4f393f061bc154d59d24e165561d35207895caed868db2",
+    "duplicate-delivery-foundry--faulty__YZKgi9D/agent.patch": "8aabafcbc90e85d6cccd4b2c0c231542f0d6144e2cfd7dbfd1164c9c6c6d3cee",
+    "duplicate-delivery-foundry--faulty__YZKgi9D/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "duplicate-delivery-foundry--faulty__YZKgi9D/foundry.json": "3fa7864ae912b00eebdda7113861a53e46727eb82619e65431499fd6018f02c4",
+    "duplicate-delivery-foundry--faulty__YZKgi9D/result.json": "1fa946c06f59458668e7a9e0be6368c81d51e0eb789d37077be81d3fce9d5242",
+    "duplicate-delivery-foundry--faulty__YZKgi9D/verifier.log": "c08689bb104d173894907dfacb6c1788286d6422c540218cdf9163e32ec848a2",
+    "duplicate-delivery-foundry--reference__J1Ifdkb/agent.patch": "3bc074243e7cb1219af50b5fa99f1d5d13feba7ed5e2180270f3391affa63b17",
+    "duplicate-delivery-foundry--reference__J1Ifdkb/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "duplicate-delivery-foundry--reference__J1Ifdkb/foundry.json": "5100ef2fb12e0c302798b916b040125a673b095e0348ab6709b9102337a10061",
+    "duplicate-delivery-foundry--reference__J1Ifdkb/result.json": "580863dd155c274518441c9222a41a2ddab06d081c49bc32fb09445df152e00a",
+    "duplicate-delivery-foundry--reference__J1Ifdkb/verifier.log": "19fa8001b2be306de1ec28db88b0672b9cbfe333de23165fe7900f06ca45db49",
+    "duplicate-delivery-packs--faulty__BpEPphS/agent.patch": "8aabafcbc90e85d6cccd4b2c0c231542f0d6144e2cfd7dbfd1164c9c6c6d3cee",
+    "duplicate-delivery-packs--faulty__BpEPphS/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "duplicate-delivery-packs--faulty__BpEPphS/foundry.json": "05b5ba0e6acd99c6028f75201b49282445edb6654f2bbc8cbc0785187f01779c",
+    "duplicate-delivery-packs--faulty__BpEPphS/result.json": "d8e68eb1881d5c3bba324867b7a2b0169dc1427cb33150836e2bbc34e5d5f83e",
+    "duplicate-delivery-packs--faulty__BpEPphS/verifier.log": "97c77a19da04c06591f4965485fac0199f83ef80affb376357ed94079ed42a4b",
+    "duplicate-delivery-packs--reference__pvajKIj/agent.patch": "3bc074243e7cb1219af50b5fa99f1d5d13feba7ed5e2180270f3391affa63b17",
+    "duplicate-delivery-packs--reference__pvajKIj/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "duplicate-delivery-packs--reference__pvajKIj/foundry.json": "c9eed34badc65dbb12979975bbab8b13485278bf620067849b20aece1b5d160b",
+    "duplicate-delivery-packs--reference__pvajKIj/result.json": "4dbf9f2b95b194da548db166f4b8e94cb8fe0bb261f20d004be561a3abd1d8e7",
+    "duplicate-delivery-packs--reference__pvajKIj/verifier.log": "9d31cbdfca1ccde9e562e6f18451f5ede33c9de58b7349fa38fe1a2ae98e0fc6",
+    "duplicate-delivery-rails--faulty__akPuGBK/agent.patch": "b4ce6d2a05d7dff7423407910072658cef3101ccba2b51975a6149dc93639713",
+    "duplicate-delivery-rails--faulty__akPuGBK/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "duplicate-delivery-rails--faulty__akPuGBK/foundry.json": "19df1c4b56b10dc49dab0ac422cedf5a26f3940d82f9fb81416f5a88e8604d2c",
+    "duplicate-delivery-rails--faulty__akPuGBK/result.json": "2ead1acdf1ca0ce6b6d1c6a7b763a7603b59235ef530caf234d23a44f45e46a9",
+    "duplicate-delivery-rails--faulty__akPuGBK/verifier.log": "a03be8f9fae211c6bae114e90598c69e2e8f266d7efe1f43547cd6259a8a177e",
+    "duplicate-delivery-rails--reference__MSOg9xv/agent.patch": "caa71291d8d828937a34746fe44f9959266085bf07671eea4bcb11666a75f069",
+    "duplicate-delivery-rails--reference__MSOg9xv/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "duplicate-delivery-rails--reference__MSOg9xv/foundry.json": "5e517932b9fc8bd2cd8b1c4c28b2577f3715239124e0f3673bdc2f585bb05e96",
+    "duplicate-delivery-rails--reference__MSOg9xv/result.json": "18fa73f9a977761445342f71ced31261a3b03e7a773ffa0e11eeedd23b2e5f82",
+    "duplicate-delivery-rails--reference__MSOg9xv/verifier.log": "89a3df7f06836a3b7e3666a70fa557fbe5fcac1a926b89679ffee671bdeae109",
+    "private-coupling-foundry--faulty__9jcaajc/agent.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private-coupling-foundry--faulty__9jcaajc/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "private-coupling-foundry--faulty__9jcaajc/foundry.json": "5e25718c98763d8b466d7a0de66760cca267a0eb4cd48f2abc4748cd680422cb",
+    "private-coupling-foundry--faulty__9jcaajc/result.json": "bd2e16ba4bdf6281cbd162cd24bbd21af2cc777b0296159c3953f3464d0d5a72",
+    "private-coupling-foundry--faulty__9jcaajc/verifier.log": "66b922767b4b75fc62c56a8205ffb1c190f7b6feaedbb4244f8ecb1885b84937",
+    "private-coupling-foundry--reference__mCQW774/agent.patch": "e31118472d17937659f3218fae3ae69fbebb86d374c9337811368a2229d23201",
+    "private-coupling-foundry--reference__mCQW774/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "private-coupling-foundry--reference__mCQW774/foundry.json": "057ef0139c3b07471c8e919ecf67a19255de26d4e59163af59131162d796c26e",
+    "private-coupling-foundry--reference__mCQW774/result.json": "952f5ebe3402f603d5bf649d3a99250e2cf83603a6334bf54ab525152c273f63",
+    "private-coupling-foundry--reference__mCQW774/verifier.log": "f865e1e94d96a94ed5b6a8eaa876a6c61b66eb754f5ea55c616122e382c5d24d",
+    "private-coupling-packs--faulty__z9yK9sx/agent.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private-coupling-packs--faulty__z9yK9sx/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "private-coupling-packs--faulty__z9yK9sx/foundry.json": "0cdaec9b21af382fcb8f455a673ebb16ca094614419fa13ec7b1187b1b2d12bb",
+    "private-coupling-packs--faulty__z9yK9sx/result.json": "cd83a9d98cb49d70302ba11783c4263d451655ec525ec35a09081f14c7baad07",
+    "private-coupling-packs--faulty__z9yK9sx/verifier.log": "f66289080d17260715f168de8c32f506de83110cfc06c71a2d489f8ec02ab3a0",
+    "private-coupling-packs--reference__JKTILl1/agent.patch": "e31118472d17937659f3218fae3ae69fbebb86d374c9337811368a2229d23201",
+    "private-coupling-packs--reference__JKTILl1/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "private-coupling-packs--reference__JKTILl1/foundry.json": "fd05561a2da6962c3b7549c9e101e937cc70fc5a55c03621895db1735640a085",
+    "private-coupling-packs--reference__JKTILl1/result.json": "3974b8cd4302bd6163e1416bec0ad46dd5a008485333d6699f7641775d378e9d",
+    "private-coupling-packs--reference__JKTILl1/verifier.log": "2fa5d8d0914ea05042a779c228a8e841e5e5a87cafc8cf9523accf1615b11521",
+    "private-coupling-rails--faulty__8scROcT/agent.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private-coupling-rails--faulty__8scROcT/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "private-coupling-rails--faulty__8scROcT/foundry.json": "19df1c4b56b10dc49dab0ac422cedf5a26f3940d82f9fb81416f5a88e8604d2c",
+    "private-coupling-rails--faulty__8scROcT/result.json": "bbd0f7723c450213bae151010b6ad3e81788e2ab08ddd1f5baf9a49c0f87dca2",
+    "private-coupling-rails--faulty__8scROcT/verifier.log": "1b56d96be300f3867cf74fe70e81d3c540637001edcb46c2b574a939f109aad1",
+    "private-coupling-rails--reference__pxwgoFi/agent.patch": "79716542762d3ae00c321d95c919714c36be06ed9b9064dd69fbb717badda855",
+    "private-coupling-rails--reference__pxwgoFi/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "private-coupling-rails--reference__pxwgoFi/foundry.json": "5e517932b9fc8bd2cd8b1c4c28b2577f3715239124e0f3673bdc2f585bb05e96",
+    "private-coupling-rails--reference__pxwgoFi/result.json": "d369f76a31fcbac29641c914bb0df5a9434e82fc16bbaaadaf59425df7be21dd",
+    "private-coupling-rails--reference__pxwgoFi/verifier.log": "15b7fd2116e64b9c288a3619b11c278f8b5b29ebc32f1bece8cd0fa9ede1082f",
+    "search-rebuild-foundry--faulty__IYml0ju/agent.patch": "036021130088ada6b28cbdb6dda2b47b3df836cec41b80c9489e987ece6af805",
+    "search-rebuild-foundry--faulty__IYml0ju/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "search-rebuild-foundry--faulty__IYml0ju/foundry.json": "5e1c48b8a8eae897741ccf4432a787607a76996f3f1a0a16e2c832afe03382ce",
+    "search-rebuild-foundry--faulty__IYml0ju/result.json": "602ebe0934959d502dfd2fe9babaed2312e217e93e24da9ac24daf10632b0777",
+    "search-rebuild-foundry--faulty__IYml0ju/verifier.log": "4cb6a39046abafb3697487870ff489ef863c60862da78b175bef7bc161b7dcfd",
+    "search-rebuild-foundry--reference__PoTtX7r/agent.patch": "1b942ece77320a263cbee2f1b382fcb9ef2079cdfa21bb6c5d7d4ea0306b459e",
+    "search-rebuild-foundry--reference__PoTtX7r/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "search-rebuild-foundry--reference__PoTtX7r/foundry.json": "eb113ffe071ddcc69d29f5066bee4206c565da78477b9ddfed8d8eba47712a8f",
+    "search-rebuild-foundry--reference__PoTtX7r/result.json": "ee7576f9f756e7f90ba81cd61b866dd1866a7c8eba2e9ebb4826161738c75d24",
+    "search-rebuild-foundry--reference__PoTtX7r/verifier.log": "bb8d149f277e5f2f1a24c41f19743df07d464c35163a114b25d88cf336d7fdff",
+    "search-rebuild-packs--faulty__lHVvf9N/agent.patch": "036021130088ada6b28cbdb6dda2b47b3df836cec41b80c9489e987ece6af805",
+    "search-rebuild-packs--faulty__lHVvf9N/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "search-rebuild-packs--faulty__lHVvf9N/foundry.json": "a8075ff2928482d9888378ac26bef56af176e13b05f7279d595e9cdddb5776a0",
+    "search-rebuild-packs--faulty__lHVvf9N/result.json": "474b77a2f1632b77337c535ebfad3b4717a3bbef0effad457fc813193e998999",
+    "search-rebuild-packs--faulty__lHVvf9N/verifier.log": "1c01dd75b5c8ca7c79f5cbc1ee4e9cd895daa29fb0fe37c8d1a2f2a11609eb22",
+    "search-rebuild-packs--reference__ulfsqSr/agent.patch": "1b942ece77320a263cbee2f1b382fcb9ef2079cdfa21bb6c5d7d4ea0306b459e",
+    "search-rebuild-packs--reference__ulfsqSr/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "search-rebuild-packs--reference__ulfsqSr/foundry.json": "b7139203c98d8ec0a79d63f498c4141a539b6da1f46fd881356721c751be4d36",
+    "search-rebuild-packs--reference__ulfsqSr/result.json": "05ac90e686100f5c5a559b51fe5700f3f21ce750091fcd168f874566eeb8b7d5",
+    "search-rebuild-packs--reference__ulfsqSr/verifier.log": "319485d00e1b866c4699f726fba66c8524a6290a698fe8c136c3b7b9ecc81e6e",
+    "search-rebuild-rails--faulty__QlyN3cB/agent.patch": "ea36fd20cb7feebf67a1c3e6c937661cfee77451487f9473bb493faeae458c0f",
+    "search-rebuild-rails--faulty__QlyN3cB/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "search-rebuild-rails--faulty__QlyN3cB/foundry.json": "19df1c4b56b10dc49dab0ac422cedf5a26f3940d82f9fb81416f5a88e8604d2c",
+    "search-rebuild-rails--faulty__QlyN3cB/result.json": "8330dcd173a810188c7841a29d7ce5dfb74e82a1c74245baa14d2e991a78be0b",
+    "search-rebuild-rails--faulty__QlyN3cB/verifier.log": "25c637288f301f8a783a30ea03bfb4ed51afe0b5d6d8af93d2fb59620fe02c6f",
+    "search-rebuild-rails--reference__K38ImyA/agent.patch": "0c778c0a0704f0d393b76e6a9766efeab3b5594b02912fc8cd42b30cf13dec8c",
+    "search-rebuild-rails--reference__K38ImyA/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "search-rebuild-rails--reference__K38ImyA/foundry.json": "5e517932b9fc8bd2cd8b1c4c28b2577f3715239124e0f3673bdc2f585bb05e96",
+    "search-rebuild-rails--reference__K38ImyA/result.json": "e22427216d342cc4d4f7ac344f79edb78566fdc63915c31c434561f685db09da",
+    "search-rebuild-rails--reference__K38ImyA/verifier.log": "5222c50cabf8aeb2d7f2db73c85d86725e1a5940ad7f50f82dfb52c05d6af771",
+    "selection.json": "e00373979728374684abc3ee1430641437dc21dcfcd20b90d20be82dcea232fd",
+    "stale-embedding-foundry--faulty__BeaD6Xz/agent.patch": "31ffe9a92a45c0dd23a59e948adc3d12317708398fe6f76193a59a6ac5d2a10c",
+    "stale-embedding-foundry--faulty__BeaD6Xz/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "stale-embedding-foundry--faulty__BeaD6Xz/foundry.json": "873017a1614c2eb20901f5e22af5498a69c57473894b81ec69ee0da62575604c",
+    "stale-embedding-foundry--faulty__BeaD6Xz/result.json": "a45de9217dbd5a5eacd83dece96f57403376eb01dfd2274e5aba7f71f05d89d1",
+    "stale-embedding-foundry--faulty__BeaD6Xz/verifier.log": "e632a1ad6b0423b639b4af1abda43e6eadba8a599088f7c388f772f27ca53fc9",
+    "stale-embedding-foundry--reference__z15obAZ/agent.patch": "066d918cb93b1322d568a848548896f6863290940fd07c482184650fdb0d616a",
+    "stale-embedding-foundry--reference__z15obAZ/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "stale-embedding-foundry--reference__z15obAZ/foundry.json": "ce5b497e4b109ba81b457d7cf6b0c87178444fb4784c8ba2603fbe43c89fd4e3",
+    "stale-embedding-foundry--reference__z15obAZ/result.json": "e52eb4bc45d174d913363e4a13e5fd108dca3dec8aa138c7d03cbb29573f703e",
+    "stale-embedding-foundry--reference__z15obAZ/verifier.log": "bbfc0fda317b0683c15e3448c8fc329ada793d1fdaab3ed00dd6f2520b75a1ac",
+    "stale-embedding-packs--faulty__LricQAa/agent.patch": "31ffe9a92a45c0dd23a59e948adc3d12317708398fe6f76193a59a6ac5d2a10c",
+    "stale-embedding-packs--faulty__LricQAa/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "stale-embedding-packs--faulty__LricQAa/foundry.json": "6ac814305aaaa3833d2af378d24284f54a496a8c0bbb6f4f97dbc13647aaff1e",
+    "stale-embedding-packs--faulty__LricQAa/result.json": "0d779a6bbc0fecb95fc3487be5b39d2705c9cc0d7e2b67acfe641345d2ab440b",
+    "stale-embedding-packs--faulty__LricQAa/verifier.log": "b83f04340e4d628fd40c796247b849ae643b152dcfc76f4524f9fce76595197f",
+    "stale-embedding-packs--reference__ViJe5SI/agent.patch": "066d918cb93b1322d568a848548896f6863290940fd07c482184650fdb0d616a",
+    "stale-embedding-packs--reference__ViJe5SI/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "stale-embedding-packs--reference__ViJe5SI/foundry.json": "aa757c0ce198760a5b38535fa18b5043480ea9c22a50b76a80d9723f22c803f3",
+    "stale-embedding-packs--reference__ViJe5SI/result.json": "7020614ec1373fc0c2c75612c44bd7df07038079b1574286a047e583d4f39d26",
+    "stale-embedding-packs--reference__ViJe5SI/verifier.log": "a336bf6da7561edc6af3115499d7a5c24a4caad237ae1e5fedb0aad4fcecde52",
+    "stale-embedding-rails--faulty__HCkVK08/agent.patch": "030c4087e436e225aeff3f0c00f6c04f55b01378e615f314625d21fb7551a171",
+    "stale-embedding-rails--faulty__HCkVK08/checks.json": "703c372cc48a56e66eabcc1fe5ad896d8ab4ec4dbbb166b424bbdf1142805eb4",
+    "stale-embedding-rails--faulty__HCkVK08/foundry.json": "19df1c4b56b10dc49dab0ac422cedf5a26f3940d82f9fb81416f5a88e8604d2c",
+    "stale-embedding-rails--faulty__HCkVK08/result.json": "6affe2831413c90365514b1059c5b08440c2201e587100c7fb286dea30db1c39",
+    "stale-embedding-rails--faulty__HCkVK08/verifier.log": "6d1eb00513da8481930cb650f753773d1b348d03762369c965f44be7e43f3810",
+    "stale-embedding-rails--reference__os7G7J8/agent.patch": "0492a8e920a3e775107a1f5c473b694066b139af9e9dda233a546860e88072f7",
+    "stale-embedding-rails--reference__os7G7J8/checks.json": "8112da19b581699d8bad3447bbd1b3c649f628f21130d72b9c524fb1b4be6495",
+    "stale-embedding-rails--reference__os7G7J8/foundry.json": "5e517932b9fc8bd2cd8b1c4c28b2577f3715239124e0f3673bdc2f585bb05e96",
+    "stale-embedding-rails--reference__os7G7J8/result.json": "499f076d4f4c9f03c6e2f2e65dabf61b4dba09f321759e024709136b059c1944",
+    "stale-embedding-rails--reference__os7G7J8/verifier.log": "296c745f3a49d1736c39c1612a475ce58e79bc64a4fbce45cfe2d7f1bb456d6d"
+  },
+  "expected_tasks": [
+    "authorized-tool-foundry--faulty",
+    "authorized-tool-foundry--reference",
+    "authorized-tool-packs--faulty",
+    "authorized-tool-packs--reference",
+    "authorized-tool-rails--faulty",
+    "authorized-tool-rails--reference",
+    "boundary-extraction-foundry--delegated_reference",
+    "boundary-extraction-foundry--faulty",
+    "boundary-extraction-foundry--ignored_catalog",
+    "boundary-extraction-foundry--reference",
+    "boundary-extraction-foundry--relocated_reference",
+    "boundary-extraction-packs--delegated_reference",
+    "boundary-extraction-packs--faulty",
+    "boundary-extraction-packs--ignored_catalog",
+    "boundary-extraction-packs--reference",
+    "boundary-extraction-packs--relocated_reference",
+    "boundary-extraction-rails--delegated_reference",
+    "boundary-extraction-rails--faulty",
+    "boundary-extraction-rails--ignored_catalog",
+    "boundary-extraction-rails--reference",
+    "boundary-extraction-rails--relocated_reference",
+    "duplicate-delivery-foundry--faulty",
+    "duplicate-delivery-foundry--reference",
+    "duplicate-delivery-packs--faulty",
+    "duplicate-delivery-packs--reference",
+    "duplicate-delivery-rails--faulty",
+    "duplicate-delivery-rails--reference",
+    "private-coupling-foundry--faulty",
+    "private-coupling-foundry--reference",
+    "private-coupling-packs--faulty",
+    "private-coupling-packs--reference",
+    "private-coupling-rails--faulty",
+    "private-coupling-rails--reference",
+    "search-rebuild-foundry--faulty",
+    "search-rebuild-foundry--reference",
+    "search-rebuild-packs--faulty",
+    "search-rebuild-packs--reference",
+    "search-rebuild-rails--faulty",
+    "search-rebuild-rails--reference",
+    "stale-embedding-foundry--faulty",
+    "stale-embedding-foundry--reference",
+    "stale-embedding-packs--faulty",
+    "stale-embedding-packs--reference",
+    "stale-embedding-rails--faulty",
+    "stale-embedding-rails--reference"
+  ],
+  "missing_tasks": [],
+  "verification_sources": {
+    "container.rb": "ab30af3a42911464d4114b0ba2f16f98ec5c2853f0cb7d30101b28376fb80aee",
+    "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+    "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+    "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+    "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+    "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+    "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+    "images.rb": "7c25114201f35885b839dc416cd097be984cd1ffc08bfca6cded9cb849cfc11c",
+    "isolation.rb": "deaeb7ad7eec09d561242457645c9c02e42950a2531ed73dd2a316a7c55e82a4",
+    "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+    "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+    "replay.rb": "23457d21c3d6da2e8cff3f2d3e22e02548275c429a366b17cccd6e65abbadc83",
+    "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+    "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+    "shards.rb": "d5c7494d57e42b444b38ff4320192f433ff331e42ca1f2df1b47fadf74a08d24",
+    "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+    "trusted_tests.rb": "46fc158fbd7f2a100f1c159f1bd73fee333fe1a43fe870a5787ac45834c4cc5e",
+    "upstream.rb": "eb14ad97e781fb723368145fcf2fc6bdea6f344229f5c1c68b9f4917352f286b",
+    "verification.rb": "aede25f40a90f26c8bc81499ba96e17bcd3cdf75d7da591e1106a21a5b37b1c7"
+  }
+}

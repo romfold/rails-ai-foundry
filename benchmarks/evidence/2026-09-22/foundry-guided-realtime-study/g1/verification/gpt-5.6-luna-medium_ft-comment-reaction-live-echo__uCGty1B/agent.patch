@@ -1,0 +1,286 @@
+diff --git a/app/controllers/cards/comments/reactions_controller.rb b/app/controllers/cards/comments/reactions_controller.rb
+new file mode 100644
+index 0000000..2f4d342
+--- /dev/null
++++ b/app/controllers/cards/comments/reactions_controller.rb
+@@ -0,0 +1,41 @@
++class Cards::Comments::ReactionsController < ApplicationController
++  include CardScoped
++
++  before_action :set_comment
++  before_action :set_reaction, only: :destroy
++  before_action :ensure_reaction_owner, only: :destroy
++
++  def create
++    @comment.reactions.create!(reaction_params)
++    render_reactions
++  end
++
++  def destroy
++    @reaction.destroy
++    render_reactions
++  end
++
++  private
++    def set_comment
++      @comment = @card.comments.find(params[:comment_id])
++    end
++
++    def set_reaction
++      @reaction = @comment.reactions.find(params[:id])
++    end
++
++    def ensure_reaction_owner
++      head :forbidden unless @reaction.creator == Current.user
++    end
++
++    def reaction_params
++      params.expect(reaction: [ :content ])
++    end
++
++    def render_reactions
++      respond_to do |format|
++        format.turbo_stream { render turbo_stream: turbo_stream.replace([ @comment, :reactions ], partial: "cards/comments/reactions", locals: { comment: @comment }) }
++        format.json { render "cards/comments/reactions", status: :created }
++      end
++    end
++end
+diff --git a/app/javascript/controllers/reactions_controller.js b/app/javascript/controllers/reactions_controller.js
+new file mode 100644
+index 0000000..4ac8b5f
+--- /dev/null
++++ b/app/javascript/controllers/reactions_controller.js
+@@ -0,0 +1,19 @@
++import { Controller } from "@hotwired/stimulus"
++
++export default class extends Controller {
++  static targets = [ "form", "input", "trigger" ]
++
++  open() {
++    this.formTarget.hidden = false
++    this.triggerTarget.hidden = true
++    this.formTarget.classList.add("expanded")
++    this.inputTarget.focus()
++  }
++
++  cancel() {
++    this.formTarget.hidden = true
++    this.triggerTarget.hidden = false
++    this.formTarget.classList.remove("expanded")
++    this.formTarget.querySelector("form").reset()
++  }
++}
+diff --git a/app/models/comment.rb b/app/models/comment.rb
+index f6c5365..e9945de 100644
+--- a/app/models/comment.rb
++++ b/app/models/comment.rb
+@@ -7,6 +7,8 @@ class Comment < ApplicationRecord
+ 
+   has_rich_text :body
+ 
++  has_many :reactions, dependent: :destroy
++
+   validate :card_is_commentable
+ 
+   scope :chronologically, -> { order created_at: :asc, id: :desc }
+diff --git a/app/models/reaction.rb b/app/models/reaction.rb
+new file mode 100644
+index 0000000..d1e68c7
+--- /dev/null
++++ b/app/models/reaction.rb
+@@ -0,0 +1,19 @@
++class Reaction < ApplicationRecord
++  belongs_to :account, default: -> { comment.account }
++  belongs_to :comment, touch: true
++  belongs_to :creator, class_name: "User", default: -> { Current.user }
++
++  validates :content, presence: true, length: { maximum: 16 }
++  validates :creator_id, uniqueness: { scope: :comment_id }
++
++  after_create_commit :broadcast_reactions
++  after_destroy_commit :broadcast_reactions
++
++  private
++    def broadcast_reactions
++      broadcast_replace_later_to comment.card,
++        target: ActionView::RecordIdentifier.dom_id(comment, :reactions),
++        partial: "cards/comments/reactions",
++        locals: { comment: comment }
++    end
++end
+diff --git a/app/models/user.rb b/app/models/user.rb
+index 842f7f6..bffaeab 100644
+--- a/app/models/user.rb
++++ b/app/models/user.rb
+@@ -9,6 +9,7 @@ class User < ApplicationRecord
+   validates :name, presence: true
+ 
+   has_many :comments, inverse_of: :creator, dependent: :destroy
++  has_many :reactions, foreign_key: :creator_id, dependent: :destroy
+ 
+   has_many :filters, foreign_key: :creator_id, inverse_of: :creator, dependent: :destroy
+   has_many :closures, dependent: :nullify
+diff --git a/app/views/cards/comments/_comment.html.erb b/app/views/cards/comments/_comment.html.erb
+index 1b9a75e..f413943 100644
+--- a/app/views/cards/comments/_comment.html.erb
++++ b/app/views/cards/comments/_comment.html.erb
+@@ -36,6 +36,8 @@
+           <%= comment.body %>
+         </div>
+ 
++        <%= render "cards/comments/reactions", comment: comment %>
++
+       </div>
+     </div>
+   <% end %>
+diff --git a/app/views/cards/comments/_reactions.html.erb b/app/views/cards/comments/_reactions.html.erb
+new file mode 100644
+index 0000000..6081a05
+--- /dev/null
++++ b/app/views/cards/comments/_reactions.html.erb
+@@ -0,0 +1,26 @@
++<div id="<%= dom_id(comment, :reactions) %>" class="reactions" data-controller="reactions">
++  <div class="reactions__list">
++    <% comment.reactions.includes(:creator).each do |reaction| %>
++      <div class="reaction reaction--deleteable" data-controller="toggle-class" data-toggle-class-toggle-class="expanded" data-action="click->toggle-class#toggle" data-creator-id="<%= reaction.creator_id %>" title="<%= reaction.creator.name %>">
++        <%= avatar_tag reaction.creator, class: "reaction__avatar", hidden_for_screen_reader: true %>
++        <span class="txt-small txt-medium"><%= reaction.content %></span>
++        <%= button_to card_comment_reaction_path(comment.card, comment, reaction), method: :delete, class: "reaction__delete btn btn--plain", data: { only_visible_to_you: true } do %>
++          <%= icon_tag "close" %><span class="for-screen-reader">Remove reaction</span>
++        <% end %>
++      </div>
++    <% end %>
++  </div>
++
++  <div class="reaction reaction__form" data-reactions-target="form" hidden>
++    <%= form_with url: card_comment_reactions_path(comment.card, comment), scope: :reaction, data: { controller: "form", action: "submit->form#preventEmptySubmit" } do |form| %>
++      <%= form.label :content, "Add a reaction", class: "reaction__form-label for-screen-reader" %>
++      <%= form.text_field :content, class: "reaction__input input", data: { reactions_target: "input" }, maxlength: 16, autocomplete: "off", placeholder: "React…", required: true %>
++      <%= button_tag type: :submit, class: "reaction__submit-btn reaction__submit-btn btn btn--plain", aria: { label: "Confirm reaction" } do %><%= icon_tag "check" %><% end %>
++      <button type="button" class="reaction__cancel-btn btn btn--plain" data-action="reactions#cancel" aria-label="Cancel reaction"><%= icon_tag "close" %></button>
++    <% end %>
++  </div>
++
++  <button type="button" class="reactions__trigger btn btn--circle" data-reactions-target="trigger" data-action="reactions#open" aria-label="Add a reaction">
++    <%= image_tag "boost-color.svg", alt: "" %>
++  </button>
++</div>
+diff --git a/config/routes.rb b/config/routes.rb
+index 671799f..4e1e059 100644
+--- a/config/routes.rb
++++ b/config/routes.rb
+@@ -100,7 +100,9 @@ Rails.application.routes.draw do
+       resources :steps
+       resources :taggings
+ 
+-      resources :comments
++      resources :comments do
++        resources :reactions, only: %i[ create destroy ], module: :comments
++      end
+     end
+   end
+ 
+diff --git a/db/migrate/20260214000000_create_reactions.rb b/db/migrate/20260214000000_create_reactions.rb
+new file mode 100644
+index 0000000..102fdfd
+--- /dev/null
++++ b/db/migrate/20260214000000_create_reactions.rb
+@@ -0,0 +1,15 @@
++class CreateReactions < ActiveRecord::Migration[8.2]
++  def change
++    create_table :reactions, id: :uuid do |t|
++      t.uuid :account_id, null: false
++      t.uuid :comment_id, null: false
++      t.uuid :creator_id, null: false
++      t.string :content, null: false, limit: 16
++      t.timestamps null: false
++
++      t.index [ :comment_id, :creator_id ], unique: true
++      t.index :account_id
++      t.index :creator_id
++    end
++  end
++end
+diff --git a/db/schema.rb b/db/schema.rb
+index 8438c00..5c7b7b8 100644
+--- a/db/schema.rb
++++ b/db/schema.rb
+@@ -266,6 +266,18 @@ ActiveRecord::Schema[8.2].define(version: 2026_07_09_120000) do
+     t.index ["board_id"], name: "index_columns_on_board_id"
+   end
+ 
++  create_table "reactions", id: :uuid, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
++    t.uuid "account_id", null: false
++    t.uuid "comment_id", null: false
++    t.string "content", limit: 16, null: false
++    t.uuid "creator_id", null: false
++    t.datetime "created_at", null: false
++    t.datetime "updated_at", null: false
++    t.index ["account_id"], name: "index_reactions_on_account_id"
++    t.index ["comment_id", "creator_id"], name: "index_reactions_on_comment_id_and_creator_id", unique: true
++    t.index ["creator_id"], name: "index_reactions_on_creator_id"
++  end
++
+   create_table "comments", id: :uuid, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+     t.uuid "account_id", null: false
+     t.uuid "card_id", null: false
+diff --git a/db/schema_sqlite.rb b/db/schema_sqlite.rb
+index 5c1874f..dc2acc1 100644
+--- a/db/schema_sqlite.rb
++++ b/db/schema_sqlite.rb
+@@ -446,6 +446,18 @@ ActiveRecord::Schema[8.2].define(version: 2026_07_09_120000) do
+   end
+ 
+ 
++  create_table "reactions", id: :uuid, force: :cascade do |t|
++    t.uuid "account_id", null: false
++    t.uuid "comment_id", null: false
++    t.string "content", limit: 16, null: false
++    t.uuid "creator_id", null: false
++    t.datetime "created_at", null: false
++    t.datetime "updated_at", null: false
++    t.index ["account_id"], name: "index_reactions_on_account_id"
++    t.index ["comment_id", "creator_id"], name: "index_reactions_on_comment_id_and_creator_id", unique: true
++    t.index ["creator_id"], name: "index_reactions_on_creator_id"
++  end
++
+   create_table "search_queries", id: :uuid, force: :cascade do |t|
+     t.uuid "account_id", null: false
+     t.datetime "created_at", null: false
+diff --git a/test/controllers/cards/comments_controller_test.rb b/test/controllers/cards/comments_controller_test.rb
+index 94eb710..a45ff1b 100644
+--- a/test/controllers/cards/comments_controller_test.rb
++++ b/test/controllers/cards/comments_controller_test.rb
+@@ -146,3 +146,32 @@ class Cards::CommentsControllerTest < ActionDispatch::IntegrationTest
+     assert_not Comment.exists?(comment.id)
+   end
+ end
++
++class Cards::Comments::ReactionsControllerTest < ActionDispatch::IntegrationTest
++  setup do
++    sign_in_as :kevin
++    @comment = comments(:logo_agreement_jz)
++  end
++
++  test "create reaction" do
++    assert_difference -> { @comment.reactions.count }, 1 do
++      post card_comment_reactions_path(@comment.card, @comment), params: { reaction: { content: "👍" } }, as: :turbo_stream
++    end
++    assert_response :success
++    assert_equal "👍", @comment.reactions.last.content
++  end
++
++  test "reaction is limited to sixteen characters" do
++    assert_no_difference -> { @comment.reactions.count } do
++      post card_comment_reactions_path(@comment.card, @comment), params: { reaction: { content: "12345678901234567" } }, as: :turbo_stream
++    end
++    assert_response :unprocessable_entity
++  end
++
++  test "cannot remove another user's reaction" do
++    reaction = @comment.reactions.create!(creator: users(:jz), content: "👏")
++    delete card_comment_reaction_path(@comment.card, @comment, reaction), as: :json
++    assert_response :forbidden
++    assert Reaction.exists?(reaction.id)
++  end
++end

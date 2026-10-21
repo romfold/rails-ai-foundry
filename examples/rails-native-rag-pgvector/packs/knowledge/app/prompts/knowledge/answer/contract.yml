@@ -1,0 +1,16 @@
+schema: 1
+owner: packs/knowledge
+agent: Knowledge::ProviderAnswer
+templates:
+  - instructions.txt
+inputs:
+  user_message: untrusted
+  retrieved_evidence: untrusted
+output_schema: Knowledge::AnswerSchema
+tools:
+  []
+evaluations:
+  - evaluation.yml
+acceptance:
+  - Provider failures remain explicit.
+  - Application code enforces tenant authorization and validates evidence.

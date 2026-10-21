@@ -1,0 +1,8 @@
+{
+  "suite": "upstream",
+  "revision": "5327efe54dd767d662ab89332f6a4285fef07bd8",
+  "treatment": "installed-foundry-skills-only",
+  "tasks": [
+    "ft-comment-reaction-live-echo"
+  ]
+}

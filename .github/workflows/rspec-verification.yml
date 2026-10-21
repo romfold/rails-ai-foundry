@@ -1,0 +1,29 @@
+name: Installed RSpec verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  rspec:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        lane: [rails_7_1, rails_8_1]
+    env:
+      BUNDLE_GEMFILE: test_rspec/bundles/${{ matrix.lane }}/Gemfile
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler: '2.6.9'
+          bundler-cache: true
+      - name: Prepare browser
+        run: bundle exec ruby -rselenium-webdriver -e 'puts Selenium::WebDriver::SeleniumManager.binary_paths("--browser", "chrome")'
+      - name: Verify installed frameworks, upgrades and faulty controls
+        run: bundle exec rake test:rspec

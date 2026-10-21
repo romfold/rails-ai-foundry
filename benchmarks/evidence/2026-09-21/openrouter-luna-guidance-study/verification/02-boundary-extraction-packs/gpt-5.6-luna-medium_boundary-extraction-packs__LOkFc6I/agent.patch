@@ -1,0 +1,140 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..4b9c806 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Knowledge::Catalog.list(tenant_id: tenant)
+   end
+ end
+diff --git a/docs/knowledge_boundary.md b/docs/knowledge_boundary.md
+new file mode 100644
+index 0000000..f8f0387
+--- /dev/null
++++ b/docs/knowledge_boundary.md
+@@ -0,0 +1,13 @@
++# Knowledge boundary
++
++`Knowledge::Catalog.list(tenant_id:)` is the public read boundary for published
++Documents. Delivery code uses this API and does not query Knowledge persistence
++or reference `Knowledge::Document`.
++
++## Rollback
++
++If this boundary must be rolled back before a future persistence migration, revert
++the delivery change to its prior response mapping while retaining the existing
++`documents` table and `Knowledge::Document` model. The Catalog implementation can
++continue to delegate to that model until a separately reviewed persistence change
++is ready; no table or record conversion is part of this extraction.
+diff --git a/package.yml b/package.yml
+index 4f0c7c6..6c66f60 100644
+--- a/package.yml
++++ b/package.yml
+@@ -1,2 +1,3 @@
+ enforce_dependencies: true
+-dependencies: []
++dependencies:
++  - packs/knowledge
+diff --git a/app/models/knowledge/delivery.rb b/packs/knowledge/app/models/knowledge/delivery.rb
+similarity index 100%
+rename from app/models/knowledge/delivery.rb
+rename to packs/knowledge/app/models/knowledge/delivery.rb
+diff --git a/app/models/knowledge/document.rb b/packs/knowledge/app/models/knowledge/document.rb
+similarity index 100%
+rename from app/models/knowledge/document.rb
+rename to packs/knowledge/app/models/knowledge/document.rb
+diff --git a/app/models/knowledge/embedding.rb b/packs/knowledge/app/models/knowledge/embedding.rb
+similarity index 100%
+rename from app/models/knowledge/embedding.rb
+rename to packs/knowledge/app/models/knowledge/embedding.rb
+diff --git a/packs/knowledge/app/public/knowledge.rb b/packs/knowledge/app/public/knowledge.rb
+new file mode 100644
+index 0000000..e10df4c
+--- /dev/null
++++ b/packs/knowledge/app/public/knowledge.rb
+@@ -0,0 +1,4 @@
++# frozen_string_literal: true
++
++module Knowledge
++end
+diff --git a/app/services/knowledge/catalog.rb b/packs/knowledge/app/public/knowledge/catalog.rb
+similarity index 100%
+rename from app/services/knowledge/catalog.rb
+rename to packs/knowledge/app/public/knowledge/catalog.rb
+diff --git a/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+similarity index 100%
+rename from app/services/knowledge/embedding_job.rb
+rename to packs/knowledge/app/services/knowledge/embedding_job.rb
+diff --git a/app/services/knowledge/publish_delivery.rb b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+similarity index 100%
+rename from app/services/knowledge/publish_delivery.rb
+rename to packs/knowledge/app/services/knowledge/publish_delivery.rb
+diff --git a/app/services/knowledge/rebuild_search.rb b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+similarity index 100%
+rename from app/services/knowledge/rebuild_search.rb
+rename to packs/knowledge/app/services/knowledge/rebuild_search.rb
+diff --git a/packs/knowledge/package.yml b/packs/knowledge/package.yml
+new file mode 100644
+index 0000000..be93167
+--- /dev/null
++++ b/packs/knowledge/package.yml
+@@ -0,0 +1,5 @@
++# frozen_string_literal: true
++
++enforce_dependencies: true
++enforce_privacy: true
++dependencies: []
+diff --git a/test/regression_test.rb b/test/regression_test.rb
+new file mode 100644
+index 0000000..4e822db
+--- /dev/null
++++ b/test/regression_test.rb
+@@ -0,0 +1,45 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeBoundaryRegressionTest < BenchmarkTest
++  include Rack::Test::Methods
++
++  def app
++    Rails.application
++  end
++  def test_catalog_returns_only_published_documents_in_id_order
++    later = document(body: 'later')
++    earlier = document(body: 'earlier')
++    document(body: 'draft', published: false)
++    document(tenant: 'b', body: 'other tenant')
++
++    assert_equal [later.id, earlier.id].sort, Knowledge::Catalog.list(tenant_id: 'a').map { |row| row.fetch('id') }
++    assert_equal %w[id tenant_id body revision], Knowledge::Catalog.list(tenant_id: 'a').first.keys
++  end
++
++  def test_delivery_delegates_to_catalog
++    document(body: 'through boundary')
++    catalog = Knowledge::Catalog
++    calls = []
++    catalog.define_singleton_method(:list) do |tenant_id:|
++      calls << tenant_id
++      [{ 'id' => 1, 'tenant_id' => tenant_id, 'body' => 'stub', 'revision' => 1 }]
++    end
++
++    begin
++      app = Rails.application
++      get '/documents', {}, { 'HTTP_AUTHORIZATION' => 'tenant-a-token' }
++      request = last_response
++      assert_equal 200, request.status
++      assert_equal 'a', calls.first
++      assert_equal 'stub', JSON.parse(request.body).first.fetch('body')
++    ensure
++      catalog.define_singleton_method(:list) do |tenant_id:|
++        Document.where(tenant_id: tenant_id, published: true).order(:id).map do |document|
++          document.attributes.slice('id', 'tenant_id', 'body', 'revision')
++        end
++      end
++    end
++  end
++end

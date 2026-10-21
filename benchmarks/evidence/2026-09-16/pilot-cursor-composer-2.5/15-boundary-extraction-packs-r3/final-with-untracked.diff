@@ -1,0 +1,126 @@
+diff --git a/package.yml b/package.yml
+index 4f0c7c6..6c66f60 100644
+--- a/package.yml
++++ b/package.yml
+@@ -1,2 +1,3 @@
+ enforce_dependencies: true
+-dependencies: []
++dependencies:
++  - packs/knowledge
+diff --git a/packs/knowledge/ROLLBACK.md b/packs/knowledge/ROLLBACK.md
+new file mode 100644
+index 0000000..0f5a6c4
+--- /dev/null
++++ b/packs/knowledge/ROLLBACK.md
+@@ -0,0 +1,10 @@
++# Rollback
++
++To revert the Knowledge pack boundary without changing the database:
++
++1. Move files from `packs/knowledge/app/` back to the root `app/` tree (models, services, controllers, public API).
++2. Remove `packs/knowledge/` and drop `packs/knowledge` from root `package.yml` dependencies.
++3. Run `bundle exec ruby -rstringio -S packwerk validate` and `bundle exec ruby -rstringio -S packwerk check`.
++4. Run `bundle exec ruby test/visible_test.rb`.
++
++No migration rollback is required; tables and records are unchanged.
+diff --git a/app/controllers/documents_controller.rb b/packs/knowledge/app/controllers/documents_controller.rb
+similarity index 100%
+rename from app/controllers/documents_controller.rb
+rename to packs/knowledge/app/controllers/documents_controller.rb
+diff --git a/app/models/knowledge/delivery.rb b/packs/knowledge/app/models/knowledge/delivery.rb
+similarity index 100%
+rename from app/models/knowledge/delivery.rb
+rename to packs/knowledge/app/models/knowledge/delivery.rb
+diff --git a/app/models/knowledge/document.rb b/packs/knowledge/app/models/knowledge/document.rb
+similarity index 100%
+rename from app/models/knowledge/document.rb
+rename to packs/knowledge/app/models/knowledge/document.rb
+diff --git a/app/models/knowledge/embedding.rb b/packs/knowledge/app/models/knowledge/embedding.rb
+similarity index 100%
+rename from app/models/knowledge/embedding.rb
+rename to packs/knowledge/app/models/knowledge/embedding.rb
+diff --git a/app/services/knowledge/catalog.rb b/packs/knowledge/app/public/knowledge/catalog.rb
+similarity index 100%
+rename from app/services/knowledge/catalog.rb
+rename to packs/knowledge/app/public/knowledge/catalog.rb
+diff --git a/packs/knowledge/app/services/knowledge/delivery_catalog.rb b/packs/knowledge/app/services/knowledge/delivery_catalog.rb
+new file mode 100644
+index 0000000..85a5fdf
+--- /dev/null
++++ b/packs/knowledge/app/services/knowledge/delivery_catalog.rb
+@@ -0,0 +1,9 @@
++# frozen_string_literal: true
++
++module Knowledge
++  class DeliveryCatalog
++    def self.list(tenant_id:)
++      Catalog.list(tenant_id: tenant_id)
++    end
++  end
++end
+diff --git a/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+similarity index 100%
+rename from app/services/knowledge/embedding_job.rb
+rename to packs/knowledge/app/services/knowledge/embedding_job.rb
+diff --git a/app/services/knowledge/publish_delivery.rb b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+similarity index 85%
+rename from app/services/knowledge/publish_delivery.rb
+rename to packs/knowledge/app/services/knowledge/publish_delivery.rb
+index fe6b7e4..5b2e78b 100644
+--- a/app/services/knowledge/publish_delivery.rb
++++ b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+@@ -5,6 +5,7 @@ module Knowledge
+     def call(delivery_id:, store:)
+       delivery = Delivery.find(delivery_id)
+       payload = JSON.parse(delivery.payload)
++      DeliveryCatalog.list(tenant_id: payload.fetch('tenant_id')) if payload.key?('tenant_id')
+       begin
+         store.publish(id: delivery.event_id, type: 'DocumentPublished', data: payload)
+       rescue store.duplicate_error
+diff --git a/app/services/knowledge/rebuild_search.rb b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+similarity index 100%
+rename from app/services/knowledge/rebuild_search.rb
+rename to packs/knowledge/app/services/knowledge/rebuild_search.rb
+diff --git a/packs/knowledge/package.yml b/packs/knowledge/package.yml
+new file mode 100644
+index 0000000..577db03
+--- /dev/null
++++ b/packs/knowledge/package.yml
+@@ -0,0 +1,3 @@
++enforce_dependencies: true
++enforce_privacy: true
++dependencies: []
+diff --git a/test/knowledge_catalog_test.rb b/test/knowledge_catalog_test.rb
+new file mode 100644
+index 0000000..c7da511
+--- /dev/null
++++ b/test/knowledge_catalog_test.rb
+@@ -0,0 +1,28 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeCatalogTest < BenchmarkTest
++  def test_list_returns_published_documents_for_tenant_ordered_by_id
++    first = document(tenant: 'a', body: 'alpha', revision: 1)
++    second = document(tenant: 'a', body: 'beta', revision: 2)
++    document(tenant: 'a', body: 'draft', published: false)
++    document(tenant: 'b', body: 'other tenant')
++
++    rows = Knowledge::Catalog.list(tenant_id: 'a')
++
++    assert_equal [first.id, second.id], rows.map { |row| row.fetch('id') }
++    rows.each do |row|
++      assert_equal %w[body id revision tenant_id], row.keys.sort
++      assert_equal 'a', row.fetch('tenant_id')
++    end
++  end
++
++  def test_delivery_catalog_delegates_to_catalog_without_touching_document_constant
++    doc = document(tenant: 'a', body: 'shipped')
++
++    rows = Knowledge::DeliveryCatalog.list(tenant_id: 'a')
++
++    assert_equal [doc.attributes.slice('id', 'tenant_id', 'body', 'revision')], rows
++  end
++end

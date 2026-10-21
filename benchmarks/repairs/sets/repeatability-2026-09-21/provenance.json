@@ -1,0 +1,28 @@
+{
+  "classification": "human-assisted regression evidence",
+  "study_sha256": "2b32a3052b6127ea028c882c40cf92e68a312e559c154dd3f3448b13b17307ea",
+  "candidates": {
+    "boundary-extraction-foundry": {
+      "task_digest": "dea3be84366598f0",
+      "image": "sha256:86b2f065b1b8fdc78a47786d34b77f426b9f83595cc95dc165cc8e54623707bd",
+      "original_sha256": "9f6ef49e9fe5fe04054f891f49dba6c18f37abd6887f0cee3d5daa122aab02e8",
+      "baseline_commit": "d8ab0eeab0d2ba97f0957e96a625b579de45ed9e",
+      "candidate_commit": "5ed999b8bc7520d89e2d74494c20d39ab2ae2448",
+      "repaired_tree": "804af268196e47e54ebfe5f90c91ef229d405693"
+    },
+    "stale-embedding-foundry": {
+      "task_digest": "cfd842d8d37e3f08",
+      "image": "sha256:2ec6888d49d7b272e362aceca6c04454e1fe69e3287ff00bc7a76121b4713d8c",
+      "original_sha256": "1e45e2b56be77b7d4488912779a4b48b5ca7e6c0595f5c960b1f55223af99f30",
+      "baseline_commit": "5d71b01a96528c69db6ae2ea55c237c62e425850",
+      "candidate_commit": "3db44e7465541d56c2fc3a596bf2588dfd08e328",
+      "repaired_tree": "f4d6b9cb43ac86217b9a7eb4951dc4ba654ba49d"
+    }
+  },
+  "files": {
+    "boundary-extraction-foundry-complete.patch": "921038202a26c6bc2b80dca05bfdf7a78238b2b5a5c8ad6051e83faf37c70d70",
+    "boundary-extraction-foundry-repair.patch": "3f8833f79a9ddf7a03f46c0c71636a06fa3b197e45ba1c4fc636fc505d0abbe4",
+    "stale-embedding-foundry-complete.patch": "171b0326e4feddb58c3ef72b2576eaea6ebfe242b160b588a1a30471939ae44c",
+    "stale-embedding-foundry-repair.patch": "d8c06c31cf5fa98abe68234fde5bf2eea97c541c7e8c0795f1f11dc85901fff0"
+  }
+}

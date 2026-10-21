@@ -1,0 +1,13 @@
+{
+  "scope": "One fresh, separately labeled realtime trial using installed Foundry skills; no submitted-candidate repair",
+  "authorized_model": "openrouter/openai/gpt-5.6-luna#medium",
+  "authorized_cycle_limit": 7.0,
+  "prior_cycle_spend": 0.13146371,
+  "trial_limit": 0.75,
+  "scripts": {
+    "prepare_foundry_guided_realtime": "7847896dc94db14bf7acf4099eabd06b600f2ea6f64245450673a7febe0232a0",
+    "preflight_foundry_guided_realtime": "02dbb3509639b9a8c8fb75c093178f1999e5e5cd949096013202d41e78cb3966",
+    "verify_foundry_guided_inputs": "482051ce1c79b7b4562c3540353f9c4bba71ae6d58c0777a660672f1d04a8303"
+  },
+  "executed_preparation_source_sha256": "ebc6d26e0a3b0c2ef92c4cd19e9faab92a968084bcc8f4a3c1a75dd60b56e4b4"
+}

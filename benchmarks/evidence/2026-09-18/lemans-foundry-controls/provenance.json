@@ -1,0 +1,16 @@
+{
+  "files": {
+    "report.json": "6ae099badac24e5db9e2e903f7a75a288f8fda81c2bbbcab6a7efdd1d769cd3a",
+    "summary.json": "3d577d1a56d38ddda9ae17c14b63350c3ddbd154e89b5d27bc54743cc76b457a",
+    "selection.json": "e00373979728374684abc3ee1430641437dc21dcfcd20b90d20be82dcea232fd",
+    "historical-pilot-hashes.json": "66b395ed6d6db9bf0fce4dfa58387f20160618c3754b194ec062eac827878eb4",
+    "isolation.json": "83ca092fe7b7a123995ee0b4ad6a7285bfc00cfac626a1c2ace008ab4f322281"
+  },
+  "integrity_controls": {
+    "tests": 7,
+    "assertions": 21,
+    "failures": 0,
+    "directory": "/tmp/foundry-lemans-integrity-20260918-v2"
+  },
+  "negative_controls_with_assertion_failures": 21
+}

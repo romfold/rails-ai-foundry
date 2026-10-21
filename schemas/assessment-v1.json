@@ -1,0 +1,223 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.rails-ai-foundry.invalid/assessment-v1.json",
+  "allOf": [
+    {
+      "$ref": "common-v1.json#/definitions/envelope"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "report_kind": {
+          "enum": [
+            "check",
+            "adopt"
+          ]
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "application": {
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "adoption",
+            "structural",
+            "boundaries"
+          ]
+        },
+        "workload": {
+          "type": "string"
+        },
+        "workflow": {
+          "enum": [
+            "spec_kit",
+            "openspec",
+            "none"
+          ]
+        },
+        "workflow_initialized": {
+          "type": "boolean"
+        },
+        "contexts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "configuration": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string",
+                "pattern": "^[A-Z][A-Za-z0-9]*(?:::[A-Z][A-Za-z0-9]*)*(?![\\s\\S])"
+              },
+              "profile": {
+                "enum": [
+                  "rails_native",
+                  "modular",
+                  "domain"
+                ]
+              },
+              "patterns": {
+                "type": "object",
+                "properties": {
+                  "events": {
+                    "enum": [
+                      "none",
+                      "integration",
+                      "event_sourced"
+                    ]
+                  },
+                  "cqrs": {
+                    "enum": [
+                      "none",
+                      "queries",
+                      "read_model"
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "path",
+              "configuration",
+              "namespace",
+              "profile",
+              "patterns"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "packages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "verification": {
+          "type": "string"
+        },
+        "next_steps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sources": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "boolean"
+            },
+            "files_checked": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "diagnostics": {
+              "type": "array",
+              "items": {
+                "$ref": "diagnostic-v1.json"
+              }
+            },
+            "limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "success",
+            "files_checked",
+            "diagnostics",
+            "limitations"
+          ],
+          "additionalProperties": true
+        },
+        "boundaries": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "boolean"
+            },
+            "baselines_unchanged": {
+              "type": "boolean"
+            },
+            "commands": {
+              "type": "array",
+              "items": {
+                "$ref": "common-v1.json#/definitions/command"
+              }
+            },
+            "limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "success",
+            "baselines_unchanged",
+            "commands",
+            "limitations"
+          ],
+          "additionalProperties": true
+        },
+        "accepted_debt": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 5,
+            "maxItems": 5
+          }
+        },
+        "prompts": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "boolean"
+            },
+            "files_checked": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "diagnostics": {
+              "type": "array",
+              "items": {
+                "$ref": "diagnostic-v1.json"
+              }
+            },
+            "limitations": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "success",
+            "files_checked",
+            "diagnostics",
+            "limitations"
+          ],
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "report_kind",
+        "success",
+        "application",
+        "mode",
+        "workload",
+        "workflow",
+        "workflow_initialized",
+        "contexts",
+        "packages",
+        "verification",
+        "next_steps"
+      ],
+      "additionalProperties": true
+    }
+  ]
+}

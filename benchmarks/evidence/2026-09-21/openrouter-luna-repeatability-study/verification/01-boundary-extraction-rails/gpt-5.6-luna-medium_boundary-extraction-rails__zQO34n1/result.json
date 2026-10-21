@@ -1,0 +1,16 @@
+{
+  "task": "boundary-extraction-rails",
+  "status": "passed",
+  "reward": 1.0,
+  "patch_sha256": "e06cc9704c34388b9df9b7a1efa68f8bd712dd007afa03e8720cee5898d23da2",
+  "foundry": {
+    "visible": "passed",
+    "behavioral": "passed",
+    "architecture": {
+      "status": "not_applicable"
+    }
+  },
+  "verification_phase": "task",
+  "baseline_exit_code": null,
+  "protocol_violations": []
+}

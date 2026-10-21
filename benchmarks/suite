@@ -1,0 +1,84 @@
+#!/usr/bin/env -S ruby -EUTF-8
+# frozen_string_literal: true
+
+ENV['BUNDLE_GEMFILE'] = File.expand_path('Gemfile', __dir__)
+require 'bundler/setup'
+require_relative 'lib/benchmark_suite/upstream'
+require_relative 'lib/benchmark_suite/images'
+require_relative 'lib/benchmark_suite/foundry'
+require_relative 'lib/benchmark_suite/verification'
+require_relative 'lib/benchmark_suite/replay'
+require_relative 'lib/benchmark_suite/controls'
+require_relative 'lib/benchmark_suite/isolation'
+require_relative 'lib/benchmark_suite/report'
+require_relative 'lib/benchmark_suite/shards'
+require_relative 'lib/benchmark_suite/dependencies'
+require_relative 'lib/benchmark_suite/command_paths'
+
+require_relative 'lib/benchmark_suite/study_preparation'
+require_relative 'lib/benchmark_suite/study_preflight'
+require_relative 'lib/benchmark_suite/study_report'
+require_relative 'lib/benchmark_suite/reviewed_study'
+require_relative 'lib/benchmark_suite/reviewed_controls'
+
+command, *arguments = ARGV
+BenchmarkSuite::CommandPaths.check(command, arguments)
+case command
+when 'reviewed-study-controls'
+  abort 'Usage: benchmarks/suite reviewed-study-controls WORKSPACE OUTPUT' unless arguments.size == 2
+  report = BenchmarkSuite::ReviewedControls.call(*arguments)
+  puts JSON.pretty_generate(report.except('frozen_inputs'))
+  exit(report.fetch('accepted') ? 0 : 1)
+when 'prepare-reviewed-study'
+  abort 'Usage: benchmarks/suite prepare-reviewed-study OUTPUT' unless arguments.size == 1
+  puts BenchmarkSuite::ReviewedStudy.prepare(arguments.first)
+when 'prepare-study'
+  abort 'Usage: benchmarks/suite prepare-study OUTPUT' unless arguments.size == 1
+  puts BenchmarkSuite::StudyPreparation.call(arguments.first)
+when 'study-preflight'
+  abort 'Usage: benchmarks/suite study-preflight STUDY TASK OUTPUT' unless arguments.size == 3
+  puts JSON.pretty_generate(BenchmarkSuite::StudyPreflight.call(*arguments))
+when 'study-report'
+  abort 'Usage: benchmarks/suite study-report STUDY OUTPUT' unless arguments.size == 2
+  puts JSON.pretty_generate(BenchmarkSuite::StudyReport.call(*arguments))
+when 'prepare-upstream'
+  destination, source = arguments
+  abort 'Usage: benchmarks/suite prepare-upstream OUTPUT [PINNED_CHECKOUT]' unless destination
+  puts BenchmarkSuite::Upstream.prepare(destination, source: source)
+when 'prepare-foundry'
+  abort 'Usage: benchmarks/suite prepare-foundry OUTPUT' unless arguments.size == 1
+  puts BenchmarkSuite::Foundry.prepare(arguments.first)
+when 'prepare-shard'
+  abort 'Usage: benchmarks/suite prepare-shard WORKSPACE OUTPUT SHARD' unless arguments.size == 3
+  puts BenchmarkSuite::Shards.prepare(*arguments)
+when 'dependencies'
+  abort 'Usage: benchmarks/suite dependencies WORKSPACE OUTPUT' unless arguments.size == 2
+  BenchmarkSuite::Dependencies.capture(*arguments)
+when 'report'
+  workspace, output, *summaries = arguments
+  abort 'Usage: benchmarks/suite report WORKSPACE OUTPUT SUMMARY_JSON...' if summaries.empty?
+  result = BenchmarkSuite::Report.call(workspace, output, summaries)
+  puts JSON.pretty_generate(result)
+  exit(result['accepted'] ? 0 : 1)
+when 'isolation'
+  abort 'Usage: benchmarks/suite isolation WORKSPACE OUTPUT' unless arguments.size == 2
+  BenchmarkSuite::Isolation.check(*arguments)
+when 'images'
+  abort 'Usage: benchmarks/suite images WORKSPACE' unless arguments.size == 1
+  BenchmarkSuite::Images.build(arguments.first)
+when 'prepare-controls'
+  abort 'Usage: benchmarks/suite prepare-controls WORKSPACE OUTPUT' unless arguments.size == 2
+  puts BenchmarkSuite::Controls.prepare(*arguments)
+when 'replay'
+  abort 'Usage: benchmarks/suite replay WORKSPACE NATIVE_RUNS OUTPUT' unless arguments.size == 3
+  BenchmarkSuite::Replay.call(*arguments)
+when 'verify'
+  abort 'Usage: benchmarks/suite verify WORKSPACE TASK PATCH OUTPUT' unless arguments.size == 4
+  result = BenchmarkSuite::Verification.new(*arguments).call
+  puts JSON.pretty_generate(result)
+  exit(result['status'] == 'passed' ? 0 : 1)
+else
+  abort 'Commands: prepare-upstream, prepare-foundry, prepare-controls, prepare-shard, images, ' \
+        'dependencies, isolation, verify, replay, report, prepare-study, study-preflight, study-report, ' \
+        'prepare-reviewed-study, reviewed-study-controls'
+end

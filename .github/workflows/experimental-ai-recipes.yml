@@ -1,0 +1,33 @@
+name: Experimental AI recipes
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  offline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        recipe: [flow-nodes-branching, langchainrb-adoption]
+    defaults:
+      run:
+        working-directory: recipes/${{ matrix.recipe }}
+    env:
+      BUNDLE_FROZEN: 'true'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler: '2.6.9'
+      - run: bundle install
+      - run: bin/verify

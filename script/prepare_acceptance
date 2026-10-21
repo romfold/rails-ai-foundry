@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'bundler/setup'
+require 'bundler'
+require 'tmpdir'
+require 'rbconfig'
+require 'shellwords'
+
+version = Gem.loaded_specs.fetch('railties').version.to_s
+Dir.mktmpdir('foundry-acceptance-dependencies-') do |directory|
+  app = File.join(directory, 'prepared_app')
+  Bundler.with_unbundled_env do
+    commands = [[RbConfig.ruby, '-S', 'rails', "_#{version}_", 'new', app, '--skip-bundle', '--skip-git']]
+    commands.each do |command|
+      puts command.shelljoin
+      system(*command, exception: true)
+    end
+    gemfile = File.join(app, 'Gemfile')
+    source = File.read(gemfile).sub(/^gem "rails".*$/, "gem 'rails', '#{version}'")
+    source = source.sub(/^gem "solid_queue".*$/, "gem 'solid_queue', '~> 1.7.0'")
+    source << "\ngem 'solid_queue', '~> 1.7.0'\n" unless source.include?("gem 'solid_queue'")
+    source << "\ngem 'packs-rails', '~> 0.1.0'\ngem 'pg', '>= 1.5', '< 2'\ngem 'json', '>= 2.9', '< 3'\n"
+    File.write(gemfile, source)
+    command = [RbConfig.ruby, '-S', 'bundle', 'install']
+    puts "cd #{app.shellescape} && #{command.shelljoin}"
+    system(*command, chdir: app, exception: true)
+  end
+end

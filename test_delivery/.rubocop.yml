@@ -1,0 +1,6 @@
+inherit_from: ../.rubocop.yml
+
+# Match the existing acceptance lanes: keep scenario setup and assertions together.
+Metrics/AbcSize:
+  Exclude:
+    - '**/*.rb'

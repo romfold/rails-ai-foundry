@@ -1,0 +1,11 @@
+{
+  "task": "ar-tenant-isolation",
+  "status": "passed",
+  "reward": 1.0,
+  "patch_sha256": "4c5ece3f13159573906b7a1a9d4aa872b6f3ecd33930c7dee75d6a6f41c0b1ef",
+  "foundry": null,
+  "verification_phase": "task",
+  "baseline_exit_code": 0,
+  "verification_status": "passed",
+  "protocol_violations": []
+}

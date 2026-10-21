@@ -1,0 +1,71 @@
+bundle exec ruby bin/rails test
+Run options: --seed 5959
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:40179
+...........
+
+Finished in 8.718499s, 1.2617 runs/s, 6.1937 assertions/s.
+11 runs, 54 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/acceptance_test.rb
+Run options: --seed 60361
+
+# Running:
+
+......
+
+Finished in 0.460531s, 13.0284 runs/s, 78.1707 assertions/s.
+6 runs, 36 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/recovery_test.rb
+Run options: --seed 1159
+
+# Running:
+
+...
+
+Finished in 4.125399s, 0.7272 runs/s, 2.4240 assertions/s.
+3 runs, 10 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/review_browser_test.rb
+Run options: --seed 19468
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:34305
+.
+
+Finished in 4.478589s, 0.2233 runs/s, 1.3397 assertions/s.
+1 runs, 6 assertions, 0 failures, 0 errors, 0 skips
+📦 Packwerk is running validation...
+
+📦 Finished in 1.22 seconds
+
+Validation successful 🎉
+📦 Packwerk is inspecting 38 files
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+......................................
+📦 Finished in 1.63 seconds
+
+No offenses detected
+No stale violations detected
+Foundry structural assessment: /candidate
+Workflow: none; workload: balanced
+Context configurations validated: 1
+Configuration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.
+Source check: 21 Ruby files; passed.
+Application app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.
+Prompt check: 1 contracts; passed.
+Explicit contract declarations and file existence only; constants, model aliases, template semantics, authorization and evaluation outcomes are not resolved or executed. Only application and configured context app/prompts roots are inspected.
+No files were changed.
+Run owning-context behavioral tests.
+Run foundry check --boundaries in an isolated test environment for upstream Packwerk verification.
+Preserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.

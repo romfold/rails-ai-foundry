@@ -1,0 +1,492 @@
+{
+  "attempted": 48,
+  "scored": 45,
+  "infrastructure_error": 3,
+  "behavior_passed": 24,
+  "behavior_failed": 21,
+  "attempts": [
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/authorized-tool-foundry--faulty__wRqUXEw/result.json",
+      "sha256": "e81c284221cc6cb5c602e7725e82b76064a5cd339174df284c0843e42badf3a1",
+      "task": "authorized-tool-foundry--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/authorized-tool-foundry--reference__s8VwVpD/result.json",
+      "sha256": "5326c3a422fa282c09f28db63d8b49a1c899cb632c1e410b68f249ae903f34c7",
+      "task": "authorized-tool-foundry--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/authorized-tool-packs--faulty__hAvx9yI/result.json",
+      "sha256": "aefe7117b08bdb95800118b910b3f7f32b19c485407f3ffa8da0b182687fe647",
+      "task": "authorized-tool-packs--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/authorized-tool-packs--reference__aOGxQHA/result.json",
+      "sha256": "2b416566363fd9f18f049ae38f1297146a39f99ebe71bc801b56b3ed67797cd0",
+      "task": "authorized-tool-packs--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/authorized-tool-rails--faulty__X5VYHCd/result.json",
+      "sha256": "67fe2c2cacc84ff9d9811bba421448756d4fba4a5fc82bb878a59cf4a5768c3e",
+      "task": "authorized-tool-rails--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/authorized-tool-rails--reference__197k141/result.json",
+      "sha256": "b1f64f739f27ae50010951bf4c7fa4af4bb3e8dff630793b935bfbe9a6d26c05",
+      "task": "authorized-tool-rails--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-foundry--delegated_reference__0RVd4DH/result.json",
+      "sha256": "6f7b41d67883c9e548855f2b8f06c18fa8908f59de9b940f2857d6e3915c3453",
+      "task": "boundary-extraction-foundry--delegated_reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-foundry--faulty__eWjqxDO/result.json",
+      "sha256": "2d97a71246d57dd9269e15b540f031d3918eaede7d96db799b0955d767992baa",
+      "task": "boundary-extraction-foundry--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-foundry--ignored_catalog__OHxmnm7/result.json",
+      "sha256": "c994077d1f947adafcd43b8e842de2c7a7f85154aa94f76d36e0425ce8ed5ff4",
+      "task": "boundary-extraction-foundry--ignored_catalog",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-foundry--reference__BN4cRMf/result.json",
+      "sha256": "ca32a0ec1eb86d6ee067bc3ce23ad900b0ec26ce7b54c7796994968aef590dc4",
+      "task": "boundary-extraction-foundry--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-foundry--relocated_reference__zh0UYYM/result.json",
+      "sha256": "c274e0242402528b6082b482506f82cfe6021aeea2e37d91b85c812c2afdccf1",
+      "task": "boundary-extraction-foundry--relocated_reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-packs--delegated_reference__QCm9guW/result.json",
+      "sha256": "94ece37500ae8aa998c4e87d2272ffb602f8a13eef13ab2cee8a32e421e8a9e4",
+      "task": "boundary-extraction-packs--delegated_reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-packs--faulty__UrftSDt/result.json",
+      "sha256": "e124452785481a1b5a5bc12aa1c3d8abbd34f145dffa19949f4c8f1694e5a051",
+      "task": "boundary-extraction-packs--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-packs--ignored_catalog__0kZDxxl/result.json",
+      "sha256": "c7afba9e1b242573f507cea86e5cae09c99bdf58db288612fb9acdbddbaed53e",
+      "task": "boundary-extraction-packs--ignored_catalog",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-packs--reference__ughJm9D/result.json",
+      "sha256": "03dc53e8d49222add980ad1030279ab997d7953f4f8e873364b1c025326199ed",
+      "task": "boundary-extraction-packs--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-packs--relocated_reference__osh7pOR/result.json",
+      "sha256": "1398daf692a40d023316ab9210313707ebfb5c040c423c5db1c8d36acd6bec7a",
+      "task": "boundary-extraction-packs--relocated_reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-rails--delegated_reference__9rBZyBk/result.json",
+      "sha256": "0da477b887152590a80957eb8355fe16cf0f12d65118e921731b7cf1ca5ccb6a",
+      "task": "boundary-extraction-rails--delegated_reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-rails--faulty__tI5cA9O/result.json",
+      "sha256": "0c5baec874c7c392d1820b676413e26d2ec2a7f9448a7bb1982259d20aae5694",
+      "task": "boundary-extraction-rails--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-rails--ignored_catalog__eIrV8Cu/result.json",
+      "sha256": "ce964477e6294149ab129d29737227bb9f83aa552aaf8b1bdfca866215465caa",
+      "task": "boundary-extraction-rails--ignored_catalog",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-rails--reference__xER1uZP/result.json",
+      "sha256": "999c729097b49c43eb1bb34fc235e4d2b9d86b9e68982f9d8bf9ad16127cc13d",
+      "task": "boundary-extraction-rails--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/boundary-extraction-rails--relocated_reference__y5QYKy5/result.json",
+      "sha256": "79e4eb88c3f936209fe2580bbc6c9311a1ade18b70856e76afb333327666f956",
+      "task": "boundary-extraction-rails--relocated_reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/duplicate-delivery-foundry--faulty__YZKgi9D/result.json",
+      "sha256": "1fa946c06f59458668e7a9e0be6368c81d51e0eb789d37077be81d3fce9d5242",
+      "task": "duplicate-delivery-foundry--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/duplicate-delivery-foundry--reference__J1Ifdkb/result.json",
+      "sha256": "580863dd155c274518441c9222a41a2ddab06d081c49bc32fb09445df152e00a",
+      "task": "duplicate-delivery-foundry--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/duplicate-delivery-packs--faulty__BpEPphS/result.json",
+      "sha256": "d8e68eb1881d5c3bba324867b7a2b0169dc1427cb33150836e2bbc34e5d5f83e",
+      "task": "duplicate-delivery-packs--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/duplicate-delivery-packs--reference__pvajKIj/result.json",
+      "sha256": "4dbf9f2b95b194da548db166f4b8e94cb8fe0bb261f20d004be561a3abd1d8e7",
+      "task": "duplicate-delivery-packs--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/duplicate-delivery-rails--faulty__akPuGBK/result.json",
+      "sha256": "2ead1acdf1ca0ce6b6d1c6a7b763a7603b59235ef530caf234d23a44f45e46a9",
+      "task": "duplicate-delivery-rails--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/duplicate-delivery-rails--reference__MSOg9xv/result.json",
+      "sha256": "18fa73f9a977761445342f71ced31261a3b03e7a773ffa0e11eeedd23b2e5f82",
+      "task": "duplicate-delivery-rails--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/private-coupling-foundry--faulty__cKdcBmw/result.json",
+      "sha256": "3c372aa39ba4a4c7b1c43c1a62c3b437c2d9dca9e18d855cdcdb67f98a402a8e",
+      "task": "private-coupling-foundry--faulty",
+      "outcome": {
+        "name": "agent_error",
+        "scored": false,
+        "detail": "private-coupling-foundry--faulty: the solution itself failed (exit 128): error: No valid patches in input (allow with \"--allow-empty\")\n"
+      },
+      "reward": null
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/private-coupling-foundry--reference__mCQW774/result.json",
+      "sha256": "952f5ebe3402f603d5bf649d3a99250e2cf83603a6334bf54ab525152c273f63",
+      "task": "private-coupling-foundry--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/private-coupling-packs--faulty__44CEoL7/result.json",
+      "sha256": "128202d1d987033888bc895673010c96534768ad3f84141d3a3c8f48a2f42e44",
+      "task": "private-coupling-packs--faulty",
+      "outcome": {
+        "name": "agent_error",
+        "scored": false,
+        "detail": "private-coupling-packs--faulty: the solution itself failed (exit 128): error: No valid patches in input (allow with \"--allow-empty\")\n"
+      },
+      "reward": null
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/private-coupling-packs--reference__JKTILl1/result.json",
+      "sha256": "3974b8cd4302bd6163e1416bec0ad46dd5a008485333d6699f7641775d378e9d",
+      "task": "private-coupling-packs--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/private-coupling-rails--faulty__frwsJAy/result.json",
+      "sha256": "ee260b1d674e9b6b857553b90dd06cffbcf2111fb21ee07e72310eaf3096591c",
+      "task": "private-coupling-rails--faulty",
+      "outcome": {
+        "name": "agent_error",
+        "scored": false,
+        "detail": "private-coupling-rails--faulty: the solution itself failed (exit 128): error: No valid patches in input (allow with \"--allow-empty\")\n"
+      },
+      "reward": null
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/private-coupling-rails--reference__pxwgoFi/result.json",
+      "sha256": "d369f76a31fcbac29641c914bb0df5a9434e82fc16bbaaadaf59425df7be21dd",
+      "task": "private-coupling-rails--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/search-rebuild-foundry--faulty__IYml0ju/result.json",
+      "sha256": "602ebe0934959d502dfd2fe9babaed2312e217e93e24da9ac24daf10632b0777",
+      "task": "search-rebuild-foundry--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/search-rebuild-foundry--reference__PoTtX7r/result.json",
+      "sha256": "ee7576f9f756e7f90ba81cd61b866dd1866a7c8eba2e9ebb4826161738c75d24",
+      "task": "search-rebuild-foundry--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/search-rebuild-packs--faulty__lHVvf9N/result.json",
+      "sha256": "474b77a2f1632b77337c535ebfad3b4717a3bbef0effad457fc813193e998999",
+      "task": "search-rebuild-packs--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/search-rebuild-packs--reference__ulfsqSr/result.json",
+      "sha256": "05ac90e686100f5c5a559b51fe5700f3f21ce750091fcd168f874566eeb8b7d5",
+      "task": "search-rebuild-packs--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/search-rebuild-rails--faulty__QlyN3cB/result.json",
+      "sha256": "8330dcd173a810188c7841a29d7ce5dfb74e82a1c74245baa14d2e991a78be0b",
+      "task": "search-rebuild-rails--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/search-rebuild-rails--reference__K38ImyA/result.json",
+      "sha256": "e22427216d342cc4d4f7ac344f79edb78566fdc63915c31c434561f685db09da",
+      "task": "search-rebuild-rails--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/stale-embedding-foundry--faulty__BeaD6Xz/result.json",
+      "sha256": "a45de9217dbd5a5eacd83dece96f57403376eb01dfd2274e5aba7f71f05d89d1",
+      "task": "stale-embedding-foundry--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/stale-embedding-foundry--reference__z15obAZ/result.json",
+      "sha256": "e52eb4bc45d174d913363e4a13e5fd108dca3dec8aa138c7d03cbb29573f703e",
+      "task": "stale-embedding-foundry--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/stale-embedding-packs--faulty__LricQAa/result.json",
+      "sha256": "0d779a6bbc0fecb95fc3487be5b39d2705c9cc0d7e2b67acfe641345d2ab440b",
+      "task": "stale-embedding-packs--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/stale-embedding-packs--reference__ViJe5SI/result.json",
+      "sha256": "7020614ec1373fc0c2c75612c44bd7df07038079b1574286a047e583d4f39d26",
+      "task": "stale-embedding-packs--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/stale-embedding-rails--faulty__HCkVK08/result.json",
+      "sha256": "6affe2831413c90365514b1059c5b08440c2201e587100c7fb286dea30db1c39",
+      "task": "stale-embedding-rails--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-controls-native-20260918/offline-controls/stale-embedding-rails--reference__os7G7J8/result.json",
+      "sha256": "499f076d4f4c9f03c6e2f2e65dabf61b4dba09f321759e024709136b059c1944",
+      "task": "stale-embedding-rails--reference",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 1.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-empty-controls-20260918/offline-controls/private-coupling-foundry--faulty__9jcaajc/result.json",
+      "sha256": "bd2e16ba4bdf6281cbd162cd24bbd21af2cc777b0296159c3953f3464d0d5a72",
+      "task": "private-coupling-foundry--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-empty-controls-20260918/offline-controls/private-coupling-packs--faulty__z9yK9sx/result.json",
+      "sha256": "cd83a9d98cb49d70302ba11783c4263d451655ec525ec35a09081f14c7baad07",
+      "task": "private-coupling-packs--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    },
+    {
+      "source": "/tmp/foundry-lemans-empty-controls-20260918/offline-controls/private-coupling-rails--faulty__8scROcT/result.json",
+      "sha256": "bbd0f7723c450213bae151010b6ad3e81788e2ab08ddd1f5baf9a49c0f87dca2",
+      "task": "private-coupling-rails--faulty",
+      "outcome": {
+        "name": "completed",
+        "scored": true
+      },
+      "reward": 0.0
+    }
+  ]
+}

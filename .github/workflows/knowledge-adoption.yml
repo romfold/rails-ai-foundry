@@ -1,0 +1,97 @@
+name: Knowledge adoption journey
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  adoption:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: .
+    env:
+      BUNDLE_FROZEN: 'true'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler: '2.6.9'
+          bundler-cache: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.19.0'
+      - name: Install matching PostgreSQL client
+        run: |
+          sudo install -d /usr/share/postgresql-common/pgdg
+          sudo curl --fail --show-error -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+          echo 'deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt noble-pgdg main' | sudo tee /etc/apt/sources.list.d/foundry-pgdg.list
+          sudo apt-get update
+          sudo apt-get install --yes postgresql-client-17
+          echo '/usr/lib/postgresql/17/bin' >> "$GITHUB_PATH"
+      - name: Install independent locked dependencies
+        run: |
+          bundle install
+          npm ci
+          BUNDLE_GEMFILE=recipes/knowledge-adoption/starting_app/Gemfile bundle install
+          BUNDLE_GEMFILE=recipes/domain-knowledge-rag-rom-res-elasticsearch-pgvector/Gemfile bundle install
+      - name: Start disposable integrations
+        run: docker compose -p foundry-adoption -f recipes/domain-knowledge-rag-rom-res-elasticsearch-pgvector/compose.yml up -d --wait
+      - name: Verify behavior and workflow prerequisites
+        run: |
+          bundle exec ruby recipes/knowledge-adoption/bin/replay
+          bundle exec rubocop
+      - name: Service logs
+        if: failure()
+        run: docker compose -p foundry-adoption -f recipes/domain-knowledge-rag-rom-res-elasticsearch-pgvector/compose.yml logs
+      - name: Stop disposable integrations
+        if: always()
+        run: docker compose -p foundry-adoption -f recipes/domain-knowledge-rag-rom-res-elasticsearch-pgvector/compose.yml down -v
+
+  tenant-backfill:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: foundry
+        ports: ['55545:5432']
+        options: --health-cmd pg_isready --health-interval 5s --health-retries 10
+    env:
+      PGPORT: '55545'
+      BUNDLE_FROZEN: 'true'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler: '2.6.9'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.19.0'
+      - name: Install matching PostgreSQL client
+        run: |
+          sudo install -d /usr/share/postgresql-common/pgdg
+          sudo curl --fail --show-error -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+          echo 'deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt noble-pgdg main' | sudo tee /etc/apt/sources.list.d/foundry-pgdg.list
+          sudo apt-get update
+          sudo apt-get install --yes postgresql-client-17
+          echo '/usr/lib/postgresql/17/bin' >> "$GITHUB_PATH"
+      - name: Install locked fixture dependencies
+        run: |
+          bundle install
+          npm ci
+          BUNDLE_GEMFILE=recipes/knowledge-adoption/tenant_app/Gemfile bundle install
+      - name: Verify populated adoption and faulty controls
+        run: bundle exec ruby recipes/knowledge-adoption/bin/replay --scenario=tenant-backfill

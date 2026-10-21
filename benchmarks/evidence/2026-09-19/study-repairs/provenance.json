@@ -1,0 +1,27 @@
+{
+  "classification": "human-assisted regression evidence",
+  "source_revision": "037f32115715026c6f550612f7dae7efda2bac56",
+  "upstream_revision": "5327efe54dd767d662ab89332f6a4285fef07bd8",
+  "candidates": {
+    "boundary-extraction-foundry": {
+      "baseline": "57a426f088496d6d316b29313139ec14da0ebbab",
+      "image": "sha256:0497de12ee1ff421fcadcfb55b3eeaa9eec0e2dc38eda8f9043dcf399cff0e3d",
+      "original_sha256": "1a249c0036954e87a1ce79ad572daabc9a5151f6d4b21317a47878ae65739687",
+      "patches": {
+        "boundary-repair.patch": "3c63e25abfb9ca75be42571aec461ede6db21bf25705c80b1230d3ad819c09c2",
+        "boundary-complete.patch": "64022eb4a83e5df5de27e25a277ee5e71e1e870f8203b56a12a44d23e004dab0"
+      },
+      "task_digest": "407621d4607257e0"
+    },
+    "ft-comment-reaction-live-echo": {
+      "baseline": "7f9ec60e632f706605b32f7916171156f37a3d07",
+      "image": "sha256:7a68abbb405addbea91cc7c9ea75c802b63e2603e2f25f51c3c03f92e64b85a0",
+      "original_sha256": "9accc21fbce6ad64a050a8857ae77d8bedb69c6b9db747cbacac3be4dd3a0d74",
+      "patches": {
+        "realtime-repair.patch": "2f86236f804d5604ab7d680116ec4e62a325562db3024a376b44347e0edca1f2",
+        "realtime-complete.patch": "1beafaa94d7a6ce08cf07b08d3b20a3d1f9c3e19b28ffa468311416170c808d3"
+      },
+      "task_digest": "9df099a35893d33b"
+    }
+  }
+}

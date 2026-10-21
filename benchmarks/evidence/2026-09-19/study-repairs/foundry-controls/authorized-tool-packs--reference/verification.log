@@ -1,0 +1,39 @@
+bundle exec ruby test/visible_test.rb
+Run options: --seed 2793
+
+# Running:
+
+..
+
+Finished in 0.084671s, 23.6208 runs/s, 47.2415 assertions/s.
+2 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -I/tests -report-lemans /tests/acceptance_test.rb
+Run options: --seed 8177
+
+# Running:
+
+...
+
+Finished in 0.087326s, 34.3542 runs/s, 148.8682 assertions/s.
+3 runs, 13 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -rstringio -S packwerk validate
+/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.
+You can add benchmark to your Gemfile or gemspec to silence this warning.
+📦 Packwerk is running validation...
+
+📦 Finished in 0.64 seconds
+
+Validation successful 🎉
+bundle exec ruby -rstringio -S packwerk check
+/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.
+You can add benchmark to your Gemfile or gemspec to silence this warning.
+📦 Packwerk is inspecting 12 files
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+............
+📦 Finished in 0.86 seconds
+
+No offenses detected
+No stale violations detected

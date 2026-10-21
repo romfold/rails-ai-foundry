@@ -1,0 +1,86 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..aa698ed 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Delivery::PublishedDocuments.list(tenant_id: tenant)
+   end
+ end
+diff --git a/app/services/delivery/published_documents.rb b/app/services/delivery/published_documents.rb
+new file mode 100644
+index 0000000..49c5049
+--- /dev/null
++++ b/app/services/delivery/published_documents.rb
+@@ -0,0 +1,7 @@
++module Delivery
++  class PublishedDocuments
++    def self.list(tenant_id:)
++      Knowledge::Catalog.list(tenant_id: tenant_id)
++    end
++  end
++end
+diff --git a/package.yml b/package.yml
+index 4f0c7c6..c4c4efa 100644
+--- a/package.yml
++++ b/package.yml
+@@ -1,2 +1,2 @@
+ enforce_dependencies: true
+-dependencies: []
++dependencies: [packs/knowledge]
+diff --git a/app/services/answering/retrieval_tool.rb b/packs/answering/app/services/answering/retrieval_tool.rb
+similarity index 100%
+rename from app/services/answering/retrieval_tool.rb
+rename to packs/answering/app/services/answering/retrieval_tool.rb
+diff --git a/packs/answering/package.yml b/packs/answering/package.yml
+new file mode 100644
+index 0000000..34e881f
+--- /dev/null
++++ b/packs/answering/package.yml
+@@ -0,0 +1,5 @@
++---
++enforce_dependencies: true
++enforce_privacy: true
++dependencies:
++- packs/knowledge
+diff --git a/app/models/knowledge/delivery.rb b/packs/knowledge/app/models/knowledge/delivery.rb
+similarity index 100%
+rename from app/models/knowledge/delivery.rb
+rename to packs/knowledge/app/models/knowledge/delivery.rb
+diff --git a/app/models/knowledge/document.rb b/packs/knowledge/app/models/knowledge/document.rb
+similarity index 100%
+rename from app/models/knowledge/document.rb
+rename to packs/knowledge/app/models/knowledge/document.rb
+diff --git a/app/models/knowledge/embedding.rb b/packs/knowledge/app/models/knowledge/embedding.rb
+similarity index 100%
+rename from app/models/knowledge/embedding.rb
+rename to packs/knowledge/app/models/knowledge/embedding.rb
+diff --git a/app/services/knowledge/catalog.rb b/packs/knowledge/app/public/knowledge/catalog.rb
+similarity index 100%
+rename from app/services/knowledge/catalog.rb
+rename to packs/knowledge/app/public/knowledge/catalog.rb
+diff --git a/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+similarity index 100%
+rename from app/services/knowledge/embedding_job.rb
+rename to packs/knowledge/app/services/knowledge/embedding_job.rb
+diff --git a/app/services/knowledge/publish_delivery.rb b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+similarity index 100%
+rename from app/services/knowledge/publish_delivery.rb
+rename to packs/knowledge/app/services/knowledge/publish_delivery.rb
+diff --git a/app/services/knowledge/rebuild_search.rb b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+similarity index 100%
+rename from app/services/knowledge/rebuild_search.rb
+rename to packs/knowledge/app/services/knowledge/rebuild_search.rb
+diff --git a/packs/knowledge/package.yml b/packs/knowledge/package.yml
+new file mode 100644
+index 0000000..4b71fc8
+--- /dev/null
++++ b/packs/knowledge/package.yml
+@@ -0,0 +1,4 @@
++---
++enforce_dependencies: true
++enforce_privacy: true
++dependencies: []

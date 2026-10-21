@@ -1,0 +1,50 @@
+AllCops:
+  TargetRubyVersion: 3.3
+  NewCops: enable
+  Exclude:
+    - vendor/**/*
+    - node_modules/**/*
+    - tmp/**/*
+    - examples/*/db/schema.rb
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - test/**/*
+    - test_ai/**/*
+    - test_packaging/**/*
+    - '*.gemspec'
+
+Metrics/MethodLength:
+  Max: 25
+
+Metrics/ClassLength:
+  Max: 180
+
+Layout/LineLength:
+  Max: 120
+
+# Test methods keep each scenario's setup and assertions together.
+Metrics/AbcSize:
+  Exclude:
+    - test/**/*
+    - examples/*/test/**/*
+    - test_ai/**/*
+    - test_packaging/**/*
+    - test_workflows/**/*
+    - test_journey/**/*
+
+Naming/PredicateMethod:
+  AllowedMethods:
+    - add
+    - call
+
+# Publishing policy is deferred until the first release.
+Gemspec/RequireMFA:
+  Enabled: false
+
+# Keep descriptive argument names when forwarding across compatibility helpers.
+Style/ArgumentsForwarding:
+  UseAnonymousForwarding: false

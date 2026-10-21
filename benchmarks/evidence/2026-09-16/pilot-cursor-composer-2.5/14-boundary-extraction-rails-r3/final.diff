@@ -1,0 +1,58 @@
+diff --git a/README.md b/README.md
+index e1e0c83..773c6f8 100644
+--- a/README.md
++++ b/README.md
+@@ -6,3 +6,11 @@ The `/documents` endpoint accepts demo tokens `tenant-a-token` and `tenant-b-tok
+ request parameters never establish tenant identity. SQLite is disposable test storage.
+ Provider and search transports are deterministic, offline injected dependencies.
+ Read TASK.md for the behavioral contract and AGENTS.md for the selected architecture.
++
++## Rollback
++
++To undo the Knowledge catalog boundary, point `Knowledge::Catalog.list` back at
++`Knowledge::Document` queries, restore direct model access in `DocumentsController`
++and `Knowledge::RebuildSearch`, and remove `Knowledge::Internal::PublishedDocuments`
++and `Documents::Delivery`.
++No database migration is required.
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..308f1a5 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Documents::Delivery.list(tenant_id: tenant)
+   end
+ end
+diff --git a/app/services/knowledge/catalog.rb b/app/services/knowledge/catalog.rb
+index 0be231a..fd7d7b5 100644
+--- a/app/services/knowledge/catalog.rb
++++ b/app/services/knowledge/catalog.rb
+@@ -3,9 +3,7 @@
+ module Knowledge
+   class Catalog
+     def self.list(tenant_id:)
+-      Document.where(tenant_id: tenant_id, published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
++      Internal::PublishedDocuments.for_tenant(tenant_id)
+     end
+   end
+ end
+diff --git a/app/services/knowledge/rebuild_search.rb b/app/services/knowledge/rebuild_search.rb
+index 2917659..1582a44 100644
+--- a/app/services/knowledge/rebuild_search.rb
++++ b/app/services/knowledge/rebuild_search.rb
+@@ -18,9 +18,7 @@ module Knowledge
+     private
+ 
+     def documents
+-      Document.where(published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
++      Internal::PublishedDocuments.all
+     end
+   end
+ end

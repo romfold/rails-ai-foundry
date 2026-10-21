@@ -1,0 +1,28 @@
+---
+version: 1
+environment:
+  backend: docker
+  workdir: "/candidate"
+  network:
+    mode: none
+  build_timeout: 30m
+agent:
+  name: miniswen
+  model: openrouter/openai/gpt-5.6-luna#medium
+  timeout: 10m
+  step_limit: 50
+  cost_limit: 0.75
+  max_output_tokens: 4096
+  exec_timeout: 60
+  environment:
+    network:
+      mode: none
+verifier:
+  timeout: 10m
+  command: ruby /tests/verify.rb
+  restore:
+  - Gemfile
+  - Gemfile.lock
+  - AGENTS.md
+  - TASK.md
+  - test

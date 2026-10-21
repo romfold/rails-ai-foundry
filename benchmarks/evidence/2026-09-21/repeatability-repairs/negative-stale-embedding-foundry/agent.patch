@@ -1,0 +1,75 @@
+diff --git a/packs/knowledge/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+index 5f19625..50f5db5 100644
+--- a/packs/knowledge/app/services/knowledge/embedding_job.rb
++++ b/packs/knowledge/app/services/knowledge/embedding_job.rb
+@@ -6,15 +6,27 @@ module Knowledge
+       snapshot = Document.find_by(id: document_id, tenant_id: tenant_id, published: true)
+       return :discarded unless snapshot
+ 
++      # The provider may be slow (and may not use the same database), so do not
++      # hold a database transaction open while it runs.
+       vector = provider.call(snapshot.body)
+-      Document.transaction do
+-        current = Document.lock.find_by(id: document_id, tenant_id: tenant_id, published: true)
+-        current ||= snapshot
+ 
+-        Embedding.upsert({ document_id: current.id, tenant_id: tenant_id, revision: current.revision,
+-                           version: version, vector: JSON.generate(vector) }, unique_by: %i[document_id version])
++      result = :discarded
++      Document.transaction do
++        current = Document.lock.find_by(id: document_id, tenant_id: tenant_id,
++                                         published: true, revision: snapshot.revision)
++        if current
++          existing = Embedding.lock.find_by(document_id: document_id, version: version)
++          unless existing && existing.revision > snapshot.revision
++            Embedding.upsert({ document_id: document_id, tenant_id: tenant_id,
++                               revision: snapshot.revision, version: version,
++                               vector: JSON.generate(vector) },
++                             unique_by: %i[document_id version])
++          end
++          result = :stored
++        end
+       end
+-      :stored
++
++      result
+     end
+   end
+ end
+diff --git a/test/visible_test.rb b/test/visible_test.rb
+index cb48882..2d0c749 100644
+--- a/test/visible_test.rb
++++ b/test/visible_test.rb
+@@ -23,4 +23,32 @@ class VisibleTest < BenchmarkTest
+     assert_equal :stored, result
+     assert_equal 1, Knowledge::Embedding.count
+   end
++
++  def test_discards_result_when_document_changes_during_provider_call
++    expected = document
++    provider = lambda do |_body|
++      expected.update!(revision: 2, body: 'new policy')
++      [0.25, 0.5]
++    end
++
++    result = Knowledge::EmbeddingJob.new.call(document_id: expected.id, tenant_id: 'a', version: 'v1',
++                                              provider: provider)
++
++    assert_equal :discarded, result
++    assert_equal 0, Knowledge::Embedding.count
++  end
++
++  def test_does_not_replace_newer_embedding
++    expected = document
++    Knowledge::Embedding.create!(document_id: expected.id, tenant_id: 'a', revision: 2,
++                                 version: 'v1', vector: JSON.generate([0.9]))
++
++    result = Knowledge::EmbeddingJob.new.call(document_id: expected.id, tenant_id: 'a', version: 'v1',
++                                              provider: ->(_body) { [0.1] })
++
++    assert_equal :stored, result
++    embedding = Knowledge::Embedding.find_by!(document_id: expected.id, version: 'v1')
++    assert_equal 2, embedding.revision
++    assert_equal [0.9], JSON.parse(embedding.vector)
++  end
+ end

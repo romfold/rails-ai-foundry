@@ -1,0 +1,13 @@
+diff --git a/app/models/reaction.rb b/app/models/reaction.rb
+index a978f45..580724b 100644
+--- a/app/models/reaction.rb
++++ b/app/models/reaction.rb
+@@ -5,7 +5,7 @@ class Reaction < ApplicationRecord
+   validates :content, presence: true, length: { maximum: 16 }
+   validates :creator_id, uniqueness: { scope: :comment_id }
+ 
+-  after_create_commit :broadcast_creation
++  after_create_commit :broadcast_deletion
+   after_destroy_commit :broadcast_deletion
+ 
+   private

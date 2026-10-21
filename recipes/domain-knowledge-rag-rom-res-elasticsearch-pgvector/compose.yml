@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17@sha256:cf134a767f474095eeba57e0117be8e568e011a63f33fbf252f14c9b760f8e6f
+    environment:
+      POSTGRES_PASSWORD: foundry
+    ports:
+      - "127.0.0.1:${PGPORT:-55543}:5432"
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U postgres"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.3.0
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: 'false'
+      ES_JAVA_OPTS: '-Xms512m -Xmx512m'
+    ports:
+      - "127.0.0.1:${ELASTICSEARCH_PORT:-59210}:9200"
+    healthcheck:
+      test: [CMD-SHELL, "curl -fsS http://localhost:9200/_cluster/health?wait_for_status=yellow"]
+      interval: 3s
+      timeout: 5s
+      retries: 60

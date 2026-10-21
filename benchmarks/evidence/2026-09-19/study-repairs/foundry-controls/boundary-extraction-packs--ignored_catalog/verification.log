@@ -1,0 +1,60 @@
+bundle exec ruby test/visible_test.rb
+Run options: --seed 29604
+
+# Running:
+
+..
+
+Finished in 0.144951s, 13.7978 runs/s, 27.5955 assertions/s.
+2 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -I/tests -report-lemans /tests/acceptance_test.rb
+Run options: --seed 30514
+
+# Running:
+
+..F
+
+Failure:
+AcceptanceTest#test_selected_task [/tests/acceptance_test.rb:45]:
+--- expected
++++ actual
+@@ -1 +1 @@
+-[{"id" => -1, "tenant_id" => "a", "body" => "catalog contract", "revision" => 99}]
++[{"id" => 7, "tenant_id" => "a", "body" => "refund policy", "revision" => 7}]
+
+
+bin/rails test /tests/acceptance_test.rb:37
+
+
+
+Finished in 0.158909s, 18.8787 runs/s, 75.5147 assertions/s.
+3 runs, 12 assertions, 1 failures, 0 errors, 0 skips
+bundle exec ruby -rstringio -S packwerk validate
+/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.
+You can add benchmark to your Gemfile or gemspec to silence this warning.
+📦 Packwerk is running validation...
+
+📦 Finished in 0.91 seconds
+
+Validation successful 🎉
+bundle exec ruby -rstringio -S packwerk check
+/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.
+You can add benchmark to your Gemfile or gemspec to silence this warning.
+📦 Packwerk is inspecting 12 files
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+[31mE[m...........
+📦 Finished in 1.4 seconds
+
+[36mapp/controllers/documents_controller.rb[m:9:17
+Privacy violation: '::Knowledge::Document' is private to 'packs/knowledge' but referenced from '.'.
+Is there a public entrypoint in 'packs/knowledge/app/public/' that you can use instead?
+
+Inference details: this is a reference to ::Knowledge::Document which seems to be defined in packs/knowledge/app/models/knowledge/document.rb.
+To receive help interpreting or resolving this error message, see: https://github.com/Shopify/packwerk/blob/main/TROUBLESHOOT.md#Troubleshooting-violations
+
+1 offense detected
+
+No stale violations detected

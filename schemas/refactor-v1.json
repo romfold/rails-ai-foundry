@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.rails-ai-foundry.invalid/refactor-v1.json",
+  "allOf": [
+    {
+      "$ref": "common-v1.json#/definitions/envelope"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "report_kind": {
+          "enum": [
+            "refactor"
+          ]
+        },
+        "complete": {
+          "type": "boolean"
+        },
+        "context": {
+          "type": "string"
+        },
+        "configuration": {
+          "type": "string"
+        },
+        "profile": {
+          "enum": [
+            "rails_native",
+            "modular",
+            "domain"
+          ]
+        },
+        "proposed_profile": {
+          "enum": [
+            "rails_native",
+            "modular",
+            "domain"
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "diagnostic-v1.json"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "advice": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "advice"
+                ],
+                "additionalProperties": true
+              }
+            ]
+          }
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "next_steps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "report_kind",
+        "complete",
+        "context",
+        "configuration",
+        "profile",
+        "proposed_profile",
+        "findings",
+        "limitations",
+        "next_steps"
+      ],
+      "additionalProperties": true
+    }
+  ]
+}

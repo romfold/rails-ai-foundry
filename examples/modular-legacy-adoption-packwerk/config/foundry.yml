@@ -1,0 +1,5 @@
+defaults:
+  profile: modular
+workload: balanced
+workflow:
+  specs: openspec

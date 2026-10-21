@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "behavior": "fail",
+    "http": "fail",
+    "durability": "fail",
+    "browser": "pass",
+    "packages_validate": "pass",
+    "packages_check": "pass"
+  }
+}

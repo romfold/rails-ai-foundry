@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../config/environment'
+case ARGV.first
+when 'rebuild'
+  puts Catalog::RebuildSearch.new.call
+when 'drain'
+  worker = Catalog::DeliverOutbox.new
+  100.times { break unless worker.call }
+else
+  abort 'Usage: bin/project rebuild|drain'
+end

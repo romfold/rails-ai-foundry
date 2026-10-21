@@ -1,0 +1,5 @@
+.bundle/
+log/
+tmp/
+db/structure.sql
+node_modules/

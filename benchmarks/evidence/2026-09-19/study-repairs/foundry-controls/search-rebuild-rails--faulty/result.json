@@ -1,0 +1,16 @@
+{
+  "task": "search-rebuild-rails--faulty",
+  "status": "failed",
+  "reward": 0.0,
+  "patch_sha256": "ea36fd20cb7feebf67a1c3e6c937661cfee77451487f9473bb493faeae458c0f",
+  "foundry": {
+    "visible": "passed",
+    "behavioral": "failed",
+    "architecture": {
+      "status": "not_applicable"
+    }
+  },
+  "verification_phase": "task",
+  "baseline_exit_code": null,
+  "protocol_violations": []
+}

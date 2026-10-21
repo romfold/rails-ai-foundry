@@ -1,0 +1,46 @@
+name: rails-native-agent-tools-structured-output-rubyllm
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  assistance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: examples/rails-native-agent-tools-structured-output-rubyllm
+    env:
+      BUNDLE_FROZEN: 'true'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler: '2.6.9'
+          bundler-cache: false
+      - name: Install independent locked dependencies
+        run: bundle install
+      - name: Start disposable integrations
+        run: docker compose up -d --wait
+      - name: Prepare browser acceptance
+        run: bundle exec ruby -rselenium-webdriver -e 'puts Selenium::WebDriver::SeleniumManager.binary_paths("--browser", "chrome")'
+      - name: Verify behavior and workflow prerequisites
+        run: |
+          bin/setup
+          bin/verify
+          bundle exec rubocop
+          bundle exec ruby ../../script/validate_examples.rb
+      - name: Service logs
+        if: failure()
+        run: docker compose logs
+      - name: Stop disposable integrations
+        if: always()
+        run: docker compose down -v

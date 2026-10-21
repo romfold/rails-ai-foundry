@@ -1,0 +1,79 @@
+bundle exec ruby bin/rails test
+Run options: --seed 15381
+
+# Running:
+
+........F
+
+Failure:
+ReviewedAcceptanceTest#test_expired_ownership_cannot_persist_old_provider_output [test/acceptance_test.rb:103]:
+Expected "Obsolete provider result" to be nil.
+
+bin/rails test test/acceptance_test.rb:99
+
+.Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:44801
+.
+
+Finished in 8.539162s, 1.2882 runs/s, 5.9725 assertions/s.
+11 runs, 51 assertions, 1 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/acceptance_test.rb
+Run options: --seed 1283
+
+# Running:
+
+..F
+
+Failure:
+ReviewedAcceptanceTest#test_expired_ownership_cannot_persist_old_provider_output [test/acceptance_test.rb:103]:
+Expected "Obsolete provider result" to be nil.
+
+bin/rails test test/acceptance_test.rb:99
+
+...
+
+Finished in 0.417709s, 14.3641 runs/s, 79.0024 assertions/s.
+6 runs, 33 assertions, 1 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/recovery_test.rb
+Run options: --seed 37765
+
+# Running:
+
+...
+
+Finished in 4.248785s, 0.7061 runs/s, 2.3536 assertions/s.
+3 runs, 10 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/review_browser_test.rb
+Run options: --seed 11311
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:46209
+.
+
+Finished in 4.339889s, 0.2304 runs/s, 1.3825 assertions/s.
+1 runs, 6 assertions, 0 failures, 0 errors, 0 skips
+/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.
+You can add benchmark to your Gemfile or gemspec to silence this warning.
+📦 Packwerk is running validation...
+
+📦 Finished in 1.15 seconds
+
+Validation successful 🎉
+/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.
+You can add benchmark to your Gemfile or gemspec to silence this warning.
+📦 Packwerk is inspecting 38 files
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+......................................
+📦 Finished in 1.37 seconds
+
+No offenses detected
+No stale violations detected

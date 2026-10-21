@@ -1,0 +1,13 @@
+diff --git a/packs/answering/app/services/answering/retrieval_tool.rb b/packs/answering/app/services/answering/retrieval_tool.rb
+index e3d883d..99c1d86 100644
+--- a/packs/answering/app/services/answering/retrieval_tool.rb
++++ b/packs/answering/app/services/answering/retrieval_tool.rb
+@@ -11,7 +11,7 @@ module Answering
+       raise SecurityError, 'unauthorized retrieval' unless @authorize.call(@tenant_id)
+       raise SecurityError, 'tenant override' if tenant_id && tenant_id != @tenant_id
+ 
+-      Knowledge::Document.where(tenant_id: @tenant_id, published: true).order(:id).map(&:attributes).select { |row| row.fetch('body').include?(query) }
++      Knowledge::Catalog.list(tenant_id: @tenant_id).select { |row| row.fetch('body').include?(query) }
+     end
+   end
+ end

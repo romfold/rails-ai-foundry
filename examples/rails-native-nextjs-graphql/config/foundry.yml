@@ -1,0 +1,6 @@
+schema: 1
+defaults:
+  profile: rails_native
+workload: balanced
+workflow:
+  specs: spec_kit

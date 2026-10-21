@@ -1,0 +1,5 @@
+{
+  "id": "stale-embedding",
+  "version": 1,
+  "title": "Reject stale embedding results"
+}

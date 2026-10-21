@@ -1,0 +1,32 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch('PGHOST', '127.0.0.1') %>
+  port: <%= ENV.fetch('PGPORT', '55432') %>
+  username: <%= ENV.fetch('PGUSER', 'postgres') %>
+  password: <%= ENV.fetch('PGPASSWORD', 'foundry') %>
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS', 5) %>
+development:
+  primary:
+    <<: *default
+    database: foundry_directory_development
+  primary_replica:
+    <<: *default
+    database: foundry_directory_development
+    replica: true
+test:
+  primary:
+    <<: *default
+    database: foundry_directory_test
+  primary_replica:
+    <<: *default
+    database: foundry_directory_test
+    replica: true
+production:
+  primary:
+    adapter: postgresql
+    url: <%= ENV['DATABASE_URL'] %>
+  primary_replica:
+    adapter: postgresql
+    url: <%= ENV['READ_DATABASE_URL'] || ENV['DATABASE_URL'] %>
+    replica: true

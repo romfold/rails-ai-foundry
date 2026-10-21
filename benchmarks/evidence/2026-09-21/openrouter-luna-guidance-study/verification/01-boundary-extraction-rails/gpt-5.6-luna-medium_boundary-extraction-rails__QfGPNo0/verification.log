@@ -1,0 +1,18 @@
+bundle exec ruby test/visible_test.rb
+Run options: --seed 3694
+
+# Running:
+
+..
+
+Finished in 0.081827s, 24.4418 runs/s, 48.8836 assertions/s.
+2 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -I/tests -report-lemans /tests/acceptance_test.rb
+Run options: --seed 6250
+
+# Running:
+
+...
+
+Finished in 0.079252s, 37.8538 runs/s, 176.6510 assertions/s.
+3 runs, 14 assertions, 0 failures, 0 errors, 0 skips

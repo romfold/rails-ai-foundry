@@ -1,0 +1,36 @@
+diff --git a/app/javascript/controllers/reaction_entry_controller.js b/app/javascript/controllers/reaction_entry_controller.js
+index bdc6bb2..3b220e2 100644
+--- a/app/javascript/controllers/reaction_entry_controller.js
++++ b/app/javascript/controllers/reaction_entry_controller.js
+@@ -17,6 +17,6 @@ export default class extends Controller {
+   }
+ 
+   get owned() {
+-    return Current.user?.id === this.creatorIdValue
++    return this.element.dataset.renderedOwner === "true"
+   }
+ }
+diff --git a/app/models/reaction.rb b/app/models/reaction.rb
+index a978f45..450754f 100644
+--- a/app/models/reaction.rb
++++ b/app/models/reaction.rb
+@@ -10,7 +10,7 @@ class Reaction < ApplicationRecord
+ 
+   private
+     def broadcast_creation
+-      Current.with(account: comment.account, user: nil) do
++      Current.with(account: comment.account) do
+         broadcast_append_to comment.card, target: ActionView::RecordIdentifier.dom_id(comment, :reaction_list),
+           partial: "cards/comments/reaction", locals: { reaction: self }
+       end
+diff --git a/app/views/cards/comments/_reaction.html.erb b/app/views/cards/comments/_reaction.html.erb
+index 5d09b7b..0408648 100644
+--- a/app/views/cards/comments/_reaction.html.erb
++++ b/app/views/cards/comments/_reaction.html.erb
+@@ -1,5 +1,5 @@
+ <div id="<%= dom_id(reaction) %>" class="reaction" title="<%= reaction.creator.name %>"
+-     data-controller="reaction-entry" data-reaction-entry-creator-id-value="<%= reaction.creator_id %>"
++     data-rendered-owner="<%= reaction.creator == Current.user %>" data-controller="reaction-entry" data-reaction-entry-creator-id-value="<%= reaction.creator_id %>"
+      data-action="click->reaction-entry#toggle">
+   <span class="txt-small txt-medium"><%= reaction.content %></span>
+   <%= avatar_tag reaction.creator, hidden_for_screen_reader: true, class: "reaction__avatar" %>

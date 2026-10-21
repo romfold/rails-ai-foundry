@@ -1,0 +1,69 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..4b9c806 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Knowledge::Catalog.list(tenant_id: tenant)
+   end
+ end
+diff --git a/docs/knowledge-boundary-rollback.md b/docs/knowledge-boundary-rollback.md
+new file mode 100644
+index 0000000..2b4387a
+--- /dev/null
++++ b/docs/knowledge-boundary-rollback.md
+@@ -0,0 +1,10 @@
++# Knowledge boundary rollback
++
++The boundary extraction is a read-path change only. If it must be rolled back,
++restore `DocumentsController#index` to its previous rendering expression and
++remove the focused boundary regression test. No schema, table, record, or
++persistence conversion is part of this change, so rollback does not require a
++data migration or a data repair.
++
++The `Knowledge::Catalog.list(tenant_id:)` API may remain available to callers
++such as retrieval even if the HTTP delivery path is temporarily reverted.
+diff --git a/test/regression_test.rb b/test/regression_test.rb
+new file mode 100644
+index 0000000..63314f5
+--- /dev/null
++++ b/test/regression_test.rb
+@@ -0,0 +1,35 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeBoundaryRegressionTest < BenchmarkTest
++  include Rack::Test::Methods
++
++  def app
++    Rails.application
++  end
++
++  def test_catalog_lists_only_published_documents_in_id_order
++    later = document(body: 'later')
++    earlier = document(body: 'earlier')
++    document(body: 'draft', published: false)
++    document(tenant: 'b', body: 'other tenant')
++
++    assert_equal [later.id, earlier.id].sort,
++                 Knowledge::Catalog.list(tenant_id: 'a').map { |row| row.fetch('id') }
++    assert_equal %w[a a], Knowledge::Catalog.list(tenant_id: 'a').map { |row| row.fetch('tenant_id') }
++    assert_equal %w[later earlier], Knowledge::Catalog.list(tenant_id: 'a').map { |row| row.fetch('body') }
++  end
++
++  def test_documents_delivery_delegates_catalog_to_keep_persistence_internal
++    expected = [{ 'id' => 42, 'tenant_id' => 'a', 'body' => 'from catalog', 'revision' => 3 }]
++    Knowledge::Catalog.stub(:list, expected) do
++      Knowledge::Document.stub(:where, ->(*) { raise 'delivery accessed persistence' }) do
++        get '/documents', {}, { 'HTTP_AUTHORIZATION' => 'tenant-a-token' }
++      end
++    end
++
++    assert_equal 200, last_response.status
++    assert_equal expected, JSON.parse(last_response.body)
++  end
++end

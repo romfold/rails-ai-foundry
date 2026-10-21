@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Acceptance owns named loopback databases; never inherit a deployment DATABASE_URL.
+ENV.delete('DATABASE_URL')
+abort 'Acceptance requires loopback PGHOST' unless %w[127.0.0.1 localhost
+                                                      ::1].include?(ENV.fetch('PGHOST', '127.0.0.1'))
+
+Dir.chdir(File.expand_path('..', __dir__)) do
+  system({ 'RAILS_ENV' => 'test' }, 'bin/rails', 'db:prepare', exception: true)
+  system('bin/rails', 'test', exception: true)
+  system({ 'NEXT_TELEMETRY_DISABLED' => '1' }, 'npm', '--prefix', 'frontend', 'run', 'build', exception: true)
+  system('node', 'script/verify_frontend.mjs', exception: true)
+  system('bundle', 'exec', 'foundry', 'check', '--sources', exception: true)
+  system('bundle', 'exec', 'foundry', 'check', '--boundaries', exception: true)
+  system({ 'SPECIFY_FEATURE_DIRECTORY' => File.expand_path('specs/001-reference') },
+         'bash', '.specify/scripts/bash/check-prerequisites.sh', '--json', '--require-tasks', exception: true)
+  production_check = <<~RUBY
+    Rails.application.eager_load!
+    loaded = $LOADED_FEATURES.grep(%r{/rails_ai_foundry/})
+    raise loaded.inspect unless loaded.all? { |path| path.end_with?('/version.rb') }
+  RUBY
+  system({ 'RAILS_ENV' => 'production', 'BUNDLE_WITHOUT' => 'development:test' },
+         'bin/rails', 'runner', production_check, exception: true)
+end

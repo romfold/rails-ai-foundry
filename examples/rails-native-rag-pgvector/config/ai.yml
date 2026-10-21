@@ -1,0 +1,9 @@
+shared:
+  models:
+    answer:
+      model: gpt-4.1-mini
+      provider: openai
+    embeddings:
+      model: text-embedding-3-small
+      provider: openai
+  # Application delivery uses DemoEmbeddings offline. ProviderEmbeddings is opt-in via constructor injection.

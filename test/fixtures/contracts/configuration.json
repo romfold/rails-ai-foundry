@@ -1,0 +1,289 @@
+[
+  {
+    "schema": "application",
+    "valid": true,
+    "data": {}
+  },
+  {
+    "schema": "application",
+    "valid": true,
+    "data": {
+      "schema": 1,
+      "workflow": {
+        "specs": "none"
+      }
+    }
+  },
+  {
+    "schema": "application",
+    "valid": true,
+    "data": {
+      "workflow": {
+        "specs": "spec-kit"
+      },
+      "checks": {},
+      "adoption": {}
+    }
+  },
+  {
+    "schema": "application",
+    "valid": true,
+    "data": {
+      "defaults": {
+        "profile": "domain",
+        "patterns": {
+          "events": "event_sourced",
+          "cqrs": "queries"
+        },
+        "capabilities": {
+          "search": {
+            "adapter": "custom",
+            "options": {
+              "timeout": 1
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "schema": 2
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "schema": "1"
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "schema": true
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "worklod": "read_heavy"
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "checks": {
+        "sources": false
+      }
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "adoption": {
+        "allow_new_debt": true
+      }
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "workflow": {
+        "spec": "none"
+      }
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "workflow": {
+        "specs": null
+      }
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "workflow": {
+        "specs": "other"
+      }
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "defaults": {
+        "profile": "unsupported"
+      }
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "defaults": {
+        "profile": "event_sourced"
+      }
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "defaults": {
+        "patterns": {
+          "cqrs": "all"
+        }
+      }
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "dependencies": []
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "checks": []
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "workload": false
+    }
+  },
+  {
+    "schema": "context",
+    "valid": true,
+    "data": {
+      "namespace": "Billing"
+    }
+  },
+  {
+    "schema": "context",
+    "valid": true,
+    "data": {
+      "schema": 1,
+      "namespace": "Billing::Ledger",
+      "profile": "rails_native",
+      "patterns": {
+        "events": "event_sourced",
+        "cqrs": "read_model"
+      },
+      "capabilities": {
+        "vector": {
+          "adapter": "custom",
+          "dimensions": 3
+        }
+      }
+    }
+  },
+  {
+    "schema": "context",
+    "valid": false,
+    "data": {}
+  },
+  {
+    "schema": "context",
+    "valid": false,
+    "data": {
+      "namespace": "billing"
+    }
+  },
+  {
+    "schema": "context",
+    "valid": false,
+    "data": {
+      "namespace": "Billing",
+      "schema": true
+    }
+  },
+  {
+    "schema": "context",
+    "valid": false,
+    "data": {
+      "namespace": "Billing",
+      "schema": 2
+    }
+  },
+  {
+    "schema": "context",
+    "valid": false,
+    "data": {
+      "namespace": "Billing",
+      "profile": "unsupported"
+    }
+  },
+  {
+    "schema": "context",
+    "valid": false,
+    "data": {
+      "namespace": "Billing",
+      "profile": "event_sourced"
+    }
+  },
+  {
+    "schema": "context",
+    "valid": false,
+    "data": {
+      "namespace": "Billing",
+      "patterns": {
+        "events": "all"
+      }
+    }
+  },
+  {
+    "schema": "context",
+    "valid": false,
+    "data": {
+      "namespace": "Billing",
+      "capabilities": {
+        "ai": {
+          "adapter": ""
+        }
+      }
+    }
+  },
+  {
+    "schema": "context",
+    "valid": false,
+    "data": {
+      "namespace": "Billing",
+      "dependencies": []
+    }
+  },
+  {
+    "schema": "context",
+    "valid": false,
+    "data": {
+      "namespace": "Billing\n"
+    }
+  },
+  {
+    "schema": "application",
+    "valid": false,
+    "data": {
+      "workflow": {
+        "specs": "none",
+        "note": "previously ignored"
+      }
+    }
+  }
+]

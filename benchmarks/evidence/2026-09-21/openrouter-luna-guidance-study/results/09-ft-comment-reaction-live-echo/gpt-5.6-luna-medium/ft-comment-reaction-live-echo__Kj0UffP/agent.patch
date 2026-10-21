@@ -1,0 +1,269 @@
+diff --git a/app/assets/stylesheets/reactions.css b/app/assets/stylesheets/reactions.css
+index 5088092..5cecec5 100644
+--- a/app/assets/stylesheets/reactions.css
++++ b/app/assets/stylesheets/reactions.css
+@@ -230,3 +230,6 @@
+     }
+   }
+ }
++
++/* The composer is present in the strip so it can animate in, but starts closed. */
++.reaction__form[hidden] { display: none; }
+diff --git a/app/controllers/cards/comments/reactions_controller.rb b/app/controllers/cards/comments/reactions_controller.rb
+new file mode 100644
+index 0000000..8009c80
+--- /dev/null
++++ b/app/controllers/cards/comments/reactions_controller.rb
+@@ -0,0 +1,34 @@
++class Cards::Comments::ReactionsController < ApplicationController
++  include CardScoped
++
++  before_action :set_comment
++  before_action :set_reaction, only: :destroy
++
++  def create
++    @comment.reactions.create!(content: reaction_params[:content].strip, creator: Current.user)
++    respond_to { |format| format.turbo_stream; format.html { render_reactions } }
++  end
++
++  def destroy
++    return head(:forbidden) unless @reaction.creator == Current.user
++    @reaction.destroy!
++    respond_to { |format| format.turbo_stream; format.html { render_reactions } }
++  end
++
++  private
++    def set_comment
++      @comment = @card.comments.find(params[:comment_id])
++    end
++
++    def set_reaction
++      @reaction = @comment.reactions.find(params[:id])
++    end
++
++    def reaction_params
++      params.expect(reaction: [ :content ])
++    end
++
++    def render_reactions
++      render partial: "cards/comments/reactions", locals: { comment: @comment.reload }
++    end
++end
+diff --git a/app/javascript/controllers/reactions_controller.js b/app/javascript/controllers/reactions_controller.js
+new file mode 100644
+index 0000000..138976f
+--- /dev/null
++++ b/app/javascript/controllers/reactions_controller.js
+@@ -0,0 +1,39 @@
++import { Controller } from "@hotwired/stimulus"
++
++export default class extends Controller {
++  static targets = ["form", "input", "reaction"]
++  static values = { currentUserId: String }
++
++  connect() {
++    this.formTarget.hidden = true
++  }
++
++  open() {
++    this.formTarget.hidden = false
++    this.formTarget.classList.add("expanded")
++    this.inputTarget.focus()
++  }
++
++  cancel() {
++    this.inputTarget.value = ""
++    this.formTarget.classList.remove("expanded")
++    this.formTarget.hidden = true
++  }
++
++  toggle(event) {
++    if (event.currentTarget.dataset.creatorId !== this.currentUserIdValue) return
++    event.currentTarget.classList.toggle("expanded")
++  }
++
++  submit(event) {
++    if (!this.inputTarget.value.trim()) event.preventDefault()
++  }
++
++  submitted(event) {
++    if (event.detail.success) this.cancel()
++  }
++
++  stop(event) {
++    event.stopPropagation()
++  }
++}
+diff --git a/app/models/comment.rb b/app/models/comment.rb
+index f6c5365..c701848 100644
+--- a/app/models/comment.rb
++++ b/app/models/comment.rb
+@@ -4,6 +4,7 @@ class Comment < ApplicationRecord
+   belongs_to :account, default: -> { card.account }
+   belongs_to :card, touch: true
+   belongs_to :creator, class_name: "User", default: -> { Current.user }
++  has_many :reactions, dependent: :destroy
+ 
+   has_rich_text :body
+ 
+diff --git a/app/models/reaction.rb b/app/models/reaction.rb
+new file mode 100644
+index 0000000..d58ac0f
+--- /dev/null
++++ b/app/models/reaction.rb
+@@ -0,0 +1,18 @@
++class Reaction < ApplicationRecord
++  belongs_to :comment
++  belongs_to :creator, class_name: "User"
++
++  validates :content, presence: true, length: { maximum: 16 }
++  validates :creator_id, uniqueness: { scope: :comment_id }
++
++  after_create_commit :broadcast_reactions
++  after_destroy_commit :broadcast_reactions
++
++  private
++    def broadcast_reactions
++      broadcast_replace_to comment.card,
++        target: ActionView::RecordIdentifier.dom_id(comment, :reactions),
++        partial: "cards/comments/reactions",
++        locals: { comment: comment.reload }
++    end
++end
+diff --git a/app/models/user.rb b/app/models/user.rb
+index 842f7f6..bffaeab 100644
+--- a/app/models/user.rb
++++ b/app/models/user.rb
+@@ -9,6 +9,7 @@ class User < ApplicationRecord
+   validates :name, presence: true
+ 
+   has_many :comments, inverse_of: :creator, dependent: :destroy
++  has_many :reactions, foreign_key: :creator_id, dependent: :destroy
+ 
+   has_many :filters, foreign_key: :creator_id, inverse_of: :creator, dependent: :destroy
+   has_many :closures, dependent: :nullify
+diff --git a/app/views/cards/comments/_comment.html.erb b/app/views/cards/comments/_comment.html.erb
+index 1b9a75e..913d1d6 100644
+--- a/app/views/cards/comments/_comment.html.erb
++++ b/app/views/cards/comments/_comment.html.erb
+@@ -1,4 +1,3 @@
+-<% cache comment do %>
+   <%# Helper Dependency Updated: avatar_image_tag 2025-12-15 %>
+   <%= turbo_frame_tag comment, :container, class: { "comment-by-system": comment.creator.system? } do %>
+     <%# Cache bump 2025-12-14: action text attachment rendering changed for lightbox -%>
+@@ -36,7 +35,8 @@
+           <%= comment.body %>
+         </div>
+ 
++        <%= render "cards/comments/reactions", comment: comment %>
++
+       </div>
+     </div>
+   <% end %>
+-<% end %>
+diff --git a/app/views/cards/comments/_reactions.html.erb b/app/views/cards/comments/_reactions.html.erb
+new file mode 100644
+index 0000000..d536b16
+--- /dev/null
++++ b/app/views/cards/comments/_reactions.html.erb
+@@ -0,0 +1,22 @@
++<div id="<%= dom_id(comment, :reactions) %>" class="reactions" data-controller="reactions" data-reactions-current-user-id-value="<%= Current.user&.id %>">
++  <div class="reactions__list">
++    <% comment.reactions.includes(:creator).each do |reaction| %>
++      <div class="reaction <%= "reaction--deleteable" if reaction.creator == Current.user %>" data-reactions-target="reaction" data-action="click->reactions#toggle" data-creator-id="<%= reaction.creator_id %>">
++        <span class="reaction__avatar" title="<%= reaction.creator.name %>"><%= avatar_tag reaction.creator, hidden_for_screen_reader: true %></span>\n        <span class="txt-small txt-medium" title="<%= reaction.creator.name %>"><%= reaction.content %></span>
++        <%= button_to card_comment_reaction_path(comment.card, comment, reaction), method: :delete,
++              class: "reaction__delete btn btn--plain", title: "Remove reaction", aria: { label: "Remove reaction" },
++              data: { turbo: true, action: "click->reactions#stop" } %>
++      </div>
++    <% end %>
++  </div>
++
++  <button type="button" class="reactions__trigger btn btn--circle" data-action="reactions#open" aria-label="Add a reaction">
++    <%= image_tag "boost-color.svg", alt: "" %>
++  </button>
++
++  <%= form_with model: Reaction.new, url: card_comment_reactions_path(comment.card, comment), class: "reaction__form", data: { reactions_target: "form", action: "submit->reactions#submit turbo:submit-end->reactions#submitted" } do |form| %>
++    <%= form.text_field :content, class: "reaction__input input", maxlength: 16, autocomplete: "off", aria: { label: "Reaction" }, data: { reactions_target: "input" } %>
++    <button type="submit" class="reaction__submit-btn btn btn--plain" aria-label="Confirm reaction"><%= icon_tag "check" %></button>
++    <button type="button" class="reaction__cancel-btn btn btn--plain" aria-label="Cancel" data-action="reactions#cancel"><%= icon_tag "close" %></button>
++  <% end %>
++</div>
+diff --git a/app/views/cards/comments/reactions/create.turbo_stream.erb b/app/views/cards/comments/reactions/create.turbo_stream.erb
+new file mode 100644
+index 0000000..84dd987
+--- /dev/null
++++ b/app/views/cards/comments/reactions/create.turbo_stream.erb
+@@ -0,0 +1 @@
++<%= turbo_stream.replace dom_id(@comment, :reactions), partial: "cards/comments/reactions", locals: { comment: @comment } %>
+diff --git a/app/views/cards/comments/reactions/destroy.turbo_stream.erb b/app/views/cards/comments/reactions/destroy.turbo_stream.erb
+new file mode 100644
+index 0000000..84dd987
+--- /dev/null
++++ b/app/views/cards/comments/reactions/destroy.turbo_stream.erb
+@@ -0,0 +1 @@
++<%= turbo_stream.replace dom_id(@comment, :reactions), partial: "cards/comments/reactions", locals: { comment: @comment } %>
+diff --git a/config/routes.rb b/config/routes.rb
+index 671799f..56ab31a 100644
+--- a/config/routes.rb
++++ b/config/routes.rb
+@@ -100,7 +100,9 @@ Rails.application.routes.draw do
+       resources :steps
+       resources :taggings
+ 
+-      resources :comments
++      resources :comments do
++        resources :reactions, only: [ :create, :destroy ], module: :comments
++      end
+     end
+   end
+ 
+diff --git a/db/migrate/20250921000000_create_reactions.rb b/db/migrate/20250921000000_create_reactions.rb
+new file mode 100644
+index 0000000..4f834a5
+--- /dev/null
++++ b/db/migrate/20250921000000_create_reactions.rb
+@@ -0,0 +1,12 @@
++class CreateReactions < ActiveRecord::Migration[8.0]
++  def change
++    create_table :reactions, id: :uuid do |t|
++      t.references :comment, type: :uuid, null: false, foreign_key: true
++      t.references :creator, type: :uuid, null: false, foreign_key: { to_table: :users }
++      t.string :content, null: false, limit: 16
++      t.timestamps
++    end
++
++    add_index :reactions, [ :comment_id, :creator_id ], unique: true
++  end
++end
+diff --git a/db/schema_sqlite.rb b/db/schema_sqlite.rb
+index 5c1874f..133ccd5 100644
+--- a/db/schema_sqlite.rb
++++ b/db/schema_sqlite.rb
+@@ -445,6 +445,16 @@ ActiveRecord::Schema[8.2].define(version: 2026_07_09_120000) do
+     t.index ["user_id", "endpoint"], name: "index_push_subscriptions_on_user_id_and_endpoint", unique: true
+   end
+ 
++  create_table "reactions", id: :uuid, force: :cascade do |t|
++    t.uuid "comment_id", null: false
++    t.uuid "creator_id", null: false
++    t.string "content", limit: 16, null: false
++    t.datetime "created_at", null: false
++    t.datetime "updated_at", null: false
++    t.index ["comment_id", "creator_id"], name: "index_reactions_on_comment_id_and_creator_id", unique: true
++    t.index ["comment_id"], name: "index_reactions_on_comment_id"
++    t.index ["creator_id"], name: "index_reactions_on_creator_id"
++  end
+ 
+   create_table "search_queries", id: :uuid, force: :cascade do |t|
+     t.uuid "account_id", null: false
+@@ -618,6 +628,9 @@ ActiveRecord::Schema[8.2].define(version: 2026_07_09_120000) do
+     t.index ["account_id"], name: "index_webhooks_on_account_id"
+     t.index ["board_id", "subscribed_actions"], name: "index_webhooks_on_board_id_and_subscribed_actions"
+   end
++
++  add_foreign_key "reactions", "comments"
++  add_foreign_key "reactions", "users", column: "creator_id"
+   execute "CREATE VIRTUAL TABLE search_records_fts USING fts5(\n        title,\n        content,\n        tokenize='porter'\n      )"
+ 
+ end

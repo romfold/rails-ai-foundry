@@ -1,0 +1,74 @@
+diff --git a/test/embedding_regression_test.rb b/test/embedding_regression_test.rb
+new file mode 100644
+index 0000000..a11eebf
+--- /dev/null
++++ b/test/embedding_regression_test.rb
+@@ -0,0 +1,31 @@
++require_relative 'test_helper'
++
++class EmbeddingRegressionTest < BenchmarkTest
++  def test_discards_result_when_document_changes_during_provider_call
++    expected = document
++    provider = lambda do |_body|
++      expected.update!(revision: 2, body: 'new policy')
++      [0.25, 0.5]
++    end
++
++    result = Knowledge::EmbeddingJob.new.call(document_id: expected.id, tenant_id: 'a', version: 'v1',
++                                              provider: provider)
++
++    assert_equal :discarded, result
++    assert_equal 0, Knowledge::Embedding.count
++  end
++
++  def test_does_not_replace_newer_embedding
++    expected = document
++    Knowledge::Embedding.create!(document_id: expected.id, tenant_id: 'a', revision: 2,
++                                 version: 'v1', vector: JSON.generate([0.9]))
++
++    result = Knowledge::EmbeddingJob.new.call(document_id: expected.id, tenant_id: 'a', version: 'v1',
++                                              provider: ->(_body) { [0.1] })
++
++    assert_equal :stored, result
++    embedding = Knowledge::Embedding.find_by!(document_id: expected.id, version: 'v1')
++    assert_equal 2, embedding.revision
++    assert_equal [0.9], JSON.parse(embedding.vector)
++  end
++end
+diff --git a/test/visible_test.rb b/test/visible_test.rb
+index 2d0c749..cb48882 100644
+--- a/test/visible_test.rb
++++ b/test/visible_test.rb
+@@ -23,32 +23,4 @@ class VisibleTest < BenchmarkTest
+     assert_equal :stored, result
+     assert_equal 1, Knowledge::Embedding.count
+   end
+-
+-  def test_discards_result_when_document_changes_during_provider_call
+-    expected = document
+-    provider = lambda do |_body|
+-      expected.update!(revision: 2, body: 'new policy')
+-      [0.25, 0.5]
+-    end
+-
+-    result = Knowledge::EmbeddingJob.new.call(document_id: expected.id, tenant_id: 'a', version: 'v1',
+-                                              provider: provider)
+-
+-    assert_equal :discarded, result
+-    assert_equal 0, Knowledge::Embedding.count
+-  end
+-
+-  def test_does_not_replace_newer_embedding
+-    expected = document
+-    Knowledge::Embedding.create!(document_id: expected.id, tenant_id: 'a', revision: 2,
+-                                 version: 'v1', vector: JSON.generate([0.9]))
+-
+-    result = Knowledge::EmbeddingJob.new.call(document_id: expected.id, tenant_id: 'a', version: 'v1',
+-                                              provider: ->(_body) { [0.1] })
+-
+-    assert_equal :stored, result
+-    embedding = Knowledge::Embedding.find_by!(document_id: expected.id, version: 'v1')
+-    assert_equal 2, embedding.revision
+-    assert_equal [0.9], JSON.parse(embedding.vector)
+-  end
+ end

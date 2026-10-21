@@ -1,0 +1,5 @@
+{
+  "status": "infrastructure_error",
+  "error_class": "BenchmarkSuite::Failure",
+  "message": "Verification command failed: 1"
+}

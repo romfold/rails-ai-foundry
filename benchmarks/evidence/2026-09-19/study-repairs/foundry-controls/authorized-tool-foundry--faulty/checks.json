@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "AcceptanceTest#test_catalog_contract": "pass",
+    "AcceptanceTest#test_selected_task": "fail",
+    "AcceptanceTest#test_trusted_tenant_and_published_visibility": "pass"
+  },
+  "failures": [
+    "AcceptanceTest#test_selected_task"
+  ],
+  "allowed_failures": {}
+}

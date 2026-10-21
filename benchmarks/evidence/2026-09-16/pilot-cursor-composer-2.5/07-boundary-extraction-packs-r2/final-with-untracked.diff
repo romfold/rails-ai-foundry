@@ -1,0 +1,130 @@
+diff --git a/README.md b/README.md
+index e1e0c83..37a7381 100644
+--- a/README.md
++++ b/README.md
+@@ -6,3 +6,7 @@ The `/documents` endpoint accepts demo tokens `tenant-a-token` and `tenant-b-tok
+ request parameters never establish tenant identity. SQLite is disposable test storage.
+ Provider and search transports are deterministic, offline injected dependencies.
+ Read TASK.md for the behavioral contract and AGENTS.md for the selected architecture.
++
++## Rollback
++
++Knowledge persistence remains in the shared SQLite tables (`documents`, `embeddings`, `deliveries`). To roll back the pack boundary, move `packs/knowledge/app/**` back under `app/`, remove `packs/knowledge`, revert `package.yml` dependencies, and restore direct model access in delivery code. No schema migration is required.
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..aa698ed 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Delivery::PublishedDocuments.list(tenant_id: tenant)
+   end
+ end
+diff --git a/app/services/delivery/published_documents.rb b/app/services/delivery/published_documents.rb
+new file mode 100644
+index 0000000..2064066
+--- /dev/null
++++ b/app/services/delivery/published_documents.rb
+@@ -0,0 +1,9 @@
++# frozen_string_literal: true
++
++module Delivery
++  class PublishedDocuments
++    def self.list(tenant_id:)
++      Knowledge::Catalog.list(tenant_id: tenant_id)
++    end
++  end
++end
+diff --git a/package.yml b/package.yml
+index 4f0c7c6..6c66f60 100644
+--- a/package.yml
++++ b/package.yml
+@@ -1,2 +1,3 @@
+ enforce_dependencies: true
+-dependencies: []
++dependencies:
++  - packs/knowledge
+diff --git a/app/models/knowledge/delivery.rb b/packs/knowledge/app/models/knowledge/delivery.rb
+similarity index 100%
+rename from app/models/knowledge/delivery.rb
+rename to packs/knowledge/app/models/knowledge/delivery.rb
+diff --git a/app/models/knowledge/document.rb b/packs/knowledge/app/models/knowledge/document.rb
+similarity index 100%
+rename from app/models/knowledge/document.rb
+rename to packs/knowledge/app/models/knowledge/document.rb
+diff --git a/app/models/knowledge/embedding.rb b/packs/knowledge/app/models/knowledge/embedding.rb
+similarity index 100%
+rename from app/models/knowledge/embedding.rb
+rename to packs/knowledge/app/models/knowledge/embedding.rb
+diff --git a/app/services/knowledge/catalog.rb b/packs/knowledge/app/public/knowledge/catalog.rb
+similarity index 100%
+rename from app/services/knowledge/catalog.rb
+rename to packs/knowledge/app/public/knowledge/catalog.rb
+diff --git a/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+similarity index 100%
+rename from app/services/knowledge/embedding_job.rb
+rename to packs/knowledge/app/services/knowledge/embedding_job.rb
+diff --git a/app/services/knowledge/publish_delivery.rb b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+similarity index 100%
+rename from app/services/knowledge/publish_delivery.rb
+rename to packs/knowledge/app/services/knowledge/publish_delivery.rb
+diff --git a/app/services/knowledge/rebuild_search.rb b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+similarity index 100%
+rename from app/services/knowledge/rebuild_search.rb
+rename to packs/knowledge/app/services/knowledge/rebuild_search.rb
+diff --git a/packs/knowledge/package.yml b/packs/knowledge/package.yml
+new file mode 100644
+index 0000000..577db03
+--- /dev/null
++++ b/packs/knowledge/package.yml
+@@ -0,0 +1,3 @@
++enforce_dependencies: true
++enforce_privacy: true
++dependencies: []
+diff --git a/test/delivery_published_documents_test.rb b/test/delivery_published_documents_test.rb
+new file mode 100644
+index 0000000..9163033
+--- /dev/null
++++ b/test/delivery_published_documents_test.rb
+@@ -0,0 +1,15 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class DeliveryPublishedDocumentsTest < BenchmarkTest
++  def test_list_delegates_to_knowledge_catalog
++    expected = document(body: 'shipping policy')
++
++    rows = Delivery::PublishedDocuments.list(tenant_id: 'a')
++
++    assert_equal 1, rows.size
++    assert_equal expected.id, rows.first.fetch('id')
++    assert_equal 'shipping policy', rows.first.fetch('body')
++  end
++end
+diff --git a/test/knowledge_catalog_test.rb b/test/knowledge_catalog_test.rb
+new file mode 100644
+index 0000000..fd8b8f9
+--- /dev/null
++++ b/test/knowledge_catalog_test.rb
+@@ -0,0 +1,18 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeCatalogTest < BenchmarkTest
++  def test_list_returns_published_documents_for_tenant_ordered_by_id
++    first = document(tenant: 'a', body: 'alpha')
++    second = document(tenant: 'a', body: 'beta')
++    document(tenant: 'b', body: 'other tenant')
++    document(tenant: 'a', body: 'draft', published: false)
++
++    rows = Knowledge::Catalog.list(tenant_id: 'a')
++
++    assert_equal [first.id, second.id], rows.map { |row| row.fetch('id') }
++    assert_equal %w[id tenant_id body revision].sort, rows.first.keys.sort
++    assert_equal 'alpha', rows.first.fetch('body')
++  end
++end

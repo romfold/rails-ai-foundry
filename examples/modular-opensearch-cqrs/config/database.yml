@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch('PGHOST', '127.0.0.1') %>
+  port: <%= ENV.fetch('PGPORT', '55432') %>
+  username: <%= ENV.fetch('PGUSER', 'postgres') %>
+  password: <%= ENV.fetch('PGPASSWORD', 'foundry') %>
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS', 5) %>
+development:
+  <<: *default
+  database: foundry_catalog_development
+test:
+  <<: *default
+  database: foundry_catalog_test
+production:
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>

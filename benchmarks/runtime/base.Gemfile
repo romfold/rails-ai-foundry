@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+gem 'actionpack', '8.1.3.1'
+gem 'activerecord', '8.1.3.1'
+gem 'railties', '8.1.3.1'
+gem 'sqlite3', '2.9.6'
+gem 'minitest', '5.27.0'
+gem 'rake', '13.4.2'

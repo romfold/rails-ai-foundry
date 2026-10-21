@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.rails-ai-foundry.invalid/application-v1.json",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": 1,
+      "type": "integer",
+      "default": 1
+    },
+    "workload": {
+      "enum": [
+        "balanced",
+        "read_heavy",
+        "job_heavy",
+        "ingestion",
+        "realtime"
+      ]
+    },
+    "defaults": {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "enum": [
+            "rails_native",
+            "modular",
+            "domain"
+          ]
+        },
+        "patterns": {
+          "type": "object",
+          "properties": {
+            "events": {
+              "enum": [
+                "none",
+                "integration",
+                "event_sourced"
+              ]
+            },
+            "cqrs": {
+              "enum": [
+                "none",
+                "queries",
+                "read_model"
+              ]
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "capabilities": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "adapter": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "adapter"
+            ],
+            "additionalProperties": true
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "workflow": {
+      "type": "object",
+      "properties": {
+        "specs": {
+          "enum": [
+            "spec_kit",
+            "spec-kit",
+            "openspec",
+            "none"
+          ]
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "checks": {
+      "type": "object",
+      "maxProperties": 0
+    },
+    "adoption": {
+      "type": "object",
+      "maxProperties": 0
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

@@ -1,0 +1,826 @@
+{
+  "date": "2026-09-23",
+  "purpose": "Personal workstation path redaction; original hashes describe pre-redaction bytes, not sanitized files. Existing trial grades, provenance hashes and measurements are unchanged.",
+  "files": [
+    {
+      "path": "benchmarks/evidence/2026-09-16/controls.json",
+      "original_sha256": "8188009c06ec83c1efb2f648b98e94c9c62d2c4b93db6ad866b794bc94f4b0ee",
+      "sanitized_sha256": "05c0b83fc0b3ee173c10986b39b00c936b6e585bd9577e6bcd07c32da5e4c2d0"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-0.142.5/01-boundary-extraction-rails-r1/command.json",
+      "original_sha256": "07819569e86a586776a7a2935cce0dd3c016562a5134657e68d3dd961a9f75b3",
+      "sanitized_sha256": "d6688c5db7df2efa067a76eb955f1262ee33c3415a66bf12d5bfcb908b63ffa3"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-0.142.5/01-boundary-extraction-rails-r1/grading/behavioral.json",
+      "original_sha256": "6f2f1c5cc2140b70f4141b5feb64516f853750db8b677c627ab79dd668c38f46",
+      "sanitized_sha256": "6292758b12b440a9035440e8e4c02733621ba85b1b7b75a1f79c8ef92a26df6c"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-0.142.5/01-boundary-extraction-rails-r1/grading/visible.json",
+      "original_sha256": "e4c5b65d74b27637aa4da601ec577ab224656e4457e507a874957d560ed3eb96",
+      "sanitized_sha256": "ada0050b97863261e181760ffbdbead4e898ad3d3c0c545d9d39895e3bcdef41"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-0.142.5/isolation.json",
+      "original_sha256": "c832eb7db8995b9d22a809f5ca2da3d2ce6d2b08ed0a5128ad415b9c9cc611e3",
+      "sanitized_sha256": "47e7d56f71ee5c5023f57c24f67bf1de2636fbd31e604245f249093a2924ed5e"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/01-boundary-extraction-rails-r1/command.json",
+      "original_sha256": "59169946130c2c7e69f1525416644b7319adb7c7efc6e26b2b8185e53dbb1d2f",
+      "sanitized_sha256": "9369c310fd54fde9d0ba085dc5f199c469ff84e7a5b3cde1ef85e459b1fa8b1c"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/01-boundary-extraction-rails-r1/grading/behavioral.json",
+      "original_sha256": "02b25d3fc09b63cb79b8254b6d118cfb3fe5f148e669c9bc0d557f413b2a8717",
+      "sanitized_sha256": "b5b9bd77e1d2aba685fb143a35f2649c84398c679c85d0734f51d45634812d38"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/01-boundary-extraction-rails-r1/grading/visible.json",
+      "original_sha256": "26b6f360a6d6399a738c560974a777daf358eae29815eb11e9978b4addd6abf3",
+      "sanitized_sha256": "9d85e5f55584272d1e25cb423366b96b8800c71e8eb2f6a75add03f0bf678df0"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/02-boundary-extraction-packs-r1/command.json",
+      "original_sha256": "d18fb60f68836b96011cf6183fc1a468b7322d90d4fef18830aa43450c81b216",
+      "sanitized_sha256": "5f2c607cd06384c483ca7fe05c6181eb557d3cad89b26ff178a1db9082d037f3"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/02-boundary-extraction-packs-r1/grading/behavioral.json",
+      "original_sha256": "87358c68dd1fec19c5c2fbb4a2ebc753bd0e80aadc03bb02863a8fe4fff7bfae",
+      "sanitized_sha256": "7c1ae802e214f61d0d9ee1b66c42c91524b5e9eed82b661f83aa31d26e19fc3c"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/02-boundary-extraction-packs-r1/grading/result.json",
+      "original_sha256": "cde5df64d0ec9a3b3e3591e4c4e646c20b971e2b3b2323e76fc40db34e3eb561",
+      "sanitized_sha256": "9456dc583b46f15aaced39cf0afd68a652d52aa23452a8fb9a7715277a4d63dd"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/02-boundary-extraction-packs-r1/grading/visible.json",
+      "original_sha256": "437d71c96ce85baa1e5d80a1553aaf45598b7b5a0a8bfa462e896448b6288ee6",
+      "sanitized_sha256": "6f158d79a3ef401188c47734739531066d5e4084f2441a70228aa00e8b3c43e3"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/03-boundary-extraction-foundry-r1/command.json",
+      "original_sha256": "717117d951ed73b3b0368b9e73c1a5aa3da9fcc239483ac0feaf2a2cf5e8e777",
+      "sanitized_sha256": "3c380de4fb523fe3db3d8b67248ad8ab2a1625cc5262c38fbe5a7daf7a9672b0"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/03-boundary-extraction-foundry-r1/grading/behavioral.json",
+      "original_sha256": "1fffb3b311153dc492374caa59bd7aa5251f4cb91433c63520887d6502f0849e",
+      "sanitized_sha256": "9cd9bdcfdb2f327511e55606c282dc65355a188085106e9efc5768cbf3b5ca80"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/03-boundary-extraction-foundry-r1/grading/result.json",
+      "original_sha256": "a365620a8c9d31a283d78dccc1706c2ac5fb6650dd7c947f5cbc65dd363321a6",
+      "sanitized_sha256": "a0c14503d5c98d6b6ba286a7c57a4d24322861a242d9f5db7d1caeb5aa993247"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/03-boundary-extraction-foundry-r1/grading/visible.json",
+      "original_sha256": "0b0930c92fe8a7a9bdea218b16fed4aea04f54879bf81dc8122530625984bca7",
+      "sanitized_sha256": "1acfe9357b78a869f99c028ca1e47c133001a6bae32c2acb089785250019e1b1"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/04-stale-embedding-rails-r1/command.json",
+      "original_sha256": "074f4af8a7855132a49063746d0fdf945e9b37cab06f1f538cae29f8cd80f214",
+      "sanitized_sha256": "1314e304a75ef698b356a72e45c2a2f5953ff32d6c636cd337be68722c947a08"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/04-stale-embedding-rails-r1/grading/behavioral.json",
+      "original_sha256": "303b29a9b1a60d1ac1784fa05b94809133f1a8c5c34f2a88daef12adc3bb0c79",
+      "sanitized_sha256": "6e8f2c0669633b2b31574a1051ca6231f8e5e5046eaa99c136e961d7389624b9"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/04-stale-embedding-rails-r1/grading/visible.json",
+      "original_sha256": "d0a73a74e77267fbfe139f170b47ae0d3867f7f5660b79b948338c866d06bf20",
+      "sanitized_sha256": "ee0725f8b54c990aa4d1175b9b67cc8c0c0bbfa6926ae80012ff09d63a782d5e"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/05-stale-embedding-packs-r1/command.json",
+      "original_sha256": "38c3ab579e542aeacf891852a0846466aefc827088f2cd73e671b00fa02868ab",
+      "sanitized_sha256": "84ac077fbb5a334b8f4ad0e55143cfcc345f6cde52562f4e77b9a2ea248087d6"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/05-stale-embedding-packs-r1/grading/behavioral.json",
+      "original_sha256": "b12bac7407b150b1c1512fb8de1f9f9e233f27ceb862c2f15991f5bc860888e9",
+      "sanitized_sha256": "f39b313b413fc8b3b7f8c28f59dfe27c6ae2c57195ce4ff7e9d9183c01219f50"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/05-stale-embedding-packs-r1/grading/result.json",
+      "original_sha256": "26e216655c18616861edc4e5fab0ba61b66c850f6fe19dff33c2db21e9bfdddb",
+      "sanitized_sha256": "e4333b7f18328f982c847a05fe4265a50df9ab49dc86567cb66cf628b9b99d01"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/05-stale-embedding-packs-r1/grading/visible.json",
+      "original_sha256": "e3476d418b520b0a300a6eb67b14042ae18e1421dc3d4ce9726b324f71a343b8",
+      "sanitized_sha256": "969bb59c029635286fca2b5cc90214cb3fe6ae18736e75a3d8aa108d79d24bea"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/06-stale-embedding-foundry-r1/command.json",
+      "original_sha256": "9d00e6414b39bdcc5d66172c8d267dc4c6bb8eec920d620c947a8024077ea2e2",
+      "sanitized_sha256": "54251843346d08369d724ac8723671cedecb8f8aaf92560eea06e96a843a7183"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/06-stale-embedding-foundry-r1/grading/behavioral.json",
+      "original_sha256": "316b973bea3dcb901866bee5b76de1d1564123fd38e5816f4ede3b4dc05b0faa",
+      "sanitized_sha256": "019454fec5c61770a5f4261f536a00518ef48cc030e9aa3be019546e1bcff7d7"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/06-stale-embedding-foundry-r1/grading/result.json",
+      "original_sha256": "d59befdee5224e1f0dc6ed90dbc5a21234b99882f5515535c1be80310bfc3a38",
+      "sanitized_sha256": "8adb74d33b689bf827c515833963f0fd7ab88c53566601660b696fb5beadb0ff"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/06-stale-embedding-foundry-r1/grading/visible.json",
+      "original_sha256": "c8f12b618ba92a83dbd30af2cab6f891393614f392b080b6c61858fd790587c8",
+      "sanitized_sha256": "033be034a3100ca5601d1a752b3f91cd19546dc180af4da3a6e1d0e1ebc04dd1"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/07-boundary-extraction-packs-r2/command.json",
+      "original_sha256": "e889780ace4a4deb708f878dca1279c8be58d1bc15c0ef8d371b0c91ae7cc854",
+      "sanitized_sha256": "fe319326f757f0f8b05784a4df731d8ef32e01851c6cc3c58960b687f8cb2a01"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/07-boundary-extraction-packs-r2/grading/behavioral.json",
+      "original_sha256": "8e8dca4abb88d94f7d270c1bed9e016d2590d013b751d4d92b4cec740536f66d",
+      "sanitized_sha256": "869bd6ba0fc631723b9afc3c74315ef4d03f4f407a6cdf49b94542ddafa2a93b"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/07-boundary-extraction-packs-r2/grading/result.json",
+      "original_sha256": "80eb058ead239d24a938ff06bacfce51a3b15b4f4c32b2d5df49ebb2d4a16789",
+      "sanitized_sha256": "dfd9c24236301dc95bf429df277f124bcfe9fa076d3fb31c060e0cefc28c3a58"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/07-boundary-extraction-packs-r2/grading/visible.json",
+      "original_sha256": "81e7583bcf5f9abcea93ec15c414f3b48bee213eab3069d413f7a7657d526437",
+      "sanitized_sha256": "0ccf83f2dc37ffa3bd1251621b8fdf0bbf850ea98beb609b53b0f3020362d169"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/08-boundary-extraction-foundry-r2/command.json",
+      "original_sha256": "f08f8f6b49e1db8fa608c11831ad75ea02c9958c13aa37f4f9d51251106ed553",
+      "sanitized_sha256": "1464fd78d41b71ceda01bf0cbb7210dfbb344771cd05bfd1332b60b2ddc09100"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/08-boundary-extraction-foundry-r2/grading/behavioral.json",
+      "original_sha256": "3a06e24981ed56c75970dc172a234d51570b46952fe286fe8dde9cb974772b98",
+      "sanitized_sha256": "96bbd24faab369f68468361ca08a3ebd015b60fb739137f78a7c7fdd674a445f"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/08-boundary-extraction-foundry-r2/grading/result.json",
+      "original_sha256": "5906d7a4c8d705a2e8792ec2afa9a1fad4e72b5461b1b3a187b1676ae7e3ca7d",
+      "sanitized_sha256": "8adaa0be665f1fffdd9d9e104fb8b7fa8ce86577c99db0bdfedfa0df78521bef"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/08-boundary-extraction-foundry-r2/grading/visible.json",
+      "original_sha256": "e5d57376b025c896145863f77643900dc56133e3ed9e5003b8316d09be9970ed",
+      "sanitized_sha256": "5300ef89b81dc5cbe4e5e83523379f4d813f28180e05f7509962d114eb35e008"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/09-boundary-extraction-rails-r2/command.json",
+      "original_sha256": "30e6af1ad42a3fa8ef2164b1716426604f4dda3ecc05744a6433f9408f142d3e",
+      "sanitized_sha256": "584c3c25ed86317facb5360409d2635e734323c523b6a83bafccd5f6738fa132"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/09-boundary-extraction-rails-r2/grading/behavioral.json",
+      "original_sha256": "b82445834fb4bff8e978f0bab537e5312fcb065f4446b0a14aa3b9e87cb0a7a1",
+      "sanitized_sha256": "b2dc1a35d9ee2a624c66f49a049f95d97771e79c9264a9db7fc82e5774a04348"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/09-boundary-extraction-rails-r2/grading/visible.json",
+      "original_sha256": "939fbae0da537a491705488bfd2d6966e8aa3f96eec151059ee903221242b976",
+      "sanitized_sha256": "47dc5fd342e4e9e734be86c264f9c0bea2ad6975913be164eddc198e54a405ff"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/10-stale-embedding-packs-r2/command.json",
+      "original_sha256": "56c741920e1715f176c914c6eb32f1536dc341d2922d1737330970b853800887",
+      "sanitized_sha256": "9cddfd788ab0e502a4f33cbf2a2cf45afa36e35929b718ea8dea67a7f50478a5"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/10-stale-embedding-packs-r2/grading/behavioral.json",
+      "original_sha256": "fe3dda3ae6e6b874156262271d9a2f627e07cb7e61558ce6e11e856ec610671b",
+      "sanitized_sha256": "9c007649eaeb7eae4cc0784a15123f1dcaedbe5fe686ce51d01d089c04e0fa13"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/10-stale-embedding-packs-r2/grading/result.json",
+      "original_sha256": "1ca9c34c7668369e491ace08b026150d54819b3897859ff05bbb6476af002bdf",
+      "sanitized_sha256": "ea3ab111def9f2426bf2832dc027798a5c25ad2e7ff6fa87344c47a0d5aada88"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/10-stale-embedding-packs-r2/grading/visible.json",
+      "original_sha256": "9dd889c465384885e41cbec19f9564fcf2cbf331a765cff771a4f8c626b94d3c",
+      "sanitized_sha256": "44685767e968112c0126972ebb9b11bebc2aa04720fcc6f2ede6cb5c7edbaa62"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/11-stale-embedding-foundry-r2/command.json",
+      "original_sha256": "32edac9b2ae6b0559ddc6024857b492e19793bfec7b04297e43344fc16c7cb11",
+      "sanitized_sha256": "080889d6d0bb74f5e40a2a361c22c439190124a3bc5131c5dde8cde43b2aeda6"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/11-stale-embedding-foundry-r2/grading/behavioral.json",
+      "original_sha256": "30883acfc867a1be5279b819b8132b425f6b0de41b75aad33200876c91fc376b",
+      "sanitized_sha256": "4397c9558b04e3e5ebe1593846de92053f8067c70e014acaf44f9edb8be9f6a0"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/11-stale-embedding-foundry-r2/grading/result.json",
+      "original_sha256": "28e69b813636944f92e37d7263f4c365590fed44ab80e397a3af0a6b85694a8a",
+      "sanitized_sha256": "2512061ddfafb27fe121d6637cb240686baa9905f26ce34aabcf4545d86edd30"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/11-stale-embedding-foundry-r2/grading/visible.json",
+      "original_sha256": "9a8b3cea07d4bd5498b19ba31090e320b2d3294f877fac9a3d770aee8d2384f7",
+      "sanitized_sha256": "726a656a5817ff2f4b457db883941afceb905a545a20b99f41ef897facfdfa68"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/12-stale-embedding-rails-r2/command.json",
+      "original_sha256": "246854810fda2ccf12dde18640b22fbeae1b38eb885fae1d984f2193306154b2",
+      "sanitized_sha256": "db0befc7fef953f85f69b1865d322f8e945d870aa29261fa0b6c0ac0cdd7a3e5"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/12-stale-embedding-rails-r2/grading/behavioral.json",
+      "original_sha256": "4c92eaa32399c630901d74424bb6c50475dd674cae0429d2f1c61b83a93bd00f",
+      "sanitized_sha256": "736d4403957714f7c56860c8dec890189a2e1e2064a90588bd908ef0602f641d"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/12-stale-embedding-rails-r2/grading/visible.json",
+      "original_sha256": "7e0adb97c75db22306b3130081a8842a818f81f340d79293a67ee78f566c776b",
+      "sanitized_sha256": "bc3ccdd3013ffc426de8b6f67a3023e14dc79da4d81149bb192dede2e5587446"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/13-boundary-extraction-foundry-r3/command.json",
+      "original_sha256": "b5d9d9bb1aeef20ce37f56125205c356dcc8939ef3b0694390362f43a49b5244",
+      "sanitized_sha256": "450e9efad76dd97160195b4486c9246c76b7dfe818cf6fc38707e1e14bceabf9"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/13-boundary-extraction-foundry-r3/grading/behavioral.json",
+      "original_sha256": "4ab0bba6513392dbb38847bc73188624e69ee22f8bdc138290fd91957a1b8668",
+      "sanitized_sha256": "d68013600fafddd0757e07ac5f462afcd9fd2d2be550ec06febb5aa0cbf5b4f9"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/13-boundary-extraction-foundry-r3/grading/result.json",
+      "original_sha256": "26c4e502232635d1abe50a70d1e4df910782973cb9a651ef5646f6f0322761f7",
+      "sanitized_sha256": "84bc2d8210cd567c5d09a23352c100008729432022fca269067c41a430cd55f7"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/13-boundary-extraction-foundry-r3/grading/visible.json",
+      "original_sha256": "9e7587bac86331457e688dafe03ca10ce306c70debbad33beefba65d6d034040",
+      "sanitized_sha256": "8e763ee39ad4b64a6bfde30e302af3e76b5a4d171f0761924b12c7c51f6d16a5"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/14-boundary-extraction-rails-r3/command.json",
+      "original_sha256": "43371da6058286e5c57c5bb584333f5cb2d3d30117512358cc50c220a8c7c0a8",
+      "sanitized_sha256": "98fdfa0a033a6790d5ec022f64208681ff2ab298aed44786dc792b507623bbf1"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/14-boundary-extraction-rails-r3/grading/behavioral.json",
+      "original_sha256": "20d6db30a0e68cf3a3fcd31f3da0a2373ce72d2ebca037ba39dde6922b495898",
+      "sanitized_sha256": "e9e4b34964b8337695349322f17c22d91eb1391cd282fad799eb5e251e2d6393"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/14-boundary-extraction-rails-r3/grading/visible.json",
+      "original_sha256": "7cb2da0393080d86515fad1c776faa36d404ee600322e09e2c6e7470eb48026a",
+      "sanitized_sha256": "0ddaa0ffc2e08e095a8cfe95f6318ec215e8ff18810fc939b0f7b082d461f69f"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/15-boundary-extraction-packs-r3/command.json",
+      "original_sha256": "5fb90473ccc830a3b8c03bf27c1288ae08161933cab27a0ff798b0fd6dd8f4ed",
+      "sanitized_sha256": "af80ce4ff4357a264f508faa1f37d8306cb85a13ee2c229fb37d5b84acc5dafa"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/15-boundary-extraction-packs-r3/grading/behavioral.json",
+      "original_sha256": "b69607bea1ec3685c07b048730994a4134d573326d9bd929d04de52a1f971fad",
+      "sanitized_sha256": "9d4e4835370e38144eeb692a9d0035bdb116c6323776cbd94047dc7bcc04c456"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/15-boundary-extraction-packs-r3/grading/result.json",
+      "original_sha256": "e56ed1a2246b50c2343ecb4cbf27e5b21b640f7e08c49223b278a8cdf4e5498b",
+      "sanitized_sha256": "d8e36afaeac61b6ef793b9dba88b15bcab9ccc3d423fc7ba23a288fedb5a941d"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/15-boundary-extraction-packs-r3/grading/visible.json",
+      "original_sha256": "1e2458b720360e521883deec0d0619179c61394e358f68130e1b1001e4bc9803",
+      "sanitized_sha256": "b475117017e38a247c0257b5b53bf11f9e883153d6e167c77d3fa10fa4587b84"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/16-stale-embedding-foundry-r3/command.json",
+      "original_sha256": "5e34194bdc5fd2b737bbfacb1607aee2d1be30c2655b02a4431fced1d1fe7f45",
+      "sanitized_sha256": "539696487a16826b62409641bbf8a18e319318a8181055f4d8a441878cb8f2c5"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/16-stale-embedding-foundry-r3/grading/behavioral.json",
+      "original_sha256": "01aba13b0185ed09246e1871d8f85c0f378451cc458f9bf0fe771486da5c64e3",
+      "sanitized_sha256": "ee765313ddf9e08c0f2301694d4414c29c167bf561bd9b4668cbcd1c537f92b8"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/16-stale-embedding-foundry-r3/grading/result.json",
+      "original_sha256": "76929fdbdea1a3331cd82743aa67a15064e56e89ef5f9c12d4bc1222d0ff0375",
+      "sanitized_sha256": "a61f3b760326b944c6c880c39e0eb719c1d0951ba09ed47aa4dd40e85428d70e"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/16-stale-embedding-foundry-r3/grading/visible.json",
+      "original_sha256": "4300e448453aabf328523697abaae583433ab6a4722349a95a3dad5058c6e2e4",
+      "sanitized_sha256": "c4a373c1b83545bc7d796776805843aec925b4556e96484786ad35b7656ebf91"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/17-stale-embedding-rails-r3/command.json",
+      "original_sha256": "0933b63f5c0f6a064f97235394b7dd02362ab4a864f49f170b5a459edac8a412",
+      "sanitized_sha256": "6073fe928e5fe6c448b30ccafabc5165fd9d624d1e5e914f61a1ba831709403d"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/17-stale-embedding-rails-r3/grading/behavioral.json",
+      "original_sha256": "2e15f5e042dcbd281a0e186f9d9aa8dc73e9cbc3d74892dcdb1b29e399abb6f5",
+      "sanitized_sha256": "38cb99ca7a7f2940c3841dddd039821cdc9c18b8786cdaf9f1bf5fedd67b5a8a"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/17-stale-embedding-rails-r3/grading/visible.json",
+      "original_sha256": "8b75b0c79cf8a082b7465ea230e735e616897f01fbc652935fcf87381319110c",
+      "sanitized_sha256": "e73e051fd9019c12a3cb44b72dda86b6539e07de8ff2a489078682d5eb65bb2e"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/18-stale-embedding-packs-r3/command.json",
+      "original_sha256": "ccef8a3480e4ba4562013bcbe01ade9e8922d4b1715e01fd80c9f0d859ae569f",
+      "sanitized_sha256": "fd0c2432692ce39d3cd306a3339f22c6cad3d9112750e5deec1be45ec6602a5e"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/18-stale-embedding-packs-r3/grading/behavioral.json",
+      "original_sha256": "c228535f454686b284364b3a960e548fee512ade9a0770a530989b6b5a974d9a",
+      "sanitized_sha256": "af00e3861dae61628dd327e1a9207f16ce7d469f30baad0ee55e32f2bed2ed57"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/18-stale-embedding-packs-r3/grading/result.json",
+      "original_sha256": "4008454d1252f7594d3f8bfa3fb4fbc2f90fcb8eb2141a0ac300d78b37ae84d9",
+      "sanitized_sha256": "5a713c3310a7b2598f0e17cb359f3c4de1231cfb64fa3a24126ce9b261f983ff"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/18-stale-embedding-packs-r3/grading/visible.json",
+      "original_sha256": "5ef4480bec395ea44ade56032d1098ffb67fc44239371d11fc835f82a68aad39",
+      "sanitized_sha256": "e078da87af234db3b19790e15fc9a8c8eb94d89c200979b5a5c1d161880401b5"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/corrected-controls.json",
+      "original_sha256": "c7fce220057ac31df7a17822c1eb86481c127ec9c4f8bb87d6671f53216d1b42",
+      "sanitized_sha256": "bb5be7f8a0194aaf5c89f281a9309e7961b1b40addbcdfeaa97c5442b9c5d078"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/freeze/controls.json",
+      "original_sha256": "09901b0fc93f67c46c5c53b003d4d7e16c09f80d93704c517d5a61f7d1a34499",
+      "sanitized_sha256": "161e75196c6e372ea1b4661917679d65382d247b07e9a2c18a50efa4065e1895"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/freeze/isolation.json",
+      "original_sha256": "7e1eb464ead43033841b0f598219238fe36f58724ae5046e08fad7c81c56304c",
+      "sanitized_sha256": "ddcc2c125c17cc95cce439120129208c9e304380ce79cceac988a0983afd7b09"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/pilot.json",
+      "original_sha256": "dc43a0cdc343beefd5f22c8ffe60710f6d8f353d51436ead1000bc67a3048aff",
+      "sanitized_sha256": "4130a22615d23fbf5471934d32a5be9e43fe83b3fed4bf5e0e9a074cfee943b4"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/01-boundary-extraction-rails-r1/behavioral.json",
+      "original_sha256": "dca609070ac365df693391e1948b7d0962b3b62738326082d43d3ca3853eaeac",
+      "sanitized_sha256": "1989bbd0943d5644d6a0a0382b3eadcb62046295939f4c404d1d078462bfabc0"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/01-boundary-extraction-rails-r1/visible.json",
+      "original_sha256": "8a2a15313791bbbd70d021046d4947de470e71cbd9e7006ee5fc6270193efd11",
+      "sanitized_sha256": "1095d09164767b729dd1ce013d0eab8b404741910148c7df58d3c582a54aeef7"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/02-boundary-extraction-packs-r1/behavioral.json",
+      "original_sha256": "d2c8444fcb4b424e7f911569184060ac9bad6e413ded1bd09fff008aa80353b8",
+      "sanitized_sha256": "809d460fa5740178bd13092c69668578b9860fadb4d3bce52d0174f9297ecc06"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/02-boundary-extraction-packs-r1/result.json",
+      "original_sha256": "ea0254e0dea83090c33bd88e7aa9553e89c21a7a1e1512e940609de6c8032c74",
+      "sanitized_sha256": "737ac7c84a4c456ff939c971bbde5b2bcff41d832d975fe92987ab5bd74ef0c8"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/02-boundary-extraction-packs-r1/visible.json",
+      "original_sha256": "52cea7f5b20788e1908bf638c47d9b5988c25f62ad719eb9ba2863f6e0229197",
+      "sanitized_sha256": "3a78e882bde6b9a9f50316d91dea15041a61f3aa31effd5ccd71b37867bf7741"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/03-boundary-extraction-foundry-r1/behavioral.json",
+      "original_sha256": "d365f7b680147e538fbefe2700eecc8a39094d87c450cd192eb483d6987b3382",
+      "sanitized_sha256": "2f162611e3c460f37377fc75fece878d40ccf6e7d6a8ca8a8bdb377cabcf0a2b"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/03-boundary-extraction-foundry-r1/result.json",
+      "original_sha256": "d8f38aaebbb57a731053e8a0424a80f903a42090884e8db95b53cc96b38e4327",
+      "sanitized_sha256": "adeec0c7a98e72e136b17313a37f37e15ece5e1ec1cff26485e86fc96beda01c"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/03-boundary-extraction-foundry-r1/visible.json",
+      "original_sha256": "7c4db20c3a5a41b9236af9131572824e495909ac3131e428861edad0b0851762",
+      "sanitized_sha256": "bf88c0dd5b82b84e9fed9d2d69719674983080a7081b9fe4416dc8af099ecf71"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/04-stale-embedding-rails-r1/behavioral.json",
+      "original_sha256": "cb37ac793c69fded6b40098488de24addcc597e0298b3b9605beefaac76036d2",
+      "sanitized_sha256": "931b3da44d97434d0f2aa6fb467cfce3699914e055b45768a5cb693d59a04cf3"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/04-stale-embedding-rails-r1/visible.json",
+      "original_sha256": "3a89dac0659a7e4a2685ae767a4a4035945f861632d4c2eafba540debcad1a83",
+      "sanitized_sha256": "6ac95f1fc4755137348c3d80d006fd7494c9a6b06ca330c7a56b20583eabd360"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/05-stale-embedding-packs-r1/behavioral.json",
+      "original_sha256": "e127b2af3d6931f6f419bd8ee06b7054f7a44087310232162fb027aafbf4fb47",
+      "sanitized_sha256": "094b90c487bf2956eb309a24842aa602a6f29e27a488397c1b4b6c10e12b2a9c"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/05-stale-embedding-packs-r1/result.json",
+      "original_sha256": "0983218af563a181faa2f81511a10acc59a51455417788e7db5bff890254bad7",
+      "sanitized_sha256": "83c28fdddc791c099ca6d5c331d399a17f32dbcd12d22cbc7f2fe0e38ea13c80"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/05-stale-embedding-packs-r1/visible.json",
+      "original_sha256": "bc5ef94f669768236d1638e5adde503b9848934114d1455e7c6ffe7e655d7b7c",
+      "sanitized_sha256": "d7589bbd37ca43698ec4cceec736cdfc1e4dcbffdfd9707ae7c56a6ea918b7d4"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/06-stale-embedding-foundry-r1/behavioral.json",
+      "original_sha256": "7730624e13eb4035b25553608d860e23f00dea9a186ba07e1f273253d652115e",
+      "sanitized_sha256": "33de34fd0c0e226d5187dd9f4a795035c715a7127ee5ad6e4b32185bee7385c1"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/06-stale-embedding-foundry-r1/result.json",
+      "original_sha256": "8cc7344096479a5cee7e00519943e4e3c9661bb54193c9a4ba1ff7a3dcf2a012",
+      "sanitized_sha256": "b6c1468ad8b02970561d821ef04b50450312e47b3930becf74388b2b6272d61b"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/06-stale-embedding-foundry-r1/visible.json",
+      "original_sha256": "a60f892d0a0bd857a442551f2b8dfd712df982b72032bc90508f056a0b424ffb",
+      "sanitized_sha256": "d8c6849d894549c6c0947696dd18852172b1fa1e8519422518913adaf5a90082"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/07-boundary-extraction-packs-r2/behavioral.json",
+      "original_sha256": "6af0d876b6cdda9a13e32be10bfc3ca49eb22dd6d5d3c743703066ad64650d3d",
+      "sanitized_sha256": "9ddb87c171a5ffb89c5900e8c03476f33e10c7a2a36105a2c1cf943ee0cac162"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/07-boundary-extraction-packs-r2/result.json",
+      "original_sha256": "d8d36c38cb79330b2a67541aab2ae32b0ab0bcb32fd4725c08a7c7769f86daaa",
+      "sanitized_sha256": "a47864a52e12098fe5d98a57c6db96f8677d61cd24f2c33e81cece91b3312b63"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/07-boundary-extraction-packs-r2/visible.json",
+      "original_sha256": "698f0cb8b8336e3a4388b3e94ad00207fb7363f031d83949af38333cfe4ac0e1",
+      "sanitized_sha256": "d78f0ba0f437a2b8e5e545837730ebfa431a82362575604aced8ed09e45dc087"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/08-boundary-extraction-foundry-r2/behavioral.json",
+      "original_sha256": "7f252091ce8c5efee990e70463c4e28f34facb1dbb97e182ef1fdb98bd69cb7c",
+      "sanitized_sha256": "d25b43ad969d783541aebbf65562fb07f431da56faed40ef10a46fa7ee68cec9"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/08-boundary-extraction-foundry-r2/result.json",
+      "original_sha256": "7c460f6d2d12ae40d4091d13b6e989af65594c4233294bab58ea7e0e69c7bb05",
+      "sanitized_sha256": "8997de312d8186f40236810ad5ec6b2d274321136c60d5398524aad99c3c80eb"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/08-boundary-extraction-foundry-r2/visible.json",
+      "original_sha256": "1f9d9f3287f5fa06f1906148978ddc89fd7228b196b300ed27e90402a0334bfc",
+      "sanitized_sha256": "c8ff79fa857301b5b3528cd24ca437578831c352806e92b0b95c16aac36f33fd"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/09-boundary-extraction-rails-r2/behavioral.json",
+      "original_sha256": "f74085e970724da3736f78bcdd74c5b40517536c4ba33603dcc56c3e4a8a0695",
+      "sanitized_sha256": "ad391fb8ce022575d63c83c2156a0c00620f3127c7f152c814c6b34440ecfe11"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/09-boundary-extraction-rails-r2/visible.json",
+      "original_sha256": "b349aeea73fea827a2a6e72099057747e012f37ebec3cd584d0e95c31fa6edcf",
+      "sanitized_sha256": "a4a8f78b94ac01cae954b06cc3e9d8a53a35442937c608bae0c2586f4c47df1f"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/10-stale-embedding-packs-r2/behavioral.json",
+      "original_sha256": "fe60f5df8d69ac5d9c53b44603efdd37ef28d85dc3d8e2a66b46abb711a77ff2",
+      "sanitized_sha256": "1b37a9e8c8610cfd3f542449513e057a44e205a507c10d4f7e48b71aaaa62f30"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/10-stale-embedding-packs-r2/result.json",
+      "original_sha256": "29e2ae0103fa72e2ecf2d45a3ccede33f1e9e2eabaf98cef1bbae4015ed2f2bb",
+      "sanitized_sha256": "0cc0e95d8554ef0ca5d623da514cb075cf8e5a38cddbdec0da6d9eab2f0a3b7b"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/10-stale-embedding-packs-r2/visible.json",
+      "original_sha256": "c5e7e7a491468ea2e326c5b8b59ccfa9285b065421d68e7158c547104ee522ed",
+      "sanitized_sha256": "17daa49764a33e43a93829ea85150f8b09b74d9f68918e74d8405a88d8a15a95"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/11-stale-embedding-foundry-r2/behavioral.json",
+      "original_sha256": "3538935a0566cd846a64b1d4187b042a4c2c57573339c9e2640e7fc63c907846",
+      "sanitized_sha256": "d06ee65b71d77d8cf77be4a455d2ab73cd5a67a62fa59f10bb3ef399323d8544"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/11-stale-embedding-foundry-r2/result.json",
+      "original_sha256": "2636185b500694ff2741b8674307dba8d3452f406fe010a4059fa16957b9c0cf",
+      "sanitized_sha256": "da1ff5a02a1c5271699f9064139f7944ee4a21a5c4fa11026009543d3a93c09e"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/11-stale-embedding-foundry-r2/visible.json",
+      "original_sha256": "175eebee361527f376d54251b2c66af47cf65d2f2db975161bcfb5fe05ce26b8",
+      "sanitized_sha256": "9e15c06dfcc80bebc05770bc0c85b79fe1dad0d555bc09b228f67441e78724f5"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/12-stale-embedding-rails-r2/behavioral.json",
+      "original_sha256": "dcc4d69b60770070a295bf1adeb56123aae003bd4d48b643146670660e4ac6d7",
+      "sanitized_sha256": "dcb217e5d8f1ee1175fdab20bb95d5650a280a6e98f4c86ee88e6bb259262bcf"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/12-stale-embedding-rails-r2/visible.json",
+      "original_sha256": "8e36ac9e34bf21aa8ebd81988238e6f0859a952686c18a76fd08cfd0af40f799",
+      "sanitized_sha256": "e61084beb0d2c8dd11571e571e0b34bd0f2712e9b5e00bec3a46689043d87ec8"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/13-boundary-extraction-foundry-r3/behavioral.json",
+      "original_sha256": "3577aff4b054d9d9f084449c47c80dfb546fd93a6626ac790b8ed04797f0aa5e",
+      "sanitized_sha256": "94e5d0147779b7b267d9a0c4c887bd0be569df9a2aa6bf1ae065c50e7812d954"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/13-boundary-extraction-foundry-r3/result.json",
+      "original_sha256": "82222d0787477e6a1b10f3a172886b7e8923f8d54a1d4dfb966a4cd9ada26d09",
+      "sanitized_sha256": "c1bf3cb65d526fb6bf48cda5799bd2aa652f15a022b235cc16b968204f9e2629"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/13-boundary-extraction-foundry-r3/visible.json",
+      "original_sha256": "d537ff9f25abee5551fdafdd50e5c436d9d7b342b7e2eb9e8e62d053f21d5398",
+      "sanitized_sha256": "53d9e09c353acb14a174d78626cbc3c989ee661be79569a0f73a920ab57f170f"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/14-boundary-extraction-rails-r3/behavioral.json",
+      "original_sha256": "e0d5db3bea279fb06cd4f48ee3b36892e4d72c94558df4479dd8e3f8e3553a24",
+      "sanitized_sha256": "7feb0eea75bfae071b2c354c37b16f585346eef2a19ebf8a52269b1c485b6395"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/14-boundary-extraction-rails-r3/visible.json",
+      "original_sha256": "49b706a475d81bf92b216005ae2f187febefa4c659202d223f82537e60d5d34d",
+      "sanitized_sha256": "22bb6554fc2247318fcee22f32aed57a141cb831c74859691f95a16caefe785a"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/15-boundary-extraction-packs-r3/behavioral.json",
+      "original_sha256": "290ac6c74b7f3cee4320ad6f44a883534a4196fbccd60f3ba54e5c6b9b52fca9",
+      "sanitized_sha256": "921754a08968e6991dfb06093990203d7ffa491406b516562315b72eb125fb53"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/15-boundary-extraction-packs-r3/result.json",
+      "original_sha256": "04b27e0b02129e59d7353e3f0fdd23f66c2c2a581ea0b8f7ee543c1dca255372",
+      "sanitized_sha256": "bd317bed0162c940b0705d7a28b1d2e4944b6950fbc46a66a7e692cc3ccb9301"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/15-boundary-extraction-packs-r3/visible.json",
+      "original_sha256": "e94760bd2f2cfd4a9024a632b8ab06b7ded695b26f4119951ef76f6cad698942",
+      "sanitized_sha256": "282fa010a54c1d0fa9e6da8da2d4d4d814afddcb228c1983ed0bd3ff1dfa09ef"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/16-stale-embedding-foundry-r3/behavioral.json",
+      "original_sha256": "1b5d32e3df54f8c6752ad6b283351c629ca527c52835a2376d9e20f1cecdd27b",
+      "sanitized_sha256": "0d5740e6d9fc06ea3538d14a6ebaa9e41a5b794bb9d75c7bf685afd64be683d0"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/16-stale-embedding-foundry-r3/result.json",
+      "original_sha256": "ccd65a7d165bfbb97d3449488b6abbf43fba97398ec90bc79fd0dac773479a3d",
+      "sanitized_sha256": "846b8813ab959858d0edda27bf7ecae41db02c400779675fd2cd8f844366a52b"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/16-stale-embedding-foundry-r3/visible.json",
+      "original_sha256": "c7661a88611e3cb9316aa52e96438f5b31093e70b85b6f4d64b186a17c2c9309",
+      "sanitized_sha256": "ce7d8fc8543d1f73ce79e53757f6de7c0e005302ae4bfe5de2465282c6a8525a"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/17-stale-embedding-rails-r3/behavioral.json",
+      "original_sha256": "ba7784583c2621d96895016b9416236349da490c60677520dc23292ac36e3e6c",
+      "sanitized_sha256": "aaa4bcf1ff6121548e67a0877516fe1a60482adcfdb7ac7919e26a6345df2dc4"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/17-stale-embedding-rails-r3/visible.json",
+      "original_sha256": "d03c475a9e0e59cb3b6659e85e7d5220292129e8271310e1d7be1a8c771cdc28",
+      "sanitized_sha256": "45486066b8e8a7188cb76e1e2be5d80563882e283eeacaadcdb334fd3f96e9cd"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/18-stale-embedding-packs-r3/behavioral.json",
+      "original_sha256": "a31c5f40935b90c40f61a8d8768cdef924ea5e83a55d36c9006daa853bdb44f0",
+      "sanitized_sha256": "a07d89996269a4cc449cb2c9e828088fe67c502e0d687708977b03bfe3c00552"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/18-stale-embedding-packs-r3/result.json",
+      "original_sha256": "9c7a539bafb68ece891cf26d288cabbd32133bbff25fce9eb03612162e9dd2dd",
+      "sanitized_sha256": "440adb09834835349c168bf2dc82d94c4b86b10d86994680e8555bc1aaef29b5"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/18-stale-embedding-packs-r3/visible.json",
+      "original_sha256": "1b24c40e49b1080ecc0cec288d90e9c3134a5e4709b51c5f368f04169fc179fa",
+      "sanitized_sha256": "aa617ef18bd07bdb2dc3eb96c4a229552f49bd3d1b400adb735ec880e46941ce"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regrade/regrade.json",
+      "original_sha256": "e334fe7a486090a805613ef781c1c37575c200286cc54a43f036f8f59ba1e8a2",
+      "sanitized_sha256": "ea0c078e3dc1467f1c841c2bfdb398a42ae310cd91def13c1e34f9c6892fbccf"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/foundry-delegated_reference/behavioral.json",
+      "original_sha256": "67f0975addcdef112ded822d2348b773223871f730e5cc08df5c6e0ff49a5d85",
+      "sanitized_sha256": "dae7c9779860ded69d0d54f88e7935fc032912af7fb914f097afa155213d86ca"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/foundry-delegated_reference/result.json",
+      "original_sha256": "11b9d8f6a3566899dc214c7e9484814c3f005c2587ac7c3ad7fd74d7c6c8ad3e",
+      "sanitized_sha256": "c7b2ab892c51835cae201b2f8af0c635dc5d48511a3cfc7bc5176dca62d5fc7d"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/foundry-delegated_reference/visible.json",
+      "original_sha256": "1683c33d725cd29f4679a6d7ef510aad7e5715b96b0a5a24dbecd5888951d7b5",
+      "sanitized_sha256": "5dcfff8f1c735e70d12617a0890ec06da4d5b90709cc0f8fd117c835458d6b4c"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/foundry-ignored_catalog/behavioral.json",
+      "original_sha256": "aed1b880910a303e99e4a3a07481df4163efb4bb70016e5a1dbdeca7dc80e0d6",
+      "sanitized_sha256": "c293ea12d20a33855542c96766a7857a4162a87314c9a183cdd055d89ea6767a"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/foundry-ignored_catalog/result.json",
+      "original_sha256": "b405d52dc339d138de6e14d3123e12ac574a0318c6032524045580464f256750",
+      "sanitized_sha256": "0cd597c05b1ca702af76870a20c12486e3ef9cdbc9f27a8cc27a6c5514ee3814"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/foundry-ignored_catalog/visible.json",
+      "original_sha256": "808592071b3dc7dd7ce17e614ccb51392ba1baf34cd4eb94527a211ef5a929e6",
+      "sanitized_sha256": "21c1534a43097f31be0a5006b1904cbac782d637b3c8d74937da2deaa8cf3a2c"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/foundry-relocated_reference/behavioral.json",
+      "original_sha256": "c507fc7f19fa7f6bff8e45292271b939cd7994abf756ae98bcff5a7d61513bcc",
+      "sanitized_sha256": "b9ad84f1567d19bd51aa989aaf08fb6c77befb63e62436b3967f30f17b689221"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/foundry-relocated_reference/result.json",
+      "original_sha256": "95f6098d9f92698fa5bce0ddbae93d84c1fafbadf7e2737d3c628b6573628742",
+      "sanitized_sha256": "2152782977a4bcc2987b81efa1e759448eb9c5ad4b9dc21ebf881b947dedc5ed"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/foundry-relocated_reference/visible.json",
+      "original_sha256": "720adb77a04d83a8e1b28f2b8534e7f8d7515f488ef14f836e39cf90599d60f0",
+      "sanitized_sha256": "6364a96f36a8e2ec442768770a86c714931cee3835d279f6977dc05066bd9ea5"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/packs-delegated_reference/behavioral.json",
+      "original_sha256": "6ea29bb49e98ef0e71afb3fee85df1d7053959d55f153beee1a41eeaecd10a1c",
+      "sanitized_sha256": "81cf9b4c7dd72083b263becdd4acd85656d6da84b4734d785bb13dde44d7b65a"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/packs-delegated_reference/result.json",
+      "original_sha256": "cb00ddc898880766318a2e1293285869a96b87b51cfa0872d46c87f33a38ebea",
+      "sanitized_sha256": "8e42cdd027c975df7fa22988416c940f646a2a3572393a02b26413714050b5b8"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/packs-delegated_reference/visible.json",
+      "original_sha256": "9d861562a80490ddc2e07fe44aefed0f6d3dda448cd6e2e122bb737b538f1b3d",
+      "sanitized_sha256": "a7afc51e48529bcdb15d59f62e473a231fef5a57f862293ec6377c64315aa923"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/packs-ignored_catalog/behavioral.json",
+      "original_sha256": "9a641b878ac6b3c808391f76f9faeec04d307063d95a09c4361a7d8de7b5ad2a",
+      "sanitized_sha256": "8d1a4eb71d4192fadbf721d233ecdd467ba36a509ab452eb3ca8dbe46ef09253"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/packs-ignored_catalog/result.json",
+      "original_sha256": "5cf7610bca4cc4d9032691e05f9d5b90b07f5d13f3bda6c8be32bc18f9c2e778",
+      "sanitized_sha256": "9548a87dc37b21538350f8b20f35a055e1e50a0425aeb5acb2ac73bb425b3649"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/packs-ignored_catalog/visible.json",
+      "original_sha256": "8b2dee29fb8e1a92313776b667ac255a280b7ae5d196466a1ccaed4408d508c0",
+      "sanitized_sha256": "30c11ebfe5207d7cb3dd83f9f4656995f02823985cb51c04f6a55385fdaf1c04"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/packs-relocated_reference/behavioral.json",
+      "original_sha256": "47c5b32b65fdd7c25859ae3fba9d270d670cb78b47d28ea0bd2edc0f09492b0c",
+      "sanitized_sha256": "c0df5044e2e8473b4d6dcb2816b2add4dfcee2bae3fcf056fc988df01a1183b4"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/packs-relocated_reference/result.json",
+      "original_sha256": "2694051881abe5303a0b5d5148ddcc7f764b921d748061e6ac0aa4477fe190e2",
+      "sanitized_sha256": "ec05aad0ee40bae747e01bc2eafa13b745d641b6b1b724cac9329d9091e40e02"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/packs-relocated_reference/visible.json",
+      "original_sha256": "38f8fc7c5bf2577584f29590596f1f5db6ed53383a41ab4c194cc1dda9420e3b",
+      "sanitized_sha256": "fa3e67c2f56f298b17393ebab90e3f0e51945cf64b710ea34e0c0ac3fd321fc1"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/rails-delegated_reference/behavioral.json",
+      "original_sha256": "a2fb4f617e581d43f0171bc4fe1a82aa6ad969b343ec5c14f5f1b4329eba991c",
+      "sanitized_sha256": "211291c2cfa341f4796a31e057d0ea9076974252cee4ad6e4159de5bf012acfc"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/rails-delegated_reference/visible.json",
+      "original_sha256": "6dd5a940932e739c8e83848a732f3d6752b7bfa7ed8fe2745b0fb8620291b2f3",
+      "sanitized_sha256": "dfe8fa64704439697da001ae5274dbe8b543a5edaf085a8447290942b711781f"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/rails-ignored_catalog/behavioral.json",
+      "original_sha256": "2d6f1e77e0276704d39bddf9ab2d87adf5e458972a14db7395e6a790e5901e59",
+      "sanitized_sha256": "1807016647556a62c53aabf84b4fbf0c97d95318ec920d331f450d2f00af2b92"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/rails-ignored_catalog/visible.json",
+      "original_sha256": "a56085a9f4f36747e9d669fda6eaf3456b0906b15d8b52f4dbb52710f531848f",
+      "sanitized_sha256": "6ec3c80767d36a3978b2d27612672d66cf04676500c78204a17bffff45dfa311"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/rails-relocated_reference/behavioral.json",
+      "original_sha256": "f0d22aba409c800ad85b3ca68e20603d09bed56034fa25d8285b5e42250a1665",
+      "sanitized_sha256": "4533d19d500367d23d07c54509838f3c90a668911e94d5f1df78465aabcb6da2"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-cursor-composer-2.5/regression-controls/rails-relocated_reference/visible.json",
+      "original_sha256": "d4b55276990ac1875498a8a765d1e9d13e793383e85eec9471fd8be2625796e3",
+      "sanitized_sha256": "1635410056fb94b2cb1652998cffecb7267e3660cad9d8ad57b153764236ced5"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-spark-0.154.0/01-boundary-extraction-rails-r1/command.json",
+      "original_sha256": "12c7167345034e5fba41b9a4dfb952fd3107873e928ff6ab57ca21d719dfb2d1",
+      "sanitized_sha256": "717b2c22fa82ec847f1e9544d9a711814f0c8b1b7988d539ed42ab8d272a113b"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-spark-0.154.0/01-boundary-extraction-rails-r1/grading/behavioral.json",
+      "original_sha256": "baf4f090338653a0b3eee86997dc56829667844a6c2ca5879dc05fb49aae5a87",
+      "sanitized_sha256": "5fcce9b503e0bc3a87e8a4b72c959a65bdcd89450fd8ee01fc2f53835f65bc6b"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-spark-0.154.0/01-boundary-extraction-rails-r1/grading/visible.json",
+      "original_sha256": "22d2badefda7d91771a2d586e3950b83792f848e9df01e28b4f8139644333100",
+      "sanitized_sha256": "3b80321a6327cbb35e4c08e404712fa83688b8ef54cb55fc57c9eb7df83a4b88"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-spark-0.154.0/controls.json",
+      "original_sha256": "4a6c33c6a354dbcaebd631cc48dec6767b347c54cf55d2f2c8d362f5345c1ee3",
+      "sanitized_sha256": "cb379f88a1dfbeab9799ebc6cc2712d25a5ccec669d55472d01b2c928bfe05d4"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/pilot-spark-0.154.0/isolation.json",
+      "original_sha256": "5564725833db737c8dbbe47217caea1afc68b25c8298f1eb00ac9210d86a82e9",
+      "sanitized_sha256": "3a71ee275d2728ecb7fafe1f822c313c545b2cdd4fcf62a34ac40fb8e7af00d5"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/prepared-0.154.0/controls.json",
+      "original_sha256": "4a6c33c6a354dbcaebd631cc48dec6767b347c54cf55d2f2c8d362f5345c1ee3",
+      "sanitized_sha256": "cb379f88a1dfbeab9799ebc6cc2712d25a5ccec669d55472d01b2c928bfe05d4"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-16/prepared-0.154.0/isolation.json",
+      "original_sha256": "88df8ab090fc5cf395750437f94b2e49fc627d50bed8243fc20c91310b766c43",
+      "sanitized_sha256": "5122ab10c93897b00e74b747006b7ac2b2b156d02e10c3c08a39e483b519efe2"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-21/guidance-study-repair/COMMANDS.md",
+      "original_sha256": "8c844b9c880a5944723f4ee441828178ff9c0be738f5038ff8925c2103698204",
+      "sanitized_sha256": "c3d493f9758c1bb4c0668c274627a83caf82e8aab3c5aa2335b85e472e589eea"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-21/guidance-study-repair/input-snapshots.json",
+      "original_sha256": "c2caaac87bd5a656e601bd20f433b921285360d5279a44edc2165bc27f73569e",
+      "sanitized_sha256": "dfb180b83d133f0d5d4583be827af68cd9a032744a23094a1667353adcf45d63"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-21/second-study-repair/COMMANDS.md",
+      "original_sha256": "b687cfda3443b6f9868088857e6e3c918d0d79e81e8781a4e217d1a817c0d87c",
+      "sanitized_sha256": "550b3892b9e1bb4d234e8ff54dae8eb303aec235b01906fdbc0bd0df4118bc94"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-22/foundry-guided-realtime-study/g1/COMMANDS.md",
+      "original_sha256": "8b52669935b0027a9b3789d3dacc0ec51b393be049efabb78bdf2e656c1ca713",
+      "sanitized_sha256": "1a432bbdccf0d7b64ff8252c930341c3c7417ff2fbbe0fee68e4718c5931e584"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-22/foundry-guided-realtime-study/g2/COMMANDS.md",
+      "original_sha256": "c9ff03fe8ee4f0c424b82712f1dc143baf0b8b632a2ddf87b1b713b1d966084b",
+      "sanitized_sha256": "2a96bd2cce583f0b8f2b50334dade83ac6ff595378ccc9f9a4726ce747574782"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-22/profile-realtime-repair/COMMANDS.md",
+      "original_sha256": "1aa32f5001f1369d8bb6848d9825935b52ef729c7d1f2bb7edd01a14ec0e7471",
+      "sanitized_sha256": "92b9dec98e0801ba9f3394d85a5b6df4b2ac3f88dd5e2396c3de399cdb10c08b"
+    },
+    {
+      "path": "benchmarks/evidence/2026-09-22/profile-realtime-repair/input-snapshots.json",
+      "original_sha256": "21382a17e41e9e565f802695cda415b430d28bf95b45250ba09625ccab5ee59e",
+      "sanitized_sha256": "702726a5b7f3d49c8a3c2a3743bbd6d07c1e1f41dcf32d98793a92b638d788f9"
+    },
+    {
+      "path": "docs/reviewed-ticket-resolution-evidence.md",
+      "original_sha256": "85faba5f3e11bc588f91220fabd7d9cd4f789ddf99bd927122aa8218b8c91e05",
+      "sanitized_sha256": "131cd26c0d5836a1042e3853b50fe79ef7bfe5f3e41f18e43d1638da66f66085"
+    },
+    {
+      "path": "openspec/changes/archive/2026-09-16-guide-knowledge-adoption/acceptance.md",
+      "original_sha256": "a0778e0ab5b7096932ff02cd0bdea9fe709b79d04170508aeae7151a1459918e",
+      "sanitized_sha256": "c2259c680a3e7ed8bc6e6aa756c104a118d06659d516a0664ad6563450ca6cae"
+    }
+  ]
+}

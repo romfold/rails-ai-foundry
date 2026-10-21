@@ -1,0 +1,12 @@
+<p>Signed in as <%= @actor.can_close? ? 'Editor' : 'Reader' %>.</p>
+<h2>Request a resolution</h2>
+<%= form_with url: resolutions_path do |form| %>
+  <%= form.label :ticket_id, 'Ticket' %>
+  <%= form.select :ticket_id, @tickets.map { |ticket| [ticket.subject, ticket.id] } %>
+  <%= form.label :question, 'Question' %>
+  <%= form.text_area :question, maxlength: 2000, required: true %>
+  <%= form.hidden_field :idempotency_key, value: SecureRandom.uuid %>
+  <%= form.submit 'Request resolution' %>
+<% end %>
+<h2>Recent requests</h2>
+<ul><% @requests.each do |work| %><li><%= link_to "Request #{work.id}: #{work.state}", resolution_path(work) %></li><% end %></ul>

@@ -1,0 +1,8 @@
+schema: spec-driven
+
+context: |
+  This is the independent invoice adoption example, not the Foundry framework.
+  Read README.md, AGENTS.md and local behavioral specifications.
+  Installed context configuration and package boundaries are authoritative.
+  Preserve reviewed debt during checks; require explicit extraction and parity before retirement.
+  Run bin/verify and the application bundle's checks. Keep tests offline.

@@ -1,0 +1,5 @@
+.bundle/
+log/
+tmp/
+.codex/auth.json
+.specify/feature.json

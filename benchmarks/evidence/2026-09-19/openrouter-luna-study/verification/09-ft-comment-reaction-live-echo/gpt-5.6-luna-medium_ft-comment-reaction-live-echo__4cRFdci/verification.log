@@ -1,0 +1,47 @@
+Running 6 tests in a single process (parallelization threshold is 50)
+Run options: --seed 7744
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:37271
+2026-09-19 11:56:38 INFO Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging
+
+2026-09-19 11:56:38 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+2026-09-19 11:56:38 WARN Selenium [:selenium_manager] Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event) 
+2026-09-19 11:56:47 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+.2026-09-19 11:56:58 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+[Screenshot Image]: /app/tmp/screenshots/failures_test_someone_else-s_reaction_landing_does_not_wipe_what_this_viewer_is_typing.png 
+F
+
+Failure:
+VerifierTest#test_someone_else's_reaction_landing_does_not_wipe_what_this_viewer_is_typing [/tests/verification_test.rb:85]:
+expected to find text "🔥" in "Back to Writebook\nCard number\n1\nWRITEBOOK\nWEB\nThe logo isn't big enough\nChoose a column for this card\nNOT NOW\nMAYBE?\nTRIAGE\nIN PROGRESS\nON HOLD\nREVIEW\nDONE\nADDED 7 DAYS AGO\nBY DAVID\nUPDATED 7 DAYS AGO\nASSIGNED TO JZ AND KEVIN\nEdit\nMark as Done\nMoves to “Not Now” in 83 days if there’s no activity.\nJZ\nThursday, September 17, 11:56 AM\nI agree.\n✓\n×\nKevin\nToday, 9:56 AM\nEdit this comment\nSame, let's do it.\nToday, 10:56 AM\nFull history\n\nPost\nSUBSCRIBERS\n2 people will be notified when someone comments on this.\nDelete this card\nSEARCH\nThe logo isn't big enough\nCard number\n1\nWRITEBOOK\nTRIAGE\nThe logo isn't big enough\n7 days ago\nWe need to ship the app\nCard number\n4\nWRITEBOOK\nWe need to ship the app\n7 days ago\nPINNED\nCard number\n5\nWRITEBOOK\nDAVID\nSEP 18\nBuy domain\nMoved back to Maybe? by David\nCard number\n2\nWRITEBOOK\nDAVID\nSEP 12\nRE: Layout is broken\nThe text is overflowing the container."
+
+bin/rails test /tests/verification_test.rb:70
+
+..[Screenshot Image]: /app/tmp/screenshots/failures_test_a_reaction_reaches_everyone_watching_the_card.png 
+F
+
+Failure:
+VerifierTest#test_a_reaction_reaches_everyone_watching_the_card [/tests/verification_test.rb:52]:
+expected to find text "✨" in "Back to Writebook\nCard number\n1\nWRITEBOOK\nWEB\nThe logo isn't big enough\nChoose a column for this card\nNOT NOW\nMAYBE?\nTRIAGE\nIN PROGRESS\nON HOLD\nREVIEW\nDONE\nADDED 7 DAYS AGO\nBY DAVID\nUPDATED 7 DAYS AGO\nASSIGNED TO JZ AND KEVIN\nEdit\nMark as Done\nMoves to “Not Now” in 83 days if there’s no activity.\nJZ\nThursday, September 17, 11:56 AM\nI agree.\nKevin\nToday, 9:56 AM\nEdit this comment\nSame, let's do it.\nToday, 10:56 AM\nFull history\n\nPost\nSUBSCRIBERS\n2 people will be notified when someone comments on this.\nDelete this card\nSEARCH\nThe logo isn't big enough\nCard number\n1\nWRITEBOOK\nTRIAGE\nThe logo isn't big enough\n7 days ago\nWe need to ship the app\nCard number\n4\nWRITEBOOK\nWe need to ship the app\n7 days ago\nPINNED\nCard number\n5\nWRITEBOOK\nDAVID\nSEP 18\nBuy domain\nMoved back to Maybe? by David\nCard number\n2\nWRITEBOOK\nDAVID\nSEP 12\nRE: Layout is broken\nThe text is overflowing the container."
+
+bin/rails test /tests/verification_test.rb:42
+
+[Screenshot Image]: /app/tmp/screenshots/failures_test_the_person_reacting_does_not_get_their_reaction_twice.png 
+F
+
+Failure:
+VerifierTest#test_the_person_reacting_does_not_get_their_reaction_twice [/tests/verification_test.rb:66]:
+expected to find text "🚨" in "Back to Writebook\nCard number\n1\nWRITEBOOK\nWEB\nThe logo isn't big enough\nChoose a column for this card\nNOT NOW\nMAYBE?\nTRIAGE\nIN PROGRESS\nON HOLD\nREVIEW\nDONE\nADDED 7 DAYS AGO\nBY DAVID\nUPDATED 7 DAYS AGO\nASSIGNED TO JZ AND KEVIN\nEdit\nMark as Done\nMoves to “Not Now” in 83 days if there’s no activity.\nJZ\nThursday, September 17, 11:56 AM\nI agree.\nKevin\nToday, 9:56 AM\nSame, let's do it.\nToday, 10:56 AM\nFull history\n\nPost\nSUBSCRIBERS\n2 people will be notified when someone comments on this.\nDelete this card\nSEARCH\nPINNED\nNOTIFICATIONS"
+
+bin/rails test /tests/verification_test.rb:55
+
+
+
+Finished in 59.785410s, 0.1004 runs/s, 0.5520 assertions/s.
+6 runs, 33 assertions, 3 failures, 0 errors, 0 skips

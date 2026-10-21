@@ -1,0 +1,54 @@
+{
+  "architecture": {
+    "status": "not_applicable"
+  },
+  "behavioral": {
+    "assertions": 12,
+    "errors": 0,
+    "exit_code": 1,
+    "failures": 1,
+    "skips": 0,
+    "status": "failed",
+    "tests": 3
+  },
+  "group": "rails",
+  "passed": false,
+  "source": {
+    "files": {
+      ".gitignore": "092b01d296f5b6852bc60fa6703354c7fd3c8522064aefc13684cd23d84b4a3d",
+      "AGENTS.md": "68c1abb9812ac1f2f48bc57953ff53602793ef1b6da596e083cb9700b4d0fe4b",
+      "Gemfile": "0bdf761a7dd7a07aebb4a4fc6178cedde995e18f2fd911fc811a86dee88542cf",
+      "Gemfile.lock": "7b25c5b42357b561a73a25a495152e88e691a1a50cde013febf27bc543d00a6d",
+      "README.md": "227758e901956567c9d2f10c514e9ded418153b878e8557c172c2b6eefaedd6b",
+      "Rakefile": "026fe83f25cf604ff99a5e4c1d569032b993a5e86fa376728b92966070bc2abe",
+      "TASK.md": "68f434ecad59db237a085d7efba26b8aaec906ab459727d7877df16e358d8d69",
+      "app/controllers/documents_controller.rb": "54483fb9960985ba7a8f80d29e52fe5b2e1f075d856b2827f8ac87ff66dfbcbe",
+      "app/models/knowledge/delivery.rb": "2165988f32c0e9f2f6a443dd4024b0ecee3220f6f021d62101622574b0409db0",
+      "app/models/knowledge/document.rb": "c43c208869811dd5f38fa27dc313e663d6ac131a41ee2f28ca2e74b2fa9796fb",
+      "app/models/knowledge/embedding.rb": "f264a83bb9c5b2d8ad7de6d623dc6150d76e9655855b6bdf7070d73e614703cd",
+      "app/services/answering/retrieval_tool.rb": "4d8248a59acf257de16fd06a07c376caa6ccc591347e8312ee5342e32c658434",
+      "app/services/knowledge/catalog.rb": "b519d96acbe326b343fe5bc67592255f70c2dd378fa3265bda01675b1a411306",
+      "app/services/knowledge/embedding_job.rb": "662c40ded32fa34c438a317a8e99fcdafef0e071cdbfcec3904485b55e0d3dfb",
+      "app/services/knowledge/publish_delivery.rb": "a89b3b994445f2418da832e51bb53df9c2fb460f42b812df1e6b2a6873aa0f57",
+      "app/services/knowledge/rebuild_search.rb": "a2a85b604cb638c37cf1aab3d2cf03cf2931c35ba9c1975d9c40bdd6c7a41d40",
+      "bin/rails": "c99b7bab891b1dd3cd17b53758aab9e8d61f77fb3c7ba8bfeba01315f6f0eca6",
+      "config/application.rb": "b1373870a92f0cd95b04147b98154e20bb587e62fdcf7cc9203cd18e8f701eca",
+      "config/database.yml": "4b1dfb7722b6a714b2565b6ea176ee0b1d32b4c8662b25ae9f2467b8cd0d557e",
+      "config/environment.rb": "1db3e788b24e12ca5f0d7669243e1b24289959c29aad9bd20f6475673e0f51ca",
+      "config/routes.rb": "78003cec801cfecd4f96f0f40dc6ceedca740b7e4dc3140c3318be764d6684b9",
+      "test/test_helper.rb": "5d0d113705595319b02778bd90aa1385b718eec5a64c0f2657343fedeebec88a",
+      "test/visible_test.rb": "aae30a6313cfe6b3c079ef2e945ad0825d4756c5b1bcf9900ae19ef5aaff2c66"
+    },
+    "sha256": "b174f0da74ac628ab420c8a19b913f808f87c940bb52586117ab8d74258f4371"
+  },
+  "task": "boundary-extraction",
+  "visible": {
+    "assertions": 4,
+    "errors": 0,
+    "exit_code": 0,
+    "failures": 0,
+    "skips": 0,
+    "status": "passed",
+    "tests": 2
+  }
+}

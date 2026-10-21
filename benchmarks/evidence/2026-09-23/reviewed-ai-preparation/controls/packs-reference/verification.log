@@ -1,0 +1,63 @@
+bundle exec ruby bin/rails test
+Run options: --seed 18982
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:37255
+...........
+
+Finished in 17.678356s, 0.6222 runs/s, 3.0546 assertions/s.
+11 runs, 54 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/acceptance_test.rb
+Run options: --seed 21835
+
+# Running:
+
+......
+
+Finished in 0.749924s, 8.0008 runs/s, 48.0049 assertions/s.
+6 runs, 36 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/recovery_test.rb
+Run options: --seed 35562
+
+# Running:
+
+...
+
+Finished in 5.098156s, 0.5884 runs/s, 1.9615 assertions/s.
+3 runs, 10 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby bin/rails test test/review_browser_test.rb
+Run options: --seed 63127
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:35219
+.
+
+Finished in 5.060100s, 0.1976 runs/s, 1.1857 assertions/s.
+1 runs, 6 assertions, 0 failures, 0 errors, 0 skips
+/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.
+You can add benchmark to your Gemfile or gemspec to silence this warning.
+📦 Packwerk is running validation...
+
+📦 Finished in 2.35 seconds
+
+Validation successful 🎉
+/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.
+You can add benchmark to your Gemfile or gemspec to silence this warning.
+📦 Packwerk is inspecting 38 files
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+......................................
+📦 Finished in 3.07 seconds
+
+No offenses detected
+No stale violations detected

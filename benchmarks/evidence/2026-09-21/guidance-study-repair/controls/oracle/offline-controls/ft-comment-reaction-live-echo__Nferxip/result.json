@@ -1,0 +1,57 @@
+{
+  "trial": "ft-comment-reaction-live-echo__Nferxip",
+  "task": "ft-comment-reaction-live-echo",
+  "agent": "oracle",
+  "model": "offline-controls",
+  "index": 1,
+  "profile_digest": "161cbe036101becb",
+  "task_digest": "9df099a35893d33b",
+  "revision": {
+    "commit": null,
+    "dirty": null
+  },
+  "lemans_version": "1.3.5",
+  "tags": [
+    "rails",
+    "hotwire",
+    "turbo-streams",
+    "active-record",
+    "callbacks"
+  ],
+  "metadata": {
+    "category": "full-features"
+  },
+  "phases": [
+    {
+      "name": "environment_setup",
+      "started_at": "2026-09-21T21:06:23.781038Z",
+      "finished_at": "2026-09-21T21:06:39.781207Z"
+    },
+    {
+      "name": "agent",
+      "started_at": "2026-09-21T21:06:39.781249Z",
+      "finished_at": "2026-09-21T21:06:40.334799Z"
+    },
+    {
+      "name": "verifier",
+      "started_at": "2026-09-21T21:06:41.179612Z",
+      "finished_at": "2026-09-21T21:10:56.216958Z"
+    }
+  ],
+  "reward": 1.0,
+  "credit": 1.0,
+  "outcome": {
+    "name": "completed",
+    "scored": true
+  },
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cached_tokens": 0,
+    "steps": 0,
+    "cost_usd": 0.0
+  },
+  "duration": 272.4,
+  "started_at": "2026-09-21T21:06:23Z",
+  "finished_at": "2026-09-21T21:10:56Z"
+}

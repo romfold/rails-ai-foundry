@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'optparse'
+scenario = 'integrated'
+OptionParser.new do |options|
+  options.on('--scenario NAME', %w[integrated tenant-backfill]) { |value| scenario = value }
+end.parse!
+abort 'Unexpected replay arguments' unless ARGV.empty?
+if scenario == 'tenant-backfill'
+  require_relative '../lib/tenant_replay'
+  KnowledgeAdoption::TenantReplay.new.call
+else
+  require_relative '../lib/replay'
+  KnowledgeAdoption::Replay.new.call
+end

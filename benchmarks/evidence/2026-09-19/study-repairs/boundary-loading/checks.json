@@ -1,0 +1,43 @@
+[
+  {
+    "command": [
+      "docker",
+      "exec",
+      "foundry-verification-a4c3ad9f1d4afca7",
+      "bundle",
+      "exec",
+      "rails",
+      "zeitwerk:check"
+    ],
+    "output": "Hold on, I am eager loading the application.\nAll is good!\n",
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "docker",
+      "exec",
+      "foundry-verification-a4c3ad9f1d4afca7",
+      "bundle",
+      "exec",
+      "foundry",
+      "check",
+      "--sources",
+      "--format=json"
+    ],
+    "output": "{\n  \"application\": \"/candidate\",\n  \"mode\": \"structural\",\n  \"workload\": \"balanced\",\n  \"workflow\": \"none\",\n  \"workflow_initialized\": true,\n  \"contexts\": [\n    {\n      \"path\": \"packs/knowledge\",\n      \"configuration\": \"packs/knowledge/foundry.yml\",\n      \"namespace\": \"Knowledge\",\n      \"profile\": \"modular\",\n      \"patterns\": {\n        \"events\": \"none\",\n        \"cqrs\": \"none\"\n      }\n    }\n  ],\n  \"verification\": \"Configuration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\",\n  \"packages\": [\n    \"packs/knowledge\"\n  ],\n  \"next_steps\": [\n    \"Run owning-context behavioral tests.\",\n    \"Run foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\",\n    \"Preserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\"\n  ],\n  \"sources\": {\n    \"success\": true,\n    \"files_checked\": 9,\n    \"diagnostics\": [],\n    \"limitations\": \"Application app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\"\n  },\n  \"success\": true,\n  \"report_schema\": 1,\n  \"foundry_version\": \"1.0.0\",\n  \"report_kind\": \"check\"\n}\n",
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "docker",
+      "exec",
+      "foundry-verification-a4c3ad9f1d4afca7",
+      "bundle",
+      "exec",
+      "ruby",
+      "test/knowledge_boundary_test.rb"
+    ],
+    "output": "Run options: --seed 30194\n\n# Running:\n\n..\n\nFinished in 0.061038s, 32.7665 runs/s, 65.5330 assertions/s.\n2 runs, 4 assertions, 0 failures, 0 errors, 0 skips\n",
+    "exit_code": 0
+  }
+]

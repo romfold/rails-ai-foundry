@@ -1,0 +1,46 @@
+bundle exec ruby test/visible_test.rb
+Run options: --seed 52130
+
+# Running:
+
+..
+
+Finished in 0.109274s, 18.3026 runs/s, 36.6052 assertions/s.
+2 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -I/tests -report-lemans /tests/acceptance_test.rb
+Run options: --seed 40120
+
+# Running:
+
+...
+
+Finished in 0.106197s, 28.2495 runs/s, 131.8309 assertions/s.
+3 runs, 14 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -rstringio -S packwerk validate
+📦 Packwerk is running validation...
+
+📦 Finished in 0.73 seconds
+
+Validation successful 🎉
+bundle exec ruby -rstringio -S packwerk check
+📦 Packwerk is inspecting 12 files
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.
+Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+............
+📦 Finished in 0.81 seconds
+
+No offenses detected
+No stale violations detected
+bundle exec foundry check --sources
+Foundry structural assessment: /candidate
+Workflow: none; workload: balanced
+Context configurations validated: 1
+Configuration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.
+Source check: 9 Ruby files; passed.
+Application app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.
+No files were changed.
+Run owning-context behavioral tests.
+Run foundry check --boundaries in an isolated test environment for upstream Packwerk verification.
+Preserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.

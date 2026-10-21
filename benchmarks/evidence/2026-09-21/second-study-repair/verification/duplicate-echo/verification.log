@@ -1,0 +1,74 @@
+Running 17 tests in a single process (parallelization threshold is 50)
+Run options: --seed 30144
+
+# Running:
+
+.......Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:45191
+2026-09-21 09:46:12 INFO Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging
+
+2026-09-21 09:46:12 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+2026-09-21 09:46:12 WARN Selenium [:selenium_manager] Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event) 
+.2026-09-21 09:46:23 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+[Screenshot Image]: /app/tmp/screenshots/failures_test_the_person_reacting_does_not_get_their_reaction_twice.png 
+F
+
+Failure:
+VerifierTest#test_the_person_reacting_does_not_get_their_reaction_twice [/tests/verification_test.rb:67]:
+expected to find visible xpath "//*[text()[normalize-space(.)='🚨']][not(ancestor-or-self::form)]" 1 time, found 2 matches: "🚨", "🚨"
+
+bin/rails test /tests/verification_test.rb:55
+
+2026-09-21 09:46:38 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+[Screenshot Image]: /app/tmp/screenshots/failures_test_people_can_take_back_their_own_reaction-_and_only_their_own.png 
+E
+
+Error:
+VerifierTest#test_people_can_take_back_their_own_reaction,_and_only_their_own:
+Capybara::Ambiguous: Ambiguous match, found 2 elements matching visible xpath ".//*[text()[normalize-space(.)='🔥']][not(ancestor-or-self::form)]" within #<Capybara::Node::Element tag="div" path="/HTML/BODY[1]/DIV[1]/MAIN[1]/DIV[1]/TURBO-FRAME[1]/TURBO-FRAME[2]/DIV[1]">
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:310:in 'block in Capybara::Node::Finders#synced_resolve'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/base.rb:84:in 'Capybara::Node::Base#synchronize'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:301:in 'Capybara::Node::Finders#synced_resolve'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:60:in 'Capybara::Node::Finders#find'
+    /tests/verification_test.rb:96:in 'VerifierTest#reaction'
+    /tests/verification_test.rb:37:in 'block in <class:VerifierTest>'
+
+bin/rails test /tests/verification_test.rb:27
+
+[Screenshot Image]: /app/tmp/screenshots/failures_test_a_reaction_shows_in_the_strip_with_who_left_it.png 
+E
+
+Error:
+VerifierTest#test_a_reaction_shows_in_the_strip_with_who_left_it:
+Capybara::Ambiguous: Ambiguous match, found 2 elements matching visible xpath ".//*[text()[normalize-space(.)='🎉']][not(ancestor-or-self::form)]" within #<Capybara::Node::Element tag="div" path="/HTML/BODY[1]/DIV[1]/MAIN[1]/DIV[1]/TURBO-FRAME[1]/TURBO-FRAME[2]/DIV[1]">
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:310:in 'block in Capybara::Node::Finders#synced_resolve'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/base.rb:84:in 'Capybara::Node::Base#synchronize'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:301:in 'Capybara::Node::Finders#synced_resolve'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:60:in 'Capybara::Node::Finders#find'
+    /tests/verification_test.rb:96:in 'VerifierTest#reaction'
+    /tests/verification_test.rb:14:in 'block in <class:VerifierTest>'
+
+bin/rails test /tests/verification_test.rb:11
+
+..[Screenshot Image]: /app/tmp/screenshots/failures_test_deletion_reaches_another_viewer_without_replacing_their_draft.png 
+E
+
+Error:
+VerifierTest#test_deletion_reaches_another_viewer_without_replacing_their_draft:
+Capybara::Ambiguous: Ambiguous match, found 2 elements matching visible xpath ".//*[text()[normalize-space(.)='live-delete']][not(ancestor-or-self::form)]" within #<Capybara::Node::Element tag="div" path="/HTML/BODY[1]/DIV[1]/MAIN[1]/DIV[1]/TURBO-FRAME[1]/TURBO-FRAME[2]/DIV[1]">
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:310:in 'block in Capybara::Node::Finders#synced_resolve'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/base.rb:84:in 'Capybara::Node::Base#synchronize'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:301:in 'Capybara::Node::Finders#synced_resolve'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:60:in 'Capybara::Node::Finders#find'
+    /tests/verification_test.rb:96:in 'VerifierTest#reaction'
+    /tests/realtime_test.rb:41:in 'block in <class:VerifierTest>'
+
+bin/rails test /tests/realtime_test.rb:26
+
+...
+
+Finished in 83.452185s, 0.2037 runs/s, 1.3181 assertions/s.
+17 runs, 110 assertions, 1 failures, 3 errors, 0 skips

@@ -1,0 +1,13 @@
+diff --git a/app/services/knowledge/embedding_job.rb b/app/services/knowledge/embedding_job.rb
+index 5f19625..976de35 100644
+--- a/app/services/knowledge/embedding_job.rb
++++ b/app/services/knowledge/embedding_job.rb
+@@ -9,7 +9,7 @@ module Knowledge
+       vector = provider.call(snapshot.body)
+       Document.transaction do
+         current = Document.lock.find_by(id: document_id, tenant_id: tenant_id, published: true)
+-        current ||= snapshot
++        return :discarded unless current && current.revision >= snapshot.revision
+ 
+         Embedding.upsert({ document_id: current.id, tenant_id: tenant_id, revision: current.revision,
+                            version: version, vector: JSON.generate(vector) }, unique_by: %i[document_id version])

@@ -1,0 +1,125 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..4b9c806 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Knowledge::Catalog.list(tenant_id: tenant)
+   end
+ end
+diff --git a/package.yml b/package.yml
+index 4f0c7c6..6c66f60 100644
+--- a/package.yml
++++ b/package.yml
+@@ -1,2 +1,3 @@
+ enforce_dependencies: true
+-dependencies: []
++dependencies:
++  - packs/knowledge
+diff --git a/packs/knowledge/README.md b/packs/knowledge/README.md
+new file mode 100644
+index 0000000..a1fd0bd
+--- /dev/null
++++ b/packs/knowledge/README.md
+@@ -0,0 +1,14 @@
++# Knowledge
++
++Knowledge owns document persistence and exposes the published document catalog through
++`Knowledge::Catalog.list(tenant_id:)`. Consumers must use that API rather than reaching
++into `Knowledge::Document` or its tables.
++
++## Persistence rollback
++
++Before any future persistence conversion, take a verified database backup and record the
++current application revision. Deploy the conversion behind a reversible cutover: stop
++new writes, restore the backup (or switch back to the prior schema/code), and replay or
++reconcile only from the authoritative documents and revisions. Verify tenant scoping,
++publication state, IDs, bodies, and revisions with the characterization tests before
++resuming delivery. This extraction makes no persistence conversion.
+diff --git a/app/models/knowledge/delivery.rb b/packs/knowledge/app/models/knowledge/delivery.rb
+similarity index 100%
+rename from app/models/knowledge/delivery.rb
+rename to packs/knowledge/app/models/knowledge/delivery.rb
+diff --git a/app/models/knowledge/document.rb b/packs/knowledge/app/models/knowledge/document.rb
+similarity index 100%
+rename from app/models/knowledge/document.rb
+rename to packs/knowledge/app/models/knowledge/document.rb
+diff --git a/app/models/knowledge/embedding.rb b/packs/knowledge/app/models/knowledge/embedding.rb
+similarity index 100%
+rename from app/models/knowledge/embedding.rb
+rename to packs/knowledge/app/models/knowledge/embedding.rb
+diff --git a/app/services/knowledge/catalog.rb b/packs/knowledge/app/public/knowledge/catalog.rb
+similarity index 100%
+rename from app/services/knowledge/catalog.rb
+rename to packs/knowledge/app/public/knowledge/catalog.rb
+diff --git a/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+similarity index 100%
+rename from app/services/knowledge/embedding_job.rb
+rename to packs/knowledge/app/services/knowledge/embedding_job.rb
+diff --git a/app/services/knowledge/publish_delivery.rb b/packs/knowledge/app/services/knowledge/publish_delivery.rb
+similarity index 100%
+rename from app/services/knowledge/publish_delivery.rb
+rename to packs/knowledge/app/services/knowledge/publish_delivery.rb
+diff --git a/app/services/knowledge/rebuild_search.rb b/packs/knowledge/app/services/knowledge/rebuild_search.rb
+similarity index 100%
+rename from app/services/knowledge/rebuild_search.rb
+rename to packs/knowledge/app/services/knowledge/rebuild_search.rb
+diff --git a/packs/knowledge/foundry.yml b/packs/knowledge/foundry.yml
+new file mode 100644
+index 0000000..342bc02
+--- /dev/null
++++ b/packs/knowledge/foundry.yml
+@@ -0,0 +1,7 @@
++schema: 1
++namespace: Knowledge
++profile: modular
++patterns:
++  events: none
++  cqrs: none
++capabilities: {}
+diff --git a/packs/knowledge/package.yml b/packs/knowledge/package.yml
+new file mode 100644
+index 0000000..2ce5d98
+--- /dev/null
++++ b/packs/knowledge/package.yml
+@@ -0,0 +1,3 @@
++enforce_dependencies: true
++enforce_privacy: true
++enforce_layers: false
+diff --git a/test/regression_test.rb b/test/regression_test.rb
+new file mode 100644
+index 0000000..6826a51
+--- /dev/null
++++ b/test/regression_test.rb
+@@ -0,0 +1,28 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeBoundaryTest < BenchmarkTest
++  def test_catalog_returns_only_published_documents_in_id_order
++    later = document(body: 'later')
++    earlier = document(body: 'earlier')
++    document(body: 'draft', published: false)
++
++    assert_equal [later.id, earlier.id].sort, Knowledge::Catalog.list(tenant_id: 'a').map { |row| row.fetch('id') }
++    assert_equal %w[id tenant_id body revision], Knowledge::Catalog.list(tenant_id: 'a').first.keys
++  end
++
++  def test_catalog_is_tenant_scoped
++    document(body: 'a document')
++    document(tenant: 'b', body: 'b document')
++
++    assert_equal ['a document'], Knowledge::Catalog.list(tenant_id: 'a').map { |row| row.fetch('body') }
++  end
++
++  def test_delivery_uses_the_knowledge_catalog_boundary
++    source = File.read(Rails.root.join('app/controllers/documents_controller.rb'))
++
++    refute_includes source, 'Knowledge::Document'
++    assert_includes source, 'Knowledge::Catalog.list'
++  end
++end

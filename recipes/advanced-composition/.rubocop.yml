@@ -1,0 +1,6 @@
+inherit_from: ../../.rubocop.yml
+Metrics/BlockLength:
+  Exclude:
+    - test/**/*
+Metrics/AbcSize:
+  Exclude: [test/**/*]

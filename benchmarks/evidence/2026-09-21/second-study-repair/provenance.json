@@ -1,0 +1,30 @@
+{
+  "classification": "human-assisted regression evidence",
+  "source_revision": "13cc872e6ecd53438cf31d0fb7cb8f7034a281c7",
+  "upstream_revision": "5327efe54dd767d662ab89332f6a4285fef07bd8",
+  "study_sha256": "9526483bb6cf9226f18095a1f6239ef58080e7937e396107c1eb8e04cf3a6b56",
+  "task": "ft-comment-reaction-live-echo",
+  "task_digest": "9df099a35893d33b",
+  "image": "sha256:7a68abbb405addbea91cc7c9ea75c802b63e2603e2f25f51c3c03f92e64b85a0",
+  "original_sha256": "19448faa0fa15b013ad0db7b9d32d1bd78ffb78adaf95bdc58044722eca9bc75",
+  "baseline_tree": "5e339b176cb350bb1b7c014de7ba0c04d1833632",
+  "candidate_tree": "bc11aaf2aa34b44174d533c0f285c7fea08d7b1d",
+  "repaired_tree": "3a0deb0147c7f01ec846d7d577ee8479016fbc53",
+  "files": {
+    "authorization_test.rb": "bfaa98e33b988c6a14e0787c32888cbaaf2a3601d185070a61a96f21b5a8ef30",
+    "composer-replacement-complete.patch": "7445979f4d31c4c6175f2ecc113c20851433ea45cfa8be3f13a78fd913a94659",
+    "composer-replacement.patch": "8c36251646bbcdd7b607e86336bb279c3c15c683c0af0c6e6a8f73fe9ba79798",
+    "duplicate-echo-complete.patch": "ae833be8aa2263caccd7bd4993f804666ea88d495102ad682b774f2cf3a1a26c",
+    "duplicate-echo.patch": "dfbe4b971afe8c37a5bdda08bf831f34c96ade5751282b8b9c196e11d20af660",
+    "guarded-composer-replacement-complete.patch": "77456b926ca6718f62bfcbf176933308b9fed7294eee52274e5c0af3cd849dc2",
+    "guarded-composer-replacement.patch": "a0c19268a6ca4d787461c8d40d473553ecbd9ab979c809596c2bb4b7789f053c",
+    "missing-delivery-complete.patch": "8bbf084a6bf59d30c91b3815a47bcd2f60e832ef239d1de3ce0c307e4463b63f",
+    "missing-delivery.patch": "bda72f66143fc8a1e4ace68b1890226756f1f45f3ebf66007a023a3297f95d5a",
+    "realtime-complete.patch": "6b437cf68ee4d68954fe26a3b29fb3997649275bcebf2ab0d6bbb30bfcb08451",
+    "realtime-repair.patch": "38da3712ec93b5392fdc77ef14557760669b7134692c027f1e0599708ed0826e",
+    "realtime_test.rb": "8473cc88013861e09bcab91fa7877f5cdb381d4cd46eb99b65f55023e3746277",
+    "transaction_test.rb": "f24de2db01e1ecc5193db8e7b1683edbfd531c25b40705d9b97ae084627177ac",
+    "wrong-record-deletion-complete.patch": "99432b28c2d8f14486108ae2d341598afe4d4a554a6d56cc14e334139644092d",
+    "wrong-record-deletion.patch": "fab8a41d799076c4bc0812f57a5cfa9b3e743e06525d8d4a6d4909f016500e24"
+  }
+}

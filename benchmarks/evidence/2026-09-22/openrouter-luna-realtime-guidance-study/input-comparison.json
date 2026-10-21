@@ -1,0 +1,48 @@
+{
+  "smoke": {
+    "hello-world": {
+      "task_changed": false,
+      "profile_changed": false
+    }
+  },
+  "foundry": {
+    "boundary-extraction-foundry": {
+      "task_changed": true,
+      "profile_changed": false
+    },
+    "boundary-extraction-packs": {
+      "task_changed": false,
+      "profile_changed": false
+    },
+    "boundary-extraction-rails": {
+      "task_changed": false,
+      "profile_changed": false
+    },
+    "stale-embedding-foundry": {
+      "task_changed": true,
+      "profile_changed": false
+    },
+    "stale-embedding-packs": {
+      "task_changed": false,
+      "profile_changed": false
+    },
+    "stale-embedding-rails": {
+      "task_changed": false,
+      "profile_changed": false
+    }
+  },
+  "upstream": {
+    "aj-enqueue-after-commit": {
+      "task_changed": false,
+      "profile_changed": false
+    },
+    "ar-tenant-isolation": {
+      "task_changed": false,
+      "profile_changed": false
+    },
+    "ft-comment-reaction-live-echo": {
+      "task_changed": false,
+      "profile_changed": false
+    }
+  }
+}

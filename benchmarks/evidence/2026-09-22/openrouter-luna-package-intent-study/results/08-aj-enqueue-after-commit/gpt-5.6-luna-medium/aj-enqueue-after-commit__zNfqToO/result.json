@@ -1,0 +1,63 @@
+{
+  "trial": "aj-enqueue-after-commit__zNfqToO",
+  "task": "aj-enqueue-after-commit",
+  "agent": "miniswen",
+  "model": "openrouter/openai/gpt-5.6-luna#medium",
+  "index": 1,
+  "profile_digest": "e94522229f9a121a",
+  "task_digest": "58027281894d1786",
+  "revision": {
+    "commit": null,
+    "dirty": null
+  },
+  "lemans_version": "1.3.5",
+  "tags": [
+    "rails",
+    "active-job",
+    "transactions",
+    "active-storage"
+  ],
+  "metadata": {
+    "category": "api-knowledge",
+    "rails_anchor": "enqueue_after_transaction_commit"
+  },
+  "phases": [
+    {
+      "name": "environment_setup",
+      "started_at": "2026-09-22T14:02:11.882111Z",
+      "finished_at": "2026-09-22T14:02:13.628056Z"
+    },
+    {
+      "name": "agent",
+      "started_at": "2026-09-22T14:02:13.628081Z",
+      "finished_at": "2026-09-22T14:03:50.249762Z"
+    },
+    {
+      "name": "verifier",
+      "started_at": "2026-09-22T14:03:50.679491Z",
+      "finished_at": "2026-09-22T14:04:15.611965Z"
+    }
+  ],
+  "reward": 1.0,
+  "credit": 1.0,
+  "outcome": {
+    "name": "completed",
+    "scored": true
+  },
+  "usage": {
+    "input_tokens": 108009,
+    "output_tokens": 3329,
+    "cached_tokens": 91203,
+    "steps": 10,
+    "cost_usd": 0.010018860000000001,
+    "cost_source": {
+      "name": "model_registry",
+      "model": "openrouter/openai/gpt-5.6-luna#medium",
+      "priced_as": "openrouter/openai/gpt-5.6-luna",
+      "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+    }
+  },
+  "duration": 123.7,
+  "started_at": "2026-09-22T14:02:11Z",
+  "finished_at": "2026-09-22T14:04:15Z"
+}

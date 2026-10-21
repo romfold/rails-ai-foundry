@@ -1,0 +1,10 @@
+schema: 1
+kind: domain
+profile: domain
+namespace: Ledger
+patterns:
+  events: event_sourced
+  cqrs: none
+capabilities:
+  persistence:
+    adapter: postgresql

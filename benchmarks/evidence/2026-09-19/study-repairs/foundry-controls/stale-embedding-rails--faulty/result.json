@@ -1,0 +1,16 @@
+{
+  "task": "stale-embedding-rails--faulty",
+  "status": "failed",
+  "reward": 0.0,
+  "patch_sha256": "030c4087e436e225aeff3f0c00f6c04f55b01378e615f314625d21fb7551a171",
+  "foundry": {
+    "visible": "passed",
+    "behavioral": "failed",
+    "architecture": {
+      "status": "not_applicable"
+    }
+  },
+  "verification_phase": "task",
+  "baseline_exit_code": null,
+  "protocol_violations": []
+}

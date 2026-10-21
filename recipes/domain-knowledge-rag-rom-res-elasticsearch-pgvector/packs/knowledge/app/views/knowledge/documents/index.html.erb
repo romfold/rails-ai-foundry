@@ -1,0 +1,40 @@
+<h1>Published knowledge</h1>
+<p>Writes are synchronous. Indexing follows in the background; refresh to see delivery progress.</p>
+<%= button_to "Leave workspace", session_path, method: :delete %>
+<h2>Add a document</h2>
+<%= form_with url: documents_path do |form| %>
+  <%= form.label :title %><%= form.text_field :title, required: true %>
+  <%= form.label :body %><%= form.text_area :body, required: true %>
+  <%= form.submit "Save draft" %>
+<% end %>
+<% @documents.each do |document| %>
+  <article>
+    <h2><%= document[:title] %></h2>
+    <p>Revision <%= document[:revision] %> · <%= document[:status] %></p>
+    <%= form_with url: document_path(document[:id]), method: :patch do |form| %>
+      <%= form.hidden_field :revision, value: document[:revision] %>
+      <%= form.text_field :title, value: document[:title], required: true %>
+      <%= form.text_area :body, value: document[:body], required: true %>
+      <%= form.submit "Save new draft" %>
+    <% end %>
+    <% %w[publish withdraw delete].each do |transition| %>
+      <%= button_to transition.capitalize, document_path(document[:id]), method: :patch,
+                    params: { revision: document[:revision], transition: transition } %>
+    <% end %>
+    <ul><% @deliveries.fetch(document[:id], []).each do |delivery| %>
+      <li><%= delivery[:target] %>: <%= delivery[:state] %> (<%= delivery[:count] %> events; maximum attempts <%= delivery[:attempts] %>)</li>
+    <% end %></ul>
+  </article>
+<% end %>
+<h2>Search published documents</h2>
+<%= form_with url: search_path, method: :get, data: { turbo: false } do |form| %>
+  <%= form.search_field :q, required: true %><%= form.submit "Search" %>
+<% end %>
+<h2>Ask with citations</h2>
+<%= form_with url: answers_path, data: { turbo: false } do |form| %>
+  <%= form.text_field :question, required: true %><%= form.submit "Ask" %>
+<% end %>
+
+<% if @documents.any? %>
+  <%= link_to 'Next page', documents_path(after: @documents.last.fetch(:id)) %>
+<% end %>

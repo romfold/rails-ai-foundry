@@ -1,0 +1,11 @@
+{
+  "account": {
+    "limit": 20,
+    "limit_remaining": 19.438222670000002,
+    "limit_reset": null,
+    "usage": 0.56177733
+  },
+  "key_fingerprint": "93912b400a84b63496cdb8f63334e93d3daa332b450042d8715ba4d5e6bdcafd",
+  "captured_at": "2026-09-22T13:43:53Z",
+  "study_manifest_sha256": "c5b003247a68ff572fb6369ec73f892ede9f862b5d96657faea5162261ed5c76"
+}

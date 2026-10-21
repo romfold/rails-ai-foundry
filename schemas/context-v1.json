@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.rails-ai-foundry.invalid/context-v1.json",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": 1,
+      "type": "integer",
+      "default": 1
+    },
+    "kind": {
+      "enum": [
+        "domain",
+        "platform"
+      ]
+    },
+    "profile": {
+      "enum": [
+        "rails_native",
+        "modular",
+        "domain"
+      ]
+    },
+    "namespace": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Za-z0-9]*(?:::[A-Z][A-Za-z0-9]*)*(?![\\s\\S])"
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "enum": [
+            "none",
+            "integration",
+            "event_sourced"
+          ]
+        },
+        "cqrs": {
+          "enum": [
+            "none",
+            "queries",
+            "read_model"
+          ]
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "adapter": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "adapter"
+        ],
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": [
+    "namespace"
+  ],
+  "additionalProperties": false
+}

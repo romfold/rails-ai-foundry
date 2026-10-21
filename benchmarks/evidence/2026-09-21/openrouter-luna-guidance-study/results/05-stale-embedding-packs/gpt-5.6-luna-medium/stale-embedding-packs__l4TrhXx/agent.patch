@@ -1,0 +1,115 @@
+diff --git a/packs/knowledge/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+index 5f19625..9f37689 100644
+--- a/packs/knowledge/app/services/knowledge/embedding_job.rb
++++ b/packs/knowledge/app/services/knowledge/embedding_job.rb
+@@ -6,15 +6,27 @@ module Knowledge
+       snapshot = Document.find_by(id: document_id, tenant_id: tenant_id, published: true)
+       return :discarded unless snapshot
+ 
++      # The provider is deliberately called outside the transaction. It may be slow,
++      # and the document must be checked again after it returns.
+       vector = provider.call(snapshot.body)
+-      Document.transaction do
+-        current = Document.lock.find_by(id: document_id, tenant_id: tenant_id, published: true)
+-        current ||= snapshot
++      revision = snapshot.revision
+ 
+-        Embedding.upsert({ document_id: current.id, tenant_id: tenant_id, revision: current.revision,
+-                           version: version, vector: JSON.generate(vector) }, unique_by: %i[document_id version])
++      stored = Document.transaction do
++        current = Document.lock.find_by(id: document_id)
++        next false unless current && current.tenant_id == tenant_id && current.published? && current.revision == revision
++
++        embedding = Embedding.find_by(document_id: current.id, version: version)
++        if embedding.nil?
++          Embedding.create!(document_id: current.id, tenant_id: tenant_id, revision: revision,
++                            version: version, vector: JSON.generate(vector))
++        elsif embedding.revision <= revision
++          embedding.update!(tenant_id: tenant_id, revision: revision, vector: JSON.generate(vector))
++        end
++
++        true
+       end
+-      :stored
++
++      stored ? :stored : :discarded
+     end
+   end
+ end
+diff --git a/test/regression_test.rb b/test/regression_test.rb
+new file mode 100644
+index 0000000..1599765
+--- /dev/null
++++ b/test/regression_test.rb
+@@ -0,0 +1,71 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class EmbeddingJobRegressionTest < BenchmarkTest
++  def call_for(document, tenant: 'a', version: 'v1', provider: ->(_body) { [1.0] })
++    Knowledge::EmbeddingJob.new.call(document_id: document.id, tenant_id: tenant,
++                                      version: version, provider: provider)
++  end
++
++  def test_discards_when_document_changes_while_provider_runs
++    document = document(revision: 3)
++    provider = lambda do |_body|
++      document.update!(revision: 4)
++      [1.0]
++    end
++
++    assert_equal :discarded, call_for(document, provider: provider)
++    assert_empty Knowledge::Embedding.all
++  end
++
++  def test_discards_withdrawal_deletion_and_tenant_reassignment
++    [
++      ->(record) { record.update!(published: false) },
++      ->(record) { record.destroy! },
++      ->(record) { record.update!(tenant_id: 'b') }
++    ].each do |change|
++      document = self.document
++      provider = lambda do |_body|
++        change.call(document)
++        [1.0]
++      end
++
++      assert_equal :discarded, call_for(document, provider: provider)
++      assert_empty Knowledge::Embedding.all
++    end
++  end
++
++  def test_does_not_overwrite_a_newer_embedding_and_versions_coexist
++    document = document(revision: 1)
++    Knowledge::Embedding.create!(document_id: document.id, tenant_id: 'a', revision: 2,
++                                 version: 'v1', vector: JSON.generate([9.0]))
++
++    assert_equal :stored, call_for(document, version: 'v1', provider: ->(_body) { [1.0] })
++    assert_equal [9.0], JSON.parse(Knowledge::Embedding.find_by!(document_id: document.id, version: 'v1').vector)
++
++    assert_equal :stored, call_for(document, version: 'v2', provider: ->(_body) { [2.0] })
++    assert_equal %w[v1 v2], Knowledge::Embedding.where(document_id: document.id).order(:version).pluck(:version)
++  end
++
++  def test_provider_errors_propagate_without_writing
++    document = self.document
++    error = RuntimeError.new('provider failed')
++
++    raised = assert_raises(RuntimeError) { call_for(document, provider: ->(_body) { raise error }) }
++
++    assert_same error, raised
++    assert_empty Knowledge::Embedding.all
++  end
++
++  def test_initially_unavailable_is_discarded_without_calling_provider
++    document = document(published: false)
++    called = false
++
++    result = call_for(document, provider: ->(_body) { called = true; [1.0] })
++
++    assert_equal :discarded, result
++    refute called
++    assert_empty Knowledge::Embedding.all
++  end
++end

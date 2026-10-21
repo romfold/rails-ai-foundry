@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'yaml'
+
+root = File.expand_path('..', __dir__)
+{ '.agents/skills/openspec-*/SKILL.md' => 6, 'skills/*/SKILL.md' => 8 }.each do |pattern, expected|
+  files = Dir[File.join(root, pattern)]
+  abort "Expected #{expected} skills for #{pattern}; found #{files.size}." unless files.size == expected
+
+  files.each do |path|
+    frontmatter = File.read(path, encoding: 'UTF-8').split(/^---\s*$/, 3)[1]
+    metadata = YAML.safe_load(frontmatter || '')
+    next if metadata.is_a?(Hash) && %w[name description].all? do |key|
+      metadata[key].is_a?(String) && !metadata[key].empty?
+    end
+
+    abort "Invalid skill metadata: #{path}"
+  end
+  puts "Validated #{expected} skills: #{pattern}"
+end

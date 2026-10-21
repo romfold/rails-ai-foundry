@@ -1,0 +1,12 @@
+schema: 1
+kind: domain
+profile: modular
+namespace: Orders
+patterns:
+  events: integration
+  cqrs: none
+capabilities:
+  persistence:
+    adapter: postgresql
+  jobs:
+    adapter: sidekiq

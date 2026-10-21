@@ -1,0 +1,11 @@
+{
+  "cpu": "Apple M1 Max",
+  "host_memory_bytes": 34359738368,
+  "docker_cpus": 2,
+  "docker_memory_bytes": 6228185088,
+  "docker_engine": "20.10.23",
+  "docker_kernel": "5.15.49-linuxkit",
+  "container_cpu_limit": 2,
+  "container_memory": "1536m",
+  "background_conditions": "Program-owned PostgreSQL and Elasticsearch containers stopped before pilot. Other host activity uncontrolled."
+}

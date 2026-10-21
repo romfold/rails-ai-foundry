@@ -1,0 +1,80 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..4b9c806 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Knowledge::Catalog.list(tenant_id: tenant)
+   end
+ end
+diff --git a/docs/knowledge-boundary.md b/docs/knowledge-boundary.md
+new file mode 100644
+index 0000000..d170f98
+--- /dev/null
++++ b/docs/knowledge-boundary.md
+@@ -0,0 +1,11 @@
++# Knowledge boundary rollback
++
++The `/documents` delivery path now depends on `Knowledge::Catalog.list(tenant_id:)`
++instead of querying `Knowledge::Document` directly. This is an API extraction only;
++the existing tables and persistence models remain unchanged.
++
++If the boundary needs to be rolled back, restore the delivery caller to its prior
++query (or temporarily delegate it through the catalog while investigating), verify
++the tenant authorization and response-shape characterization tests, and then remove
++this boundary only after consumers have been migrated. No data migration or
++persistence conversion is required for this change.
+diff --git a/test/knowledge_catalog_test.rb b/test/knowledge_catalog_test.rb
+new file mode 100644
+index 0000000..c526176
+--- /dev/null
++++ b/test/knowledge_catalog_test.rb
+@@ -0,0 +1,45 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeCatalogTest < BenchmarkTest
++  include Rack::Test::Methods
++
++  def app
++    Rails.application
++  
++  end
++  def test_lists_only_published_documents_for_the_tenant_in_id_order
++    later = document(tenant: 'a', body: 'later')
++    document(tenant: 'b', body: 'other tenant')
++    unpublished = document(tenant: 'a', body: 'draft', published: false)
++    earlier = document(tenant: 'a', body: 'earlier', revision: 3)
++
++    result = Knowledge::Catalog.list(tenant_id: 'a')
++
++    assert_equal [later.id, earlier.id], result.map { |row| row.fetch('id') }.sort
++    assert_equal [later.id, earlier.id], result.map { |row| row.fetch('id') }
++    assert_equal %w[id tenant_id body revision], result.first.keys
++    assert_equal({ 'id' => later.id, 'tenant_id' => 'a', 'body' => 'later', 'revision' => 1 }, result.first)
++    refute_includes result.map { |row| row.fetch('id') }, unpublished.id
++  end
++
++  def test_documents_delivery_uses_catalog_api
++    catalog = Knowledge::Catalog
++    calls = []
++    catalog.define_singleton_method(:list) do |tenant_id:|
++      calls << tenant_id
++      [{ 'id' => 7, 'tenant_id' => tenant_id, 'body' => 'from catalog', 'revision' => 2 }]
++    end
++
++    get '/documents', {}, { 'HTTP_AUTHORIZATION' => 'tenant-a-token' }
++
++    assert_equal 200, last_response.status
++    assert_equal ['a'], calls
++    assert_equal [{ 'id' => 7, 'tenant_id' => 'a', 'body' => 'from catalog', 'revision' => 2 }],
++                 JSON.parse(last_response.body)
++  ensure
++    catalog.singleton_class.send(:remove_method, :list)
++    load Rails.root.join('app/services/knowledge/catalog.rb')
++  end
++end

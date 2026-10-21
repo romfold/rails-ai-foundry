@@ -1,0 +1,144 @@
+diff --git a/README.md b/README.md
+index e1e0c83..773c6f8 100644
+--- a/README.md
++++ b/README.md
+@@ -6,3 +6,11 @@ The `/documents` endpoint accepts demo tokens `tenant-a-token` and `tenant-b-tok
+ request parameters never establish tenant identity. SQLite is disposable test storage.
+ Provider and search transports are deterministic, offline injected dependencies.
+ Read TASK.md for the behavioral contract and AGENTS.md for the selected architecture.
++
++## Rollback
++
++To undo the Knowledge catalog boundary, point `Knowledge::Catalog.list` back at
++`Knowledge::Document` queries, restore direct model access in `DocumentsController`
++and `Knowledge::RebuildSearch`, and remove `Knowledge::Internal::PublishedDocuments`
++and `Documents::Delivery`.
++No database migration is required.
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..308f1a5 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Documents::Delivery.list(tenant_id: tenant)
+   end
+ end
+diff --git a/app/services/documents/delivery.rb b/app/services/documents/delivery.rb
+new file mode 100644
+index 0000000..97da197
+--- /dev/null
++++ b/app/services/documents/delivery.rb
+@@ -0,0 +1,9 @@
++# frozen_string_literal: true
++
++module Documents
++  class Delivery
++    def self.list(tenant_id:)
++      Knowledge::Catalog.list(tenant_id: tenant_id)
++    end
++  end
++end
+diff --git a/app/services/knowledge/catalog.rb b/app/services/knowledge/catalog.rb
+index 0be231a..fd7d7b5 100644
+--- a/app/services/knowledge/catalog.rb
++++ b/app/services/knowledge/catalog.rb
+@@ -3,9 +3,7 @@
+ module Knowledge
+   class Catalog
+     def self.list(tenant_id:)
+-      Document.where(tenant_id: tenant_id, published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
++      Internal::PublishedDocuments.for_tenant(tenant_id)
+     end
+   end
+ end
+diff --git a/app/services/knowledge/internal/published_documents.rb b/app/services/knowledge/internal/published_documents.rb
+new file mode 100644
+index 0000000..d86ccb8
+--- /dev/null
++++ b/app/services/knowledge/internal/published_documents.rb
+@@ -0,0 +1,24 @@
++# frozen_string_literal: true
++
++module Knowledge
++  module Internal
++    module PublishedDocuments
++      module_function
++
++      def for_tenant(tenant_id)
++        slice_rows(Document.where(tenant_id: tenant_id, published: true).order(:id))
++      end
++
++      def all
++        slice_rows(Document.where(published: true).order(:id))
++      end
++
++      def slice_rows(scope)
++        scope.map do |document|
++          document.attributes.slice('id', 'tenant_id', 'body', 'revision')
++        end
++      end
++      private_class_method :slice_rows
++    end
++  end
++end
+diff --git a/app/services/knowledge/rebuild_search.rb b/app/services/knowledge/rebuild_search.rb
+index 2917659..1582a44 100644
+--- a/app/services/knowledge/rebuild_search.rb
++++ b/app/services/knowledge/rebuild_search.rb
+@@ -18,9 +18,7 @@ module Knowledge
+     private
+ 
+     def documents
+-      Document.where(published: true).order(:id).map do |document|
+-        document.attributes.slice('id', 'tenant_id', 'body', 'revision')
+-      end
++      Internal::PublishedDocuments.all
+     end
+   end
+ end
+diff --git a/test/knowledge_boundary_test.rb b/test/knowledge_boundary_test.rb
+new file mode 100644
+index 0000000..6384ee8
+--- /dev/null
++++ b/test/knowledge_boundary_test.rb
+@@ -0,0 +1,35 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeBoundaryTest < BenchmarkTest
++  def test_catalog_lists_published_documents_for_tenant_ordered_by_id
++    first = document(tenant: 'a', body: 'first', revision: 1)
++    second = document(tenant: 'a', body: 'second', revision: 2)
++    document(tenant: 'b', body: 'other tenant')
++    document(tenant: 'a', body: 'draft', published: false)
++
++    rows = Knowledge::Catalog.list(tenant_id: 'a')
++
++    assert_equal [first.id, second.id], rows.map { |row| row.fetch('id') }
++    assert_equal(
++      [
++        { 'id' => first.id, 'tenant_id' => 'a', 'body' => 'first', 'revision' => 1 },
++        { 'id' => second.id, 'tenant_id' => 'a', 'body' => 'second', 'revision' => 2 }
++      ],
++      rows
++    )
++  end
++
++  def test_documents_delivery_delegates_to_catalog
++    document(tenant: 'a', body: 'policy')
++
++    assert_equal Knowledge::Catalog.list(tenant_id: 'a'), Documents::Delivery.list(tenant_id: 'a')
++  end
++
++  def test_documents_delivery_source_uses_catalog_only
++    delivery_source = File.read(File.expand_path('../app/services/documents/delivery.rb', __dir__))
++    refute_match(/Knowledge::Document/, delivery_source)
++    assert_match(/Knowledge::Catalog\.list/, delivery_source)
++  end
++end

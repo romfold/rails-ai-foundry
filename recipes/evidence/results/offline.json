@@ -1,0 +1,23 @@
+{
+  "kind": "deterministic scorer calibration; no model-quality claim",
+  "results": [
+    {
+      "id": "refund",
+      "score": {
+        "answer_correct": true,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "passed": true
+      }
+    },
+    {
+      "id": "unknown",
+      "score": {
+        "answer_correct": true,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "passed": true
+      }
+    }
+  ]
+}

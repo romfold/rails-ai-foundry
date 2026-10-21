@@ -1,0 +1,18 @@
+{
+  "visible": "passed",
+  "behavioral": "failed",
+  "architecture": {
+    "status": "failed",
+    "policy_errors": [],
+    "checks": [
+      {
+        "exit_code": 0,
+        "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.64 seconds\n\nValidation successful 🎉\n"
+      },
+      {
+        "exit_code": 1,
+        "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n...\u001b[31mE\u001b[m........\n📦 Finished in 0.97 seconds\n\n\u001b[36mpacks/answering/app/services/answering/retrieval_tool.rb\u001b[m:14:6\nPrivacy violation: '::Knowledge::Document' is private to 'packs/knowledge' but referenced from 'packs/answering'.\nIs there a public entrypoint in 'packs/knowledge/app/public/' that you can use instead?\n\nInference details: this is a reference to ::Knowledge::Document which seems to be defined in packs/knowledge/app/models/knowledge/document.rb.\nTo receive help interpreting or resolving this error message, see: https://github.com/Shopify/packwerk/blob/main/TROUBLESHOOT.md#Troubleshooting-violations\n\n1 offense detected\n\nNo stale violations detected\n"
+      }
+    ]
+  }
+}

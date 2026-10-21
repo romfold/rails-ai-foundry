@@ -1,0 +1,1078 @@
+{
+  "model": "openrouter/openai/gpt-5.6-luna#medium",
+  "records": [
+    {
+      "id": "00-hello-world",
+      "suite": "smoke",
+      "task": "hello-world",
+      "cost_limit": 0.25,
+      "native": {
+        "trial": "hello-world__VWYYltF",
+        "task": "hello-world",
+        "agent": "miniswen",
+        "model": "openrouter/openai/gpt-5.6-luna#medium",
+        "index": 1,
+        "profile_digest": "8437c3dbd5a33564",
+        "task_digest": "ff08ef86ca7f0efb",
+        "revision": {
+          "commit": null,
+          "dirty": null
+        },
+        "lemans_version": "1.3.5",
+        "tags": [],
+        "metadata": {
+          "category": "infrastructure",
+          "rails_anchor": "none - infrastructure hello-world, deliberately not a Rails task"
+        },
+        "phases": [
+          {
+            "name": "environment_setup",
+            "started_at": "2026-09-21T07:53:30.032233Z",
+            "finished_at": "2026-09-21T07:53:31.848376Z"
+          },
+          {
+            "name": "agent",
+            "started_at": "2026-09-21T07:53:31.848405Z",
+            "finished_at": "2026-09-21T07:54:06.508184Z"
+          },
+          {
+            "name": "verifier",
+            "started_at": "2026-09-21T07:54:06.935924Z",
+            "finished_at": "2026-09-21T07:54:28.597999Z"
+          }
+        ],
+        "reward": 1.0,
+        "credit": 1.0,
+        "outcome": {
+          "name": "completed",
+          "scored": true
+        },
+        "usage": {
+          "input_tokens": 10853,
+          "output_tokens": 1029,
+          "cached_tokens": 6872,
+          "steps": 5,
+          "cost_usd": 0.00232759,
+          "cost_source": {
+            "name": "model_registry",
+            "model": "openrouter/openai/gpt-5.6-luna#medium",
+            "priced_as": "openrouter/openai/gpt-5.6-luna",
+            "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+          }
+        },
+        "duration": 58.6,
+        "started_at": "2026-09-21T07:53:30Z",
+        "finished_at": "2026-09-21T07:54:28Z"
+      },
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/00-hello-world/gpt-5.6-luna-medium/hello-world__VWYYltF/result.json",
+      "native_sha256": "6bc3e6d567ec70b5e851a2fd68dd339d37c5da4ca7a4d38ea7ebb84a88e76c94",
+      "status": "passed",
+      "verification": {
+        "task": "hello-world",
+        "native_outcome": "completed",
+        "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/00-hello-world/gpt-5.6-luna-medium/hello-world__VWYYltF/result.json",
+        "native_status": "passed",
+        "independent": {
+          "task": "hello-world",
+          "status": "passed",
+          "reward": 1.0,
+          "patch_sha256": "b1397839bf2e4b153a7e7fedd7e131a6ff3e76d462dd3d8de3db66d7072b43b2",
+          "foundry": null,
+          "verification_phase": "task",
+          "baseline_exit_code": 0,
+          "protocol_violations": [],
+          "assertion_failure": false
+        },
+        "status": "passed",
+        "agent": "miniswen",
+        "control_passed": null,
+        "category": "smoke"
+      },
+      "verification_sha256": "8831dc75dbc4e7144ce9f8f8dedee16fef581c6d377a380f411d1ca872efcde9"
+    },
+    {
+      "id": "01-boundary-extraction-rails",
+      "suite": "foundry",
+      "task": "boundary-extraction-rails",
+      "cost_limit": 0.75,
+      "native": {
+        "trial": "boundary-extraction-rails__UP5fWS1",
+        "task": "boundary-extraction-rails",
+        "agent": "miniswen",
+        "model": "openrouter/openai/gpt-5.6-luna#medium",
+        "index": 1,
+        "profile_digest": "9023ee1711a69905",
+        "task_digest": "bbcb09dbd6dcadae",
+        "revision": {
+          "commit": null,
+          "dirty": null
+        },
+        "lemans_version": "1.3.5",
+        "tags": [],
+        "metadata": {
+          "task": "boundary-extraction",
+          "group": "rails"
+        },
+        "phases": [
+          {
+            "name": "environment_setup",
+            "started_at": "2026-09-21T07:55:29.529145Z",
+            "finished_at": "2026-09-21T07:55:30.232948Z"
+          },
+          {
+            "name": "agent",
+            "started_at": "2026-09-21T07:55:30.232972Z",
+            "finished_at": "2026-09-21T07:56:14.750550Z"
+          },
+          {
+            "name": "verifier",
+            "started_at": "2026-09-21T07:56:15.131272Z",
+            "finished_at": "2026-09-21T07:56:19.389287Z"
+          }
+        ],
+        "reward": 1.0,
+        "credit": 1.0,
+        "outcome": {
+          "name": "completed",
+          "scored": true
+        },
+        "usage": {
+          "input_tokens": 73344,
+          "output_tokens": 3454,
+          "cached_tokens": 60017,
+          "steps": 10,
+          "cost_usd": 0.00862854,
+          "cost_source": {
+            "name": "model_registry",
+            "model": "openrouter/openai/gpt-5.6-luna#medium",
+            "priced_as": "openrouter/openai/gpt-5.6-luna",
+            "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+          }
+        },
+        "duration": 49.9,
+        "started_at": "2026-09-21T07:55:29Z",
+        "finished_at": "2026-09-21T07:56:19Z"
+      },
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/01-boundary-extraction-rails/gpt-5.6-luna-medium/boundary-extraction-rails__UP5fWS1/result.json",
+      "native_sha256": "e84bb3c8e3e1618f74a624c1506ff4b17136bfb51fa9a72a9699a54ce6991a6c",
+      "status": "passed",
+      "verification": {
+        "task": "boundary-extraction-rails",
+        "native_outcome": "completed",
+        "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/01-boundary-extraction-rails/gpt-5.6-luna-medium/boundary-extraction-rails__UP5fWS1/result.json",
+        "native_status": "passed",
+        "independent": {
+          "task": "boundary-extraction-rails",
+          "status": "passed",
+          "reward": 1.0,
+          "patch_sha256": "1452d32c0ac51bf2960c8692513d1e865dd080cf51635d8bd1d68e30ca5ad732",
+          "foundry": {
+            "visible": "passed",
+            "behavioral": "passed",
+            "architecture": {
+              "status": "not_applicable"
+            }
+          },
+          "verification_phase": "task",
+          "baseline_exit_code": null,
+          "protocol_violations": [],
+          "assertion_failure": false
+        },
+        "status": "passed",
+        "agent": "miniswen",
+        "control_passed": null,
+        "category": "foundry"
+      },
+      "verification_sha256": "6016e883ef48437020e9a90f957bbe7ff7698b8463cc4827d31571b3f9d5073d"
+    },
+    {
+      "id": "02-boundary-extraction-packs",
+      "suite": "foundry",
+      "task": "boundary-extraction-packs",
+      "cost_limit": 0.75,
+      "native": {
+        "trial": "boundary-extraction-packs__2ZqMDNk",
+        "task": "boundary-extraction-packs",
+        "agent": "miniswen",
+        "model": "openrouter/openai/gpt-5.6-luna#medium",
+        "index": 1,
+        "profile_digest": "9023ee1711a69905",
+        "task_digest": "3400904109c7efe6",
+        "revision": {
+          "commit": null,
+          "dirty": null
+        },
+        "lemans_version": "1.3.5",
+        "tags": [],
+        "metadata": {
+          "task": "boundary-extraction",
+          "group": "packs"
+        },
+        "phases": [
+          {
+            "name": "environment_setup",
+            "started_at": "2026-09-21T07:56:58.200480Z",
+            "finished_at": "2026-09-21T07:56:58.915198Z"
+          },
+          {
+            "name": "agent",
+            "started_at": "2026-09-21T07:56:58.915228Z",
+            "finished_at": "2026-09-21T07:58:16.700690Z"
+          },
+          {
+            "name": "verifier",
+            "started_at": "2026-09-21T07:58:17.087535Z",
+            "finished_at": "2026-09-21T07:58:23.323920Z"
+          }
+        ],
+        "reward": 1.0,
+        "credit": 1.0,
+        "outcome": {
+          "name": "completed",
+          "scored": true
+        },
+        "usage": {
+          "input_tokens": 207634,
+          "output_tokens": 4801,
+          "cached_tokens": 188166,
+          "steps": 18,
+          "cost_usd": 0.01434197,
+          "cost_source": {
+            "name": "model_registry",
+            "model": "openrouter/openai/gpt-5.6-luna#medium",
+            "priced_as": "openrouter/openai/gpt-5.6-luna",
+            "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+          }
+        },
+        "duration": 85.1,
+        "started_at": "2026-09-21T07:56:58Z",
+        "finished_at": "2026-09-21T07:58:23Z"
+      },
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/02-boundary-extraction-packs/gpt-5.6-luna-medium/boundary-extraction-packs__2ZqMDNk/result.json",
+      "native_sha256": "95994cdddd2283325ccd4b4e9869e1178509517195f50bee74eef90833d142d1",
+      "status": "passed",
+      "verification": {
+        "task": "boundary-extraction-packs",
+        "native_outcome": "completed",
+        "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/02-boundary-extraction-packs/gpt-5.6-luna-medium/boundary-extraction-packs__2ZqMDNk/result.json",
+        "native_status": "passed",
+        "independent": {
+          "task": "boundary-extraction-packs",
+          "status": "passed",
+          "reward": 1.0,
+          "patch_sha256": "2de6f91f56ea912c9b9cd37da0bbcdaf93c0a4f5038b3b496e6eee04771d82d6",
+          "foundry": {
+            "visible": "passed",
+            "behavioral": "passed",
+            "architecture": {
+              "status": "passed",
+              "policy_errors": [],
+              "checks": [
+                {
+                  "exit_code": 0,
+                  "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.63 seconds\n\nValidation successful 🎉\n"
+                },
+                {
+                  "exit_code": 0,
+                  "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n📦 Packwerk is inspecting 13 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n.............\n📦 Finished in 0.73 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+                }
+              ]
+            }
+          },
+          "verification_phase": "task",
+          "baseline_exit_code": null,
+          "protocol_violations": [],
+          "assertion_failure": false
+        },
+        "status": "passed",
+        "agent": "miniswen",
+        "control_passed": null,
+        "category": "foundry"
+      },
+      "verification_sha256": "7f1a11b6e0dd643b1b2ca1224d8e0e41eef8f60e11c9f7282fd7336f30d040c2"
+    },
+    {
+      "id": "03-boundary-extraction-foundry",
+      "suite": "foundry",
+      "task": "boundary-extraction-foundry",
+      "cost_limit": 0.75,
+      "native": {
+        "trial": "boundary-extraction-foundry__kBQOnIE",
+        "task": "boundary-extraction-foundry",
+        "agent": "miniswen",
+        "model": "openrouter/openai/gpt-5.6-luna#medium",
+        "index": 1,
+        "profile_digest": "9023ee1711a69905",
+        "task_digest": "dea3be84366598f0",
+        "revision": {
+          "commit": null,
+          "dirty": null
+        },
+        "lemans_version": "1.3.5",
+        "tags": [],
+        "metadata": {
+          "task": "boundary-extraction",
+          "group": "foundry"
+        },
+        "phases": [
+          {
+            "name": "environment_setup",
+            "started_at": "2026-09-21T07:59:01.430865Z",
+            "finished_at": "2026-09-21T07:59:02.180070Z"
+          },
+          {
+            "name": "agent",
+            "started_at": "2026-09-21T07:59:02.180097Z",
+            "finished_at": "2026-09-21T08:00:29.036878Z"
+          },
+          {
+            "name": "verifier",
+            "started_at": "2026-09-21T08:00:29.450341Z",
+            "finished_at": "2026-09-21T08:00:36.359542Z"
+          }
+        ],
+        "reward": 1.0,
+        "credit": 1.0,
+        "outcome": {
+          "name": "completed",
+          "scored": true
+        },
+        "usage": {
+          "input_tokens": 217180,
+          "output_tokens": 5078,
+          "cached_tokens": 194787,
+          "steps": 19,
+          "cost_usd": 0.01553789,
+          "cost_source": {
+            "name": "model_registry",
+            "model": "openrouter/openai/gpt-5.6-luna#medium",
+            "priced_as": "openrouter/openai/gpt-5.6-luna",
+            "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+          }
+        },
+        "duration": 94.9,
+        "started_at": "2026-09-21T07:59:01Z",
+        "finished_at": "2026-09-21T08:00:36Z"
+      },
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/03-boundary-extraction-foundry/gpt-5.6-luna-medium/boundary-extraction-foundry__kBQOnIE/result.json",
+      "native_sha256": "466e0043c4ef2919559cf308b8f4370b8a5b201db6a8e3492cb8f1ef9fb1ca00",
+      "status": "passed",
+      "verification": {
+        "task": "boundary-extraction-foundry",
+        "native_outcome": "completed",
+        "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/03-boundary-extraction-foundry/gpt-5.6-luna-medium/boundary-extraction-foundry__kBQOnIE/result.json",
+        "native_status": "passed",
+        "independent": {
+          "task": "boundary-extraction-foundry",
+          "status": "passed",
+          "reward": 1.0,
+          "patch_sha256": "84a52c30dfd5303e65b177d92205fd4cb3b162ca437334017b25cc5f725968a8",
+          "foundry": {
+            "visible": "passed",
+            "behavioral": "passed",
+            "architecture": {
+              "status": "passed",
+              "policy_errors": [],
+              "checks": [
+                {
+                  "exit_code": 0,
+                  "output": "📦 Packwerk is running validation...\n\n📦 Finished in 0.63 seconds\n\nValidation successful 🎉\n"
+                },
+                {
+                  "exit_code": 0,
+                  "output": "📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 0.76 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+                },
+                {
+                  "exit_code": 0,
+                  "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 1\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+                }
+              ]
+            }
+          },
+          "verification_phase": "task",
+          "baseline_exit_code": null,
+          "protocol_violations": [],
+          "assertion_failure": false
+        },
+        "status": "passed",
+        "agent": "miniswen",
+        "control_passed": null,
+        "category": "foundry"
+      },
+      "verification_sha256": "8f4588999427e754ac6fd610f45f31b511c8e453cf5ef6fdffc3d6ac94420ea0"
+    },
+    {
+      "id": "04-stale-embedding-rails",
+      "suite": "foundry",
+      "task": "stale-embedding-rails",
+      "cost_limit": 0.75,
+      "native": {
+        "trial": "stale-embedding-rails__wqs2SfV",
+        "task": "stale-embedding-rails",
+        "agent": "miniswen",
+        "model": "openrouter/openai/gpt-5.6-luna#medium",
+        "index": 1,
+        "profile_digest": "9023ee1711a69905",
+        "task_digest": "1969079b71f8c5c6",
+        "revision": {
+          "commit": null,
+          "dirty": null
+        },
+        "lemans_version": "1.3.5",
+        "tags": [],
+        "metadata": {
+          "task": "stale-embedding",
+          "group": "rails"
+        },
+        "phases": [
+          {
+            "name": "environment_setup",
+            "started_at": "2026-09-21T08:01:25.436827Z",
+            "finished_at": "2026-09-21T08:01:26.182137Z"
+          },
+          {
+            "name": "agent",
+            "started_at": "2026-09-21T08:01:26.182172Z",
+            "finished_at": "2026-09-21T08:02:22.011916Z"
+          },
+          {
+            "name": "verifier",
+            "started_at": "2026-09-21T08:02:22.409320Z",
+            "finished_at": "2026-09-21T08:02:26.819894Z"
+          }
+        ],
+        "reward": 1.0,
+        "credit": 1.0,
+        "outcome": {
+          "name": "completed",
+          "scored": true
+        },
+        "usage": {
+          "input_tokens": 66662,
+          "output_tokens": 3805,
+          "cached_tokens": 55900,
+          "steps": 11,
+          "cost_usd": 0.00832835,
+          "cost_source": {
+            "name": "model_registry",
+            "model": "openrouter/openai/gpt-5.6-luna#medium",
+            "priced_as": "openrouter/openai/gpt-5.6-luna",
+            "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+          }
+        },
+        "duration": 61.4,
+        "started_at": "2026-09-21T08:01:25Z",
+        "finished_at": "2026-09-21T08:02:26Z"
+      },
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/04-stale-embedding-rails/gpt-5.6-luna-medium/stale-embedding-rails__wqs2SfV/result.json",
+      "native_sha256": "772cc6b5d236fd8da908941fc46259510af7ecbdca26fa5effa7d3327bea10b8",
+      "status": "passed",
+      "verification": {
+        "task": "stale-embedding-rails",
+        "native_outcome": "completed",
+        "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/04-stale-embedding-rails/gpt-5.6-luna-medium/stale-embedding-rails__wqs2SfV/result.json",
+        "native_status": "passed",
+        "independent": {
+          "task": "stale-embedding-rails",
+          "status": "passed",
+          "reward": 1.0,
+          "patch_sha256": "9e2413e5cac0e9b105d7749354d60e7775f499930d0cc495487b667303cd831b",
+          "foundry": {
+            "visible": "passed",
+            "behavioral": "passed",
+            "architecture": {
+              "status": "not_applicable"
+            }
+          },
+          "verification_phase": "task",
+          "baseline_exit_code": null,
+          "protocol_violations": [],
+          "assertion_failure": false
+        },
+        "status": "passed",
+        "agent": "miniswen",
+        "control_passed": null,
+        "category": "foundry"
+      },
+      "verification_sha256": "3c904628191ba7c60450bde09f751fd72f08334421abd41fb23d57188ca3f0cd"
+    },
+    {
+      "id": "05-stale-embedding-packs",
+      "suite": "foundry",
+      "task": "stale-embedding-packs",
+      "cost_limit": 0.75,
+      "native": {
+        "trial": "stale-embedding-packs__yrINzpT",
+        "task": "stale-embedding-packs",
+        "agent": "miniswen",
+        "model": "openrouter/openai/gpt-5.6-luna#medium",
+        "index": 1,
+        "profile_digest": "9023ee1711a69905",
+        "task_digest": "4c33dba103e4b74b",
+        "revision": {
+          "commit": null,
+          "dirty": null
+        },
+        "lemans_version": "1.3.5",
+        "tags": [],
+        "metadata": {
+          "task": "stale-embedding",
+          "group": "packs"
+        },
+        "phases": [
+          {
+            "name": "environment_setup",
+            "started_at": "2026-09-21T08:02:59.772866Z",
+            "finished_at": "2026-09-21T08:03:00.514235Z"
+          },
+          {
+            "name": "agent",
+            "started_at": "2026-09-21T08:03:00.514269Z",
+            "finished_at": "2026-09-21T08:04:13.599834Z"
+          },
+          {
+            "name": "verifier",
+            "started_at": "2026-09-21T08:04:14.004019Z",
+            "finished_at": "2026-09-21T08:04:20.261507Z"
+          }
+        ],
+        "reward": 1.0,
+        "credit": 1.0,
+        "outcome": {
+          "name": "completed",
+          "scored": true
+        },
+        "usage": {
+          "input_tokens": 95939,
+          "output_tokens": 4979,
+          "cached_tokens": 83255,
+          "steps": 13,
+          "cost_usd": 0.01076445,
+          "cost_source": {
+            "name": "model_registry",
+            "model": "openrouter/openai/gpt-5.6-luna#medium",
+            "priced_as": "openrouter/openai/gpt-5.6-luna",
+            "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+          }
+        },
+        "duration": 80.5,
+        "started_at": "2026-09-21T08:02:59Z",
+        "finished_at": "2026-09-21T08:04:20Z"
+      },
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/05-stale-embedding-packs/gpt-5.6-luna-medium/stale-embedding-packs__yrINzpT/result.json",
+      "native_sha256": "f359c3467f4112bc8ce699a50744bdfdc8f576125c5d74dbb7750eeebd9474a0",
+      "status": "passed",
+      "verification": {
+        "task": "stale-embedding-packs",
+        "native_outcome": "completed",
+        "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/05-stale-embedding-packs/gpt-5.6-luna-medium/stale-embedding-packs__yrINzpT/result.json",
+        "native_status": "passed",
+        "independent": {
+          "task": "stale-embedding-packs",
+          "status": "passed",
+          "reward": 1.0,
+          "patch_sha256": "82516d4f8ca85015c747f9362a824fcb9bfb435c59ca1be4b5c65f25d7e067d2",
+          "foundry": {
+            "visible": "passed",
+            "behavioral": "passed",
+            "architecture": {
+              "status": "passed",
+              "policy_errors": [],
+              "checks": [
+                {
+                  "exit_code": 0,
+                  "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n📦 Packwerk is running validation...\n\n📦 Finished in 0.56 seconds\n\nValidation successful 🎉\n"
+                },
+                {
+                  "exit_code": 0,
+                  "output": "/usr/local/bundle/gems/packwerk-3.1.0/lib/packwerk/formatters/progress_formatter.rb:4: warning: benchmark was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.\nYou can add benchmark to your Gemfile or gemspec to silence this warning.\n📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 0.78 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+                }
+              ]
+            }
+          },
+          "verification_phase": "task",
+          "baseline_exit_code": null,
+          "protocol_violations": [],
+          "assertion_failure": false
+        },
+        "status": "passed",
+        "agent": "miniswen",
+        "control_passed": null,
+        "category": "foundry"
+      },
+      "verification_sha256": "1480ca541c950e14649c921c31b5b0bf44fe5d27d0fc43b3e923fc3d55181113"
+    },
+    {
+      "id": "06-stale-embedding-foundry",
+      "suite": "foundry",
+      "task": "stale-embedding-foundry",
+      "cost_limit": 0.75,
+      "native": {
+        "trial": "stale-embedding-foundry__Cy4Vm4B",
+        "task": "stale-embedding-foundry",
+        "agent": "miniswen",
+        "model": "openrouter/openai/gpt-5.6-luna#medium",
+        "index": 1,
+        "profile_digest": "9023ee1711a69905",
+        "task_digest": "cfd842d8d37e3f08",
+        "revision": {
+          "commit": null,
+          "dirty": null
+        },
+        "lemans_version": "1.3.5",
+        "tags": [],
+        "metadata": {
+          "task": "stale-embedding",
+          "group": "foundry"
+        },
+        "phases": [
+          {
+            "name": "environment_setup",
+            "started_at": "2026-09-21T08:05:42.179418Z",
+            "finished_at": "2026-09-21T08:05:43.033773Z"
+          },
+          {
+            "name": "agent",
+            "started_at": "2026-09-21T08:05:43.033810Z",
+            "finished_at": "2026-09-21T08:06:36.897702Z"
+          },
+          {
+            "name": "verifier",
+            "started_at": "2026-09-21T08:06:37.307828Z",
+            "finished_at": "2026-09-21T08:06:44.222821Z"
+          }
+        ],
+        "reward": 1.0,
+        "credit": 1.0,
+        "outcome": {
+          "name": "completed",
+          "scored": true
+        },
+        "usage": {
+          "input_tokens": 51138,
+          "output_tokens": 4272,
+          "cached_tokens": 40147,
+          "steps": 9,
+          "cost_usd": 0.008631239999999998,
+          "cost_source": {
+            "name": "model_registry",
+            "model": "openrouter/openai/gpt-5.6-luna#medium",
+            "priced_as": "openrouter/openai/gpt-5.6-luna",
+            "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+          }
+        },
+        "duration": 62.0,
+        "started_at": "2026-09-21T08:05:42Z",
+        "finished_at": "2026-09-21T08:06:44Z"
+      },
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/06-stale-embedding-foundry/gpt-5.6-luna-medium/stale-embedding-foundry__Cy4Vm4B/result.json",
+      "native_sha256": "c86ee823530d3c352b73efb62b2e6c19fc52d191f7a4e83ce9a3f2e8dff15582",
+      "status": "passed",
+      "verification": {
+        "task": "stale-embedding-foundry",
+        "native_outcome": "completed",
+        "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/06-stale-embedding-foundry/gpt-5.6-luna-medium/stale-embedding-foundry__Cy4Vm4B/result.json",
+        "native_status": "passed",
+        "independent": {
+          "task": "stale-embedding-foundry",
+          "status": "passed",
+          "reward": 1.0,
+          "patch_sha256": "799019330c78786708d929a6b2954301af8feb65e78233c1390e3c0139261328",
+          "foundry": {
+            "visible": "passed",
+            "behavioral": "passed",
+            "architecture": {
+              "status": "passed",
+              "policy_errors": [],
+              "checks": [
+                {
+                  "exit_code": 0,
+                  "output": "📦 Packwerk is running validation...\n\n📦 Finished in 0.59 seconds\n\nValidation successful 🎉\n"
+                },
+                {
+                  "exit_code": 0,
+                  "output": "📦 Packwerk is inspecting 12 files\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\nwarning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.10.\nPlease see https://github.com/whitequark/parser#compatibility-with-ruby-mri.\n............\n📦 Finished in 0.74 seconds\n\nNo offenses detected\nNo stale violations detected\n"
+                },
+                {
+                  "exit_code": 0,
+                  "output": "Foundry structural assessment: /candidate\nWorkflow: none; workload: balanced\nContext configurations validated: 2\nConfiguration and selected Ruby sources checked without booting Rails; Packwerk boundaries were not checked.\nSource check: 9 Ruby files; passed.\nApplication app/ and configured context app/ Ruby files only. Explicit RailsAIFoundry constant paths only; aliases, unqualified lexical references, dynamic lookup, require calls, ERB and non-Ruby files need review. Constant resolution is not proven. No dependency/privacy or behavioral verification. Architecture rules cover Rails/persistence/provider constants in configured app/domain, direct RubyLLM/OpenAI/Anthropic calls in delivery, and writes to source-declared Active Record models in queries/projections. Transaction/callback warnings are inferred syntax. Aliases, inherited model bases, dynamic dispatch and indirect provider calls require review.\nNo files were changed.\nRun owning-context behavioral tests.\nRun foundry check --boundaries in an isolated test environment for upstream Packwerk verification.\nPreserve accepted Packwerk baselines; do not regenerate debt during adoption or checking.\n"
+                }
+              ]
+            }
+          },
+          "verification_phase": "task",
+          "baseline_exit_code": null,
+          "protocol_violations": [],
+          "assertion_failure": false
+        },
+        "status": "passed",
+        "agent": "miniswen",
+        "control_passed": null,
+        "category": "foundry"
+      },
+      "verification_sha256": "a54f6ae4f5b2fe22ead6d347f30ba553042382ae16ff94ff8b4f84b09726ea49"
+    },
+    {
+      "id": "07-ar-tenant-isolation",
+      "suite": "upstream",
+      "task": "ar-tenant-isolation",
+      "cost_limit": 0.75,
+      "native": {
+        "trial": "ar-tenant-isolation__OEyANyS",
+        "task": "ar-tenant-isolation",
+        "agent": "miniswen",
+        "model": "openrouter/openai/gpt-5.6-luna#medium",
+        "index": 1,
+        "profile_digest": "e94522229f9a121a",
+        "task_digest": "17c828845e4791aa",
+        "revision": {
+          "commit": null,
+          "dirty": null
+        },
+        "lemans_version": "1.3.5",
+        "tags": [
+          "rails",
+          "active-record",
+          "multi-tenancy",
+          "migrations"
+        ],
+        "metadata": {
+          "category": "api-knowledge",
+          "rails_anchor": "accessable_or_published"
+        },
+        "phases": [
+          {
+            "name": "environment_setup",
+            "started_at": "2026-09-21T08:07:36.914188Z",
+            "finished_at": "2026-09-21T08:07:38.121786Z"
+          },
+          {
+            "name": "agent",
+            "started_at": "2026-09-21T08:07:38.121827Z",
+            "finished_at": "2026-09-21T08:09:35.377224Z"
+          },
+          {
+            "name": "verifier",
+            "started_at": "2026-09-21T08:09:35.805744Z",
+            "finished_at": "2026-09-21T08:10:08.754224Z"
+          }
+        ],
+        "reward": 1.0,
+        "credit": 1.0,
+        "outcome": {
+          "name": "completed",
+          "scored": true
+        },
+        "usage": {
+          "input_tokens": 229925,
+          "output_tokens": 6238,
+          "cached_tokens": 198503,
+          "steps": 12,
+          "cost_usd": 0.019258359999999995,
+          "cost_source": {
+            "name": "model_registry",
+            "model": "openrouter/openai/gpt-5.6-luna#medium",
+            "priced_as": "openrouter/openai/gpt-5.6-luna",
+            "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+          }
+        },
+        "duration": 151.8,
+        "started_at": "2026-09-21T08:07:36Z",
+        "finished_at": "2026-09-21T08:10:08Z"
+      },
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/07-ar-tenant-isolation/gpt-5.6-luna-medium/ar-tenant-isolation__OEyANyS/result.json",
+      "native_sha256": "9f095cf605216c8341eda0092ae87d730540059efb54382426ba0fa822ff5e47",
+      "status": "passed",
+      "verification": {
+        "task": "ar-tenant-isolation",
+        "native_outcome": "completed",
+        "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/07-ar-tenant-isolation/gpt-5.6-luna-medium/ar-tenant-isolation__OEyANyS/result.json",
+        "native_status": "passed",
+        "independent": {
+          "task": "ar-tenant-isolation",
+          "status": "passed",
+          "reward": 1.0,
+          "patch_sha256": "de7e4e25a6d9e3450a14b0e75c60842722ca5a07cdcd4bfdea50f2efcca02743",
+          "foundry": null,
+          "verification_phase": "task",
+          "baseline_exit_code": 0,
+          "protocol_violations": [],
+          "assertion_failure": false
+        },
+        "status": "passed",
+        "agent": "miniswen",
+        "control_passed": null,
+        "category": "atomic"
+      },
+      "verification_sha256": "1fb88b3802732e64f88c8c34911e41f61a5f3fbbc61f8d7b0640d73ddf50921b"
+    },
+    {
+      "id": "08-aj-enqueue-after-commit",
+      "suite": "upstream",
+      "task": "aj-enqueue-after-commit",
+      "cost_limit": 0.75,
+      "native": {
+        "trial": "aj-enqueue-after-commit__j48ywRm",
+        "task": "aj-enqueue-after-commit",
+        "agent": "miniswen",
+        "model": "openrouter/openai/gpt-5.6-luna#medium",
+        "index": 1,
+        "profile_digest": "e94522229f9a121a",
+        "task_digest": "58027281894d1786",
+        "revision": {
+          "commit": null,
+          "dirty": null
+        },
+        "lemans_version": "1.3.5",
+        "tags": [
+          "rails",
+          "active-job",
+          "transactions",
+          "active-storage"
+        ],
+        "metadata": {
+          "category": "api-knowledge",
+          "rails_anchor": "enqueue_after_transaction_commit"
+        },
+        "phases": [
+          {
+            "name": "environment_setup",
+            "started_at": "2026-09-21T08:11:22.598306Z",
+            "finished_at": "2026-09-21T08:11:24.195345Z"
+          },
+          {
+            "name": "agent",
+            "started_at": "2026-09-21T08:11:24.195371Z",
+            "finished_at": "2026-09-21T08:12:31.875760Z"
+          },
+          {
+            "name": "verifier",
+            "started_at": "2026-09-21T08:12:32.327828Z",
+            "finished_at": "2026-09-21T08:12:57.002550Z"
+          }
+        ],
+        "reward": 1.0,
+        "credit": 1.0,
+        "outcome": {
+          "name": "completed",
+          "scored": true
+        },
+        "usage": {
+          "input_tokens": 90609,
+          "output_tokens": 2732,
+          "cached_tokens": 78451,
+          "steps": 11,
+          "cost_usd": 0.00788527,
+          "cost_source": {
+            "name": "model_registry",
+            "model": "openrouter/openai/gpt-5.6-luna#medium",
+            "priced_as": "openrouter/openai/gpt-5.6-luna",
+            "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+          }
+        },
+        "duration": 94.4,
+        "started_at": "2026-09-21T08:11:22Z",
+        "finished_at": "2026-09-21T08:12:57Z"
+      },
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/08-aj-enqueue-after-commit/gpt-5.6-luna-medium/aj-enqueue-after-commit__j48ywRm/result.json",
+      "native_sha256": "b9558268faa4387450a158ed7c9b860845bfe0a04bdaebaa84b5d1defb636a8d",
+      "status": "passed",
+      "verification": {
+        "task": "aj-enqueue-after-commit",
+        "native_outcome": "completed",
+        "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/08-aj-enqueue-after-commit/gpt-5.6-luna-medium/aj-enqueue-after-commit__j48ywRm/result.json",
+        "native_status": "passed",
+        "independent": {
+          "task": "aj-enqueue-after-commit",
+          "status": "passed",
+          "reward": 1.0,
+          "patch_sha256": "02d5927a2d394ba3d06fdfb7cfc6697de7c0e08b3f9a564471597890cc5faa2f",
+          "foundry": null,
+          "verification_phase": "task",
+          "baseline_exit_code": 0,
+          "protocol_violations": [],
+          "assertion_failure": false
+        },
+        "status": "passed",
+        "agent": "miniswen",
+        "control_passed": null,
+        "category": "atomic"
+      },
+      "verification_sha256": "e805234b652d29c076c07ce40c8264c5b27c9193b3da8556afda4115f79c31c9"
+    },
+    {
+      "id": "09-ft-comment-reaction-live-echo",
+      "suite": "upstream",
+      "task": "ft-comment-reaction-live-echo",
+      "cost_limit": 0.75,
+      "native": {
+        "trial": "ft-comment-reaction-live-echo__Q7quNQF",
+        "task": "ft-comment-reaction-live-echo",
+        "agent": "miniswen",
+        "model": "openrouter/openai/gpt-5.6-luna#medium",
+        "index": 1,
+        "profile_digest": "e94522229f9a121a",
+        "task_digest": "9df099a35893d33b",
+        "revision": {
+          "commit": null,
+          "dirty": null
+        },
+        "lemans_version": "1.3.5",
+        "tags": [
+          "rails",
+          "hotwire",
+          "turbo-streams",
+          "active-record",
+          "callbacks"
+        ],
+        "metadata": {
+          "category": "full-features"
+        },
+        "phases": [
+          {
+            "name": "environment_setup",
+            "started_at": "2026-09-21T08:13:54.675467Z",
+            "finished_at": "2026-09-21T08:14:00.209232Z"
+          },
+          {
+            "name": "agent",
+            "started_at": "2026-09-21T08:14:00.209269Z",
+            "finished_at": "2026-09-21T08:15:36.568324Z"
+          },
+          {
+            "name": "verifier",
+            "started_at": "2026-09-21T08:15:37.014780Z",
+            "finished_at": "2026-09-21T08:17:01.744971Z"
+          }
+        ],
+        "reward": 0.0,
+        "credit": 0.0,
+        "outcome": {
+          "name": "completed",
+          "scored": true
+        },
+        "usage": {
+          "input_tokens": 292568,
+          "output_tokens": 6213,
+          "cached_tokens": 264799,
+          "steps": 16,
+          "cost_usd": 0.019647680000000004,
+          "cost_source": {
+            "name": "model_registry",
+            "model": "openrouter/openai/gpt-5.6-luna#medium",
+            "priced_as": "openrouter/openai/gpt-5.6-luna",
+            "registry": "ruby_llm 1.16.0 (registry 2026-09-05T13:58:48Z)"
+          }
+        },
+        "duration": 187.1,
+        "started_at": "2026-09-21T08:13:54Z",
+        "finished_at": "2026-09-21T08:17:01Z"
+      },
+      "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium/ft-comment-reaction-live-echo__Q7quNQF/result.json",
+      "native_sha256": "99d4e49b27d553c659fc4c46b5a52de0411a948779be1557438c75fd5c019ebf",
+      "status": "failed",
+      "verification": {
+        "task": "ft-comment-reaction-live-echo",
+        "native_outcome": "completed",
+        "native_result": "/private/tmp/foundry-openrouter-luna-20260921/results/09-ft-comment-reaction-live-echo/gpt-5.6-luna-medium/ft-comment-reaction-live-echo__Q7quNQF/result.json",
+        "native_status": "failed",
+        "independent": {
+          "task": "ft-comment-reaction-live-echo",
+          "status": "failed",
+          "reward": 0.0,
+          "patch_sha256": "19448faa0fa15b013ad0db7b9d32d1bd78ffb78adaf95bdc58044722eca9bc75",
+          "foundry": null,
+          "verification_phase": "task",
+          "baseline_exit_code": 0,
+          "protocol_violations": [],
+          "assertion_failure": true
+        },
+        "status": "failed",
+        "agent": "miniswen",
+        "control_passed": null,
+        "category": "feature"
+      },
+      "verification_sha256": "79fa9a5f35d26ba0c6b00b2278621205c565fdbfe112dda97d3f5a84819e0d2c"
+    }
+  ],
+  "counts": {
+    "passed": 9,
+    "failed": 1
+  },
+  "suites": {
+    "smoke": {
+      "passed": 1
+    },
+    "foundry": {
+      "passed": 6
+    },
+    "upstream": {
+      "passed": 2,
+      "failed": 1
+    }
+  },
+  "foundry_groups": {
+    "rails": {
+      "passed": 2
+    },
+    "packs": {
+      "passed": 2
+    },
+    "foundry": {
+      "passed": 2
+    }
+  },
+  "accounting": {
+    "reported_cost": 0.11535134,
+    "provider": {
+      "snapshot": {
+        "account": {
+          "limit": 20,
+          "limit_remaining": 19.7595714,
+          "limit_reset": null,
+          "usage": 0.2404286
+        },
+        "endpoint": {
+          "name": "OpenAI | openai/gpt-5.6-luna-20260709",
+          "model_id": "openai/gpt-5.6-luna",
+          "tag": "openai",
+          "provider_name": "OpenAI",
+          "status": 0,
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "seed",
+            "max_tokens",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "pricing": {
+            "prompt": "0.0000002",
+            "completion": "0.0000012",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000002",
+            "input_cache_write": "0.00000025",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.0000004",
+                "completion": "0.0000018",
+                "input_cache_read": "0.00000004",
+                "input_cache_write": "0.0000005"
+              }
+            ]
+          }
+        },
+        "key_fingerprint": "93912b400a84b63496cdb8f63334e93d3daa332b450042d8715ba4d5e6bdcafd",
+        "model": "openai/gpt-5.6-luna",
+        "captured_at": "2026-09-21T08:19:03Z"
+      },
+      "study_usage_delta": 0.11535134
+    }
+  },
+  "manifest_sha256": "9526483bb6cf9226f18095a1f6239ef58080e7937e396107c1eb8e04cf3a6b56"
+}

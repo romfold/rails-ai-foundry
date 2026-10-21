@@ -1,0 +1,38 @@
+---
+version: 1
+environment:
+  dockerfile: docker/writebook/Dockerfile
+  profiles:
+    fizzy:
+      dockerfile: docker/foundry-guided-fizzy/Dockerfile
+  resources:
+    cpus: 2
+    memory: 2GB
+    storage: 5GB
+  build_timeout: 30m
+  network:
+    mode: none
+  backend: docker
+agent:
+  name: miniswen
+  model: openrouter/openai/gpt-5.6-luna#medium
+  timeout: 10m
+  step_limit: 50
+  cost_limit: 0.75
+  max_output_tokens: 4096
+  exec_timeout: 60
+  environment:
+    network:
+      mode: none
+verifier:
+  timeout: 10m
+  command: ruby -Itest -report-lemans /tests/verification_test.rb
+  preverify: bin/rails test
+  restore:
+  - test
+  - bin
+  - config/environments/test.rb
+  - AGENTS.md
+  - ".agents"
+  - ".foundry"
+  - config/foundry.yml

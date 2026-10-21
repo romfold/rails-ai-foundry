@@ -1,0 +1,13 @@
+{
+  "image": "sha256:53938c09c00b9043d90600632df28de4cc0814cc339ae8e39e21234112b084c4",
+  "architecture": "arm64",
+  "codex_version": "0.154.0",
+  "codex_archive_sha256": "583b48df32804213bdcd338c2e5adb06b34340821fa757a726cc0a524fa33c27",
+  "codex_binary_sha256": "9b7c1c7abdc26fc3c4f47c77656a8e9121def5483dbae830ef1ee561758448a9",
+  "gem_sha256": "2a9c27433cdd4a7de301fb45341738f03b98ef1e3156343e3f498154c53e5154",
+  "volumes": {
+    "base": "foundry-benchmark-base-20260916",
+    "packs": "foundry-benchmark-packs-20260916",
+    "foundry": "foundry-benchmark-foundry-20260916"
+  }
+}

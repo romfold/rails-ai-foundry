@@ -1,0 +1,110 @@
+Running 20 tests in a single process (parallelization threshold is 50)
+Run options: --seed 17954
+
+# Running:
+
+........Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:42333
+2026-09-21 21:15:15 INFO Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging
+
+2026-09-21 21:15:15 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+2026-09-21 21:15:15 WARN Selenium [:selenium_manager] Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event) 
+.2026-09-21 21:15:42 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+.[Screenshot Image]: /app/tmp/screenshots/failures_test_broadcast_controls_belong_to_the_viewer_rather_than_the_sender.png 
+F
+
+Failure:
+VerifierTest#test_broadcast_controls_belong_to_the_viewer_rather_than_the_sender [/tests/realtime_test.rb:39]:
+expected to find css "button.reaction__delete" but there were no matches
+
+bin/rails test /tests/realtime_test.rb:24
+
+.[Screenshot Image]: /app/tmp/screenshots/failures_test_deletion_reaches_another_viewer_without_replacing_their_draft.png 
+E
+
+Error:
+VerifierTest#test_deletion_reaches_another_viewer_without_replacing_their_draft:
+Capybara::ElementNotFound: Unable to find css ".reaction__delete" within #<Capybara::Node::Element tag="div" path="/HTML/BODY[1]/DIV[1]/MAIN[1]/DIV[1]/TURBO-FRAME[1]/TURBO-FRAME[2]/DIV[1]">
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:312:in 'block in Capybara::Node::Finders#synced_resolve'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/base.rb:84:in 'Capybara::Node::Base#synchronize'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:301:in 'Capybara::Node::Finders#synced_resolve'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:60:in 'Capybara::Node::Finders#find'
+    /tests/realtime_test.rb:76:in 'block in <class:VerifierTest>'
+
+bin/rails test /tests/realtime_test.rb:60
+
+[Screenshot Image]: /app/tmp/screenshots/failures_test_the_person_reacting_does_not_get_their_reaction_twice.png 
+E
+
+Error:
+VerifierTest#test_the_person_reacting_does_not_get_their_reaction_twice:
+Selenium::WebDriver::Error::ElementClickInterceptedError: element click intercepted: Element <summary class="reactions__trigger btn btn--circle" title="Add reaction">...</summary> is not clickable at point (994, 641). Other element would receive the click: <button class="tray__toggle" data-action="dialog#toggle keydown.n@document-&gt;hotkey#click" data-controller="hotkey" aria-label="Toggle notifications stack" aria-haspopup="true">...</button>
+  (Session info: chrome=153.0.8010.47)
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/response.rb:63:in 'Selenium::WebDriver::Remote::Response#add_cause'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/response.rb:41:in 'Selenium::WebDriver::Remote::Response#error'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/response.rb:52:in 'Selenium::WebDriver::Remote::Response#assert_ok'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/response.rb:34:in 'Selenium::WebDriver::Remote::Response#initialize'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/http/common.rb:135:in 'Class#new'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/http/common.rb:135:in 'Selenium::WebDriver::Remote::Http::Common#create_response'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/http/default.rb:103:in 'Selenium::WebDriver::Remote::Http::Default#request'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/http/common.rb:70:in 'Selenium::WebDriver::Remote::Http::Common#call'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/bridge.rb:633:in 'Selenium::WebDriver::Remote::Bridge#execute'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/bridge.rb:373:in 'Selenium::WebDriver::Remote::Bridge#click_element'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/common/element.rb:77:in 'Selenium::WebDriver::Element#click'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/selenium/node.rb:108:in 'Capybara::Selenium::Node#click'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/selenium/extensions/file_input_click_emulation.rb:6:in 'Capybara::Selenium::Node::FileInputClickEmulation#click'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/selenium/nodes/chrome_node.rb:34:in 'Capybara::Selenium::ChromeNode#click'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/element.rb:172:in 'block in Capybara::Node::Element#click'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/element.rb:608:in 'block in Capybara::Node::Element#perform_click_action'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/base.rb:84:in 'Capybara::Node::Base#synchronize'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/element.rb:608:in 'Capybara::Node::Element#perform_click_action'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/element.rb:171:in 'Capybara::Node::Element#click'
+    /tests/verification_test.rb:101:in 'block in VerifierTest#react'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/session.rb:366:in 'Capybara::Session#within'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/dsl.rb:52:in 'Method#call'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/dsl.rb:52:in 'Capybara::DSL#within'
+    /tests/verification_test.rb:100:in 'VerifierTest#react'
+    /tests/verification_test.rb:63:in 'block in <class:VerifierTest>'
+
+bin/rails test /tests/verification_test.rb:55
+
+[Screenshot Image]: /app/tmp/screenshots/failures_test_a_rejected_submission_preserves_its_draft_and_can_be_corrected.png 
+F
+
+Failure:
+VerifierTest#test_a_rejected_submission_preserves_its_draft_and_can_be_corrected [/tests/realtime_test.rb:54]:
+expected to find text "corrected" in "JZ\nSaturday, September 19, 9:15 PM\nI agree.\nCancel"
+
+bin/rails test /tests/realtime_test.rb:42
+
+.[Screenshot Image]: /app/tmp/screenshots/failures_test_the_rendered_deletion_control_submits_DELETE_to_the_requested_record.png 
+F
+
+Failure:
+VerifierTest#test_the_rendered_deletion_control_submits_DELETE_to_the_requested_record [/tests/realtime_test.rb:12]:
+expected to find css "button.reaction__delete" but there were no matches
+
+bin/rails test /tests/realtime_test.rb:8
+
+.2026-09-21 21:19:37 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+[Screenshot Image]: /app/tmp/screenshots/failures_test_people_can_take_back_their_own_reaction-_and_only_their_own.png 
+E
+
+Error:
+VerifierTest#test_people_can_take_back_their_own_reaction,_and_only_their_own:
+Capybara::ElementNotFound: Unable to find css ".reaction__delete" within #<Capybara::Node::Element tag="div" path="/HTML/BODY[1]/DIV[1]/MAIN[1]/DIV[1]/TURBO-FRAME[1]/TURBO-FRAME[2]/DIV[1]">
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:312:in 'block in Capybara::Node::Finders#synced_resolve'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/base.rb:84:in 'Capybara::Node::Base#synchronize'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:301:in 'Capybara::Node::Finders#synced_resolve'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:60:in 'Capybara::Node::Finders#find'
+    /tests/verification_test.rb:38:in 'block in <class:VerifierTest>'
+
+bin/rails test /tests/verification_test.rb:27
+
+.
+
+Finished in 281.269373s, 0.0711 runs/s, 0.4409 assertions/s.
+20 runs, 124 assertions, 3 failures, 3 errors, 0 skips

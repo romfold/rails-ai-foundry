@@ -1,0 +1,13 @@
+diff --git a/app/controllers/cards/comments/reactions_controller.rb b/app/controllers/cards/comments/reactions_controller.rb
+index 1940056..de022ce 100644
+--- a/app/controllers/cards/comments/reactions_controller.rb
++++ b/app/controllers/cards/comments/reactions_controller.rb
+@@ -27,7 +27,7 @@ class Cards::Comments::ReactionsController < ApplicationController
+     end
+ 
+     def set_reaction
+-      @reaction = @comment.reactions.find(params[:id])
++      @reaction = @comment.reactions.find_by!(creator: Current.user)
+     end
+ 
+     def reaction_params

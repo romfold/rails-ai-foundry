@@ -1,0 +1,90 @@
+{
+  "classification": "human-assisted regression evidence",
+  "accepted": true,
+  "control_design_correction": "Initial replacement retained data-turbo-permanent and correctly passed. Preserve it as a valid alternative; separately verify destructive replacement without that protection. Grader and native scores unchanged.",
+  "outcomes": [
+    {
+      "name": "boundary-fixed",
+      "evidence": "initial-matrix/boundary-fixed",
+      "expected": "passed",
+      "actual": "passed",
+      "initial_expected": "passed"
+    },
+    {
+      "name": "boundary-original",
+      "evidence": "initial-matrix/boundary-original",
+      "expected": "failed",
+      "actual": "failed",
+      "initial_expected": "failed"
+    },
+    {
+      "name": "realtime-fixed-1",
+      "evidence": "initial-matrix/realtime-fixed-1",
+      "expected": "passed",
+      "actual": "passed",
+      "initial_expected": "passed"
+    },
+    {
+      "name": "realtime-fixed-2",
+      "evidence": "initial-matrix/realtime-fixed-2",
+      "expected": "passed",
+      "actual": "passed",
+      "initial_expected": "passed"
+    },
+    {
+      "name": "realtime-fixed-3",
+      "evidence": "initial-matrix/realtime-fixed-3",
+      "expected": "passed",
+      "actual": "passed",
+      "initial_expected": "passed"
+    },
+    {
+      "name": "missing-delivery",
+      "evidence": "initial-matrix/missing-delivery",
+      "expected": "failed",
+      "actual": "failed",
+      "initial_expected": "failed"
+    },
+    {
+      "name": "duplicate-echo",
+      "evidence": "initial-matrix/duplicate-echo",
+      "expected": "failed",
+      "actual": "failed",
+      "initial_expected": "failed"
+    },
+    {
+      "name": "guarded-composer-replacement",
+      "evidence": "initial-matrix/composer-replacement",
+      "expected": "passed",
+      "actual": "passed",
+      "initial_expected": "failed"
+    },
+    {
+      "name": "realtime-original",
+      "evidence": "initial-matrix/realtime-original",
+      "expected": "failed",
+      "actual": "failed",
+      "initial_expected": "failed"
+    },
+    {
+      "name": "upstream-oracle",
+      "evidence": "initial-matrix/upstream-oracle",
+      "expected": "passed",
+      "actual": "passed",
+      "initial_expected": "passed"
+    },
+    {
+      "name": "upstream-noop",
+      "evidence": "initial-matrix/upstream-noop",
+      "expected": "failed",
+      "actual": "failed",
+      "initial_expected": "failed"
+    },
+    {
+      "name": "composer-replacement",
+      "evidence": "unprotected-composer",
+      "expected": "failed",
+      "actual": "failed"
+    }
+  ]
+}

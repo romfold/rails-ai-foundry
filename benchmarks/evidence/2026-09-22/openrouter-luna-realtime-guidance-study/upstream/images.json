@@ -1,0 +1,12 @@
+{
+  "lemans-97d06a07484c1d79ea1e2023fe1a95e3": {
+    "id": "sha256:2b864d871d4fa7ed3d6a12cd72fbe6135f7863e20128116dc3dd881cee84a4d9",
+    "architecture": "arm64",
+    "repo_digests": []
+  },
+  "lemans-8d33f0371429eafe8e6ad99ce2b955c3": {
+    "id": "sha256:7a68abbb405addbea91cc7c9ea75c802b63e2603e2f25f51c3c03f92e64b85a0",
+    "architecture": "arm64",
+    "repo_digests": []
+  }
+}

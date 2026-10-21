@@ -1,0 +1,128 @@
+[
+  {
+    "lane": "focused",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" bundle exec ruby -Itest -Ilib -e 'ARGV.each { |file| require_relative file }' test/audit_snapshot_test.rb test/audit_capture_test.rb test/debt_audit_test.rb test/audit_command_encoding_test.rb",
+    "result": "20 tests / 107 assertions",
+    "exit_status": 0
+  },
+  {
+    "lane": "controls",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" bundle exec ruby script/verify_audit_controls.rb",
+    "result": "2 valid implementations pass; 4 faulty implementations rejected",
+    "exit_status": 0
+  },
+  {
+    "lane": "real-parity",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" PKS_BIN=$TMP/pks/packs bundle exec ruby script/verify_adoption_evidence.rb",
+    "result": "Retained/resolved/new debt and fresh parity pass; source unchanged",
+    "exit_status": 0
+  },
+  {
+    "lane": "installed-parity",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" BUNDLE_USER_HOME=$TMP/bundle PKS_BIN=$TMP/pks/packs bundle exec ruby -Itest -Ilib test_packaging/native_boundary_test.rb",
+    "result": "1 test / 79 assertions after UTF-8 correction",
+    "exit_status": 0
+  },
+  {
+    "lane": "managed",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" BUNDLE_FROZEN=true BUNDLE_USER_HOME=$TMP/bundle PKS_BIN=$TMP/pks/packs bundle exec rake test test:package",
+    "result": "Core 273 / 2724; package 12 / 915",
+    "exit_status": 0
+  },
+  {
+    "lane": "ruby33",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.3.10/bin:$PATH\" BUNDLE_FROZEN=true BUNDLE_GEMFILE=gemfiles/rails_7_1.gemfile BUNDLE_USER_HOME=$TMP/bundle bundle exec rake test test:package",
+    "result": "Core 273 / 2724; package 12 / 909",
+    "exit_status": 0
+  },
+  {
+    "lane": "ruby4",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/4.0.6/bin:$PATH\" BUNDLE_FROZEN=true BUNDLE_USER_HOME=$TMP/bundle bundle _4.0.10_ exec rake test test:package",
+    "result": "Core 273 / 2724; package 12 / 909",
+    "exit_status": 0
+  },
+  {
+    "lane": "ai71",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.3.10/bin:$PATH\" BUNDLE_FROZEN=true BUNDLE_GEMFILE=gemfiles/ai_rails_7_1.gemfile bundle exec rake test:ai",
+    "result": "8 / 60",
+    "exit_status": 0
+  },
+  {
+    "lane": "ai81",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" BUNDLE_FROZEN=true BUNDLE_GEMFILE=gemfiles/ai_rails_8_1.gemfile bundle exec rake test:ai",
+    "result": "8 / 60",
+    "exit_status": 0
+  },
+  {
+    "lane": "ai4",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/4.0.6/bin:$PATH\" FOUNDRY_RAILS_VERSION=8.1.3.1 BUNDLE_FROZEN=true BUNDLE_GEMFILE=gemfiles/ci_ai.gemfile bundle _4.0.10_ exec rake test:ai",
+    "result": "8 / 60",
+    "exit_status": 0
+  },
+  {
+    "lane": "workflows",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$HOME/.asdf/installs/nodejs/20.19.0/bin:$TMP/specify/bin:$TOOLING/node_modules/.bin:$PATH\" BUNDLE_FROZEN=true bundle exec rake test:workflows",
+    "result": "3 / 39",
+    "exit_status": 0
+  },
+  {
+    "lane": "delivery",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" SE_OFFLINE=true SE_AVOID_STATS=true SE_CHROMEDRIVER=\"$HOME/.cache/selenium/chromedriver/mac-arm64/155.0.8059.79/chromedriver\" BUNDLE_USER_HOME=$TMP/bundle BUNDLE_GEMFILE=test_delivery/bundle/Gemfile bundle exec rake test:delivery",
+    "result": "2 / 396; local browser permission; replay began before final archive",
+    "exit_status": 0
+  },
+  {
+    "lane": "rspec71",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" SE_OFFLINE=true SE_AVOID_STATS=true SE_CHROMEDRIVER=\"$HOME/.cache/selenium/chromedriver/mac-arm64/155.0.8059.79/chromedriver\" BUNDLE_FROZEN=true BUNDLE_GEMFILE=test_rspec/bundles/rails_7_1/Gemfile bundle exec rake test:rspec",
+    "result": "22 / 775; HTTP/browser and faulty controls passed",
+    "exit_status": 0
+  },
+  {
+    "lane": "rspec81",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" SE_OFFLINE=true SE_AVOID_STATS=true SE_CHROMEDRIVER=\"$HOME/.cache/selenium/chromedriver/mac-arm64/155.0.8059.79/chromedriver\" BUNDLE_FROZEN=true BUNDLE_GEMFILE=test_rspec/bundles/rails_8_1/Gemfile bundle exec rake test:rspec",
+    "result": "22 / 775; HTTP/browser and faulty controls passed",
+    "exit_status": 0
+  },
+  {
+    "lane": "style",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" RUBOCOP_CACHE_ROOT=$TMP/rubocop bundle exec rubocop",
+    "result": "865 files clean",
+    "exit_status": 0
+  },
+  {
+    "lane": "skills",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" ruby script/validate_skills",
+    "result": "6 development / 8 product skills",
+    "exit_status": 0
+  },
+  {
+    "lane": "catalog",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" bundle exec ruby script/validate_examples.rb",
+    "result": "12 applications",
+    "exit_status": 0
+  },
+  {
+    "lane": "contracts",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$HOME/.asdf/installs/nodejs/20.19.0/bin:$TOOLING/node_modules/.bin:$PATH\" NODE_PATH=\"$TOOLING/node_modules\" npm run contracts:validate",
+    "result": "10 / 142; 8 schemas / 73 cases",
+    "exit_status": 0
+  },
+  {
+    "lane": "specifications",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$HOME/.asdf/installs/nodejs/20.19.0/bin:$TOOLING/node_modules/.bin:$PATH\" npm run spec:validate",
+    "result": "42 passed before archive; 41 passed after archive",
+    "exit_status": 0
+  },
+  {
+    "lane": "privacy",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" ruby script/privacy_check.rb",
+    "result": "0 findings after final evidence",
+    "exit_status": 0
+  },
+  {
+    "lane": "final-distribution",
+    "command": "PATH=\"$HOME/.asdf/installs/ruby/3.4.10/bin:$PATH\" BUNDLE_FROZEN=true bundle exec ruby -Itest -Ilib test/distribution_integrity_test.rb",
+    "result": "2 / 767 against final candidate 94f310f; inventory, contamination controls and installed links",
+    "exit_status": 0
+  }
+]

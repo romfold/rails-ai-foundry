@@ -1,0 +1,86 @@
+diff --git a/README.md b/README.md
+index e1e0c83..ff55bc4 100644
+--- a/README.md
++++ b/README.md
+@@ -6,3 +6,17 @@ The `/documents` endpoint accepts demo tokens `tenant-a-token` and `tenant-b-tok
+ request parameters never establish tenant identity. SQLite is disposable test storage.
+ Provider and search transports are deterministic, offline injected dependencies.
+ Read TASK.md for the behavioral contract and AGENTS.md for the selected architecture.
++
++## Knowledge boundary and rollback
++
++`Knowledge::Catalog.list(tenant_id:)` is the public read boundary for published
++knowledge documents. Delivery authenticates the tenant and delegates to Catalog;
++persistence remains private to Knowledge and the existing tables and records are
++unchanged.
++
++If this boundary extraction must be rolled back, restore the previous
++`DocumentsController#index` read implementation from version control and remove
++`test/knowledge_boundary_test.rb`. No migration or data rollback is required:
++this change made no persistence conversion and therefore leaves the schema and
++records untouched. Keep the Catalog implementation available to other callers
++until they have been migrated, then remove it in a separate change.
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..4b9c806 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Knowledge::Catalog.list(tenant_id: tenant)
+   end
+ end
+diff --git a/test/knowledge_boundary_test.rb b/test/knowledge_boundary_test.rb
+new file mode 100644
+index 0000000..293de60
+--- /dev/null
++++ b/test/knowledge_boundary_test.rb
+@@ -0,0 +1,46 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeBoundaryTest < BenchmarkTest
++  include Rack::Test::Methods
++
++  def app
++    Rails.application
++  end
++
++  def test_catalog_returns_only_published_documents_for_tenant_in_id_order
++    earlier = document(body: 'earlier')
++    document(body: 'draft', published: false)
++    document(tenant: 'b', body: 'other tenant')
++    later = document(body: 'later')
++
++    assert_equal [
++      { 'id' => earlier.id, 'tenant_id' => 'a', 'body' => 'earlier', 'revision' => 1 },
++      { 'id' => later.id, 'tenant_id' => 'a', 'body' => 'later', 'revision' => 1 }
++    ], Knowledge::Catalog.list(tenant_id: 'a')
++  end
++
++  def test_documents_delivery_delegates_to_catalog
++    calls = []
++    result = [{ 'id' => 42, 'tenant_id' => 'a', 'body' => 'from catalog', 'revision' => 3 }]
++
++    Knowledge::Catalog.stub(:list, ->(tenant_id:) { calls << tenant_id; result }) do
++      get '/documents', {}, { 'HTTP_AUTHORIZATION' => 'tenant-a-token' }
++    end
++
++    assert_equal 200, last_response.status
++    assert_equal ['a'], calls
++    assert_equal result, JSON.parse(last_response.body)
++  end
++
++  def test_unauthorized_documents_delivery_does_not_call_catalog
++    called = false
++    Knowledge::Catalog.stub(:list, ->(**) { called = true }) do
++      get '/documents'
++    end
++
++    assert_equal 401, last_response.status
++    refute called
++  end
++end

@@ -1,0 +1,58 @@
+diff --git a/app/controllers/documents_controller.rb b/app/controllers/documents_controller.rb
+index 7ea7d35..4b9c806 100644
+--- a/app/controllers/documents_controller.rb
++++ b/app/controllers/documents_controller.rb
+@@ -5,6 +5,6 @@ class DocumentsController < ActionController::Base
+     tenant = { 'tenant-a-token' => 'a', 'tenant-b-token' => 'b' }[request.headers['Authorization']]
+     return head :unauthorized unless tenant
+ 
+-    render json: Knowledge::Document.where(tenant_id: tenant, published: true).order(:id).map { |row| row.attributes.slice('id', 'tenant_id', 'body', 'revision') }
++    render json: Knowledge::Catalog.list(tenant_id: tenant)
+   end
+ end
+diff --git a/test/regression_test.rb b/test/regression_test.rb
+new file mode 100644
+index 0000000..777e09b
+--- /dev/null
++++ b/test/regression_test.rb
+@@ -0,0 +1,40 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class KnowledgeBoundaryRegressionTest < BenchmarkTest
++  include Rack::Test::Methods
++
++  def app
++    Rails.application
++  end
++
++  def test_catalog_lists_only_published_documents_in_id_order
++    earlier = document(body: 'earlier')
++    document(body: 'draft', published: false)
++    later = document(body: 'later')
++
++    assert_equal(
++      [
++        { 'id' => earlier.id, 'tenant_id' => 'a', 'body' => 'earlier', 'revision' => 1 },
++        { 'id' => later.id, 'tenant_id' => 'a', 'body' => 'later', 'revision' => 1 }
++      ],
++      Knowledge::Catalog.list(tenant_id: 'a')
++    )
++  end
++
++  def test_delivery_delegates_catalog_access
++    expected = [{ 'id' => 7, 'tenant_id' => 'a', 'body' => 'from catalog', 'revision' => 3 }]
++    catalog = Knowledge::Catalog
++    document = Knowledge::Document
++
++    catalog.stub(:list, expected) do
++      document.stub(:where, ->(*) { raise 'delivery accessed persistence' }) do
++        get '/documents', {}, { 'HTTP_AUTHORIZATION' => 'tenant-a-token' }
++      end
++    end
++
++    assert_equal 200, last_response.status
++    assert_equal expected, JSON.parse(last_response.body)
++  end
++end

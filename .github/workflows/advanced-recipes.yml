@@ -1,0 +1,113 @@
+name: Advanced recipes and evidence
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  composition:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: recipes/advanced-composition
+    env:
+      BUNDLE_FROZEN: 'true'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler: '2.6.9'
+      - run: bundle install
+      - run: docker compose up -d --wait
+      - run: |
+          bundle exec ruby test/composition_test.rb
+          bundle exec rubocop
+      - if: failure()
+        run: docker compose logs
+      - if: always()
+        run: docker compose down -v
+
+  vectors:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: recipes/experimental-vectors
+    env:
+      BUNDLE_FROZEN: 'true'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler: '2.6.9'
+      - run: bundle install
+      - run: bundle exec ruby test/contracts_test.rb
+      - run: |
+          docker compose up -d
+          for attempt in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:58080/v1/.well-known/ready; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:58080/v1/.well-known/ready
+          WEAVIATE_ACCEPTANCE=1 bundle exec ruby test/weaviate_service_test.rb
+          bundle exec rubocop
+      - if: failure()
+        run: docker compose logs
+      - if: always()
+        run: docker compose down -v
+
+  evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: recipes/evidence
+    env:
+      BUNDLE_FROZEN: 'true'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler: '2.6.9'
+      - run: bundle install
+      - run: |
+          bundle exec ruby test/evaluation_test.rb
+          bundle exec ruby test/benchmark_test.rb
+          bundle exec ruby bin/offline
+          bundle exec ruby bin/benchmark
+          bundle exec rubocop
+
+  adoption-parity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      BUNDLE_FROZEN: 'true'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.10'
+          bundler: '2.6.9'
+      - run: |
+          bundle install
+          BUNDLE_GEMFILE=examples/modular-legacy-adoption-packwerk/Gemfile bundle install
+          sudo apt-get update
+          sudo apt-get install -y libclang-dev pkg-config
+          cargo install --git https://github.com/alexevanczuk/packs --rev 953d016a8cf7aa1a813391f29de969289404c6f5 --locked --bin pks pks
+      - run: bundle exec ruby script/verify_adoption_evidence.rb

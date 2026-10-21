@@ -1,0 +1,107 @@
+# frozen_string_literal: true
+
+require 'rubygems/package'
+require File.expand_path('benchmarks/lib/benchmark_suite/shards', ENV.fetch('BENCHMARK_REPOSITORY', Dir.pwd))
+require File.expand_path('benchmarks/lib/benchmark_suite/study', ENV.fetch('BENCHMARK_REPOSITORY', Dir.pwd))
+require File.expand_path('benchmarks/lib/benchmark_suite/images', ENV.fetch('BENCHMARK_REPOSITORY', Dir.pwd))
+
+source_study = Pathname(ARGV.fetch(0)).realpath
+root = BenchmarkSuite::Support.external_directory(ARGV.fetch(1))
+source = source_study.join('upstream')
+task_name = 'ft-comment-reaction-live-echo'
+base_image = 'sha256:7a68abbb405addbea91cc7c9ea75c802b63e2603e2f25f51c3c03f92e64b85a0'
+base_tag = 'foundry-guided-base:7a68abbb405a'
+BenchmarkSuite::Support.docker('tag', base_image, base_tag)
+resolved_base = JSON.parse(BenchmarkSuite::Support.docker('image', 'inspect',
+                                                          base_tag).fetch('output')).first.fetch('Id')
+abort 'Base image mismatch' unless resolved_base == base_image
+source_manifest = JSON.parse(source_study.join('study.json').read)
+BenchmarkSuite::Study.validate_files!(source_study, source_manifest.fetch('frozen_files'))
+task = Lemans::Config.load_file(source).tasks.find { |item| item.name == task_name }
+abort 'Task missing' unless task
+
+suite = BenchmarkSuite::Support.external_directory(root.join('suite'))
+BenchmarkSuite::Shards.copy(source, suite, [task])
+%w[images.json study-tasks.json live-study.json].each { |name| suite.join(name).delete }
+FileUtils.mv(suite.join('manifest.json'), suite.join('upstream-source-manifest.json'))
+
+gem_source = source_study.join('sources/foundry/rails_ai_foundry.gem')
+gem_hash = Digest::SHA256.file(gem_source).hexdigest
+expected = JSON.parse(source_study.join('sources/foundry/manifest.json').read).fetch('gem_sha256')
+abort 'Packaged gem hash mismatch' unless gem_hash == expected
+package = root.join('package')
+package.mkpath
+Gem::Package.new(gem_source.to_s).extract_files(package.to_s)
+require package.join('lib/rails_ai_foundry/generation/skill_installer').to_s
+
+environment = suite.join('docker/foundry-guided-fizzy')
+overlay = environment.join('overlay')
+overlay.mkpath
+RailsAIFoundry::Generation::SkillInstaller.new(overlay.to_s).call
+receipt = JSON.parse(overlay.join('.foundry/skills/agents.json').read)
+receipt.fetch('files').each do |relative, hash|
+  abort 'Installed skill hash mismatch' unless Digest::SHA256.file(overlay.join(relative)).hexdigest == hash
+end
+abort 'Expected eight installed skills' unless overlay.glob('.agents/skills/*/SKILL.md').size == 8
+overlay.join('config').mkpath
+overlay.join('config/foundry.yml').write(<<~YAML)
+  defaults:
+    profile: rails_native
+  workload: balanced
+  workflow:
+    specs: none
+YAML
+overlay.join('AGENTS.md').write(<<~GUIDANCE)
+
+  ## Foundry development guidance
+
+  This application has the installed Foundry product skills under `.agents/skills/`.
+  Before feature implementation, read `foundry-add-feature/SKILL.md` and
+  `foundry-verify/SKILL.md`, then load their references relevant to the requested work.
+  Preserve this application's existing conventions and ownership; package extraction
+  is not requested. Its specification workflow is `none` in `config/foundry.yml`.
+
+  This is a skills-only installation. The Foundry CLI and its dependency stack are
+  not installed. Use application-native behavioral checks and report unavailable
+  architecture checks accurately. Preserve these installed instructions and settings.
+GUIDANCE
+environment.join('Dockerfile').write(<<~DOCKER)
+  FROM #{base_tag}
+  COPY overlay/ /foundry-overlay/
+  RUN ruby -rfileutils -e 'root = "/foundry-overlay"; Dir.glob("**/*", File::FNM_DOTMATCH, base: root).sort.each { |path| source = File.join(root, path); next unless File.file?(source); if path == "AGENTS.md"; File.open("/app/AGENTS.md", "a") { |f| f.write(File.binread(source)) }; else; target = File.join("/app", path); abort "Installation collision" if File.exist?(target); FileUtils.mkdir_p(File.dirname(target)); FileUtils.cp(source, target); end }; FileUtils.rm_rf(root)'
+  RUN git add -A && git -c user.name=Benchmark -c user.email=benchmark@example.invalid commit --amend --no-edit
+DOCKER
+config = YAML.safe_load_file(suite.join('bench.yml'))
+config.fetch('environment').fetch('profiles').fetch('fizzy')['dockerfile'] = 'docker/foundry-guided-fizzy/Dockerfile'
+config.fetch('verifier').fetch('restore').push('AGENTS.md', '.agents', '.foundry', 'config/foundry.yml')
+suite.join('bench.yml').write(config.to_yaml)
+BenchmarkSuite::Support.json(suite.join('live-study.json'), { 'model' => BenchmarkSuite::Study::MODEL, 'provider' => BenchmarkSuite::Study::PROVIDER,
+                                                              'treatment' => 'installed-foundry-skills-only' })
+BenchmarkSuite::Images.build(suite)
+prepared = Lemans::Config.load_file(suite).tasks.fetch(0)
+unless BenchmarkSuite::Support.files(task.dir) == BenchmarkSuite::Support.files(prepared.dir)
+  abort 'Changed upstream requirements/tests'
+end
+suite_manifest = { 'suite' => 'upstream', 'revision' => BenchmarkSuite::UPSTREAM_REVISION,
+                   'treatment' => 'installed-foundry-skills-only', 'tasks' => [task_name] }
+BenchmarkSuite::Support.json(suite.join('manifest.json'), suite_manifest)
+interpretation = 'Separate guided treatment; does not replace or contribute to the unchanged upstream cohort score'
+treatment = {
+  'treatment' => 'installed-foundry-skills-only', 'task' => task_name,
+  'source_study' => source_study.to_s,
+  'source_manifest_sha256' => Digest::SHA256.file(source_study.join('study.json')).hexdigest,
+  'foundry_product_revision' => source_manifest.fetch('foundry_revision'),
+  'gem_sha256' => gem_hash, 'installed_skills' => receipt.fetch('files'),
+  'base_image' => base_image, 'model' => BenchmarkSuite::Study::MODEL, 'provider' => BenchmarkSuite::Study::PROVIDER,
+  'attempts' => 1, 'cost_limit' => 0.75, 'cycle_stopping_budget' => 7.0,
+  'task_digest' => prepared.digest, 'profile_digest' => prepared.config.digest,
+  'upstream_task_files' => BenchmarkSuite::Support.files(task.dir),
+  'frozen_suite_files' => BenchmarkSuite::Support.files(suite),
+  'tooling' => BenchmarkSuite::Study.tooling,
+  'source_revisions' => { 'lemans' => BenchmarkSuite::LEMANS_REVISION,
+                          'upstream' => BenchmarkSuite::UPSTREAM_REVISION },
+  'interpretation' => interpretation
+}
+BenchmarkSuite::Support.json(root.join('treatment.json'), treatment)
+puts JSON.pretty_generate({ 'root' => root.to_s, 'task' => prepared.name, 'profile' => prepared.config.agent.to_h,
+                            'installed_skills' => 8, 'unchanged_upstream_task_files' => true })

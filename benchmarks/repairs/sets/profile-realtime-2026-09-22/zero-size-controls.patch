@@ -1,0 +1,15 @@
+diff --git a/app/views/cards/comments/_reactions.html.erb b/app/views/cards/comments/_reactions.html.erb
+index 0ed69b7..1851ff1 100644
+--- a/app/views/cards/comments/_reactions.html.erb
++++ b/app/views/cards/comments/_reactions.html.erb
+@@ -6,8 +6,8 @@
+   <button type="button" class="reactions__trigger btn btn--circle" data-action="reaction#showForm" title="Add a reaction"><%= image_tag "boost-color.svg", alt: "Add a reaction" %></button>
+   <%= form_with model: [comment.card, comment, Reaction.new], class: "reaction reaction__form", hidden: true, data: { reaction_target: "form", action: "turbo:submit-start->reaction#submitting turbo:submit-end->reaction#submitted" } do |form| %>
+     <%= form.text_field :content, class: "reaction__input input", maxlength: 16, autocomplete: "off", aria: { label: "Your reaction" }, data: { reaction_target: "input" } %>
+-    <%= form.button type: :submit, class: "reaction__submit-btn btn btn--circle borderless", title: "Confirm" do %><%= icon_tag "check" %><% end %>
+-    <button type="button" class="reaction__cancel-btn btn btn--circle borderless" title="Cancel" data-action="reaction#cancel"><%= icon_tag "close" %></button>
++    <%= form.button type: :submit, class: "reaction__submit-btn btn btn--plain", title: "Confirm" do %><%= icon_tag "check" %><% end %>
++    <button type="button" class="reaction__cancel-btn btn btn--plain" title="Cancel" data-action="reaction#cancel"><%= icon_tag "close" %></button>
+   <% end %>
+   <div id="<%= dom_id(comment, :reaction_errors) %>" role="alert" data-reaction-target="errors"></div>
+   </div>

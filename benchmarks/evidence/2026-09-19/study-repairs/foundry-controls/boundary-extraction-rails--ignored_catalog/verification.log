@@ -1,0 +1,31 @@
+bundle exec ruby test/visible_test.rb
+Run options: --seed 55206
+
+# Running:
+
+..
+
+Finished in 0.110365s, 18.1218 runs/s, 36.2435 assertions/s.
+2 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+bundle exec ruby -I/tests -report-lemans /tests/acceptance_test.rb
+Run options: --seed 12585
+
+# Running:
+
+F
+
+Failure:
+AcceptanceTest#test_selected_task [/tests/acceptance_test.rb:45]:
+--- expected
++++ actual
+@@ -1 +1 @@
+-[{"id" => -1, "tenant_id" => "a", "body" => "catalog contract", "revision" => 99}]
++[{"id" => 1, "tenant_id" => "a", "body" => "refund policy", "revision" => 7}]
+
+
+bin/rails test /tests/acceptance_test.rb:37
+
+..
+
+Finished in 0.121136s, 24.7655 runs/s, 99.0619 assertions/s.
+3 runs, 12 assertions, 1 failures, 0 errors, 0 skips

@@ -1,0 +1,8 @@
+{
+  "files": 1000,
+  "input_bytes": 16384000,
+  "max_simultaneous_copy_bytes": 32768000,
+  "seconds": 2.314567999994324,
+  "ruby": "ruby 3.4.10 (2026-06-30 revision 2b0b7728dc) +PRISM [arm64-darwin23]",
+  "claim": "One local capture and two sequential copies; no performance comparison."
+}

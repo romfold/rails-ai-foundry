@@ -1,0 +1,39 @@
+Running 17 tests in a single process (parallelization threshold is 50)
+Run options: --seed 30317
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:39849
+2026-09-21 09:32:01 INFO Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging
+
+2026-09-21 09:32:01 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+2026-09-21 09:32:01 WARN Selenium [:selenium_manager] Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event) 
+2026-09-21 09:32:09 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+.2026-09-21 09:32:21 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+........[Screenshot Image]: /app/tmp/screenshots/failures_test_a_rejected_submission_preserves_its_draft_and_can_be_corrected.png 
+F
+
+Failure:
+VerifierTest#test_a_rejected_submission_preserves_its_draft_and_can_be_corrected [/tests/realtime_test.rb:15]:
+expected to find visible css "[role=\"alert\"]" with text "Body" within #<Capybara::Node::Element tag="div" path="/HTML/BODY[1]/DIV[1]/MAIN[1]/DIV[1]/TURBO-FRAME[1]/TURBO-FRAME[2]/DIV[1]"> but there were no matches. Also found "", which matched the selector but not all filters. 
+
+bin/rails test /tests/realtime_test.rb:8
+
+E
+
+Error:
+ReactionRepairAuthorizationTest#test_an_inaccessible_card_cannot_receive_or_lose_reactions:
+ActiveRecord::RecordInvalid: Validation failed: Creator must exist
+    app/models/concerns/eventable.rb:10:in 'Eventable#track_event'
+    app/models/card/statuses.rb:8:in 'block (2 levels) in <module:Statuses>'
+
+bin/rails test /tests/authorization_test.rb:49
+
+......
+
+Finished in 63.876305s, 0.2661 runs/s, 1.6125 assertions/s.
+17 runs, 103 assertions, 1 failures, 1 errors, 0 skips

@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="en"><head><title>Reviewed ticket resolution</title><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,"><%= csrf_meta_tags %><script type="module" src="/vendor/turbo.js"></script>
+<script type="module" src="/resolution-status.js"></script></head>
+<body><header><h1>Reviewed ticket resolution</h1><p>Demo authentication only. Never use these identities in production.</p>
+<nav><%= link_to 'Tickets', resolutions_path %> | <%= link_to 'Switch demo identity', demo_login_path %></nav></header>
+<main><%= yield %></main></body></html>

@@ -1,0 +1,15 @@
+schema: 1
+owner: packs/assistance
+agent: Assistance::ResolutionAgent
+templates:
+  - instructions.txt
+inputs:
+  snapshot: untrusted
+  question: untrusted
+output_schema: Assistance::ResolutionSchema
+tools: []
+evaluations:
+  - evaluation.yml
+acceptance:
+  - Generation has no mutation tools and returns bounded plain text.
+  - Approval and execution revalidate current authorization and ticket revision.

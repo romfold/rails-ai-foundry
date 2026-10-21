@@ -1,0 +1,2383 @@
+{
+  "records": [
+    {
+      "task": "ac-throttle-search",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ac-throttle-search__xzBfPE7/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ac-throttle-search",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "cbff8435d8f1b701caa033bb7d952e5b63f437e6fe350cf802cf009cb009f716",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "aj-resumable-cleanup",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/aj-resumable-cleanup__SY1mj8B/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "aj-resumable-cleanup",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "5d39e62c701b8a19a58b239b176a45d15a996a0260f2d1f6d8cad7f3a1879529",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-announce-once",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ar-announce-once__Rdtnidi/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ar-announce-once",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "e03db6b36eb9f6900af7629f7ff528772ba901dd1a1b973b5ef4b44a11dc2e96",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-atomic-import",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ar-atomic-import__3EI3ifP/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ar-atomic-import",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "f4624fcbf8ec01dd6bc3c26fe26e8eda7cbd872c25a27d17e66786a3053d4e7d",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-bulk-access-grants",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ar-bulk-access-grants__ayEwHOT/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ar-bulk-access-grants",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "d8aac42a0433fe0583e214354b75c6f04bd050f7ab4cbc729b9ed53668d0fe82",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-compact-positions",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ar-compact-positions__6ijNqvi/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ar-compact-positions",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "3410c912b12999b94ace37e0cc9f22299331eebc58eeca371f07e0f6a45e9d34",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-erase-account",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ar-erase-account__pMdPDLh/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ar-erase-account",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "aa495c158bce40ba95d958fe7566733a9e2cc1262561f6adaeac9e85e6ae25d1",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-release-recap",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ar-release-recap__t7cmx77/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ar-release-recap",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "6462d59eb59637423bb5d35d7ecb25f21dcda098ecfad8f38114cf3cabd26458",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-tenant-isolation",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ar-tenant-isolation__eBmP7x2/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ar-tenant-isolation",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "aa28a8acbf14977a77394834e08eda948ca009a523039c238dbbeb3107d5ffeb",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "as-purge-embedded-images",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/as-purge-embedded-images__oCQOKxA/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "as-purge-embedded-images",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "2554799d8932088f7b26788c59ac023875286a8b5095ac9fac2522a2dc6d81d7",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "as-variant-processed-once",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/as-variant-processed-once__8SCaC5A/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "as-variant-processed-once",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "3437a5dd7815108e176833ad039c4deb21170e8d15349ce6ba154feaa2f24461",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ft-activity-feed-api",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-activity-feed-api__KfNhUFz/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-activity-feed-api",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "7b0ee81647309852f952d731d28ab8f91d4fee66dd5efda60c340ff8bb6e00bb",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-cancelled-account-cleanup",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-cancelled-account-cleanup__r0TPfMu/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-cancelled-account-cleanup",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "660a8475efb2a2fca8e0b2dba176b48b1d2e6447d7ff9bc032ddfdb25999ee42",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-card-drop-settled-landing",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-card-drop-settled-landing__pZBGKjE/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-card-drop-settled-landing",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "b2e6ef320b14d84e76cc9375eb4ddf2e1df1e497d1744d09746419c7c8f49bb1",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-card-reactions",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-card-reactions__FjBG1uF/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-card-reactions",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "726911644d43a0619c8124550010b32dec4f0fdac5e2ce4d8caa7541e456b2eb",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-card-stalled-quiet-clock",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-card-stalled-quiet-clock__oA6deBv/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-card-stalled-quiet-clock",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "5e1186873e07df0cb089189932a423baa55188256de4f74f8a433e82731a29b3",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-comment-reaction-live-echo",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-comment-reaction-live-echo__bbIgG4a/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-comment-reaction-live-echo",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "50261da27a9b8cf7cd48b91ddd3e560afac73ba6d5934cbc16c9fd02c868ae2d",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-data-export-and-import",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-data-export-and-import__ZU3uiJc/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-data-export-and-import",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "37309e1bf68b04904ffd0cf34e0c50f206f8376ea2d8e7a99bc0f991f1da5227",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-entropy-sweep",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-entropy-sweep__YY49axe/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-entropy-sweep",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "78285988ab09b5f97092b54d4fe09e36fae8f227a2bbeb95c8acc2cba0cea275",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-local-time-human-clock",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-local-time-human-clock__gnsrrEv/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-local-time-human-clock",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "52c9887fb87ef898309b3c435ff2d8b8d0b72ff64ea9fcc591436637d35bfc2b",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-mysql-fulltext-search-foundation",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-mysql-fulltext-search-foundation__vfjWmxm/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-mysql-fulltext-search-foundation",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "bb3a78579d9d80fcf2232052479e5c82e22a7084e1fbc450f7bd355ce2b4dac8",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-notification-bundle-window-overlap",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-notification-bundle-window-overlap__OB524qK/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-notification-bundle-window-overlap",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "8f6213fc0a5c27a638c4b43538321ca7d5d684151c80ceb98300c3e410556bd0",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "hello-world",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/hello-world__vQRfy1Q/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "hello-world",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "757a4bfa51facc12c83b70a4b3510b0b5978160d6c51acd2586a8d806b33c0fb",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "smoke"
+    },
+    {
+      "task": "hw-scoped-broadcast",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/hw-scoped-broadcast__Pbvin4F/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "hw-scoped-broadcast",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "058fc22f3fd02a640cdd3600a7525d4338a9bd6dee263ca3bc8f1ec1ad1a26be",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "sec-audit-sweep",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/sec-audit-sweep__vwBUh2N/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "sec-audit-sweep",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "f0cea38057d6000952996924a6cf25508db93cb092d04903c433e5baf316e665",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "sup-cache-library-digest",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/sup-cache-library-digest__F9Z6LIX/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "sup-cache-library-digest",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "4b74aed1389947ef7c21090e0a81ebf615041e25b08880290bac376974061e19",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "sup-legacy-conversions",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/sup-legacy-conversions__m4mxJNz/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "sup-legacy-conversions",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "c13f63677da78e9dad2ba419ee1e24fe24a055f01cccc5607dc1c1b771c36f1f",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "sup-log-to-terminal",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/sup-log-to-terminal__R9WJIGQ/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "sup-log-to-terminal",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "e0241953541268af4023790421c93ae01505ced196433368bca7615d8e1649af",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ac-deep-link-return",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch3-20260919/ac-deep-link-return__P6UI5D0/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ac-deep-link-return",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "fb19291eeb356c3a196d16ad2b20f26b44e2b6f510f81c3d258c6bd07447e5f9",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "aj-enqueue-after-commit",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch3-20260919/aj-enqueue-after-commit__FhFEOjQ/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "aj-enqueue-after-commit",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "55f58f9b9b869a7550b1bfa6b3da6fe832a00937a8f5b9fb659a2e192926f763",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-archive-book-access",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch3-20260919/ar-archive-book-access__8eP4ynP/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ar-archive-book-access",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "cd68e0b08264a85e85eeafdd91699dc9e45f8006164eedb76a3996b4ec9fef66",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "av-toc-cache-per-role",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch3-20260919/av-toc-cache-per-role__wALw0CD/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "av-toc-cache-per-role",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "3dc1ce80dc33fa41977dfee4386a5d066c51199d1a9cc9d6adb4bbbac4bbc8f9",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ft-active-storage-tracking",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch3-20260919/ft-active-storage-tracking__OOJdcXf/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-active-storage-tracking",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "e0f06174075d22426fa7796fc315456c302fec6c14c07d3fcc90f9fb3c4151a5",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-board-publish-unpublish-public-boundary",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch3-20260919/ft-board-publish-unpublish-public-boundary__rV8qa0l/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-board-publish-unpublish-public-boundary",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "c776e2dec97bbbe1dace8f7e2d9af3baf957fdb53e6db32c48783b71d64f4b23",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-email-code-sign-in",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch3-20260919/ft-email-code-sign-in__kByDjNz/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-email-code-sign-in",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "ec03092cf6c506ea75bf8efb5c42787778456fd41b805afbecc6e256cdf6a231",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-web-push-device-delivery",
+      "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch3-20260919/ft-web-push-device-delivery__YxBkNz5/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-web-push-device-delivery",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "cd13fbf2bbd92dbbe636e92ea6443c6917cadd4f7ca0b10a50a9f9f638e56556",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ac-deep-link-return",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ac-deep-link-return__LvHpXDS/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ac-deep-link-return",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ac-throttle-search",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ac-throttle-search__AbiTSiQ/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ac-throttle-search",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "aj-enqueue-after-commit",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/aj-enqueue-after-commit__85bU7Lj/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "aj-enqueue-after-commit",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-announce-once",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ar-announce-once__hnSByxs/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ar-announce-once",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-archive-book-access",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ar-archive-book-access__ALea6DL/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ar-archive-book-access",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-atomic-import",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ar-atomic-import__tpgZHXp/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ar-atomic-import",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-compact-positions",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ar-compact-positions__fNVAlrP/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ar-compact-positions",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-erase-account",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ar-erase-account__XRqay2v/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ar-erase-account",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-release-recap",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ar-release-recap__psfw5xg/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ar-release-recap",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-tenant-isolation",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ar-tenant-isolation__uL8ZA1w/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ar-tenant-isolation",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "as-variant-processed-once",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/as-variant-processed-once__2bpQq77/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "as-variant-processed-once",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ft-activity-feed-api",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ft-activity-feed-api__92Zx95d/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-activity-feed-api",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-board-publish-unpublish-public-boundary",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ft-board-publish-unpublish-public-boundary__qcGmviB/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-board-publish-unpublish-public-boundary",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-cancelled-account-cleanup",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ft-cancelled-account-cleanup__RY65yWT/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-cancelled-account-cleanup",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-card-drop-settled-landing",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ft-card-drop-settled-landing__w9p1LYu/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-card-drop-settled-landing",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-card-stalled-quiet-clock",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ft-card-stalled-quiet-clock__O8jaHbR/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-card-stalled-quiet-clock",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-comment-reaction-live-echo",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ft-comment-reaction-live-echo__0Hlj0rT/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-comment-reaction-live-echo",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-data-export-and-import",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ft-data-export-and-import__H7AFmd5/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-data-export-and-import",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-mysql-fulltext-search-foundation",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ft-mysql-fulltext-search-foundation__UkwwLzk/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-mysql-fulltext-search-foundation",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-notification-bundle-window-overlap",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ft-notification-bundle-window-overlap__boUeDVi/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-notification-bundle-window-overlap",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-web-push-device-delivery",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ft-web-push-device-delivery__QVioUNC/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-web-push-device-delivery",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "hw-scoped-broadcast",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/hw-scoped-broadcast__k0XPcEK/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "hw-scoped-broadcast",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "sec-audit-sweep",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/sec-audit-sweep__wYTo5q5/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "sec-audit-sweep",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "sup-cache-library-digest",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/sup-cache-library-digest__L2sy8mF/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "sup-cache-library-digest",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "sup-legacy-conversions",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/sup-legacy-conversions__ZasF6NN/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "sup-legacy-conversions",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "sup-log-to-terminal",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/sup-log-to-terminal__DcN6Fpa/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "sup-log-to-terminal",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ar-bulk-access-grants",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch2-20260919/ar-bulk-access-grants__3YoJvth/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ar-bulk-access-grants",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "as-purge-embedded-images",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch2-20260919/as-purge-embedded-images__M4RxK0e/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "as-purge-embedded-images",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "av-toc-cache-per-role",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch2-20260919/av-toc-cache-per-role__gRSJDgM/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "av-toc-cache-per-role",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ft-active-storage-tracking",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch2-20260919/ft-active-storage-tracking__tetPUgB/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-active-storage-tracking",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-card-reactions",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch2-20260919/ft-card-reactions__XrDpzub/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-card-reactions",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-email-code-sign-in",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch2-20260919/ft-email-code-sign-in__lh7GtGA/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-email-code-sign-in",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-entropy-sweep",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch2-20260919/ft-entropy-sweep__iBIC6SJ/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-entropy-sweep",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "aj-resumable-cleanup",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch3-20260919/aj-resumable-cleanup__mSxfW2e/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "aj-resumable-cleanup",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ft-local-time-human-clock",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch3-20260919/ft-local-time-human-clock__f180TKw/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-local-time-human-clock",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "hello-world",
+      "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch3-20260919/hello-world__fFSYddX/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "hello-world",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "smoke"
+    },
+    {
+      "task": "ft-kamal-deploy",
+      "native_result": "/private/tmp/foundry-lemans-kamal-native-selected-20260919/ft-kamal-deploy__TAhy9xd/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-kamal-deploy",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-kamal-deploy",
+      "native_result": "/private/tmp/foundry-lemans-kamal-native-selected-20260919/ft-kamal-deploy__ywcJgOE/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-kamal-deploy",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "979b13ca1c7d318741ed8e372798bece02efd28edcb184aaefab66e945e66691",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-i18n-support",
+      "native_result": "/private/tmp/foundry-lemans-i18n-oracle-20260918/offline-controls/ft-i18n-support__MKu6Ayx/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-i18n-support",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "8b4c18c09073e5167ceb3661657b35957bd2c6b7cd0f29695e6ea4610dc231db",
+        "foundry": null,
+        "protocol_violations": []
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-i18n-support",
+      "native_result": "/private/tmp/foundry-lemans-i18n-nop-20260918/offline-controls/ft-i18n-support__CCAnc5W/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-i18n-support",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": []
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-saas-billing",
+      "native_result": "/private/tmp/foundry-lemans-saas-native-selected-20260919/ft-saas-billing__zpmi8Op/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-saas-billing",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "1a88055844e1f88a4a6054fed75a0f13fbcc12026681d61503bdcbfa2ba3dbb3",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-saas-billing",
+      "native_result": "/private/tmp/foundry-lemans-saas-native-nop-20260919/offline-controls/ft-saas-billing__GOya8Fe/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-saas-billing",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-account-id-rollout",
+      "native_result": "/private/tmp/foundry-lemans-baseline-native-selected-20260919/nop-ft-account-id-rollout__McQrsrs/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-account-id-rollout",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "verification_phase": "baseline",
+        "baseline_exit_code": 1,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "tst-error-page-flake",
+      "native_result": "/private/tmp/foundry-lemans-baseline-native-selected-20260919/nop-tst-error-page-flake__0Da3mp4/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "tst-error-page-flake",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "verification_phase": "baseline",
+        "baseline_exit_code": 1,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ft-account-id-rollout",
+      "native_result": "/private/tmp/foundry-lemans-baseline-native-selected-20260919/oracle-ft-account-id-rollout__1AtYOKF/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-account-id-rollout",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "de5d252b935e94c5ce48d56e878ee95c6d1fed91e379cbf047c46a29ec047277",
+        "foundry": null,
+        "verification_phase": "task",
+        "baseline_exit_code": 0,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "tst-error-page-flake",
+      "native_result": "/private/tmp/foundry-lemans-baseline-native-selected-20260919/oracle-tst-error-page-flake__U6w5DmC/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "tst-error-page-flake",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "f0e63d6db22e8095d366bfed9d46f4da06a5f02d29e83f4e314ce71c2df682bf",
+        "foundry": null,
+        "verification_phase": "task",
+        "baseline_exit_code": 0,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "atomic"
+    },
+    {
+      "task": "ft-webhook-delivery-trust-and-restart",
+      "native_result": "/private/tmp/foundry-lemans-webhook-native-selected-20260919/nop-ft-webhook-delivery-trust-and-restart__lfUdmIg/result.json",
+      "native_status": "failed",
+      "independent": {
+        "task": "ft-webhook-delivery-trust-and-restart",
+        "status": "failed",
+        "reward": 0.0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "foundry": null,
+        "verification_phase": "baseline",
+        "baseline_exit_code": 1,
+        "protocol_violations": [],
+        "assertion_failure": true
+      },
+      "status": "failed",
+      "agent": "nop",
+      "control_passed": true,
+      "category": "feature"
+    },
+    {
+      "task": "ft-webhook-delivery-trust-and-restart",
+      "native_result": "/private/tmp/foundry-lemans-webhook-native-selected-20260919/oracle-ft-webhook-delivery-trust-and-restart__0NNObhQ/result.json",
+      "native_status": "passed",
+      "independent": {
+        "task": "ft-webhook-delivery-trust-and-restart",
+        "status": "passed",
+        "reward": 1.0,
+        "patch_sha256": "01c5aaaa8a098112acb051c32345f3ecaf6333019268c04b02c089c7dd7d44c2",
+        "foundry": null,
+        "verification_phase": "task",
+        "baseline_exit_code": 0,
+        "protocol_violations": [],
+        "assertion_failure": false
+      },
+      "status": "passed",
+      "agent": "oracle",
+      "control_passed": true,
+      "category": "feature"
+    }
+  ],
+  "provenance": [
+    {
+      "source": "/tmp/foundry-lemans-upstream-oracle-batch2-verification-20260919/summary.json",
+      "sha256": "2cdc90f55c8ce630390835743dfeea40353d7deda3a12de5b054697237e9f57a",
+      "selected": [
+        [
+          "ac-throttle-search",
+          "oracle"
+        ],
+        [
+          "aj-resumable-cleanup",
+          "oracle"
+        ],
+        [
+          "ar-announce-once",
+          "oracle"
+        ],
+        [
+          "ar-atomic-import",
+          "oracle"
+        ],
+        [
+          "ar-bulk-access-grants",
+          "oracle"
+        ],
+        [
+          "ar-compact-positions",
+          "oracle"
+        ],
+        [
+          "ar-erase-account",
+          "oracle"
+        ],
+        [
+          "ar-release-recap",
+          "oracle"
+        ],
+        [
+          "ar-tenant-isolation",
+          "oracle"
+        ],
+        [
+          "as-purge-embedded-images",
+          "oracle"
+        ],
+        [
+          "as-variant-processed-once",
+          "oracle"
+        ],
+        [
+          "ft-activity-feed-api",
+          "oracle"
+        ],
+        [
+          "ft-cancelled-account-cleanup",
+          "oracle"
+        ],
+        [
+          "ft-card-drop-settled-landing",
+          "oracle"
+        ],
+        [
+          "ft-card-reactions",
+          "oracle"
+        ],
+        [
+          "ft-card-stalled-quiet-clock",
+          "oracle"
+        ],
+        [
+          "ft-comment-reaction-live-echo",
+          "oracle"
+        ],
+        [
+          "ft-data-export-and-import",
+          "oracle"
+        ],
+        [
+          "ft-entropy-sweep",
+          "oracle"
+        ],
+        [
+          "ft-local-time-human-clock",
+          "oracle"
+        ],
+        [
+          "ft-mysql-fulltext-search-foundation",
+          "oracle"
+        ],
+        [
+          "ft-notification-bundle-window-overlap",
+          "oracle"
+        ],
+        [
+          "hello-world",
+          "oracle"
+        ],
+        [
+          "hw-scoped-broadcast",
+          "oracle"
+        ],
+        [
+          "sec-audit-sweep",
+          "oracle"
+        ],
+        [
+          "sup-cache-library-digest",
+          "oracle"
+        ],
+        [
+          "sup-legacy-conversions",
+          "oracle"
+        ],
+        [
+          "sup-log-to-terminal",
+          "oracle"
+        ]
+      ],
+      "excluded": [
+        {
+          "task": "ft-account-id-rollout",
+          "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-account-id-rollout__1AtYOKF/result.json",
+          "native_status": "passed",
+          "independent": {
+            "task": "ft-account-id-rollout",
+            "status": "passed",
+            "reward": 1.0,
+            "patch_sha256": "de5d252b935e94c5ce48d56e878ee95c6d1fed91e379cbf047c46a29ec047277",
+            "foundry": null,
+            "protocol_violations": [],
+            "assertion_failure": false
+          },
+          "status": "passed",
+          "agent": "oracle",
+          "control_passed": true,
+          "category": "feature"
+        },
+        {
+          "task": "ft-webhook-delivery-trust-and-restart",
+          "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/ft-webhook-delivery-trust-and-restart__0NNObhQ/result.json",
+          "native_status": "passed",
+          "independent": {
+            "task": "ft-webhook-delivery-trust-and-restart",
+            "status": "passed",
+            "reward": 1.0,
+            "patch_sha256": "01c5aaaa8a098112acb051c32345f3ecaf6333019268c04b02c089c7dd7d44c2",
+            "foundry": null,
+            "protocol_violations": [],
+            "assertion_failure": false
+          },
+          "status": "passed",
+          "agent": "oracle",
+          "control_passed": true,
+          "category": "feature"
+        },
+        {
+          "task": "tst-error-page-flake",
+          "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch2-20260919/tst-error-page-flake__U6w5DmC/result.json",
+          "native_status": "passed",
+          "independent": {
+            "task": "tst-error-page-flake",
+            "status": "passed",
+            "reward": 1.0,
+            "patch_sha256": "f0e63d6db22e8095d366bfed9d46f4da06a5f02d29e83f4e314ce71c2df682bf",
+            "foundry": null,
+            "protocol_violations": [],
+            "assertion_failure": false
+          },
+          "status": "passed",
+          "agent": "oracle",
+          "control_passed": true,
+          "category": "atomic"
+        }
+      ],
+      "verification_sources": {
+        "command_paths.rb": "e382a444894c8f9676129c913093cdd2ff5ef9875481c590fb79b4a6bf80854f",
+        "container.rb": "9b14adfc1230453ea1076e462ff7494a5f46e016d6bcf5ea3dd75a0b60fe30e4",
+        "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+        "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+        "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+        "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+        "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+        "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+        "images.rb": "f5e35c10ef785d8de4d58d2302597354c557ee8ae18511f55c759acabe077aa8",
+        "isolation.rb": "a4858be7cf8b5ffc6e2ae6a374df222cee28a0b32d14fe6d8597f632e4f86535",
+        "local_overrides.rb": "230f7b47a9d0cad6d0cf2910ac388626ea3fedc576e7c851433ce4eb732ce75b",
+        "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+        "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+        "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+        "replay.rb": "f426c2cf64b26bc5409740e6693c6be5a687ab8da572caa63dff1fa44f890311",
+        "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+        "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+        "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+        "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+        "trusted_tests.rb": "46fc158fbd7f2a100f1c159f1bd73fee333fe1a43fe870a5787ac45834c4cc5e",
+        "upstream.rb": "5ef487e07962c9f11c9138e0e75641c90e24a05b8755e8fab5cd192c5b815f00",
+        "verification.rb": "d9734783833caced5669fcebdcb8af9306d680113be65bae122409d0c53f2b08"
+      }
+    },
+    {
+      "source": "/tmp/foundry-lemans-upstream-oracle-batch3-verification-20260919/summary.json",
+      "sha256": "e45a4271d11eafdbe5d328b1835012f8ae94f841cccd8775ba14f2fe347033a4",
+      "selected": [
+        [
+          "ac-deep-link-return",
+          "oracle"
+        ],
+        [
+          "aj-enqueue-after-commit",
+          "oracle"
+        ],
+        [
+          "ar-archive-book-access",
+          "oracle"
+        ],
+        [
+          "av-toc-cache-per-role",
+          "oracle"
+        ],
+        [
+          "ft-active-storage-tracking",
+          "oracle"
+        ],
+        [
+          "ft-board-publish-unpublish-public-boundary",
+          "oracle"
+        ],
+        [
+          "ft-email-code-sign-in",
+          "oracle"
+        ],
+        [
+          "ft-web-push-device-delivery",
+          "oracle"
+        ]
+      ],
+      "excluded": [
+        {
+          "task": "ft-kamal-deploy",
+          "native_result": "/private/tmp/foundry-lemans-upstream-oracle-batch3-20260919/ft-kamal-deploy__ywcJgOE/result.json",
+          "native_status": "passed",
+          "independent": {
+            "task": "ft-kamal-deploy",
+            "status": "failed",
+            "reward": 0.0,
+            "patch_sha256": "979b13ca1c7d318741ed8e372798bece02efd28edcb184aaefab66e945e66691",
+            "foundry": null,
+            "protocol_violations": [],
+            "assertion_failure": true
+          },
+          "status": "disagreement",
+          "agent": "oracle",
+          "control_passed": false,
+          "category": "feature"
+        }
+      ],
+      "verification_sources": {
+        "command_paths.rb": "e382a444894c8f9676129c913093cdd2ff5ef9875481c590fb79b4a6bf80854f",
+        "container.rb": "9b14adfc1230453ea1076e462ff7494a5f46e016d6bcf5ea3dd75a0b60fe30e4",
+        "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+        "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+        "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+        "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+        "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+        "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+        "images.rb": "f5e35c10ef785d8de4d58d2302597354c557ee8ae18511f55c759acabe077aa8",
+        "isolation.rb": "a4858be7cf8b5ffc6e2ae6a374df222cee28a0b32d14fe6d8597f632e4f86535",
+        "local_overrides.rb": "230f7b47a9d0cad6d0cf2910ac388626ea3fedc576e7c851433ce4eb732ce75b",
+        "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+        "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+        "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+        "replay.rb": "f426c2cf64b26bc5409740e6693c6be5a687ab8da572caa63dff1fa44f890311",
+        "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+        "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+        "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+        "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+        "trusted_tests.rb": "46fc158fbd7f2a100f1c159f1bd73fee333fe1a43fe870a5787ac45834c4cc5e",
+        "upstream.rb": "5ef487e07962c9f11c9138e0e75641c90e24a05b8755e8fab5cd192c5b815f00",
+        "verification.rb": "d9734783833caced5669fcebdcb8af9306d680113be65bae122409d0c53f2b08"
+      }
+    },
+    {
+      "source": "/tmp/foundry-lemans-upstream-nop-batch1-verification-20260919/summary.json",
+      "sha256": "1f6d08907cb71692446f8e1eeeac120deaac98d0f67e5e7776d20648dc3de2be",
+      "selected": [
+        [
+          "ac-deep-link-return",
+          "nop"
+        ],
+        [
+          "ac-throttle-search",
+          "nop"
+        ],
+        [
+          "aj-enqueue-after-commit",
+          "nop"
+        ],
+        [
+          "ar-announce-once",
+          "nop"
+        ],
+        [
+          "ar-archive-book-access",
+          "nop"
+        ],
+        [
+          "ar-atomic-import",
+          "nop"
+        ],
+        [
+          "ar-compact-positions",
+          "nop"
+        ],
+        [
+          "ar-erase-account",
+          "nop"
+        ],
+        [
+          "ar-release-recap",
+          "nop"
+        ],
+        [
+          "ar-tenant-isolation",
+          "nop"
+        ],
+        [
+          "as-variant-processed-once",
+          "nop"
+        ],
+        [
+          "ft-activity-feed-api",
+          "nop"
+        ],
+        [
+          "ft-board-publish-unpublish-public-boundary",
+          "nop"
+        ],
+        [
+          "ft-cancelled-account-cleanup",
+          "nop"
+        ],
+        [
+          "ft-card-drop-settled-landing",
+          "nop"
+        ],
+        [
+          "ft-card-stalled-quiet-clock",
+          "nop"
+        ],
+        [
+          "ft-comment-reaction-live-echo",
+          "nop"
+        ],
+        [
+          "ft-data-export-and-import",
+          "nop"
+        ],
+        [
+          "ft-mysql-fulltext-search-foundation",
+          "nop"
+        ],
+        [
+          "ft-notification-bundle-window-overlap",
+          "nop"
+        ],
+        [
+          "ft-web-push-device-delivery",
+          "nop"
+        ],
+        [
+          "hw-scoped-broadcast",
+          "nop"
+        ],
+        [
+          "sec-audit-sweep",
+          "nop"
+        ],
+        [
+          "sup-cache-library-digest",
+          "nop"
+        ],
+        [
+          "sup-legacy-conversions",
+          "nop"
+        ],
+        [
+          "sup-log-to-terminal",
+          "nop"
+        ]
+      ],
+      "excluded": [
+        {
+          "task": "ft-webhook-delivery-trust-and-restart",
+          "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch1-20260919/ft-webhook-delivery-trust-and-restart__lfUdmIg/result.json",
+          "native_status": "failed",
+          "independent": {
+            "task": "ft-webhook-delivery-trust-and-restart",
+            "status": "infrastructure_error",
+            "reward": 0.0,
+            "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "foundry": null,
+            "protocol_violations": [],
+            "assertion_failure": false
+          },
+          "status": "infrastructure_error",
+          "agent": "nop",
+          "control_passed": false,
+          "category": "feature"
+        }
+      ],
+      "verification_sources": {
+        "command_paths.rb": "e382a444894c8f9676129c913093cdd2ff5ef9875481c590fb79b4a6bf80854f",
+        "container.rb": "9b14adfc1230453ea1076e462ff7494a5f46e016d6bcf5ea3dd75a0b60fe30e4",
+        "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+        "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+        "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+        "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+        "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+        "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+        "images.rb": "f5e35c10ef785d8de4d58d2302597354c557ee8ae18511f55c759acabe077aa8",
+        "isolation.rb": "deaeb7ad7eec09d561242457645c9c02e42950a2531ed73dd2a316a7c55e82a4",
+        "local_overrides.rb": "230f7b47a9d0cad6d0cf2910ac388626ea3fedc576e7c851433ce4eb732ce75b",
+        "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+        "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+        "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+        "replay.rb": "683aefb773dc779bcc52092767aa722818a5720cbbe1fb09d992cd9299aa699c",
+        "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+        "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+        "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+        "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+        "trusted_tests.rb": "46fc158fbd7f2a100f1c159f1bd73fee333fe1a43fe870a5787ac45834c4cc5e",
+        "upstream.rb": "5ef487e07962c9f11c9138e0e75641c90e24a05b8755e8fab5cd192c5b815f00",
+        "verification.rb": "d9734783833caced5669fcebdcb8af9306d680113be65bae122409d0c53f2b08"
+      }
+    },
+    {
+      "source": "/tmp/foundry-lemans-upstream-nop-batch2-verification-20260919/summary.json",
+      "sha256": "f3eb6bcf40ca33f6439ab6f5549965d5341a275e8aeb581c15eebb172ed41df1",
+      "selected": [
+        [
+          "ar-bulk-access-grants",
+          "nop"
+        ],
+        [
+          "as-purge-embedded-images",
+          "nop"
+        ],
+        [
+          "av-toc-cache-per-role",
+          "nop"
+        ],
+        [
+          "ft-active-storage-tracking",
+          "nop"
+        ],
+        [
+          "ft-card-reactions",
+          "nop"
+        ],
+        [
+          "ft-email-code-sign-in",
+          "nop"
+        ],
+        [
+          "ft-entropy-sweep",
+          "nop"
+        ]
+      ],
+      "excluded": [
+        {
+          "task": "tst-error-page-flake",
+          "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch2-20260919/tst-error-page-flake__0Da3mp4/result.json",
+          "native_status": "failed",
+          "independent": {
+            "task": "tst-error-page-flake",
+            "status": "infrastructure_error",
+            "reward": 0.0,
+            "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "foundry": null,
+            "protocol_violations": [],
+            "assertion_failure": false
+          },
+          "status": "infrastructure_error",
+          "agent": "nop",
+          "control_passed": false,
+          "category": "atomic"
+        }
+      ],
+      "verification_sources": {
+        "command_paths.rb": "e382a444894c8f9676129c913093cdd2ff5ef9875481c590fb79b4a6bf80854f",
+        "container.rb": "9b14adfc1230453ea1076e462ff7494a5f46e016d6bcf5ea3dd75a0b60fe30e4",
+        "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+        "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+        "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+        "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+        "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+        "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+        "images.rb": "f5e35c10ef785d8de4d58d2302597354c557ee8ae18511f55c759acabe077aa8",
+        "isolation.rb": "a4858be7cf8b5ffc6e2ae6a374df222cee28a0b32d14fe6d8597f632e4f86535",
+        "local_overrides.rb": "230f7b47a9d0cad6d0cf2910ac388626ea3fedc576e7c851433ce4eb732ce75b",
+        "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+        "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+        "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+        "replay.rb": "f426c2cf64b26bc5409740e6693c6be5a687ab8da572caa63dff1fa44f890311",
+        "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+        "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+        "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+        "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+        "trusted_tests.rb": "46fc158fbd7f2a100f1c159f1bd73fee333fe1a43fe870a5787ac45834c4cc5e",
+        "upstream.rb": "5ef487e07962c9f11c9138e0e75641c90e24a05b8755e8fab5cd192c5b815f00",
+        "verification.rb": "d9734783833caced5669fcebdcb8af9306d680113be65bae122409d0c53f2b08"
+      }
+    },
+    {
+      "source": "/tmp/foundry-lemans-upstream-nop-batch3-verification-20260919/summary.json",
+      "sha256": "1b511453cd12c742dd7fc13697f81ee8f325455040e918bf68bac2d36c2b9ff4",
+      "selected": [
+        [
+          "aj-resumable-cleanup",
+          "nop"
+        ],
+        [
+          "ft-local-time-human-clock",
+          "nop"
+        ],
+        [
+          "hello-world",
+          "nop"
+        ]
+      ],
+      "excluded": [
+        {
+          "task": "ft-account-id-rollout",
+          "native_result": "/private/tmp/foundry-lemans-upstream-nop-batch3-20260919/ft-account-id-rollout__McQrsrs/result.json",
+          "native_status": "failed",
+          "independent": {
+            "task": "ft-account-id-rollout",
+            "status": "infrastructure_error",
+            "reward": 0.0,
+            "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "foundry": null,
+            "protocol_violations": [],
+            "assertion_failure": false
+          },
+          "status": "infrastructure_error",
+          "agent": "nop",
+          "control_passed": false,
+          "category": "feature"
+        }
+      ],
+      "verification_sources": {
+        "command_paths.rb": "e382a444894c8f9676129c913093cdd2ff5ef9875481c590fb79b4a6bf80854f",
+        "container.rb": "151db3246d6312db0c4ed7ffb889a5426561fcf790a2d8926d1ce8d7515bbb4c",
+        "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+        "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+        "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+        "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+        "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+        "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+        "images.rb": "f5e35c10ef785d8de4d58d2302597354c557ee8ae18511f55c759acabe077aa8",
+        "isolation.rb": "949a44b7b69d0d6d0bad8e2db0da69edb7f1a00931ef3b7f1924df6465c4f72e",
+        "local_overrides.rb": "230f7b47a9d0cad6d0cf2910ac388626ea3fedc576e7c851433ce4eb732ce75b",
+        "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+        "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+        "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+        "replay.rb": "f426c2cf64b26bc5409740e6693c6be5a687ab8da572caa63dff1fa44f890311",
+        "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+        "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+        "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+        "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+        "trusted_tests.rb": "46fc158fbd7f2a100f1c159f1bd73fee333fe1a43fe870a5787ac45834c4cc5e",
+        "upstream.rb": "5ef487e07962c9f11c9138e0e75641c90e24a05b8755e8fab5cd192c5b815f00",
+        "verification.rb": "d9734783833caced5669fcebdcb8af9306d680113be65bae122409d0c53f2b08"
+      }
+    },
+    {
+      "source": "/tmp/foundry-lemans-kamal-fresh-home-fixed-20260919/summary.json",
+      "sha256": "3fcd47d85165126ac0af5e2c019ad0af9d8abf27a15c2c56a98e73e196db2b2a",
+      "selected": [
+        [
+          "ft-kamal-deploy",
+          "nop"
+        ],
+        [
+          "ft-kamal-deploy",
+          "oracle"
+        ]
+      ],
+      "excluded": [],
+      "verification_sources": {
+        "command_paths.rb": "e382a444894c8f9676129c913093cdd2ff5ef9875481c590fb79b4a6bf80854f",
+        "container.rb": "151db3246d6312db0c4ed7ffb889a5426561fcf790a2d8926d1ce8d7515bbb4c",
+        "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+        "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+        "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+        "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+        "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+        "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+        "images.rb": "f5e35c10ef785d8de4d58d2302597354c557ee8ae18511f55c759acabe077aa8",
+        "isolation.rb": "949a44b7b69d0d6d0bad8e2db0da69edb7f1a00931ef3b7f1924df6465c4f72e",
+        "local_overrides.rb": "230f7b47a9d0cad6d0cf2910ac388626ea3fedc576e7c851433ce4eb732ce75b",
+        "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+        "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+        "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+        "replay.rb": "f426c2cf64b26bc5409740e6693c6be5a687ab8da572caa63dff1fa44f890311",
+        "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+        "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+        "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+        "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+        "trusted_tests.rb": "46fc158fbd7f2a100f1c159f1bd73fee333fe1a43fe870a5787ac45834c4cc5e",
+        "upstream.rb": "5ef487e07962c9f11c9138e0e75641c90e24a05b8755e8fab5cd192c5b815f00",
+        "verification.rb": "d9734783833caced5669fcebdcb8af9306d680113be65bae122409d0c53f2b08"
+      }
+    },
+    {
+      "source": "/tmp/foundry-lemans-i18n-oracle-verification-20260918/summary.json",
+      "sha256": "976a28ef9139d088d994e5d621558ff40108c2d3bcf03cb24d99453101a5cf0e",
+      "selected": [
+        [
+          "ft-i18n-support",
+          "oracle"
+        ]
+      ],
+      "excluded": [],
+      "verification_sources": {
+        "container.rb": "ab30af3a42911464d4114b0ba2f16f98ec5c2853f0cb7d30101b28376fb80aee",
+        "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+        "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+        "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+        "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+        "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+        "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+        "images.rb": "7c25114201f35885b839dc416cd097be984cd1ffc08bfca6cded9cb849cfc11c",
+        "isolation.rb": "deaeb7ad7eec09d561242457645c9c02e42950a2531ed73dd2a316a7c55e82a4",
+        "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+        "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+        "replay.rb": "03b92712d9f4e2b9a711cd8f7db6cba1c90eba229a6621919ba1a3076ce3258c",
+        "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+        "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+        "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+        "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+        "trusted_tests.rb": "46fc158fbd7f2a100f1c159f1bd73fee333fe1a43fe870a5787ac45834c4cc5e",
+        "upstream.rb": "eb14ad97e781fb723368145fcf2fc6bdea6f344229f5c1c68b9f4917352f286b",
+        "verification.rb": "009632342ec08abad4cf6477fddf175390954462e0d414172d2813b39f0df5dd"
+      }
+    },
+    {
+      "source": "/tmp/foundry-lemans-i18n-nop-verification-20260918/summary.json",
+      "sha256": "466680a275239d104e7a17e51fa2479dbf1f941811e975ebf011bf29dc4f9235",
+      "selected": [
+        [
+          "ft-i18n-support",
+          "nop"
+        ]
+      ],
+      "excluded": [],
+      "verification_sources": {
+        "container.rb": "ab30af3a42911464d4114b0ba2f16f98ec5c2853f0cb7d30101b28376fb80aee",
+        "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+        "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+        "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+        "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+        "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+        "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+        "images.rb": "7c25114201f35885b839dc416cd097be984cd1ffc08bfca6cded9cb849cfc11c",
+        "isolation.rb": "deaeb7ad7eec09d561242457645c9c02e42950a2531ed73dd2a316a7c55e82a4",
+        "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+        "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+        "replay.rb": "fc60b1335a0617af6d0654f518ead50842d571dbf0d1188df8bfc80fd9595f0d",
+        "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+        "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+        "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+        "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+        "trusted_tests.rb": "46fc158fbd7f2a100f1c159f1bd73fee333fe1a43fe870a5787ac45834c4cc5e",
+        "upstream.rb": "eb14ad97e781fb723368145fcf2fc6bdea6f344229f5c1c68b9f4917352f286b",
+        "verification.rb": "009632342ec08abad4cf6477fddf175390954462e0d414172d2813b39f0df5dd"
+      }
+    },
+    {
+      "source": "/tmp/foundry-lemans-saas-fresh-20260919/summary.json",
+      "sha256": "ae38e9a0a0c5e6c40e608c579aedf9deb922f4619428c8809c7dbbc1ba203af0",
+      "selected": [
+        [
+          "ft-saas-billing",
+          "oracle"
+        ]
+      ],
+      "excluded": [
+        {
+          "task": "ft-saas-billing",
+          "native_result": "/private/tmp/foundry-lemans-saas-native-selected-20260919/ft-saas-billing__GOya8Fe/result.json",
+          "native_status": "failed",
+          "independent": {
+            "task": "ft-saas-billing",
+            "status": "infrastructure_error",
+            "reward": 0.0,
+            "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "foundry": null,
+            "protocol_violations": [],
+            "assertion_failure": false
+          },
+          "status": "infrastructure_error",
+          "agent": "nop",
+          "control_passed": false,
+          "category": "feature"
+        }
+      ],
+      "verification_sources": {
+        "command_paths.rb": "e382a444894c8f9676129c913093cdd2ff5ef9875481c590fb79b4a6bf80854f",
+        "container.rb": "9b14adfc1230453ea1076e462ff7494a5f46e016d6bcf5ea3dd75a0b60fe30e4",
+        "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+        "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+        "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+        "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+        "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+        "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+        "images.rb": "f5e35c10ef785d8de4d58d2302597354c557ee8ae18511f55c759acabe077aa8",
+        "isolation.rb": "deaeb7ad7eec09d561242457645c9c02e42950a2531ed73dd2a316a7c55e82a4",
+        "local_overrides.rb": "230f7b47a9d0cad6d0cf2910ac388626ea3fedc576e7c851433ce4eb732ce75b",
+        "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+        "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+        "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+        "replay.rb": "f426c2cf64b26bc5409740e6693c6be5a687ab8da572caa63dff1fa44f890311",
+        "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+        "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+        "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+        "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+        "trusted_tests.rb": "46fc158fbd7f2a100f1c159f1bd73fee333fe1a43fe870a5787ac45834c4cc5e",
+        "upstream.rb": "5ef487e07962c9f11c9138e0e75641c90e24a05b8755e8fab5cd192c5b815f00",
+        "verification.rb": "d9734783833caced5669fcebdcb8af9306d680113be65bae122409d0c53f2b08"
+      }
+    },
+    {
+      "source": "/tmp/foundry-lemans-saas-nop-fresh-after-wake-20260919/summary.json",
+      "sha256": "6ee78f14a7bb03c95273335e783000400111d309b9b99319a1c5280d4177c826",
+      "selected": [
+        [
+          "ft-saas-billing",
+          "nop"
+        ]
+      ],
+      "excluded": [],
+      "verification_sources": {
+        "command_paths.rb": "e382a444894c8f9676129c913093cdd2ff5ef9875481c590fb79b4a6bf80854f",
+        "container.rb": "9b14adfc1230453ea1076e462ff7494a5f46e016d6bcf5ea3dd75a0b60fe30e4",
+        "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+        "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+        "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+        "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+        "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+        "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+        "images.rb": "f5e35c10ef785d8de4d58d2302597354c557ee8ae18511f55c759acabe077aa8",
+        "isolation.rb": "deaeb7ad7eec09d561242457645c9c02e42950a2531ed73dd2a316a7c55e82a4",
+        "local_overrides.rb": "230f7b47a9d0cad6d0cf2910ac388626ea3fedc576e7c851433ce4eb732ce75b",
+        "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+        "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+        "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+        "replay.rb": "f426c2cf64b26bc5409740e6693c6be5a687ab8da572caa63dff1fa44f890311",
+        "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+        "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+        "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+        "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+        "trusted_tests.rb": "46fc158fbd7f2a100f1c159f1bd73fee333fe1a43fe870a5787ac45834c4cc5e",
+        "upstream.rb": "5ef487e07962c9f11c9138e0e75641c90e24a05b8755e8fab5cd192c5b815f00",
+        "verification.rb": "d9734783833caced5669fcebdcb8af9306d680113be65bae122409d0c53f2b08"
+      }
+    },
+    {
+      "source": "/tmp/foundry-lemans-baseline-fresh-v2-20260919/summary.json",
+      "sha256": "207358d442883408eebb68b5956d04430c82e822eae4c0ac805860a2a9b88e10",
+      "selected": [
+        [
+          "ft-account-id-rollout",
+          "nop"
+        ],
+        [
+          "tst-error-page-flake",
+          "nop"
+        ],
+        [
+          "ft-account-id-rollout",
+          "oracle"
+        ],
+        [
+          "tst-error-page-flake",
+          "oracle"
+        ]
+      ],
+      "excluded": [],
+      "verification_sources": {
+        "command_paths.rb": "e382a444894c8f9676129c913093cdd2ff5ef9875481c590fb79b4a6bf80854f",
+        "container.rb": "151db3246d6312db0c4ed7ffb889a5426561fcf790a2d8926d1ce8d7515bbb4c",
+        "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+        "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+        "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+        "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+        "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+        "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+        "images.rb": "f5e35c10ef785d8de4d58d2302597354c557ee8ae18511f55c759acabe077aa8",
+        "isolation.rb": "949a44b7b69d0d6d0bad8e2db0da69edb7f1a00931ef3b7f1924df6465c4f72e",
+        "local_overrides.rb": "230f7b47a9d0cad6d0cf2910ac388626ea3fedc576e7c851433ce4eb732ce75b",
+        "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+        "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+        "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+        "replay.rb": "f426c2cf64b26bc5409740e6693c6be5a687ab8da572caa63dff1fa44f890311",
+        "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+        "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+        "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+        "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+        "trusted_tests.rb": "b595ac4ee85be5a3cc741198c08a25161cc2fad42387b077b46f5e2470faf781",
+        "upstream.rb": "5ef487e07962c9f11c9138e0e75641c90e24a05b8755e8fab5cd192c5b815f00",
+        "verification.rb": "afaa7f4061deb7d74b5d283352151438ac04dea1d819ccb43dc68b3ac18c6b98",
+        "verification_phases.rb": "cb4d6b1d51a5cc401462e1a74542ce1231799f6b01a06a5a4d43fdc509f80f3e"
+      }
+    },
+    {
+      "source": "/tmp/foundry-lemans-webhook-fresh-v2-20260919/summary.json",
+      "sha256": "1f0ce0a6c7b613b3eaa6e6a457cb3d2f5aa1a6b5b5a571100b129ac22047c512",
+      "selected": [
+        [
+          "ft-webhook-delivery-trust-and-restart",
+          "nop"
+        ],
+        [
+          "ft-webhook-delivery-trust-and-restart",
+          "oracle"
+        ]
+      ],
+      "excluded": [],
+      "verification_sources": {
+        "command_paths.rb": "e382a444894c8f9676129c913093cdd2ff5ef9875481c590fb79b4a6bf80854f",
+        "container.rb": "151db3246d6312db0c4ed7ffb889a5426561fcf790a2d8926d1ce8d7515bbb4c",
+        "controls.rb": "2cac17a370745727417d19234ad7950180938e4e3f267c2d404732fbe258c4cd",
+        "corpus.rb": "de5cf182bdcc2d08ded78a06fb3b93b2e01d7c7812625984852f3db9e949abe1",
+        "delivery_variants.rb": "e7cdcb374a49cc0dafc42e9e18a9476b5648a2e47c9fbf7749ea7319b266892e",
+        "dependencies.rb": "0182aa83b325c907aa50da77e36d6821ad750c1413cb31c277ddaec7ff48aa8f",
+        "evidence.rb": "e2478e71ebfe762e3cf06b30a2f8d12e62dec6f78b7aa581c4a118d6b0baf01d",
+        "foundry.rb": "f253a185b5e9e5ddd329c9c931a8e05a25cb42d8e0265b7524245aaf50087d9a",
+        "images.rb": "f5e35c10ef785d8de4d58d2302597354c557ee8ae18511f55c759acabe077aa8",
+        "isolation.rb": "949a44b7b69d0d6d0bad8e2db0da69edb7f1a00931ef3b7f1924df6465c4f72e",
+        "local_overrides.rb": "230f7b47a9d0cad6d0cf2910ac388626ea3fedc576e7c851433ce4eb732ce75b",
+        "patches.rb": "7715afa276c76485eb1919427814ffc32cacf833150c3e81fc02ed54302a6e47",
+        "prerequisites.rb": "e59fbf47a22cfc5fbfe535b177833480cdab9437715c77ac5f029cd8e0bae179",
+        "protocol.rb": "edf0dce052d6f1c9570a34882a986c793dd0c2075e5434a112fbf0334e27624b",
+        "replay.rb": "f426c2cf64b26bc5409740e6693c6be5a687ab8da572caa63dff1fa44f890311",
+        "report.rb": "8c356517061510e00bae8d89f3e1d8d98fca9275063c3b73d3dc3ce2f9e6a5a5",
+        "setup.rb": "b554a869ecc2c6fa0a4dfa625f1f775868685ed3b7566fcab02c876a56d67d31",
+        "shards.rb": "d9e0ac2f2cb7c515f387cfe248097e860b4908c944760b056ac13668686156f6",
+        "support.rb": "491926354e17bc42b0218999fde89d432ebf4d04890af3ae7bfe4af609d1c9c5",
+        "trusted_tests.rb": "b595ac4ee85be5a3cc741198c08a25161cc2fad42387b077b46f5e2470faf781",
+        "upstream.rb": "5ef487e07962c9f11c9138e0e75641c90e24a05b8755e8fab5cd192c5b815f00",
+        "verification.rb": "afaa7f4061deb7d74b5d283352151438ac04dea1d819ccb43dc68b3ac18c6b98",
+        "verification_phases.rb": "cb4d6b1d51a5cc401462e1a74542ce1231799f6b01a06a5a4d43fdc509f80f3e"
+      }
+    }
+  ],
+  "selection_policy": "Explicit corrections retain original records and source hashes; no original or derived evidence was overwritten."
+}

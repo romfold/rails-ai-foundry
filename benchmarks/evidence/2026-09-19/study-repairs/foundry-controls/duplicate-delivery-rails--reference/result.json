@@ -1,0 +1,16 @@
+{
+  "task": "duplicate-delivery-rails--reference",
+  "status": "passed",
+  "reward": 1.0,
+  "patch_sha256": "caa71291d8d828937a34746fe44f9959266085bf07671eea4bcb11666a75f069",
+  "foundry": {
+    "visible": "passed",
+    "behavioral": "passed",
+    "architecture": {
+      "status": "not_applicable"
+    }
+  },
+  "verification_phase": "task",
+  "baseline_exit_code": null,
+  "protocol_violations": []
+}

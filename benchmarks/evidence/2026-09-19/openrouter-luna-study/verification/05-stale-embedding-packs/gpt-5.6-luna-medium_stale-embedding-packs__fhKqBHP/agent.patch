@@ -1,0 +1,118 @@
+diff --git a/packs/knowledge/app/services/knowledge/embedding_job.rb b/packs/knowledge/app/services/knowledge/embedding_job.rb
+index 5f19625..c525cef 100644
+--- a/packs/knowledge/app/services/knowledge/embedding_job.rb
++++ b/packs/knowledge/app/services/knowledge/embedding_job.rb
+@@ -6,15 +6,40 @@ module Knowledge
+       snapshot = Document.find_by(id: document_id, tenant_id: tenant_id, published: true)
+       return :discarded unless snapshot
+ 
++      # Provider calls can be slow (and can call back into the application), so they
++      # must not hold a database transaction open.
+       vector = provider.call(snapshot.body)
+-      Document.transaction do
+-        current = Document.lock.find_by(id: document_id, tenant_id: tenant_id, published: true)
+-        current ||= snapshot
+ 
+-        Embedding.upsert({ document_id: current.id, tenant_id: tenant_id, revision: current.revision,
+-                           version: version, vector: JSON.generate(vector) }, unique_by: %i[document_id version])
++      result = Document.transaction do
++        current = Document.lock.find_by(id: document_id)
++        unless current && current.tenant_id == tenant_id && current.published? &&
++               current.revision == snapshot.revision
++          next :discarded
++        end
++
++        embedding = Embedding.lock.find_by(document_id: document_id, version: version)
++        if embedding && (embedding.tenant_id != tenant_id || embedding.revision > snapshot.revision)
++          next :discarded
++        end
++
++        attributes = {
++          document_id: document_id,
++          tenant_id: tenant_id,
++          revision: snapshot.revision,
++          version: version,
++          vector: JSON.generate(vector)
++        }
++
++        if embedding
++          embedding.update!(attributes)
++        else
++          Embedding.create!(attributes)
++        end
++
++        :stored
+       end
+-      :stored
++
++      result
+     end
+   end
+ end
+diff --git a/test/embedding_job_test.rb b/test/embedding_job_test.rb
+new file mode 100644
+index 0000000..11e73f3
+--- /dev/null
++++ b/test/embedding_job_test.rb
+@@ -0,0 +1,61 @@
++# frozen_string_literal: true
++
++require_relative 'test_helper'
++
++class EmbeddingJobTest < BenchmarkTest
++  def test_revision_change_during_provider_is_discarded
++    doc = document
++    result = job.call(document_id: doc.id, tenant_id: 'a', version: 'v1', provider: lambda { |_body|
++      doc.update!(revision: 2)
++      [1]
++    })
++    assert_equal :discarded, result
++    assert_empty Knowledge::Embedding.all
++  end
++
++  def test_withdrawal_and_tenant_change_during_provider_are_discarded
++    doc = document
++    result = job.call(document_id: doc.id, tenant_id: 'a', version: 'v1', provider: lambda { |_body|
++      doc.update!(published: false)
++      [1]
++    })
++    assert_equal :discarded, result
++    assert_empty Knowledge::Embedding.all
++
++    doc.update!(published: true)
++    result = job.call(document_id: doc.id, tenant_id: 'a', version: 'v2', provider: lambda { |_body|
++      doc.update!(tenant_id: 'b')
++      [2]
++    })
++    assert_equal :discarded, result
++    assert_empty Knowledge::Embedding.all
++  end
++
++  def test_provider_error_does_not_write
++    doc = document
++    error = assert_raises(RuntimeError) do
++      job.call(document_id: doc.id, tenant_id: 'a', version: 'v1', provider: ->(_body) { raise 'failed' })
++    end
++    assert_equal 'failed', error.message
++    assert_empty Knowledge::Embedding.all
++  end
++
++  def test_versions_coexist_and_newer_revision_is_not_overwritten
++    doc = document
++    assert_equal :stored, job.call(document_id: doc.id, tenant_id: 'a', version: 'v1', provider: ->(_body) { [1] })
++    doc.update!(revision: 2)
++    assert_equal :stored, job.call(document_id: doc.id, tenant_id: 'a', version: 'v2', provider: ->(_body) { [2] })
++    assert_equal %w[v1 v2], Knowledge::Embedding.order(:version).pluck(:version)
++
++    doc.update!(revision: 1)
++    result = job.call(document_id: doc.id, tenant_id: 'a', version: 'v2', provider: ->(_body) { [99] })
++    assert_equal :discarded, result
++    assert_equal '[2]', Knowledge::Embedding.find_by!(version: 'v2').vector
++  end
++
++  private
++
++  def job
++    Knowledge::EmbeddingJob.new
++  end
++end

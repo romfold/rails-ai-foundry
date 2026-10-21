@@ -1,0 +1,51 @@
+Please switch from -n/--name to -i/--include
+Running 7 tests in a single process (parallelization threshold is 50)
+Run options: --name /diagnostic/ --seed 60721
+
+# Running:
+
+Capybara starting Puma...
+* Version 7.2.1, codename: On The Corner
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:40797
+2026-09-21 20:52:11 INFO Selenium [:logger_info] Details on how to use and modify Selenium logger:
+  https://selenium.dev/documentation/webdriver/troubleshooting/logging
+
+2026-09-21 20:52:11 WARN Selenium [:selenium_manager] Exception managing chrome: error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json) 
+2026-09-21 20:52:11 WARN Selenium [:selenium_manager] Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event) 
+[Screenshot Image]: /app/tmp/screenshots/failures_test_diagnostic_original_callback_and_deletion_form.png 
+E
+
+Error:
+VerifierTest#test_diagnostic_original_callback_and_deletion_form:
+Selenium::WebDriver::Error::StaleElementReferenceError: stale element reference: stale element not found in the current frame
+  (Session info: chrome=153.0.8010.47); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/response.rb:63:in 'Selenium::WebDriver::Remote::Response#add_cause'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/response.rb:41:in 'Selenium::WebDriver::Remote::Response#error'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/response.rb:52:in 'Selenium::WebDriver::Remote::Response#assert_ok'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/response.rb:34:in 'Selenium::WebDriver::Remote::Response#initialize'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/http/common.rb:135:in 'Class#new'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/http/common.rb:135:in 'Selenium::WebDriver::Remote::Http::Common#create_response'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/http/default.rb:103:in 'Selenium::WebDriver::Remote::Http::Default#request'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/http/common.rb:70:in 'Selenium::WebDriver::Remote::Http::Common#call'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/bridge.rb:633:in 'Selenium::WebDriver::Remote::Bridge#execute'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/remote/bridge.rb:515:in 'Selenium::WebDriver::Remote::Bridge#find_elements_by'
+    /usr/local/bundle/gems/selenium-webdriver-4.44.0/lib/selenium/webdriver/common/search_context.rb:86:in 'Selenium::WebDriver::SearchContext#find_elements'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/selenium/extensions/find.rb:17:in 'Capybara::Selenium::Find#find_by'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/selenium/extensions/find.rb:11:in 'Capybara::Selenium::Find#find_css'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/base.rb:110:in 'Capybara::Node::Base#find_css'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/queries/selector_query.rb:254:in 'Capybara::Queries::SelectorQuery#find_nodes_by_selector_format'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/queries/selector_query.rb:167:in 'block in Capybara::Queries::SelectorQuery#resolve_for'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/base.rb:77:in 'Capybara::Node::Base#synchronize'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/queries/selector_query.rb:166:in 'Capybara::Queries::SelectorQuery#resolve_for'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:265:in 'block in Capybara::Node::Finders#all'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/base.rb:84:in 'Capybara::Node::Base#synchronize'
+    /usr/local/bundle/gems/capybara-3.40.0/lib/capybara/node/finders.rb:264:in 'Capybara::Node::Finders#all'
+    /tmp/diagnostics.rb:37:in 'block in <class:VerifierTest>'
+
+bin/rails test /tmp/diagnostics.rb:7
+
+
+
+Finished in 15.907686s, 0.0629 runs/s, 0.2515 assertions/s.
+1 runs, 4 assertions, 0 failures, 1 errors, 0 skips

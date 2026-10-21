@@ -1,0 +1,149 @@
+diff --git a/app/controllers/cards/reactions_controller.rb b/app/controllers/cards/reactions_controller.rb
+index f09f672..0a92cde 100644
+--- a/app/controllers/cards/reactions_controller.rb
++++ b/app/controllers/cards/reactions_controller.rb
+@@ -5,7 +5,7 @@ class Cards::ReactionsController < ApplicationController
+   before_action :set_reaction, only: :destroy
+ 
+   def create
+-    @comment.reactions.create!(reaction_params)
++    @reaction = @comment.reactions.create!(reaction_params)
+     redirect_to card_path(@card), status: :see_other unless request.format.turbo_stream?
+   end
+ 
+diff --git a/app/javascript/controllers/reaction_entry_controller.js b/app/javascript/controllers/reaction_entry_controller.js
+new file mode 100644
+index 0000000..bdc6bb2
+--- /dev/null
++++ b/app/javascript/controllers/reaction_entry_controller.js
+@@ -0,0 +1,22 @@
++import { Controller } from "@hotwired/stimulus"
++
++export default class extends Controller {
++  static values = { creatorId: String }
++  static targets = [ "controls" ]
++
++  connect() {
++    if (this.owned) {
++      this.element.classList.add("reaction--deleteable")
++      this.element.append(this.controlsTarget.content.cloneNode(true))
++    }
++    this.controlsTarget.remove()
++  }
++
++  toggle() {
++    if (this.owned) this.element.classList.toggle("expanded")
++  }
++
++  get owned() {
++    return Current.user?.id === this.creatorIdValue
++  }
++}
+diff --git a/app/javascript/controllers/reaction_form_controller.js b/app/javascript/controllers/reaction_form_controller.js
+index 257fbc1..0a32b2b 100644
+--- a/app/javascript/controllers/reaction_form_controller.js
++++ b/app/javascript/controllers/reaction_form_controller.js
+@@ -1,6 +1,10 @@
+ import { Controller } from "@hotwired/stimulus"
+ 
+ export default class extends Controller {
++  submitted(event) {
++    if (event.detail.success) this.cancel()
++  }
++
+   cancel() {
+     this.element.closest("details").removeAttribute("open")
+     this.element.reset()
+diff --git a/app/models/reaction.rb b/app/models/reaction.rb
+index bb00cc1..7646325 100644
+--- a/app/models/reaction.rb
++++ b/app/models/reaction.rb
+@@ -6,12 +6,18 @@ class Reaction < ApplicationRecord
+   validates :content, presence: true, length: { maximum: 16 }
+   validates :creator_id, uniqueness: { scope: :comment_id }
+ 
+-  after_create_commit :broadcast_strip
+-  after_destroy_commit :broadcast_strip
++  after_create_commit :broadcast_creation
++  after_destroy_commit :broadcast_deletion
+ 
+   private
+-    def broadcast_strip
+-      broadcast_replace_to comment.card, target: ActionView::RecordIdentifier.dom_id(comment, :reactions),
+-        partial: "cards/comments/reactions", locals: { comment: comment.reload }
++    def broadcast_creation
++      Current.with_account(account) do
++        broadcast_append_to comment.card, target: ActionView::RecordIdentifier.dom_id(comment, :reaction_list),
++          partial: "cards/comments/reaction", locals: { reaction: self }
++      end
++    end
++
++    def broadcast_deletion
++      broadcast_remove_to comment.card
+     end
+ end
+diff --git a/app/views/cards/comments/_reaction.html.erb b/app/views/cards/comments/_reaction.html.erb
+new file mode 100644
+index 0000000..5d09b7b
+--- /dev/null
++++ b/app/views/cards/comments/_reaction.html.erb
+@@ -0,0 +1,12 @@
++<div id="<%= dom_id(reaction) %>" class="reaction" title="<%= reaction.creator.name %>"
++     data-controller="reaction-entry" data-reaction-entry-creator-id-value="<%= reaction.creator_id %>"
++     data-action="click->reaction-entry#toggle">
++  <span class="txt-small txt-medium"><%= reaction.content %></span>
++  <%= avatar_tag reaction.creator, hidden_for_screen_reader: true, class: "reaction__avatar" %>
++  <template data-reaction-entry-target="controls">
++    <%= button_to card_comment_reaction_path(reaction.comment.card, reaction.comment, reaction), method: :delete,
++          class: "reaction__delete btn btn--circle borderless", title: "Remove your reaction" do %>
++      <%= icon_tag "close" %><span class="for-screen-reader">Remove reaction</span>
++    <% end %>
++  </template>
++</div>
+diff --git a/app/views/cards/comments/_reactions.html.erb b/app/views/cards/comments/_reactions.html.erb
+index 159dc55..f1285fb 100644
+--- a/app/views/cards/comments/_reactions.html.erb
++++ b/app/views/cards/comments/_reactions.html.erb
+@@ -1,24 +1,12 @@
+ <div id="<%= dom_id(comment, :reactions) %>" class="reactions" aria-label="Reactions">
+-  <div class="reactions__list">
+-    <% comment.reactions.includes(:creator).order(:created_at).each do |reaction| %>
+-      <div class="reaction <%= "reaction--deleteable" if reaction.creator == Current.user %>" title="<%= reaction.creator.name %>" data-controller="toggle-class" data-toggle-class-toggle-class="expanded" data-action="click->toggle-class#toggle">
+-        <span class="txt-small txt-medium"><%= reaction.content %></span>
+-        <% if reaction.creator == Current.user %>
+-          <%= button_to card_comment_reaction_path(comment.card, comment, reaction), method: :delete,
+-                class: "reaction__delete btn btn--circle borderless", title: "Remove your reaction" do %>
+-            <%= icon_tag "close" %><span class="for-screen-reader">Remove reaction</span>
+-          <% end %>
+-        <% else %>
+-          <%= avatar_tag reaction.creator, hidden_for_screen_reader: true, class: "reaction__avatar" %>
+-        <% end %>
+-      </div>
+-    <% end %>
++  <div id="<%= dom_id(comment, :reaction_list) %>" class="reactions__list">
++    <%= render partial: "cards/comments/reaction", collection: comment.reactions.includes(:creator).order(:created_at) %>
+   </div>
+ 
+-  <details class="reaction__menu">
++  <details id="<%= dom_id(comment, :reaction_composer) %>" class="reaction__menu" data-turbo-permanent>
+     <summary class="reactions__trigger btn btn--circle" title="Add a reaction"><%= image_tag "boost-color.svg", alt: "Add a reaction" %></summary>
+     <div class="reaction__popup panel">
+-      <%= form_with model: Reaction.new, url: card_comment_reactions_path(comment.card, comment), class: "reaction__form expanded flex-inline align-center", data: { controller: "reaction-form" } do |form| %>
++      <%= form_with model: Reaction.new, url: card_comment_reactions_path(comment.card, comment), class: "reaction__form expanded flex-inline align-center", data: { controller: "reaction-form", action: "turbo:submit-end->reaction-form#submitted" } do |form| %>
+         <%= form.text_field :content, class: "reaction__input input", maxlength: 16, required: true, autofocus: true, placeholder: "React…", aria: { label: "Your reaction" } %>
+         <%= form.button "✓", class: "reaction__submit-btn btn btn--circle borderless", title: "Confirm reaction" %>
+         <button type="button" class="reaction__cancel-btn btn btn--circle borderless" title="Cancel" data-action="reaction-form#cancel">×</button>
+diff --git a/app/views/cards/reactions/create.turbo_stream.erb b/app/views/cards/reactions/create.turbo_stream.erb
+index 9312415..73a2c85 100644
+--- a/app/views/cards/reactions/create.turbo_stream.erb
++++ b/app/views/cards/reactions/create.turbo_stream.erb
+@@ -1 +1 @@
+-<%= turbo_stream.replace dom_id(@comment, :reactions), partial: "cards/comments/reactions", locals: { comment: @comment.reload } %>
++<%= turbo_stream.append dom_id(@comment, :reaction_list), partial: "cards/comments/reaction", locals: { reaction: @reaction } %>
+diff --git a/app/views/cards/reactions/destroy.turbo_stream.erb b/app/views/cards/reactions/destroy.turbo_stream.erb
+index 9312415..936436e 100644
+--- a/app/views/cards/reactions/destroy.turbo_stream.erb
++++ b/app/views/cards/reactions/destroy.turbo_stream.erb
+@@ -1 +1 @@
+-<%= turbo_stream.replace dom_id(@comment, :reactions), partial: "cards/comments/reactions", locals: { comment: @comment.reload } %>
++<%= turbo_stream.remove @reaction %>

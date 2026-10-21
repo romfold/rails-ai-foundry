@@ -1,0 +1,38 @@
+{
+  "checks": {
+    "ReactionRepairAuthorizationTest#test_a_comment_cannot_be_addressed_through_another_card": "pass",
+    "ReactionRepairAuthorizationTest#test_a_forged_ID_never_deletes_the_callers_own_reaction": "pass",
+    "ReactionRepairAuthorizationTest#test_a_missing_reaction_ID_never_falls_back_to_an_owned_record": "pass",
+    "ReactionRepairAuthorizationTest#test_a_reaction_from_another_comment_is_not_found_and_neither_record_changes": "pass",
+    "ReactionRepairAuthorizationTest#test_an_inaccessible_card_cannot_receive_or_lose_reactions": "pass",
+    "ReactionRepairAuthorizationTest#test_invalid_content_persists_nothing_and_reports_validation_errors": "pass",
+    "ReactionRepairTransactionTest#test_committed_creation_and_deletion_publish_on_the_subscribed_card_stream": "pass",
+    "ReactionRepairTransactionTest#test_rolled_back_creation_and_deletion_do_not_broadcast": "pass",
+    "VerifierTest#test_a_reaction_reaches_everyone_watching_the_card": "error",
+    "VerifierTest#test_a_reaction_shows_in_the_strip_with_who_left_it": "error",
+    "VerifierTest#test_a_rejected_submission_preserves_its_draft_and_can_be_corrected": "error",
+    "VerifierTest#test_an_explicit_refresh_preserves_a_composing_viewer": "pass",
+    "VerifierTest#test_broadcast_controls_belong_to_the_viewer_rather_than_the_sender": "error",
+    "VerifierTest#test_cancel_resets_only_the_local_composer_without_persisting_a_reaction": "error",
+    "VerifierTest#test_confirming_puts_the_reaction_in_the_strip_and_brings_the_button_back,_empty": "error",
+    "VerifierTest#test_deletion_reaches_another_viewer_without_replacing_their_draft": "error",
+    "VerifierTest#test_people_can_take_back_their_own_reaction,_and_only_their_own": "error",
+    "VerifierTest#test_someone_else's_reaction_landing_does_not_wipe_what_this_viewer_is_typing": "error",
+    "VerifierTest#test_the_person_reacting_does_not_get_their_reaction_twice": "error",
+    "VerifierTest#test_the_rendered_deletion_control_submits_DELETE_to_the_requested_record": "error"
+  },
+  "failures": [
+    "VerifierTest#test_a_reaction_reaches_everyone_watching_the_card",
+    "VerifierTest#test_a_reaction_shows_in_the_strip_with_who_left_it",
+    "VerifierTest#test_a_rejected_submission_preserves_its_draft_and_can_be_corrected",
+    "VerifierTest#test_broadcast_controls_belong_to_the_viewer_rather_than_the_sender",
+    "VerifierTest#test_cancel_resets_only_the_local_composer_without_persisting_a_reaction",
+    "VerifierTest#test_confirming_puts_the_reaction_in_the_strip_and_brings_the_button_back,_empty",
+    "VerifierTest#test_deletion_reaches_another_viewer_without_replacing_their_draft",
+    "VerifierTest#test_people_can_take_back_their_own_reaction,_and_only_their_own",
+    "VerifierTest#test_someone_else's_reaction_landing_does_not_wipe_what_this_viewer_is_typing",
+    "VerifierTest#test_the_person_reacting_does_not_get_their_reaction_twice",
+    "VerifierTest#test_the_rendered_deletion_control_submits_DELETE_to_the_requested_record"
+  ],
+  "allowed_failures": {}
+}

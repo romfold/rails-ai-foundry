@@ -1,0 +1,57 @@
+{
+  "trial": "ft-comment-reaction-live-echo__QhA65Rf",
+  "task": "ft-comment-reaction-live-echo",
+  "agent": "nop",
+  "model": "openrouter/openai/gpt-5.6-luna#medium",
+  "index": 1,
+  "profile_digest": "2f534eec9d690ed2",
+  "task_digest": "9df099a35893d33b",
+  "revision": {
+    "commit": null,
+    "dirty": null
+  },
+  "lemans_version": "1.3.5",
+  "tags": [
+    "rails",
+    "hotwire",
+    "turbo-streams",
+    "active-record",
+    "callbacks"
+  ],
+  "metadata": {
+    "category": "full-features"
+  },
+  "phases": [
+    {
+      "name": "environment_setup",
+      "started_at": "2026-09-22T15:34:45.926886Z",
+      "finished_at": "2026-09-22T15:34:52.458603Z"
+    },
+    {
+      "name": "agent",
+      "started_at": "2026-09-22T15:34:52.458632Z",
+      "finished_at": "2026-09-22T15:34:52.458704Z"
+    },
+    {
+      "name": "verifier",
+      "started_at": "2026-09-22T15:34:53.060035Z",
+      "finished_at": "2026-09-22T15:37:07.020594Z"
+    }
+  ],
+  "reward": 0.0,
+  "credit": 0.0,
+  "outcome": {
+    "name": "completed",
+    "scored": true
+  },
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cached_tokens": 0,
+    "steps": 0,
+    "cost_usd": 0.0
+  },
+  "duration": 141.1,
+  "started_at": "2026-09-22T15:34:45Z",
+  "finished_at": "2026-09-22T15:37:07Z"
+}
